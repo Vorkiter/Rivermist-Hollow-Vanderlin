@@ -40,6 +40,8 @@ GLOBAL_LIST_INIT(generated_slave_phrases, list()) //retarded dev made GLOB right
 	var/submission_phrase
 	var/freedom_phrase
 	var/collar_bound = FALSE
+	var/bound_ring
+	var/stuck = FALSE
 	COOLDOWN_DECLARE(collar_phrase_usage)
 
 /obj/item/clothing/neck/gorget/slave_gorget/male
@@ -63,15 +65,13 @@ GLOBAL_LIST_INIT(generated_slave_phrases, list()) //retarded dev made GLOB right
 	freedom_phrase = generate_slave_code()
 
 
-/obj/item/clothing/neck/gorget/slave_gorget/Initialize()
-	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
-
 /obj/item/clothing/neck/gorget/slave_gorget/equipped(mob/living/carbon/human/human)
 	. = ..()
 	RegisterSignal(human, COMSIG_MOVABLE_HEAR, PROC_REF(process_phrase), override = TRUE)
+	stuck = TRUE
 
 /obj/item/clothing/neck/gorget/slave_gorget/Destroy()
+	stuck = FALSE
 	var/mob/living/carbon/human/parent = loc
 	if (ismob(parent))
 		UnregisterSignal(parent, COMSIG_MOVABLE_HEAR)
@@ -83,6 +83,7 @@ GLOBAL_LIST_INIT(generated_slave_phrases, list()) //retarded dev made GLOB right
 	if(istype(I, /obj/item/clothing/ring/slave_control))
 		if(collar_bound)
 			to_chat(user, "<span class='warning'>The collar is already bound.</span>")
+			return
 		var/obj/item/clothing/ring/slave_control/s_r = I
 		if(s_r.ring_bound)
 			to_chat(user, "<span class='warning'>The ring is already bound.</span>")
@@ -93,6 +94,7 @@ GLOBAL_LIST_INIT(generated_slave_phrases, list()) //retarded dev made GLOB right
 		s_r.pleasure_phrase = pleasure_phrase
 		s_r.submission_phrase = submission_phrase
 		s_r.freedom_phrase = freedom_phrase
+		bound_ring = I
 		return
 	return ..()
 
@@ -111,17 +113,25 @@ GLOBAL_LIST_INIT(generated_slave_phrases, list()) //retarded dev made GLOB right
 	if(!(msg == normalize_slave_phrase(src.pleasure_phrase) || msg == normalize_slave_phrase(src.submission_phrase) || msg == normalize_slave_phrase(src.freedom_phrase)))
 		return
 
+	var/mob/living/carbon/human/h_speaker = speaker
+	var/ring_found = FALSE
+	for(var/obj/item/I in h_speaker.get_equipped_items())
+		if(I == bound_ring)
+			ring_found = TRUE
+
 	if(!COOLDOWN_FINISHED(src, collar_phrase_usage))
 		return
 	COOLDOWN_START(src, collar_phrase_usage, 20 SECONDS)
 
-	if(H == speaker)
+	if(H == speaker && !ring_found) //so that a slave with the ring can escape, otherwise - mute for the audacity
 		H.visible_message("<span class='warning'><b>The collar around [H]'s neck flashes brightly, muting the wearer in punishment.</b></span>")
 
 		ADD_TRAIT(H, TRAIT_MUTE, "rune")
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_mute), H), 30 SECONDS) //shameless copypaste
 		return
 
+	if(!ring_found)
+		return
 
 	if (msg == normalize_slave_phrase(src.pleasure_phrase))
 		H.visible_message("<span class='danger'><b>[H] shivers, pleasure foced on them!</b></span>")
@@ -145,10 +155,27 @@ GLOBAL_LIST_INIT(generated_slave_phrases, list()) //retarded dev made GLOB right
 		/*if(H.wear_neck == src)
 			H.wear_neck = null*/
 		//src.doMove(get_turf(user))
-		REMOVE_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 		H.dropItemToGround(src, force = TRUE, silent = TRUE)
+		stuck = FALSE
 
 		return
+
+/obj/item/clothing/neck/gorget/slave_gorget/proc/stuck_check(mob/living/user)
+	// return true if we should be unequippable, return false if not
+	if(iscarbon(user))
+		var/mob/living/carbon/C = user
+		if(src == C.head && stuck)
+			to_chat(user, span_userdanger("I can't take it off"))
+			return TRUE
+	return FALSE
+
+/obj/item/clothing/neck/gorget/slave_gorget/attack_hand(mob/user)
+	if(!stuck_check(usr))
+		return ..()
+
+/obj/item/clothing/neck/gorget/slave_gorget/MouseDrop(atom/over_object)
+	if(!stuck_check(usr))
+		return ..()
 
 /proc/normalize_slave_phrase(text)
 	text = lowertext(strip_html(text))

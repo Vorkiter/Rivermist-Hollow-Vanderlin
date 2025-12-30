@@ -8,6 +8,7 @@
 	var/submission_phrase = ""
 	var/freedom_phrase = ""
 	var/ring_bound = FALSE
+	var/bound_collar
 
 /obj/item/clothing/ring/slave_control/attackby(obj/item/I, mob/living/user)
 	if(!ismob(user))
@@ -15,6 +16,7 @@
 	if(istype(I, /obj/item/clothing/neck/gorget/slave_gorget))
 		if(ring_bound)
 			to_chat(user, "<span class='warning'>The ring is already bound.</span>")
+			return
 		var/obj/item/clothing/neck/gorget/slave_gorget/s_g = I
 		if(s_g.collar_bound)
 			to_chat(user, "<span class='warning'>The collar is already bound.</span>")
@@ -25,6 +27,7 @@
 		pleasure_phrase = s_g.pleasure_phrase
 		submission_phrase = s_g.submission_phrase
 		freedom_phrase = s_g.freedom_phrase
+		bound_collar = I
 		return
 	return ..()
 
