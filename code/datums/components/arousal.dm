@@ -34,20 +34,6 @@
 	/// Are we edged by partner
 	var/is_edged = FALSE
 
-/*
-no passive orgasm from arousal +
-add messages to chat about arousal stuff
-separate orgasm value +-
-orgasm value grows from interacts and high arousal - growth stops at a certain level +
-orgasm can't fire without interacts +
-add orgasm vals to different interacts +
-fix knotting +-
-fix edging
-fix holding pleasure
-
-
-*/
-
 /datum/component/arousal/Initialize(...)
 	. = ..()
 	START_PROCESSING(SSobj, src)
@@ -142,11 +128,11 @@ fix holding pleasure
 	adjust_edging(parent, -1 * ARO_LOSS_COEFFICIENT * 0.01)
 
 /datum/component/arousal/proc/handle_passive_orgasm(giving = FALSE)
-	if(last_orgasm_prog_increase_time < world.time - 5 SECONDS)
+	if(last_orgasm_prog_increase_time < world.time - 10 SECONDS)
 		return
 	if(orgasm_progress > 50)
 		return
-	if(arousal < 120)
+	if(arousal < 60)
 		return
 	adjust_orgasm_prog(parent, CLAMP(arousal / 120, 1, 2))
 

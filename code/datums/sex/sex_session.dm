@@ -697,7 +697,7 @@
 	dat += "</div>"
 
 	dat += "<div class='control-row'>"
-	dat += "<a href='?src=[REF(src)];task=toggle_edging_other;tab=[selected_tab]' class='toggle-btn'>[edging_other ? "EDGE OTHER" : "LET OTHER FINISH"]</a>"
+	dat += "<a href='?src=[REF(src)];task=toggle_edging_other;tab=[selected_tab]' class='toggle-btn'>[edging_other ? "EDGE THEM" : "DON'T EDGE THEM"]</a>"
 	dat += "</div>"
 
 	if(user.getorganslot(ORGAN_SLOT_PENIS))
