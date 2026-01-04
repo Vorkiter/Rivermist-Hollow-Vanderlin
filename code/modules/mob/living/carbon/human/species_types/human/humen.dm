@@ -216,16 +216,3 @@
 			if(STATKEY_SPD) C.base_speed++
 			if(STATKEY_LCK) C.base_fortune++
 
-	spawn(5)
-		if(!C || QDELETED(C))
-			return
-
-		if(!C.GetComponent(/datum/component/darkling))
-			C.AddComponent(/datum/component/darkling)
-
-/datum/species/human/northern/on_species_loss(mob/living/carbon/human/C)
-	. = ..()
-
-	var/datum/component/darkling/D = C.GetComponent(/datum/component/darkling)
-	if(D)
-		qdel(D)
