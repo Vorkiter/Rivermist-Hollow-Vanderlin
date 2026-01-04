@@ -1,30 +1,39 @@
+
 /datum/status_effect/facial
 	id = "facial"
-	alert_type = null // don't show an alert on screen
-	duration = 12 MINUTES // wear off eventually or until character washes themselves
-
-/datum/stress_event/facial
-	desc = "<span class='warning'>I've been creamed. Tastes like cum.</span>\n"
-	timer = 20 MINUTES
+	alert_type = null
+	tick_interval = 12 MINUTES
+	var/has_dried_up = FALSE
 
 /datum/status_effect/facial/internal
 	id = "creampie"
-	alert_type = null // don't show an alert on screen
-	duration = 7 MINUTES // wear off eventually or until character washes themselves
+	alert_type = null
+	tick_interval = 7 MINUTES
 
 /datum/status_effect/facial/on_apply()
-	RegisterSignal(owner, list(COMSIG_COMPONENT_CLEAN_ACT, COMSIG_COMPONENT_CLEAN_FACE_ACT),PROC_REF(clean_up))
-	owner.add_stress(/datum/stress_event/facial)
-	return ..()
+	. = ..()
+	if(!.)
+		return FALSE
+	RegisterSignal(owner, list(COMSIG_COMPONENT_CLEAN_ACT, COMSIG_COMPONENT_CLEAN_FACE_ACT), PROC_REF(clean_up))
+	has_dried_up = FALSE
+	return TRUE
 
 /datum/status_effect/facial/on_remove()
 	UnregisterSignal(owner, list(COMSIG_COMPONENT_CLEAN_ACT, COMSIG_COMPONENT_CLEAN_FACE_ACT))
-	owner.remove_stress(/datum/stress_event/facial)
 	return ..()
 
-///Callback to remove pearl necklace
-/datum/status_effect/facial/proc/clean_up(datum/source, strength)
-	if(strength == CLEAN_WASH && !QDELETED(owner))
+/datum/status_effect/facial/tick()
+	has_dried_up = TRUE
+
+/datum/status_effect/facial/proc/refresh_cum()
+	has_dried_up = FALSE
+	tick_interval = world.time + initial(tick_interval)
+
+/datum/status_effect/facial/proc/clean_up(datum/source, clean_types)
+	SIGNAL_HANDLER
+	if(QDELETED(owner))
+		return
+	if(clean_types & (CLEAN_WASH | CLEAN_SCRUB | CLEAN_ALL))
 		if(!owner.has_stress_type(/datum/stress_event/bathcleaned))
 			to_chat(owner, span_notice("I feel much cleaner now!"))
 			owner.add_stress(/datum/stress_event/bathcleaned)
@@ -60,6 +69,29 @@
 /datum/status_effect/blue_balls/on_remove()
 	. = ..()
 	owner.remove_stress(/datum/stress_event/blue_balls)
+
+/datum/status_effect/close_to_orgasm
+	id = "close_to_orgasm"
+	duration = 1 MINUTES
+	alert_type = /atom/movable/screen/alert/status_effect/close_to_orgasm
+	effectedstats = list("strength" = -1, "speed" = -1, "intelligence" = -2)
+
+/datum/stress_event/close_to_orgasm
+	desc = "<span class='love_low'>I am really close to release.</span>"
+	timer = 1 MINUTES
+	stress_change = 1
+
+/datum/status_effect/close_to_orgasm/on_apply()
+	owner.add_stress(/datum/stress_event/close_to_orgasm)
+	. = ..()
+
+/datum/status_effect/close_to_orgasm/on_remove()
+	owner.remove_stress(/datum/stress_event/close_to_orgasm)
+	. = ..()
+
+/atom/movable/screen/alert/status_effect/close_to_orgasm
+	name = "Close"
+	desc = "<span class='love_low'>I feel the pleasure building, I am really close...</span>"
 
 /datum/status_effect/edging_overstimulation
 	id = "edging_overstimulation"

@@ -81,7 +81,7 @@
 	var/knot_on_finish = FALSE
 	/// Whether this action can trigger knots
 	var/can_knot = FALSE
-	///basically for actions being done by the user where the target is the inserter set this to true
+	///basically for actions being done by the user where the target is the inserter set this to true // for example: riding, blowing, titjobbing etc
 	var/flipped = FALSE
 	/// Used for determining if the user should be gagged
 	var/gags_user = FALSE
@@ -123,7 +123,7 @@
 		return FALSE
 	return SEND_SIGNAL(user, COMSIG_SEX_TRY_KNOT, target, session.force)
 
-/datum/sex_action/proc/check_location_accessible(mob/living/carbon/human/user, mob/living/carbon/human/target, location = BODY_ZONE_CHEST, grabs = FALSE, skipundies = TRUE)
+/datum/sex_action/proc/check_location_accessible(mob/living/carbon/human/user, mob/living/carbon/human/target, location = BODY_ZONE_CHEST, grabs = TRUE, skipundies = TRUE)
 	var/obj/item/bodypart/bodypart = target.get_bodypart(location)
 	var/self_target = FALSE
 	if(target == user)
@@ -142,6 +142,9 @@
 		var/grabstate = user.get_highest_grab_state_on(target)
 		if((grabstate == null || grabstate < src.required_grab_state))
 			return FALSE
+
+	if(self_target)
+		grabs = FALSE
 
 	var/result = get_location_accessible(target, location = location, grabs = grabs, skipundies = skipundies) || target.get_erp_pref(/datum/erp_preference/boolean/clothed_sex)
 	return result
@@ -305,21 +308,24 @@
 		qdel(lock)
 	sex_locks.Cut()
 
-/datum/sex_action/proc/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/sex_action/proc/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target, must_flip = FALSE) //must_flip is for handling partner's message
 	return
 
 /datum/sex_action/proc/check_sex_lock(mob/locked, organ_slot, obj/item/item)
 	if(!organ_slot && !item)
 		return FALSE
-	for(var/datum/sex_session_lock/lock as anything in GLOB.locked_sex_objects)
+
+	return FALSE //unlocking it all for now
+
+	/*for(var/datum/sex_session_lock/lock as anything in GLOB.locked_sex_objects)
 		if(lock in sex_locks)
 			continue
 		if(lock.locked_host != locked)
 			continue
-		if(lock.locked_item != item && lock.locked_organ_slot != organ_slot)
+		if((lock.locked_item != item && !item) || (lock.locked_organ_slot != organ_slot) && !organ_slot)
 			continue
 		return TRUE
-	return FALSE
+	return FALSE*/
 
 
 /datum/sex_action/proc/do_onomatopoeia(mob/living/carbon/human/user)

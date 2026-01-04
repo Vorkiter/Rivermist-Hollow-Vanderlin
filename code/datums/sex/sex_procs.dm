@@ -9,6 +9,16 @@
 	return grabstate
 
 /proc/do_thrust_animate(atom/movable/user, atom/movable/target, pixels = 4, time = 2.7)
+	var/datum/sex_session/sex_session
+	if(ishuman(user) && ishuman(target))
+		sex_session = get_sex_session(user, target)
+		if(!sex_session)
+			sex_session = get_sex_session(target, user)
+	if(sex_session)
+		if(sex_session.speed > SEX_SPEED_MID)
+			time = max(0.5, time - 0.25)
+		if(sex_session.force < SEX_FORCE_MID)
+			pixels = max(1, pixels - 1)
 	var/oldx = user.pixel_x
 	var/oldy = user.pixel_y
 	var/target_x = oldx
@@ -33,10 +43,9 @@
 	if(!target)
 		return
 	var/datum/sex_session/old_session = get_sex_session(src, target)
-	if(old_session)
-		if(target.client && client)
-			old_session.show_ui()
-		return
+	if(old_session && !QDELETED(old_session))
+		old_session.show_ui()
+		return old_session
 
 
 	var/datum/sex_session/session = new /datum/sex_session(src, target)

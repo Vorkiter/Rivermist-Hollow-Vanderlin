@@ -101,11 +101,12 @@
 	var/list/arousal_data = list()
 	SEND_SIGNAL(user, COMSIG_SEX_GET_AROUSAL, arousal_data)
 
-	var/max_arousal = MAX_AROUSAL || 120
+	var/max_arousal = MAX_AROUSAL || 500
 	var/orgasm_threshold = PASSIVE_EJAC_THRESHOLD
 	var/current_arousal = arousal_data["arousal"] || 0
+	var/current_orgasm_prog = arousal_data["orgasm_progress"] || 0
 	var/arousal_percent = min(100, (current_arousal / max_arousal) * 100)
-	var/pleasure_percent = min(100, (current_arousal / orgasm_threshold) * 100)
+	var/pleasure_percent = min(100, (current_orgasm_prog / orgasm_threshold) * 100)
 	var/pain_percent = 0
 
 	return "[arousal_percent],[pleasure_percent],[pain_percent]"
@@ -228,24 +229,19 @@
 			return FALSE
 	return TRUE
 
-/datum/sex_session/proc/perform_sex_action(mob/living/carbon/human/action_target, arousal_amt, pain_amt, giving)
-	var/list/arousal_data_user = list()
-	SEND_SIGNAL(user, COMSIG_SEX_GET_AROUSAL, arousal_data_user)
+/datum/sex_session/proc/perform_sex_action(mob/living/carbon/human/action_initiator, mob/living/carbon/human/action_target, arousal_amt, pain_amt, orgasm_prog_amt, datum/sex_action/sex_act)
+
 	var/list/arousal_data_target = list()
 	SEND_SIGNAL(action_target, COMSIG_SEX_GET_AROUSAL, arousal_data_target)
 
-	if(HAS_TRAIT(user, TRAIT_GOODLOVER))
+
+	if(HAS_TRAIT(user, TRAIT_GOODLOVER) && user != action_initiator)
 		arousal_amt *= 1.5
+		orgasm_prog_amt *= 1.5
 		if(prob(10)) //10 perc chance each action to emit the message so they know who the fuckin' wituser.
 			var/lovermessage = pick("This feels so good!","I am in nirvana!","This is too good to be possible!","By the Gods!","I can't stop, too good!~")
 			to_chat(action_target, span_love(lovermessage))
-	var/res_send = RESIST_NONE
-	if(action_target == user)
-		res_send = arousal_data_user["resistance_to_pleasure"]
-	else
-		res_send = arousal_data_target["resistance_to_pleasure"]
 
-	var/edge_other = FALSE
 	if(action_target != user && edging_other)
 		if(arousal_data_target["arousal"] >= AROUSAL_EDGING_THRESHOLD + 15)
 			var/succes_chance = 100
@@ -262,10 +258,23 @@
 				if(prob(10))
 					to_chat(user, span_love("I can't tell if they are close or not..."))
 			if(prob(succes_chance))
-				edge_other = TRUE
+				SEND_SIGNAL(action_target, COMSIG_SEX_EDGED_BY_OTHER_STATE, TRUE) //yeah, feels like a hack, honesytly, but it works
 
+	var/res_send = RESIST_NONE
+	var/mob/living/action_user_final
+	var/giving = TRUE
 
-	SEND_SIGNAL(action_target, COMSIG_SEX_RECEIVE_ACTION, arousal_amt, pain_amt, giving, force, speed, res_send, edge_other)
+	if(user == action_initiator) //set proper user
+		action_user_final = user
+	else
+		action_user_final = action_initiator
+		giving = FALSE
+
+	var/list/arousal_data_user = list()
+	SEND_SIGNAL(action_user_final, COMSIG_SEX_GET_AROUSAL, arousal_data_user)
+	res_send = arousal_data_user["resistance_to_pleasure"]
+
+	SEND_SIGNAL(action_user_final, COMSIG_SEX_RECEIVE_ACTION, sex_act, action_initiator, action_target, arousal_amt, pain_amt, orgasm_prog_amt, giving, force, speed, res_send)
 
 /datum/sex_session/proc/handle_passive_ejaculation(mob/living/carbon/human/handler)
 	if(!handler)
@@ -559,7 +568,8 @@
 	var/max_arousal = MAX_AROUSAL
 	var/orgasm_threshold = PASSIVE_EJAC_THRESHOLD
 	var/current_arousal = arousal_data["arousal"] || 0
-	var/pleasure_percent = min(100, (current_arousal / orgasm_threshold) * 100)
+	var/orgasm_progress = arousal_data["orgasm_progress"] || 0
+	var/pleasure_percent = min(100, (orgasm_progress / orgasm_threshold) * 100)
 	var/arousal_percent = min(100, (current_arousal / max_arousal) * 100)
 
 	dat += "<div class='progress-bar'>"
@@ -687,7 +697,7 @@
 	dat += "</div>"
 
 	dat += "<div class='control-row'>"
-	dat += "<a href='?src=[REF(src)];task=toggle_edging_other;tab=[selected_tab]' class='toggle-btn'>[edging_other ? "EDGE OTHER" : "LET OTHER FINISH"]</a>"
+	dat += "<a href='?src=[REF(src)];task=toggle_edging_other;tab=[selected_tab]' class='toggle-btn'>[edging_other ? "EDGE THEM" : "DON'T EDGE THEM"]</a>"
 	dat += "</div>"
 
 	if(user.getorganslot(ORGAN_SLOT_PENIS))
