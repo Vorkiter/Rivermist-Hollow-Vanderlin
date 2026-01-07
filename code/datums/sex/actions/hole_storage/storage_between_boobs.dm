@@ -44,7 +44,11 @@
 	if(!dildo)
 		sex_session.stop_current_action()
 		return
-	var/success = SEND_SIGNAL(user, COMSIG_HOLE_TRY_FIT, dildo, hole_id, user, TRUE, FALSE)
+	var/success
+	if(user == target)
+		success = SEND_SIGNAL(user, COMSIG_HOLE_TRY_FIT, dildo, hole_id, target, TRUE, FALSE)
+	else
+		success = SEND_SIGNAL(target, COMSIG_HOLE_TRY_FIT, dildo, hole_id, target, TRUE, FALSE)
 	if(success)
 		user.update_inv_hands()
 		user.update_a_intents()
@@ -60,7 +64,7 @@
 			user.visible_message(sex_session.spanify_force("I fail to stuff the [dildo] between [target]'s boobs."))
 			sex_session.stop_current_action()
 			return
-	sex_session.perform_sex_action(user, 0.5, pain_amt, !self)
+	sex_session.perform_sex_action(user, target, 0.5, pain_amt, 0, src)
 	sex_session.handle_passive_ejaculation()
 
 /datum/sex_action/hole_storage/boobs_remove
@@ -104,7 +108,10 @@
 	var/datum/sex_session/sex_session = get_sex_session(user, target)
 
 	var/obj/item/removed_item
-	removed_item = SEND_SIGNAL(user, COMSIG_HOLE_REMOVE_RANDOM_ITEM, hole_id, target, TRUE)
+	if(user == target)
+		removed_item = SEND_SIGNAL(user, COMSIG_HOLE_REMOVE_RANDOM_ITEM, hole_id, target, TRUE)
+	else
+		removed_item = SEND_SIGNAL(target, COMSIG_HOLE_REMOVE_RANDOM_ITEM, hole_id, target, TRUE)
 	if(!removed_item)
 		to_chat(user, sex_session.spanify_force("I couldn't find anything inside..."))
 		sex_session.stop_current_action()
@@ -119,6 +126,6 @@
 			user.visible_message(sex_session.spanify_force("I fish out the [removed_item] from between [target]'s boobs..."))
 		removed_item.doMove(get_turf(user))
 		user.put_in_active_hand(removed_item)
-	sex_session.perform_sex_action(user, 0.5, pain_amt, !self)
+	sex_session.perform_sex_action(user, target, 0.5, pain_amt, 0, src)
 	sex_session.handle_passive_ejaculation()
 
