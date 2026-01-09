@@ -1,4 +1,4 @@
-/datum/customizer/bodypart_feature/underwear
+/*/datum/customizer/bodypart_feature/underwear
 	name = "Underwear"
 	customizer_choices = list(/datum/customizer_choice/bodypart_feature/underwear)
 	allows_disabling = TRUE
@@ -53,4 +53,4 @@
 		owner.equip_to_slot_if_possible(sock, ITEM_SLOT_SOCKS)
 		bp.remove_bodypart_feature(src)
 		return TRUE
-	return FALSE
+	return FALSE*/

@@ -1,4 +1,4 @@
-/datum/sprite_accessory/underwear
+/*/datum/sprite_accessory/underwear
 	abstract_type = /datum/sprite_accessory/underwear
 	icon = 'modular_rmh/icons/mob/sprite_accessory/underwear.dmi'
 	color_key_name = "Underwear"
@@ -154,6 +154,5 @@
 /datum/sprite_accessory/legwear/stockings/fishnet
 	name = "fishnet stockings"
 	icon_state = "fishnet"
-	legwear_type = /obj/item/clothing/legwears/fishnet
+	legwear_type = /obj/item/clothing/legwears/fishnet*/
 
-//this is all going away
