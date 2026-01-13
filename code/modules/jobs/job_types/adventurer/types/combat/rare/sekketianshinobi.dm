@@ -1,7 +1,7 @@
 /datum/job/advclass/combat/sekketianshinobi
 	title = "Sekketian Shinobi"
 	tutorial = "You belong to the Shinobi's of Sekket. An elusive order of Xylixian freedom fighters originating from the Queendom of Lakkari. You have dedicated yourself to uplifting the enslaved and oppressed, and hope to continue doing so in the lands you travel."
-	allowed_patrons = list(/datum/patron/divine/xylix)
+	//allowed_patrons = list(/datum/patron/divine/xylix)
 	allowed_races = list(\
 		SPEC_ID_HUMEN,\
 		SPEC_ID_HALF_ELF,\

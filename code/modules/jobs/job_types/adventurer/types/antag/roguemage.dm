@@ -8,7 +8,7 @@
 	cmode_music = 'sound/music/cmode/antag/CombatRogueMage.ogg'
 	exp_types_granted = list(EXP_TYPE_COMBAT, EXP_TYPE_MAGICK)
 	magic_user = TRUE
-	allowed_patrons = list(/datum/patron/inhumen/zizo)
+	//allowed_patrons = list(/datum/patron/inhumen/zizo)
 	languages = list(/datum/language/undead)
 	spell_points = 1
 

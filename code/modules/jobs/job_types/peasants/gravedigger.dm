@@ -14,7 +14,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_races = RACES_PLAYER_NONHERETICAL
-	allowed_patrons = list(/datum/patron/divine/necra)
+	//allowed_patrons = list(/datum/patron/divine/necra)
 
 	outfit = /datum/outfit/undertaker
 	give_bank_account = TRUE

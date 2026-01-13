@@ -5,7 +5,7 @@
 	category_tags = list(CTAG_PILGRIM)
 	tutorial = "Stoic gardeners or flesh-eating predators, all can follow Dendor's path. <br>His Briars scorn civilized living, many embracing their animal nature, being fickle and temperamental."
 	cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
-	allowed_patrons = list(/datum/patron/divine/dendor)
+	//allowed_patrons = list(/datum/patron/divine/dendor)
 
 	total_positions = 4
 	exp_types_granted = list(EXP_TYPE_CLERIC)

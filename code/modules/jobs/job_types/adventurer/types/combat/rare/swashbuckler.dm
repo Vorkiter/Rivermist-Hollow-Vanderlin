@@ -11,7 +11,7 @@
 		SPEC_ID_HALF_ORC,\
 		SPEC_ID_RAKSHARI,\
 	)
-	allowed_patrons = list(/datum/patron/divine/abyssor)
+	//allowed_patrons = list(/datum/patron/divine/abyssor)
 	outfit = /datum/outfit/adventurer/swashbuckler
 	total_positions = 1
 	roll_chance = 30
