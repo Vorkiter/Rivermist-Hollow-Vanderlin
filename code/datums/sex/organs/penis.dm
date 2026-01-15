@@ -1,6 +1,6 @@
 /obj/item/organ/genitals/penis
 	name = "penis"
-	icon = 'modular_rmh/licensed-eaglephntm/icons/obj/surgery.dmi'
+	icon = 'modular_rmh/icons/eaglephntm/icons/obj/surgery.dmi'
 	icon_state = "penis"
 	visible_organ = TRUE
 	zone = BODY_ZONE_PRECISE_GROIN

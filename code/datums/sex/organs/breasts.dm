@@ -1,6 +1,6 @@
 /obj/item/organ/genitals/filling_organ/breasts
 	name = "breasts"
-	icon = 'modular_rmh/licensed-eaglephntm/icons/obj/surgery.dmi'
+	icon = 'modular_rmh/icons/eaglephntm/icons/obj/surgery.dmi'
 	icon_state = "breasts"
 	visible_organ = TRUE
 	zone = BODY_ZONE_CHEST
