@@ -65,9 +65,9 @@
 	//updates size caps
 	var/captarget
 	if(!isanimal(H))
-		if(H.mind && organ_sizeable)
+		if(organ_sizeable)
 			captarget = storage_per_size + (storage_per_size * organ_size) // Updates the max_reagents in case the organ size changes
-		else if(H.mind) //like vaginas, non sizeable organs
+		else
 			captarget = max_reagents
 		if(fertility && pregnant) //preg size reduce
 			captarget *= 0.5
