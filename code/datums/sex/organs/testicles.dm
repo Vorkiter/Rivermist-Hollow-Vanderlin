@@ -17,6 +17,9 @@
 	organ_sizeable  = TRUE
 	refilling = TRUE
 
+/obj/item/organ/genitals/filling_organ/testicles/invisible //so it can be surgically removed but still not visible on sprite
+	accessory_type = /datum/sprite_accessory/none
+
 /obj/item/organ/genitals/filling_organ/testicles/internal
 	name = "internal testicles"
 	visible_organ = FALSE

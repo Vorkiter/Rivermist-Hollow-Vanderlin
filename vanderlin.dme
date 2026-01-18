@@ -3910,6 +3910,7 @@
 #include "modular_rmh\code\modules\mob\abyssal_monsters.dm"
 #include "modular_rmh\code\modules\mob\hedghog.dm"
 #include "modular_rmh\code\modules\mob\undead_wolf.dm"
+#include "modular_rmh\code\modules\mob\living\human\npc\goblin.dm"
 #include "modular_rmh\code\modules\mob\lewd\custom\custom_minotaur.dm"
 #include "modular_rmh\code\modules\mob\lewd\custom\custom_slime.dm"
 #include "modular_rmh\code\modules\mob\lewd\custom\custom_werewolf.dm"

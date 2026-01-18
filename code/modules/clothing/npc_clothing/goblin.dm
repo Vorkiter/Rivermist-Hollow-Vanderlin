@@ -6,6 +6,7 @@
 	smeltresult = /obj/item/ingot/iron
 	armor = list("blunt" = 80, "slash" = 80, "stab" = 80,  "piercing" = 0, "fire" = 0, "acid" = 0)
 	allowed_race = list(SPEC_ID_GOBLIN)
+	flags_inv = HIDECROTCH|HIDEBOOB|HIDEBELLY|HIDEBUTT
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS|VITALS
 	anvilrepair = /datum/skill/craft/armorsmithing
 	max_integrity = 60
@@ -19,6 +20,7 @@
 	icon = 'icons/roguetown/mob/monster/goblins.dmi'
 	armor = list("blunt" = 60, "slash" = 60, "stab" = 60,  "piercing" = 0, "fire" = 0, "acid" = 0)
 	body_parts_covered = CHEST|GROIN|ARMS|VITALS
+	flags_inv = HIDECROTCH|HIDEBOOB|HIDEBELLY
 	armor_class = AC_LIGHT
 	max_integrity = 60
 	allowed_race = list(SPEC_ID_GOBLIN)
@@ -33,6 +35,7 @@
 	allowed_race = list(SPEC_ID_GOBLIN)
 	armor = list("blunt" = 30, "slash" = 30, "stab" = 30,  "piercing" = 0, "fire" = 0, "acid" = 0)
 	body_parts_covered = CHEST|GROIN
+	flags_inv = HIDECROTCH
 	sellprice = 0
 	smeltresult = /obj/item/fertilizer/ash
 

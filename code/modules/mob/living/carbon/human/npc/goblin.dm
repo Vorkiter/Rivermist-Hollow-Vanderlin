@@ -4,7 +4,6 @@
 	icon = 'icons/roguetown/mob/monster/goblins.dmi'
 	icon_state = "goblin"
 	race = /datum/species/goblin
-	gender = MALE
 	bodyparts = list(/obj/item/bodypart/chest/goblin, /obj/item/bodypart/head/goblin, /obj/item/bodypart/l_arm/goblin,
 					/obj/item/bodypart/r_arm/goblin, /obj/item/bodypart/r_leg/goblin, /obj/item/bodypart/l_leg/goblin)
 	rot_type = /datum/component/rot/corpse/goblin
@@ -146,15 +145,27 @@
 	species_traits = list(NO_UNDERWEAR)
 	inherent_traits = list(TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_RADIMMUNE, TRAIT_EASYDISMEMBER, TRAIT_CRITICAL_WEAKNESS, TRAIT_NASTY_EATER, TRAIT_LEECHIMMUNE, TRAIT_INHUMENCAMP)
 
-	no_equip = list(ITEM_SLOT_SHIRT, ITEM_SLOT_MASK, ITEM_SLOT_GLOVES, ITEM_SLOT_SHOES, ITEM_SLOT_PANTS)
-	offset_features_m = list(OFFSET_HANDS = list(0,-4))
-	offset_features_f = list(OFFSET_HANDS = list(0,-4))
+	offset_features_m = list(
+		OFFSET_ID = list(0,-4), OFFSET_GLOVES = list(0,-4), OFFSET_WRISTS = list(0,-4),\
+		OFFSET_CLOAK = list(0,0), OFFSET_FACEMASK = list(0,-5), OFFSET_HEAD = list(0,-4), \
+		OFFSET_FACE = list(0,-5), OFFSET_BELT = list(0,-4), OFFSET_BACK = list(0,-4), \
+		OFFSET_NECK = list(0,-4), OFFSET_MOUTH = list(0,-4), OFFSET_PANTS = list(0,0), \
+		OFFSET_SHIRT = list(0,0), OFFSET_ARMOR = list(0,0), OFFSET_HANDS = list(0,-3), OFFSET_BUTT = list(0,-4),\ OFFSET_UNDIES = list(0,-4)
+		)
+	offset_features_f = list(
+		OFFSET_ID = list(0,-5), OFFSET_GLOVES = list(0,-4), OFFSET_WRISTS = list(0,-4), OFFSET_HANDS = list(0,-4), \
+		OFFSET_CLOAK = list(0,0), OFFSET_FACEMASK = list(0,-5), OFFSET_HEAD = list(0,-5), \
+		OFFSET_FACE = list(0,-5), OFFSET_BELT = list(0,-4), OFFSET_BACK = list(0,-5), \
+		OFFSET_NECK = list(0,-5), OFFSET_MOUTH = list(0,-5), OFFSET_PANTS = list(0,0), \
+		OFFSET_SHIRT = list(0,0), OFFSET_ARMOR = list(0,0), OFFSET_BUTT = list(0,-4),\ OFFSET_UNDIES = list(0,-4)
+		)
 
 	dam_icon_f = null
 	dam_icon_m = null
 	damage_overlay_type = ""
 	changesource_flags = WABBAJACK
 	var/raceicon = "goblin"
+	custom_clothes = TRUE
 	exotic_bloodtype = /datum/blood_type/human/corrupted/goblin
 
 /datum/species/goblin/regenerate_icons(mob/living/carbon/human/H)
@@ -219,6 +230,7 @@
 		overlays_standing[ARMOR_LAYER] = standing
 
 	apply_overlay(ARMOR_LAYER)
+	update_body_parts(TRUE)
 
 
 /mob/living/carbon/human/species/goblin/update_inv_head(hide_nonstandard = FALSE)
@@ -235,7 +247,6 @@
 
 /mob/living/carbon/human/species/goblin/after_creation()
 	..()
-	gender = MALE
 	if(src.dna && src.dna.species)
 		src.dna.species.soundpack_m = new /datum/voicepack/goblin()
 		src.dna.species.soundpack_f = new /datum/voicepack/goblin()
@@ -254,7 +265,7 @@
 	for(var/slot in internal_organs_slot)
 		var/obj/item/organ/organ = internal_organs_slot[slot]
 		organ.sellprice = 5
-	//src.underwear = "Nude"
+	underwear = null
 	if(src.charflaw)
 		QDEL_NULL(src.charflaw)
 	update_body()
