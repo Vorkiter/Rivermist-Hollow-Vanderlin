@@ -8,6 +8,9 @@
 	accessory_type = /datum/sprite_accessory/genitals/butt
 	organ_size = DEFAULT_BUTT_SIZE
 
+/obj/item/organ/genitals/butt/invisible
+	accessory_type = /datum/sprite_accessory/none
+
 /obj/item/organ/genitals/butt/internal
 	name = "internal butt"
 	visible_organ = FALSE

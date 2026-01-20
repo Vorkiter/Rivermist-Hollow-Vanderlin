@@ -7,7 +7,7 @@
 	gender_genitals_adjust(appearance_list, organ, bodypart, owner, OFFSET_VAGINA)
 
 /datum/sprite_accessory/genitals/vagina/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
-	if(owner.underwear)
+	if(owner && owner.underwear)
 		return FALSE
 
 	return is_human_part_visible(owner, HIDEJUMPSUIT|HIDEUNDIESBOT)

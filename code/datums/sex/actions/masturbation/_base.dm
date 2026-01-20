@@ -6,7 +6,7 @@
 	if(!.)
 		return FALSE
 	var/locked = user.get_active_precise_hand()
-	if(check_sex_lock(user, locked))
+	if(check_sex_lock(user, null, locked))
 		return FALSE
 	return TRUE
 

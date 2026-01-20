@@ -153,31 +153,13 @@
 	if(!hole_id || !stored_item_type)
 		return TRUE // No storage requirements
 
-	// Check if target has hole storage component
-	var/datum/component/hole_storage/storage_comp = target.GetComponent(/datum/component/hole_storage)
+	// Check if target has hole storage components
+	var/obj/item/organ/target_o = target.getorganslot(hole_id)
+	var/datum/component/body_storage/storage_comp = target_o.GetComponent(/datum/component/body_storage)
 	if(!storage_comp)
 		return FALSE
 
-	// Create the item we want to store for testing
-	var/obj/item/item_to_test
-	if(stored_item_type == /obj/item/organ/genitals/penis)
-		// Get user's penis and create fake variant for testing
-		var/obj/item/organ/genitals/penis/user_penis = get_users_penis(user)
-		if(!user_penis)
-			return FALSE
-		item_to_test = user_penis.create_fake_variant(user)
-	else
-		item_to_test = new stored_item_type()
-		if(stored_item_name)
-			item_to_test.name = stored_item_name
-
-	// Check if the specific hole can fit our item
-	var/can_fit = SEND_SIGNAL(target, COMSIG_HOLE_TRY_FIT, item_to_test, hole_id, user, TRUE, TRUE) // Silent check
-
-	// Clean up test item
-	qdel(item_to_test)
-
-	return can_fit
+	return TRUE
 
 /datum/sex_action/proc/get_users_penis(mob/living/carbon/human/user)
 	if(!user)
@@ -190,6 +172,13 @@
 
 	var/obj/item/item_to_store
 
+	var/obj/item/organ/target_o = target.getorganslot(hole_id)
+
+	var/self = (user == target)
+	var/datum/sex_session/session = get_sex_session(user, target)
+	var/force = FALSE
+	if(session.get_current_force() >= SEX_FORCE_HIGH)
+		force = TRUE
 	// Handle penis storage specially - create fake variant
 	if(stored_item_type == /obj/item/organ/genitals/penis)
 		var/obj/item/organ/genitals/penis/user_penis = get_users_penis(user)
@@ -206,11 +195,48 @@
 			item_to_store.name = stored_item_name
 
 	// Try to fit it in the hole
-	var/success = SEND_SIGNAL(target, COMSIG_HOLE_TRY_FIT, item_to_store, hole_id, user, FALSE, TRUE)
-	if(!success)
-		qdel(item_to_store)
-		to_chat(user, span_warning("[target]'s [hole_id] can't accommodate [item_to_store.name]!"))
-		return FALSE
+	var/success = SEND_SIGNAL(target_o, COMSIG_BODYSTORAGE_TRY_INSERT, item_to_store, STORAGE_LAYER_INNER, force)
+	switch(success)
+		if(INSERT_FEEDBACK_OK_FORCE)
+			if(prob(15))
+				var/stuffed_res = SEND_SIGNAL(target_o, COMSIG_BODYSTORAGE_SWAP_LAYERS_RAND, STORAGE_LAYER_INNER, STORAGE_LAYER_DEEP, force)
+				if(stuffed_res == INSERT_FEEDBACK_OK_FORCE || stuffed_res == INSERT_FEEDBACK_OK)
+					if(self)
+						to_chat(user, session.spanify_force("Something inside my [hole_id] slips deeper!"))
+					else
+						user.visible_message(session.spanify_force("Something inside [target]'s [hole_id] slips deeper!"))
+		if(INSERT_FEEDBACK_ALMOST_FULL)
+			if(self)
+				to_chat(user, session.spanify_force("I feel like my [hole_id] can just barely fit [item_to_store.name]..."))
+			else
+				user.visible_message(session.spanify_force("I feel like [target]'s [hole_id] can just barely fit my [item_to_store.name]..."))
+		if(INSERT_FEEDBACK_STUFFED)
+			if(force && prob(50))
+				var/stuffed_res = SEND_SIGNAL(target_o, COMSIG_BODYSTORAGE_SWAP_LAYERS_RAND, STORAGE_LAYER_INNER, STORAGE_LAYER_DEEP, force)
+				if(stuffed_res == INSERT_FEEDBACK_OK_FORCE || stuffed_res == INSERT_FEEDBACK_OK)
+					if(self)
+						to_chat(user, session.spanify_force("Something inside my [hole_id] slips deeper!"))
+					else
+						user.visible_message(session.spanify_force("Something inside [target]'s [hole_id] slips deeper!"))
+			else
+				to_chat(user, span_warning("[target]'s [hole_id] can't accommodate my [item_to_store.name]!"))
+				SEND_SIGNAL(target_o, COMSIG_BODYSTORAGE_FORCE_REMOVE, item_to_store, STORAGE_LAYER_INNER)
+				addtimer(CALLBACK(src, PROC_REF(qdel), item_to_store), 2)
+				return FALSE
+
+		if(INSERT_FEEDBACK_TRY_FORCE)
+			if(self)
+				to_chat(user, session.spanify_force("I feel like \the [item_to_store.name] might fit in my [hole_id] if I just use more force."))
+			else
+				user.visible_message(session.spanify_force("I feel like my [item_to_store.name] might fit in [target]'s [hole_id] if I just use more force."))
+			SEND_SIGNAL(target_o, COMSIG_BODYSTORAGE_FORCE_REMOVE, item_to_store, STORAGE_LAYER_INNER)
+			addtimer(CALLBACK(src, PROC_REF(qdel), item_to_store), 2)
+			return FALSE
+		if(FALSE)
+			to_chat(user, span_warning("[target]'s [hole_id] can't accommodate [item_to_store.name]!"))
+			SEND_SIGNAL(target_o, COMSIG_BODYSTORAGE_FORCE_REMOVE, item_to_store, STORAGE_LAYER_INNER)
+			addtimer(CALLBACK(src, PROC_REF(qdel), item_to_store), 2)
+			return FALSE
 
 	// Track the storage
 	var/datum/storage_tracking_entry/entry = new(item_to_store, user, hole_id, user)
@@ -222,16 +248,15 @@
 	if(!requires_hole_storage || !hole_id)
 		return TRUE
 
+	var/obj/item/organ/target_o = target.getorganslot(hole_id)
 	for(var/datum/storage_tracking_entry/entry in tracked_storage)
 		if(entry.hole_id == hole_id && entry.stored_item)
 			var/obj/item/stored_item = entry.stored_item
 
-			SEND_SIGNAL(target, COMSIG_HOLE_REMOVE_ITEM, stored_item, hole_id, silent, TRUE)
-
 			if(istype(stored_item, /obj/item/penis_fake))
 				var/obj/item/penis_fake/fake_penis = stored_item
 				var/mob/living/carbon/human/original_owner = find_original_owner_by_ckey(fake_penis.original_owner_ckey)
-
+				SEND_SIGNAL(target_o, COMSIG_BODYSTORAGE_FORCE_REMOVE, fake_penis, STORAGE_LAYER_INNER)
 				if(!silent)
 					if(original_owner)
 						to_chat(original_owner, span_notice("Your penis has been withdrawn from [target]'s [hole_id]."))
@@ -315,17 +340,11 @@
 	if(!organ_slot && !item)
 		return FALSE
 
-	return FALSE //unlocking it all for now
-
-	/*for(var/datum/sex_session_lock/lock as anything in GLOB.locked_sex_objects)
-		if(lock in sex_locks)
-			continue
-		if(lock.locked_host != locked)
-			continue
-		if((lock.locked_item != item && !item) || (lock.locked_organ_slot != organ_slot) && !organ_slot)
-			continue
-		return TRUE
-	return FALSE*/
+	for(var/datum/sex_session_lock/lock as anything in GLOB.locked_sex_objects)
+		if(lock.locked_host == locked)
+			if(((lock.locked_item == item) && lock.locked_item) || ((lock.locked_organ_slot == organ_slot) && lock.locked_organ_slot))
+				return TRUE
+	return FALSE
 
 
 /datum/sex_action/proc/do_onomatopoeia(mob/living/carbon/human/user)
