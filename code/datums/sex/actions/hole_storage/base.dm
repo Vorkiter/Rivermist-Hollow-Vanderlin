@@ -8,6 +8,7 @@
 	user_priority = 1
 	target_priority = 1
 	var/self = FALSE
+	var/obj/item/organ/genitals/target_organ
 
 /datum/sex_action/hole_storage/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()

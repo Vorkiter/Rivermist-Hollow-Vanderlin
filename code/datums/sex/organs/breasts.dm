@@ -11,17 +11,9 @@
 	absorbing = FALSE //funny liquid tanks
 	startsfilled = TRUE
 	altnames = list("breasts", "tits", "milkers", "tiddies", "badonkas", "boobas") //used in thought messages.
-	//var/lactating = FALSE
-	//var/milk_stored = 0
-	//var/milk_max = 75
 	blocker = ITEM_SLOT_SHIRT
 	additional_blocker = "bra"
 	organ_sizeable = TRUE
-
-/*/obj/item/organ/genitals/filling_organ/breasts/New(mob/living/carbon/M, special, drop_if_replaced)
-	..()
-
-	milk_max = max(75, organ_size * 100)*/
 
 /obj/item/organ/genitals/filling_organ/breasts/Insert(mob/living/carbon/M, special, drop_if_replaced)
 	. = ..()
@@ -29,9 +21,12 @@
 		reagent_to_make = M.breast_milk
 	if(!refilling)
 		reagents.clear_reagents()
-	M.add_hole(ORGAN_SLOT_BREASTS, /datum/component/storage/concrete/grid/hole/breasts)
-	SEND_SIGNAL(M, COMSIG_HOLE_MODIFY_HOLE, ORGAN_SLOT_BREASTS, 3, CEILING(organ_size / 4, 1))
-
+	add_bodystorage(M, null, /datum/component/body_storage/breasts)
+	var/obj/item/organ/genitals/nipple/left/l_nip = new /obj/item/organ/genitals/nipple/left
+	var/obj/item/organ/genitals/nipple/right/r_nip = new /obj/item/organ/genitals/nipple/right
+	l_nip.Insert(M, FALSE, FALSE)
+	r_nip.Insert(M, FALSE, FALSE)
 /obj/item/organ/genitals/filling_organ/breasts/Remove(mob/living/carbon/M, special, drop_if_replaced)
 	. = ..()
-	SEND_SIGNAL(M, COMSIG_HOLE_REMOVE_HOLE, ORGAN_SLOT_BREASTS)
+	var/datum/component/body_storage/breasts/comp = GetComponent(/datum/component/body_storage/breasts)
+	comp?.RemoveComponent()

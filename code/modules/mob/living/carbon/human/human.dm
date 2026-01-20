@@ -187,6 +187,8 @@
 
 	id_check_in_5()
 
+	AddComponent(/datum/component/arousal) //arousal - for humans for now
+
 /mob/living/carbon/human/Destroy()
 	QDEL_NULL(physiology)
 	GLOB.human_list -= src

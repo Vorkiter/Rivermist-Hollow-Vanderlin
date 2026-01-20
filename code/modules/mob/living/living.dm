@@ -27,6 +27,11 @@
 	if(has_reflection)
 		create_reflection()
 	recalculate_stats()
+	//for organ spawning
+	if(ai_controller)
+		var/datum/ai_planning_subtree/horny/hornybehavior = locate() in ai_controller.planning_subtrees
+		if(hornybehavior)
+			addtimer(CALLBACK(src, PROC_REF(give_genitals)), 1)
 
 /mob/living/Destroy()
 	if(FACTION_MATTHIOS in faction)

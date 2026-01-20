@@ -16,14 +16,15 @@
 	blocker = ITEM_SLOT_PANTS
 	bloatable = TRUE
 	additional_blocker = "underwear"
+	stretchable = TRUE
 
 /obj/item/organ/genitals/filling_organ/anus/Insert(mob/living/carbon/M, special, drop_if_replaced)
 	. = ..()
 	if(!refilling)
 		reagents.clear_reagents()
-	M.add_hole(ORGAN_SLOT_ANUS, /datum/component/storage/concrete/grid/hole/ass)
-	SEND_SIGNAL(M, COMSIG_HOLE_MODIFY_HOLE, ORGAN_SLOT_ANUS, 3, CEILING(organ_size / 4, 1))
+	add_bodystorage(M, null, /datum/component/body_storage/anus)
 
 /obj/item/organ/genitals/filling_organ/anus/Remove(mob/living/carbon/M, special, drop_if_replaced)
 	. = ..()
-	SEND_SIGNAL(M, COMSIG_HOLE_REMOVE_HOLE, ORGAN_SLOT_ANUS)
+	var/datum/component/body_storage/anus/comp = GetComponent(/datum/component/body_storage/anus)
+	comp?.RemoveComponent()

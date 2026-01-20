@@ -42,7 +42,7 @@
 
 	add_ui_tracking("sexcon[our_sex_id]")
 
-	addtimer(CALLBACK(src, PROC_REF(check_sex)), 60 SECONDS, flags = TIMER_LOOP)
+	addtimer(CALLBACK(src, PROC_REF(check_sex)), 180 SECONDS, flags = TIMER_LOOP)
 
 /datum/sex_session/Destroy(force, ...)
 	UnregisterSignal(user, list(COMSIG_SEX_CLIMAX, COMSIG_SEX_AROUSAL_CHANGED))
@@ -77,10 +77,13 @@
 
 /datum/sex_session/proc/check_sex()
 	if(current_action)
+		inactivity--
+		inactivity = CLAMP(inactivity, 0 , 11)
 		return
+
 	inactivity++
 
-	if(inactivity < 3)
+	if(inactivity < 5)
 		return
 	qdel(src)
 
@@ -158,15 +161,16 @@
 	action.on_start(user, target)
 
 	while(TRUE)
-		if(isnull(target.client))
-			break
+		//if(isnull(target.client))
+		//	break
 
 		var/stamina_cost = action.stamina_cost * get_stamina_cost_multiplier()
 		if(!user.adjust_stamina(-stamina_cost))
 			break
 
 		var/do_time = action.do_time / get_speed_multiplier()
-		if(!do_after(user, do_time, target = target))
+		var/do_after_flags = IGNORE_USER_DIR_CHANGE | IGNORE_HELD_ITEM | IGNORE_SLOWDOWNS | IGNORE_SLOWDOWNS | IGNORE_USER_DOING
+		if(!do_after(user, do_time, target = target, timed_action_flags = do_after_flags))
 			break
 
 		if(current_action == null || performed_action_type != current_action)

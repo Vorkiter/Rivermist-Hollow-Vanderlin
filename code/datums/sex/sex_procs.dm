@@ -160,13 +160,6 @@
 /mob/living/carbon/human/has_hands() // technically should be an and but i'll replicate original behavior
 	return get_bodypart(BODY_ZONE_L_ARM) || get_bodypart(BODY_ZONE_R_ARM)
 
-/mob/living/carbon/human/Initialize()
-	. = ..()
-	AddComponent(/datum/component/arousal)
-	//add_hole(ORGAN_SLOT_ANUS, /datum/component/storage/concrete/grid/hole/ass)
-	add_hole(BODY_ZONE_PRECISE_MOUTH, /datum/component/storage/concrete/grid/hole/mouth)
-
-
 /mob/living/proc/return_character_information()
 	var/list/data = list()
 	if(has_hands())
@@ -320,81 +313,64 @@
 			addtimer(CALLBACK(src, PROC_REF(give_genitals)), 1)
 
 /mob/living/proc/give_genitals()
-	/*
-	if(!sexcon)
-		sexcon = new /datum/sex_controller(src)*/
 	if(!isanimal(src))
 		var/mob/living/carbon/human/species/user = src
 		if(gender == MALE)
 			var/obj/item/organ/genitals/filling_organ/testicles/testicles = user.getorganslot(ORGAN_SLOT_TESTICLES)
-			if(testicles)
-				testicles.Remove(src,1)
-				QDEL_NULL(testicles)
-			if(!show_genitals)
-				testicles = new /obj/item/organ/genitals/filling_organ/testicles/invisible
-			else
-				testicles = new ball_organ
-			testicles.organ_size = rand(ball_min, ball_max)
-			testicles.Insert(user, TRUE)
-			var/obj/item/organ/genitals/penis/penis = user.getorganslot(ORGAN_SLOT_PENIS)
-			if(penis)
-				penis.Remove(src,1)
-				QDEL_NULL(penis)
-			if(!show_genitals)
-				penis = new /obj/item/organ/genitals/penis
-			else
-				penis = new penis_organ
-			penis.organ_size = rand(penis_min, penis_max)
-			penis.Insert(user, TRUE)
-		if(gender == FEMALE)
-			var/obj/item/organ/genitals/butt/buttie = user.getorganslot(ORGAN_SLOT_BUTT)
-			if(buttie)
-				buttie.Remove(src,1)
-				QDEL_NULL(buttie)
-			if(!show_genitals)
-				buttie = new /obj/item/organ/genitals/butt/invisible
-			else
-				buttie = new butt_organ
-			buttie.organ_size = rand(butt_min, butt_max)
-			buttie.Insert(user, TRUE)
-			var/obj/item/organ/genitals/filling_organ/breasts/breasts = user.getorganslot(ORGAN_SLOT_BREASTS)
-			if(breasts)
-				breasts.Remove(src,1)
-				QDEL_NULL(breasts)
-			if(!show_genitals)
-				breasts = new /obj/item/organ/genitals/filling_organ/breasts
-			else
-				breasts = new breast_organ
-			breasts.organ_size = rand(breast_min,breast_max)
-			breasts.Insert(user, TRUE)
-			var/obj/item/organ/genitals/filling_organ/vagina/vagina = user.getorganslot(ORGAN_SLOT_VAGINA)
-			if(vagina)
-				vagina.Remove(src,1)
-				QDEL_NULL(vagina)
-			if(!show_genitals)
-				vagina = new /obj/item/organ/genitals/filling_organ/vagina
-			else
-				vagina = new vagina_organ
-			vagina.Insert(user, TRUE)
-			if(prob(5)) //5 chance to be dickgirl.
-				var/obj/item/organ/genitals/filling_organ/testicles/testicles = user.getorganslot(ORGAN_SLOT_TESTICLES)
-				if(testicles)
-					testicles.Remove(src,1)
-					QDEL_NULL(testicles)
+			if(!testicles)
 				if(!show_genitals)
 					testicles = new /obj/item/organ/genitals/filling_organ/testicles/invisible
 				else
 					testicles = new ball_organ
 				testicles.organ_size = rand(ball_min, ball_max)
 				testicles.Insert(user, TRUE)
-				var/obj/item/organ/genitals/penis/penis = user.getorganslot(ORGAN_SLOT_PENIS)
-				if(penis)
-					penis.Remove(src,1)
-					QDEL_NULL(penis)
+			var/obj/item/organ/genitals/penis/penis = user.getorganslot(ORGAN_SLOT_PENIS)
+			if(!penis)
 				if(!show_genitals)
 					penis = new /obj/item/organ/genitals/penis
 				else
 					penis = new penis_organ
 				penis.organ_size = rand(penis_min, penis_max)
 				penis.Insert(user, TRUE)
+		if(gender == FEMALE)
+			var/obj/item/organ/genitals/butt/buttie = user.getorganslot(ORGAN_SLOT_BUTT)
+			if(!buttie)
+				if(!show_genitals)
+					buttie = new /obj/item/organ/genitals/butt/invisible
+				else
+					buttie = new butt_organ
+				buttie.organ_size = rand(butt_min, butt_max)
+				buttie.Insert(user, TRUE)
+			var/obj/item/organ/genitals/filling_organ/breasts/breasts = user.getorganslot(ORGAN_SLOT_BREASTS)
+			if(!breasts)
+				if(!show_genitals)
+					breasts = new /obj/item/organ/genitals/filling_organ/breasts
+				else
+					breasts = new breast_organ
+				breasts.organ_size = rand(breast_min,breast_max)
+				breasts.Insert(user, TRUE)
+			var/obj/item/organ/genitals/filling_organ/vagina/vagina = user.getorganslot(ORGAN_SLOT_VAGINA)
+			if(!vagina)
+				if(!show_genitals)
+					vagina = new /obj/item/organ/genitals/filling_organ/vagina
+				else
+					vagina = new vagina_organ
+				vagina.Insert(user, TRUE)
+			if(prob(5)) //5 chance to be dickgirl.
+				var/obj/item/organ/genitals/filling_organ/testicles/testicles = user.getorganslot(ORGAN_SLOT_TESTICLES)
+				if(!testicles)
+					if(!show_genitals)
+						testicles = new /obj/item/organ/genitals/filling_organ/testicles/invisible
+					else
+						testicles = new ball_organ
+					testicles.organ_size = rand(ball_min, ball_max)
+					testicles.Insert(user, TRUE)
+				var/obj/item/organ/genitals/penis/penis = user.getorganslot(ORGAN_SLOT_PENIS)
+				if(!penis)
+					if(!show_genitals)
+						penis = new /obj/item/organ/genitals/penis
+					else
+						penis = new penis_organ
+					penis.organ_size = rand(penis_min, penis_max)
+					penis.Insert(user, TRUE)
 		color_key_source_list_from_carbon(src)

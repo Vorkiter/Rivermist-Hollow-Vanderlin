@@ -7,16 +7,6 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 
 #define SEX_ACTION(sex_action_type) GLOB.sex_actions[sex_action_type]
 
-#define COMSIG_HOLE_TRY_FIT "hole_try_fit"                    // (obj/item/item, hole_id, mob/user, silent) - Try to fit an item into a specific hole
-#define COMSIG_HOLE_RETURN_INVENTORY "hole_return_inventory"   // (hole_id, mob/user) - Open/show the inventory of a specific hole to a user
-#define COMSIG_HOLE_RETURN_ITEM_LIST "hole_return_item_list"  // () - Return a simple list of all items across all holes
-#define COMSIG_HOLE_RETURN_ITEM_LIST_SINGLE "hole_return_item_list_single"  // () - Return a simple list of all items in ONE hole
-#define COMSIG_HOLE_ADD_HOLE "hole_add_hole"                  // (hole_id, hole_name, storage_type) - Add a new hole with storage capability
-#define COMSIG_HOLE_REMOVE_HOLE "hole_remove_hole"            // (hole_id) - Remove a hole and its storage
-#define COMSIG_HOLE_MODIFY_HOLE "hole_modify_hole"            // (hole_id, new_size) - Modify existing hole storage properties
-#define COMSIG_HOLE_GET_FULLNESS "hole_get_fullness"          // (hole_id) - Get fullness information for a specific hole
-#define COMSIG_HOLE_REMOVE_ITEM "hole_remove_item"			  // (hole_id, item) -  Removes a specific item from a hole
-#define COMSIG_HOLE_REMOVE_RANDOM_ITEM "hole_remove_random_item"	// (hole_id, number) -  Removes a random item from a hole
 
 #define COMSIG_SEX_ADJUST_AROUSAL "sex_adjust_arousal"                  // (amount) - Adjust arousal level
 #define COMSIG_SEX_SET_AROUSAL "sex_set_arousal"                        // (amount) - Set arousal to specific value
@@ -48,6 +38,21 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 #define COMSIG_SEX_CAN_USE_PENIS "sex_can_use_penis"
 /// Checks if user is considered limp. Return: TRUE/FALSE
 #define COMSIG_SEX_CONSIDERED_LIMP "sex_considered_limp"
+
+
+#define COMSIG_BODYSTORAGE_TRY_INSERT "hole_try_fit"			// (incoming_item, target_layer, force, override)
+#define COMSIG_BODYSTORAGE_FORCE_INSERT "hole_force_insert"		// (incoming_item, target_layer)
+#define COMSIG_BODYSTORAGE_CHECK_FIT "hole_check_fit"			// (incoming_item, target_layer, force, override)
+#define COMSIG_BODYSTORAGE_TRY_REMOVE "hole_try_remove"			// (removed_item, target_layer)
+#define COMSIG_BODYSTORAGE_FORCE_REMOVE "hole_force_remove"		// (removed_item, target_layer)
+#define COMSIG_BODYSTORAGE_GET_LISTS "hole_get_lists"           //
+#define COMSIG_BODYSTORAGE_SELECT_RAND_ITEM "hole_sel_item"		// (target_layer)
+#define COMSIG_BODYSTORAGE_REMOVE_RAND_ITEM "hole_get_item"		// (target_layer)
+#define COMSIG_BODYSTORAGE_IS_ITEM_IN "hole_check_item"			// (t_item, target_layer)
+#define COMSIG_BODYSTORAGE_IS_ITEM_TYPE_IN "hole_check_item_type"	// (type, target_layer)
+#define COMSIG_BODYSTORAGE_GET_2D_ITEM_LIST "hole_2d_list"		// ()
+#define COMSIG_BODYSTORAGE_UPDATE_SIZE "hole_update_size"	// ()
+#define COMSIG_BODYSTORAGE_SWAP_LAYERS_RAND "hole_swap_layers"	// (target_layer, force)
 
 #define SEX_SPEED_LOW 1
 #define SEX_SPEED_MID 2
@@ -186,9 +191,12 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 #define ORGAN_SLOT_TESTICLES "testicles"
 #define ORGAN_SLOT_BREASTS "breasts"
 #define ORGAN_SLOT_VAGINA "vagina"
-#define ORGAN_SLOT_ANUS "anus"					// this is a fake organ used for sex_lock - not fake anymore
+#define ORGAN_SLOT_ANUS "anus"
 #define ORGAN_SLOT_BUTT "butt"
 #define ORGAN_SLOT_BELLY "belly"
+#define ORGAN_SLOT_PUBIC "pubic"
+#define ORGAN_SLOT_LEFT_NIP "nip_l"
+#define ORGAN_SLOT_RIGHT_NIP "nip_r"
 
 #define BREAST_SIZE_FLAT 0
 #define BREAST_SIZE_VERY_SMALL 1
