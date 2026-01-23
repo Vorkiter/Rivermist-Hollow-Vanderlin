@@ -35,7 +35,8 @@
 	playsound(target, sound, 50, TRUE, -2, ignore_walls = FALSE)
 
 	var/msg = "[user] [sex_session.get_generic_force_adjective()] spanks [target]'s butt."
-	user.visible_message(sex_session.spanify_force(msg))
+	if(can_show_action_message(user, target))
+		user.visible_message(sex_session.spanify_force(msg))
 
 	// Arousal and pain logic
 	var/arousal_amt = 1.2 + (force * 0.5)

@@ -29,7 +29,8 @@
 
 /datum/sex_action/kissing/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	var/datum/sex_session/sex_session = get_sex_session(user, target)
-	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] makes out with [target]..."))
+	if(can_show_action_message(user, target))
+		user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] makes out with [target]..."))
 	user.make_sucking_noise()
 
 	sex_session.perform_sex_action(user, target, 1, 2, 0, src)

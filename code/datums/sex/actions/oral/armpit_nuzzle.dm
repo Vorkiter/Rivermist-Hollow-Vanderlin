@@ -26,7 +26,8 @@
 
 /datum/sex_action/armpit_nuzzle/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	var/datum/sex_session/sex_session = get_sex_session(user, target)
-	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] nuzzles [target]'s armpit..."))
+	if(can_show_action_message(user, target))
+		user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] nuzzles [target]'s armpit..."))
 	sex_session.perform_sex_action(user, target, 0.6, 0, 0, src)
 
 	sex_session.perform_sex_action(target, user, 0.3, 0, 0, src)
