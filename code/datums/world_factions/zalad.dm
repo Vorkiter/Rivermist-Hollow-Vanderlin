@@ -188,7 +188,8 @@
 		/datum/supply_pack/apparel/anklets,
 		/datum/supply_pack/apparel/henhelm,
 		/datum/supply_pack/jewelry/nyle,
-		/datum/supply_pack/jewelry/scom
+		/datum/supply_pack/jewelry/scom,
+		/datum/supply_pack/portals_and_fleshlight
 	)
 
 /datum/world_faction/zalad_traders/initialize_faction_stock()

@@ -1,10 +1,10 @@
 /**
  * PORTAL CONTROL RING
 */
-/obj/item/clothing/ring/portal_control //do something here
+/*/obj/item/clothing/ring/portal_control //do something here
 	name = "Portal control ring"
 	desc = "Ring to control "
-	icon_state = "g_ring_ruby"
+	icon_state = "g_ring_ruby"*/
 
 
 /**
@@ -18,7 +18,8 @@
     icon_state = "unpaired"
     var/obj/item/clothing/undies/portalpanties/linked_underwear = null
     var/mutable_appearance/organ_overlay
-    var/style = "vagina"
+    var/mutable_appearance/sleeve_overlay
+    var/org_target = ORGAN_SLOT_VAGINA
 
 /obj/item/portallight/proc/get_wearer()
     if(!linked_underwear)
@@ -31,6 +32,7 @@
 /obj/item/portallight/update_appearance()
 	. = ..()
 	cut_overlay(organ_overlay)
+	cut_overlay(sleeve_overlay)
 	icon_state = "unpaired"
 	if(!get_wearer())
 		return
@@ -40,18 +42,27 @@
 		return
 	if(user.underwear != linked_underwear)
 		return
-	organ_overlay = mutable_appearance(icon, style)
 
-	organ_overlay.color = user.get_chest_color()
+	sleeve_overlay = mutable_appearance(icon, "portal_sleeve_normal")
+	var/sleevecolor = user.skin_tone
+	sleeve_overlay.color = "#" + sleevecolor
+	add_overlay(sleeve_overlay)
+
+	if(linked_underwear.org_target == ORGAN_SLOT_VAGINA)
+		organ_overlay = mutable_appearance(icon, "portal_vag")
+	else
+		organ_overlay = mutable_appearance(icon, "portal_anus")
+	organ_overlay.color = "#f37272"
+	add_overlay(organ_overlay)
+
 	icon_state = "paired"
 
-	add_overlay(organ_overlay)
 
 /obj/item/portallight/attack_self(mob/user, params)
 	if(!linked_underwear)
 		to_chat(user, span_info("The portal isn't connected to anything!"))
 		return FALSE
-	var/mob/living/carbon/human/target = linked_underwear.current_wearer
+	var/mob/living/carbon/human/target = get_wearer()
 	if(!target)
 		to_chat(user, span_info("There's no one on \the other side!"))
 		return FALSE
@@ -63,6 +74,27 @@
 		session.show_ui()
 	. = ..()
 
+/obj/item/portallight/MiddleClick(mob/user, params)
+	. = ..()
+	if(!linked_underwear)
+		to_chat(user, span_info("The portal isn't connected to anything!"))
+		return
+	var/mob/living/carbon/human/target = get_wearer()
+	if(!target)
+		to_chat(user, span_info("There's no one on \the other side!"))
+		return
+	if(linked_underwear.org_target == ORGAN_SLOT_VAGINA)
+		to_chat(user, span_info("You refocus \the portal to [target]'s backside!"))
+		org_target = ORGAN_SLOT_ANUS
+		linked_underwear.org_target = ORGAN_SLOT_ANUS
+		update_appearance()
+		return
+	else if(target.getorganslot(ORGAN_SLOT_VAGINA))
+		to_chat(user, span_info("You refocus \the portal to [target]'s loins!"))
+		org_target = ORGAN_SLOT_VAGINA
+		linked_underwear.org_target = ORGAN_SLOT_VAGINA
+		update_appearance()
+		return
 /**
  * PORTAL PANTIES
 */
@@ -74,10 +106,22 @@
     icon_state = "portalpanties"
     var/obj/item/portallight/linked_light = null
     var/mob/living/carbon/human/current_wearer = null
+    var/org_target = ORGAN_SLOT_VAGINA
 
 /obj/item/clothing/undies/portalpanties/equipped(mob/living/carbon/human/H, slot)
 	. = ..()
 	current_wearer = H
+	if(current_wearer.getorganslot(ORGAN_SLOT_VAGINA))
+		org_target = ORGAN_SLOT_VAGINA
+		to_chat(current_wearer, span_info("You feel magical energies focus around your loins."))
+		if(linked_light)
+			linked_light.org_target = ORGAN_SLOT_VAGINA
+	else
+		org_target = ORGAN_SLOT_ANUS
+		to_chat(current_wearer, span_info("You feel magical energies focus around your backside."))
+		if(linked_light)
+			linked_light.org_target = ORGAN_SLOT_ANUS
+
 	if(linked_light)
 
 		linked_light.linked_underwear = src
@@ -115,6 +159,7 @@
 
     linked_light = P
     linked_light.update_appearance()
+    linked_light.org_target = org_target
 
     P.linked_underwear = src
 
@@ -137,6 +182,8 @@
 
 	var/obj/item/portallight/L = user.get_active_held_item()
 	if(!istype(L, /obj/item/portallight))
+		return FALSE
+	if(hole_id != L.org_target && !isnull(hole_id))
 		return FALSE
 	return TRUE
 
@@ -200,23 +247,17 @@
  * SEX ACTION: PORTAL ORAL
 */
 
-/datum/sex_action/portal_base/portal_vaginal_oral
-    name = "Portal Pussy Oral"
+/datum/sex_action/portal_base/portal_oral
+    name = "Portal Oral"
     target_priority = 70
     gags_user = TRUE
 
-/datum/sex_action/portal_base/portal_vaginal_oral/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	. = ..()
-	if(!target.getorganslot(ORGAN_SLOT_VAGINA))
-		return FALSE
-	return TRUE
-
-/datum/sex_action/portal_base/portal_vaginal_oral/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/sex_action/portal_base/portal_oral/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	to_chat(user, span_warning("You press your mouth to \the portal, reaching [target]."))
 	to_chat(target, span_love("Warm sensations bloom between your legs!"))
 
-/datum/sex_action/portal_base/portal_vaginal_oral/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/sex_action/portal_base/portal_oral/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
     var/datum/sex_session/sex_session = get_sex_session(user, target)
     if(!sex_session)
         sex_session = new(user, target)
@@ -227,14 +268,14 @@
     sex_session.perform_sex_action(target, user, 2, 3, 2, src)
     sex_session.handle_passive_ejaculation(target)
 
-/datum/sex_action/portal_base/portal_vaginal_oral/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target, must_flip)
+/datum/sex_action/portal_base/portal_oral/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target, must_flip)
 	if(must_flip)
 		to_chat(user, span_love("You climax from \the portal oral! Your body shudders in ecstasy."))
 		user.visible_message(span_love("[user] shudders and moans, their legs almost giving out!"))
 		to_chat(target, span_love("You bring [user] to climax through \the portal!"))
 		return ORGASM_LOCATION_ORAL
 
-/datum/sex_action/portal_base/portal_vaginal_oral/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/sex_action/portal_base/portal_oral/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	to_chat(user, span_notice("You pull back from \the portal."))
 	to_chat(target, span_notice("The sensations from \the portal fade away."))
@@ -244,7 +285,7 @@
 */
 
 /datum/sex_action/portal_base/portal_penis_vaginal
-    name = "Portal Fuck"
+    name = "Portal Pussy Fuck"
     target_priority = 80
     stamina_cost = 1.0
     hole_id = ORGAN_SLOT_VAGINA
@@ -261,8 +302,8 @@
 
 /datum/sex_action/portal_base/portal_penis_vaginal/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
-	to_chat(user, span_warning("You slide your cock into \the portal, reaching [target]."))
-	to_chat(target, span_love("You feel penetration through \the portal!"))
+	to_chat(user, span_warning("You slide your cock into \the portal, reaching [target]'s pussy."))
+	to_chat(target, span_love("You feel feel someting penetrating your pussy through \the portal!"))
 
 /datum/sex_action/portal_base/portal_penis_vaginal/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
     var/datum/sex_session/sex_session = get_sex_session(user, target)
@@ -291,6 +332,62 @@
 		return ORGASM_LOCATION_INTO
 
 /datum/sex_action/portal_base/portal_penis_vaginal/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	. = ..()
+	to_chat(user, span_notice("You pull your cock back from \the portal."))
+	to_chat(target, span_notice("The penetration through \the portal ends."))
+
+/**
+ * SEX ACTION: PORTAL PENIS
+*/
+
+/datum/sex_action/portal_base/portal_penis_anal
+    name = "Portal Ass Fuck"
+    target_priority = 80
+    stamina_cost = 1.0
+    hole_id = ORGAN_SLOT_ANUS
+
+/datum/sex_action/portal_base/portal_penis_anal/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	. = ..()
+	if(!user.getorganslot(ORGAN_SLOT_PENIS))
+		return FALSE
+	if(check_sex_lock(user, ORGAN_SLOT_PENIS))
+		return FALSE
+	if(!target.getorganslot(ORGAN_SLOT_ANUS))
+		return FALSE
+	return TRUE
+
+/datum/sex_action/portal_base/portal_penis_anal/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	. = ..()
+	to_chat(user, span_warning("You slide your cock into \the portal, reaching [target]'s ass."))
+	to_chat(target, span_love("You feel someting penetrating your ass through \the portal!"))
+
+/datum/sex_action/portal_base/portal_penis_anal/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
+    var/datum/sex_session/sex_session = get_sex_session(user, target)
+    if(!sex_session)
+        sex_session = new(user, target)
+    do_thrust_animate(user, user)
+    if(can_show_action_message(user, target))
+        to_chat(user, sex_session.spanify_force("You [sex_session.get_generic_force_adjective()] fuck \the [target]'s ass through \the portal."))
+        to_chat(target, sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] fucks your ass through \the portal."))
+    sex_session.perform_sex_action(user, target, 2, 0, 2, src)
+    sex_session.perform_sex_action(target, user, 2, 3, 2, src)
+    sex_session.handle_passive_ejaculation(target)
+    sex_session.handle_passive_ejaculation(user)
+    playsound(user, sex_session.get_force_sound(), 50, TRUE, -2, ignore_walls = FALSE)
+
+/datum/sex_action/portal_base/portal_penis_anal/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target, must_flip)
+	if(must_flip)
+		to_chat(user, span_love("You cum from \the portal fuck! Your body trembles in ecstasy."))
+		user.virginity = FALSE
+		target.virginity = FALSE
+		return ORGASM_LOCATION_SELF
+	else
+		to_chat(user, span_love("You cum inside [target]! You shudder with pleasure."))
+		user.virginity = FALSE
+		target.virginity = FALSE
+		return ORGASM_LOCATION_INTO
+
+/datum/sex_action/portal_base/portal_penis_anal/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	to_chat(user, span_notice("You pull your cock back from \the portal."))
 	to_chat(target, span_notice("The penetration through \the portal ends."))
@@ -497,3 +594,14 @@
 		user.put_in_active_hand(removed_item)
 	sex_session.perform_sex_action(user, target, 0.5, pain_amt, 0.5, src)
 	sex_session.handle_passive_ejaculation()
+
+/**
+ * CRAFT AND SUPPLY
+*/
+/datum/supply_pack/portals_and_fleshlight
+	name = "Set of Portal Smallclothes"
+	cost = 200
+	contains = list(
+		/obj/item/portallight,
+		/obj/item/clothing/undies/portalpanties
+		)

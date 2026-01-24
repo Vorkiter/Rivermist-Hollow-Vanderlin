@@ -218,7 +218,8 @@
 		/datum/supply_pack/weapons/ammo/fuseparchment,
 		/datum/supply_pack/weapons/ranged/cannon,
 		/datum/supply_pack/apparel/bellcollar,
-		/datum/supply_pack/weapons/ammo/powder
+		/datum/supply_pack/weapons/ammo/powder,
+		/datum/supply_pack/portals_and_fleshlight
 	)
 
 /datum/world_faction/coastal_merchants/initialize_faction_stock()

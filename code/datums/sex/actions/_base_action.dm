@@ -92,7 +92,6 @@
 	/// Sound volume for actions
 	var/action_volume = 50
 	/// So that we don't spam messages with every thrust for example
-	var/last_message_time = 0
 	var/next_message_time = 0
 
 /datum/sex_action/Destroy()
@@ -364,12 +363,11 @@
 
 
 /datum/sex_action/proc/can_show_action_message(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	if(last_message_time >= next_message_time)
+	if(world.time >= next_message_time)
 		var/datum/sex_session/sex_session = get_sex_session(user, target)
 		var/speed_time = 40
 		if(sex_session)
 			speed_time = rand(10, 100 - sex_session.get_current_speed() * 10)
-		last_message_time = world.time
 		next_message_time = world.time + speed_time
 		return TRUE
 	return FALSE
