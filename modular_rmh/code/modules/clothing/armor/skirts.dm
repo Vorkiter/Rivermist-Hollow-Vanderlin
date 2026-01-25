@@ -60,11 +60,9 @@
 
 ///RECIPES
 
-/datum/repeatable_crafting_recipe/sewing/leatherskirt
+/datum/repeatable_crafting_recipe/leather/leatherskirt
 	name = "leather skirt"
-	output = list(/obj/item/clothing/pants/trou/leather/skirt)
-	requirements = list(/obj/item/natural/hide = 1,
-	/obj/item/reagent_containers/food/snacks/tallow = 1)
+	output = /obj/item/clothing/pants/trou/leather/skirt
 
 /datum/repeatable_crafting_recipe/leather/standalone/hlskirt
 	name = "hardened leather skirt"
@@ -84,21 +82,25 @@
 
 /datum/anvil_recipe/armor/iron/studdedskirt
 	name = "Studded Skirt (+1 Leather Skirt)"
+	recipe_name = "studded leather skirt"
 	additional_items = list(/obj/item/clothing/pants/trou/leather/skirt)
 	created_item = /obj/item/clothing/pants/chainlegs/iron/studdedskirt
 
 /datum/anvil_recipe/armor/steel/chainskirt
 	name = "Chain Skirt"
+	recipe_name = "chain skirt"
 	created_item = /obj/item/clothing/pants/chainlegs/skirt
 	craftdiff = 2
 
 /datum/anvil_recipe/armor/iron/ichainskirt
 	name = "Iron Chain Skirt"
+	recipe_name = "iron chain skirt"
 	created_item = /obj/item/clothing/pants/chainlegs/iron/skirt
 	craftdiff = 1
 
 /datum/anvil_recipe/armor/steel/plateskirt
-	name = "Plate Tassets (+1 Steel)"
+	name = "Plate Skirt (+1 Steel)"
+	recipe_name = "plated skirt"
 	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/clothing/pants/platelegs/skirt
 	craftdiff = 4	//It's plate, no easy craft.
@@ -125,18 +127,18 @@
 
 /datum/repeatable_crafting_recipe/conversion/leatherskirtconv
 	name = "leather skirt"
-	output = list(/obj/item/clothing/pants/trou/leather/skirt)
+	output = /obj/item/clothing/pants/trou/leather/skirt
 	requirements = list(/obj/item/clothing/pants/trou/leather = 1)
 	attacked_atom = /obj/item/clothing/pants/trou/leather
 
 /datum/repeatable_crafting_recipe/conversion/leatherskirtconvtwo
 	name = "hardened leather skirt"
-	output = list(/obj/item/clothing/pants/trou/leather/advanced/skirt)
+	output = /obj/item/clothing/pants/trou/leather/advanced/skirt
 	requirements = list(/obj/item/clothing/pants/trou/leather/advanced = 1)
 	attacked_atom = /obj/item/clothing/pants/trou/leather/advanced
 
 /datum/repeatable_crafting_recipe/conversion/leatherskirtconvthree
 	name = "masterwork leather skirt"
-	output = list(/obj/item/clothing/pants/trou/leather/masterwork/skirt)
+	output = /obj/item/clothing/pants/trou/leather/masterwork/skirt
 	requirements = list(/obj/item/clothing/pants/trou/leather/masterwork/skirt = 1)
 	attacked_atom = /obj/item/clothing/pants/trou/leather/masterwork
