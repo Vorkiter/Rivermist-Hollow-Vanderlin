@@ -60,10 +60,9 @@
 
 ///RECIPES
 
-/datum/repeatable_crafting_recipe/sewing/leatherskirt
+/datum/repeatable_crafting_recipe/leather/leatherskirt
 	name = "leather skirt"
 	output = list(/obj/item/clothing/pants/trou/leather/skirt)
-	requirements = list(/obj/item/natural/hide = 1)
 
 /datum/repeatable_crafting_recipe/leather/standalone/hlskirt
 	name = "hardened leather skirt"

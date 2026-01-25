@@ -193,7 +193,7 @@
 	is_bra = TRUE
 
 /obj/item/clothing/armor/chainmail/bikini
-	name = "haubergon bikini"
+	name = "haubergeon bikini"
 	desc = "Try not to get your nipples caught between the chains, and other bits."
 	icon = 'modular_rmh/icons/clothing/armor/armor.dmi'
 	mob_overlay_icon = 'modular_rmh/icons/clothing/armor/onmob/armor.dmi'
@@ -204,7 +204,7 @@
 	flags_inv = HIDEBOOB|HIDECROTCH
 
 /obj/item/clothing/armor/chainmail/bikini/bra
-	name = "haubergon bra"
+	name = "haubergeon bra"
 	icon_state = "chainbra"
 	item_state = "chainbra"
 	desc = "Try not to get your nipples caught between the chains."
@@ -212,7 +212,7 @@
 	is_bra = TRUE
 
 /obj/item/clothing/armor/chainmail/iron/bikini
-	name = "maille bikini"
+	name = "iron haubergeon bikini"
 	desc = "Try not to get your nipples caught between the chains, and other bits."
 	icon = 'modular_rmh/icons/clothing/armor/armor.dmi'
 	mob_overlay_icon = 'modular_rmh/icons/clothing/armor/onmob/armor.dmi'
@@ -224,7 +224,7 @@
 	flags_inv = HIDEBOOB|HIDECROTCH
 
 /obj/item/clothing/armor/chainmail/iron/bikini/bra
-	name = "maille bra"
+	name = "iron haubergeon bra"
 	icon_state = "chainbra"
 	item_state = "chainbra"
 	color = "#9EA48E"
