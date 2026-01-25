@@ -193,7 +193,7 @@
 	is_bra = TRUE
 
 /obj/item/clothing/armor/chainmail/bikini
-	name = "haubergon bikini"
+	name = "haubergeon bikini"
 	desc = "Try not to get your nipples caught between the chains, and other bits."
 	icon = 'modular_rmh/icons/clothing/armor/armor.dmi'
 	mob_overlay_icon = 'modular_rmh/icons/clothing/armor/onmob/armor.dmi'
@@ -204,7 +204,7 @@
 	flags_inv = HIDEBOOB|HIDECROTCH
 
 /obj/item/clothing/armor/chainmail/bikini/bra
-	name = "haubergon bra"
+	name = "haubergeon bra"
 	icon_state = "chainbra"
 	item_state = "chainbra"
 	desc = "Try not to get your nipples caught between the chains."
@@ -212,7 +212,7 @@
 	is_bra = TRUE
 
 /obj/item/clothing/armor/chainmail/iron/bikini
-	name = "maille bikini"
+	name = "iron haubergeon bikini"
 	desc = "Try not to get your nipples caught between the chains, and other bits."
 	icon = 'modular_rmh/icons/clothing/armor/armor.dmi'
 	mob_overlay_icon = 'modular_rmh/icons/clothing/armor/onmob/armor.dmi'
@@ -224,7 +224,7 @@
 	flags_inv = HIDEBOOB|HIDECROTCH
 
 /obj/item/clothing/armor/chainmail/iron/bikini/bra
-	name = "maille bra"
+	name = "iron haubergeon bra"
 	icon_state = "chainbra"
 	item_state = "chainbra"
 	color = "#9EA48E"
@@ -359,8 +359,9 @@
 	created_item = /obj/item/clothing/armor/brigandine/bikini
 	craftdiff = 3
 
+//naming those bra still so its easier to find in list when needed, than top.
 /datum/anvil_recipe/armor/steel/brigadinebra
-	name = "Brigandine Top (+1 Steel Bar, +1 Cured Leather, +1 Cloth)"
+	name = "Brigandine Bra (+1 Steel Bar, +1 Cured Leather, +1 Cloth)"
 	recipe_name = "a Brigandine Top"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel, /obj/item/natural/hide/cured, /obj/item/natural/cloth)
@@ -445,36 +446,52 @@
 	additional_items = list(/obj/item/clothing/armor/leather, /obj/item/natural/hide/cured)
 	created_item = /obj/item/clothing/armor/leather/studded/bikini
 
+/datum/anvil_recipe/armor/iron/ironchainbikini
+	name = "Haubergeon Bikini"
+	recipe_name = "chain bikini"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/armor/chainmail/iron/bikini
+
 /datum/anvil_recipe/armor/iron/ironchainbra
-	name = "Maille bikini"
+	name = "Haubergeon bra"
+	recipe_name = "chain bra"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/clothing/armor/chainmail/iron/bikini/bra
 
 /datum/anvil_recipe/armor/steel/chainkini
-	name = "Haubergon bikini (+1 Cloth)"
-	additional_items = list(/obj/item/natural/cloth)
+	name = "Haubergeon bikini"
+	recipe_name = "chain bikini"
 	created_item = /obj/item/clothing/armor/chainmail/bikini
+
+/datum/anvil_recipe/armor/steel/chainkinibra
+	name = "Haubergeon bra"
+	recipe_name = "chain bra"
+	created_item = /obj/item/clothing/armor/chainmail/bikini/bra
 
 /datum/anvil_recipe/armor/steel/platebikini
 	name = "Half-Plate bikini (+1 Steel, +1 Cured Leather)"
+	recipe_name = "haşfplate bikini"
 	additional_items = list(/obj/item/ingot/steel, /obj/item/natural/hide/cured)
 	created_item = /obj/item/clothing/armor/plate/bikini
 	craftdiff = 3
 
 /datum/anvil_recipe/armor/steel/platebra
 	name = "Half-Plate Bra (+1 Steel, +1 Cured Leather)"
+	recipe_name = "halfplate bra"
 	additional_items = list(/obj/item/ingot/steel, /obj/item/natural/hide/cured)
 	created_item = /obj/item/clothing/armor/plate/bikini/bra
 	craftdiff = 3
 
 /datum/anvil_recipe/armor/steel/fullplatebikini
 	name = "Full-Plate bikini (+2 Steel, +1 Cured Leather)"
+	recipe_name = "fullplate bikini"
 	additional_items = list(/obj/item/ingot/steel, /obj/item/ingot/steel, /obj/item/natural/hide/cured)
 	created_item = /obj/item/clothing/armor/plate/full/bikini
 	craftdiff = 4
 
 /datum/anvil_recipe/armor/steel/platefullbra
 	name = "Full-Plate Bra (+2 Steel, +1 Cured Leather)"
+	recipe_name = "fullplate bra"
 	additional_items = list(/obj/item/ingot/steel, /obj/item/ingot/steel, /obj/item/natural/hide/cured)
 	created_item = /obj/item/clothing/armor/plate/full/bikini/bra
 	craftdiff = 4
@@ -513,19 +530,6 @@
 				/obj/item/natural/fibers = 1)
 	craftdiff = 5
 
-/datum/repeatable_crafting_recipe/leather/bikini
-	name = "leather bikini (2 leather)"
-	output = /obj/item/clothing/armor/leather/bikini
-	requirements = list(/obj/item/natural/hide/cured = 2)
-	sellprice = 26
-
-/datum/repeatable_crafting_recipe/leather/hidebikini
-	name = "hide bikini (2 leather, 1 fur)"
-	output = /obj/item/clothing/armor/leather/hide/bikini
-	requirements = list(/obj/item/natural/hide/cured = 2,
-				/obj/item/natural/fur = 1)
-	sellprice = 26
-
 /datum/repeatable_crafting_recipe/leather/armor/bikini
 	name = "leather bikini armor"
 	requirements = list(
@@ -543,7 +547,6 @@
 	)
 	output = /obj/item/clothing/armor/leather/bikini/bra
 	craftdiff = 1
-
 
 /datum/repeatable_crafting_recipe/leather/hidearmor/bikini
 	name = "hide bikini armor"
@@ -690,13 +693,13 @@
 
 /datum/repeatable_crafting_recipe/conversion/studdedconvone
 	name = "studded armor bikini"
-	output = list(/obj/item/clothing/armor/leather/studded/bikini)
+	output = /obj/item/clothing/armor/leather/studded/bikini
 	requirements = list(/obj/item/clothing/armor/leather/studded = 1)
 	attacked_atom = /obj/item/clothing/armor/leather/studded
 
 /datum/repeatable_crafting_recipe/conversion/studdedconvtwo
 	name = "studded bra"
-	output = list(/obj/item/clothing/armor/leather/studded/bikini/bra)
+	output = /obj/item/clothing/armor/leather/studded/bikini/bra
 	requirements = list(/obj/item/clothing/armor/leather/studded/bikini = 1)
 	attacked_atom = /obj/item/clothing/armor/leather/studded/bikini
 
@@ -714,36 +717,36 @@
 
 /datum/repeatable_crafting_recipe/conversion/ichainkiniconv
 	name = "chainmail bra"
-	output = list(/obj/item/clothing/armor/chainmail/iron/bikini/bra)
+	output = /obj/item/clothing/armor/chainmail/iron/bikini/bra
 	requirements = list(/obj/item/clothing/armor/chainmail/iron/bikini = 1)
 	attacked_atom = /obj/item/clothing/armor/chainmail/iron/bikini
 
 /datum/repeatable_crafting_recipe/conversion/chainkiniconv
 	name = "chainmail bra"
-	output = list(/obj/item/clothing/armor/chainmail/bikini/bra)
+	output = /obj/item/clothing/armor/chainmail/bikini/bra
 	requirements = list(/obj/item/clothing/armor/chainmail/bikini = 1)
 	attacked_atom = /obj/item/clothing/armor/chainmail/bikini
 
 /datum/repeatable_crafting_recipe/conversion/halfplateconvone
 	name = "halfplate armor bikini"
-	output = list(/obj/item/clothing/armor/plate/bikini)
+	output = /obj/item/clothing/armor/plate/bikini
 	requirements = list(/obj/item/clothing/armor/plate = 1)
 	attacked_atom = /obj/item/clothing/armor/plate
 
 /datum/repeatable_crafting_recipe/conversion/halfplateconvtwo
 	name = "halfplate bra"
-	output = list(/obj/item/clothing/armor/plate/bikini/bra)
+	output = /obj/item/clothing/armor/plate/bikini/bra
 	requirements = list(/obj/item/clothing/armor/plate/bikini = 1)
 	attacked_atom = /obj/item/clothing/armor/plate/bikini
 
 /datum/repeatable_crafting_recipe/conversion/halfplateconvone
 	name = "fullplate armor bikini"
-	output = list(/obj/item/clothing/armor/plate/full/bikini)
+	output = /obj/item/clothing/armor/plate/full/bikini
 	requirements = list(/obj/item/clothing/armor/plate/full = 1)
 	attacked_atom = /obj/item/clothing/armor/plate/full
 
 /datum/repeatable_crafting_recipe/conversion/halfplateconvtwo
 	name = "fullplate bra"
-	output = list(/obj/item/clothing/armor/plate/full/bikini/bra)
+	output = /obj/item/clothing/armor/plate/full/bikini/bra
 	requirements = list(/obj/item/clothing/armor/plate/full/bikini = 1)
 	attacked_atom = /obj/item/clothing/armor/plate/full/bikini

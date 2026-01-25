@@ -26,10 +26,10 @@
 	name = "Studded Leather Armor (+Leather Armor)"
 	recipe_name = "studded light armor"
 	additional_items = list(/obj/item/clothing/armor/leather)
-	created_item = /datum/anvil_recipe/armor/iron/studded
+	created_item = /obj/item/clothing/armor/leather/studded
 
 /datum/anvil_recipe/armor/iron/studded/mail
 	name = "Studded Leather mail (+Leather Armor, +1 cured leather)"
 	recipe_name = "studded light mail armor"
 	additional_items = list(/obj/item/clothing/armor/leather, /obj/item/natural/hide/cured)
-	created_item = /datum/anvil_recipe/armor/iron/studded
+	created_item = /obj/item/clothing/armor/leather/studded/mail
