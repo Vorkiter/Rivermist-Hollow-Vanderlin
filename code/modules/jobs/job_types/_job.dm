@@ -211,25 +211,37 @@
 /datum/job/New()
 	. = ..()
 	if(give_bank_account)
-		for(var/X in GLOB.peasant_positions)
+		for(var/X in GLOB.lords_positions)
 			peopleiknow += X
 			peopleknowme += X
-		for(var/X in GLOB.serf_positions)
+		for(var/X in GLOB.keep_positions)
 			peopleiknow += X
 			peopleknowme += X
-		for(var/X in GLOB.company_positions)
+		for(var/X in GLOB.townhall_positions)
 			peopleiknow += X
 			peopleknowme += X
-		for(var/X in GLOB.church_positions)
+		for(var/X in GLOB.townwatch_positions)
 			peopleiknow += X
 			peopleknowme += X
-		for(var/X in GLOB.garrison_positions)
+		for(var/X in GLOB.chapel_positions)
 			peopleiknow += X
 			peopleknowme += X
-		for(var/X in GLOB.noble_positions)
+		for(var/X in GLOB.scholars_positions)
 			peopleiknow += X
 			peopleknowme += X
-		for(var/X in GLOB.apprentices_positions)
+		for(var/X in GLOB.traders_positions)
+			peopleiknow += X
+			peopleknowme += X
+		for(var/X in GLOB.tavern_positions)
+			peopleiknow += X
+			peopleknowme += X
+		for(var/X in GLOB.town_positions)
+			peopleiknow += X
+			peopleknowme += X
+		for(var/X in GLOB.outsiders_positions)
+			peopleiknow += X
+			peopleknowme += X
+		for(var/X in GLOB.adventurers_positions)
 			peopleiknow += X
 			peopleknowme += X
 

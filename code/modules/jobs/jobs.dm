@@ -1,77 +1,62 @@
-GLOBAL_LIST_INIT(noble_positions, list(
+GLOBAL_LIST_INIT(lords_positions, list(
+
+))
+GLOBAL_PROTECT(lords_positions)
+
+GLOBAL_LIST_INIT(keep_positions, list(
+
+))
+GLOBAL_PROTECT(keep_positions)
+
+GLOBAL_LIST_INIT(townhall_positions, list(
 	/datum/job/roguetown/village/townmaster::title,
-	/datum/job/hand::title,
-	/datum/job/captain::title,
-	/datum/job/steward::title,
-	/datum/job/magician::title,
-	/datum/job/archivist::title,
-	/datum/job/minor_noble::title,
 ))
-GLOBAL_PROTECT(noble_positions)
+GLOBAL_PROTECT(townhall_positions)
 
-GLOBAL_LIST_INIT(garrison_positions, list(
-	/datum/job/veteran::title,
-	/datum/job/guardsman::title,
-	/datum/job/lieutenant::title,
-	/datum/job/dungeoneer::title,
-	/datum/job/persistence/caravanguard::title,
-	))
-GLOBAL_PROTECT(garrison_positions)
+GLOBAL_LIST_INIT(townwatch_positions, list(
 
-GLOBAL_LIST_INIT(church_positions, list(
-	/datum/job/priest::title,
-	/datum/job/monk::title,
-	))
-GLOBAL_PROTECT(church_positions)
-
-GLOBAL_LIST_INIT(serf_positions, list(
-	/datum/job/innkeep::title,
-	/datum/job/armorsmith::title,
-	/datum/job/weaponsmith::title,
-	/datum/job/tailor::title,
-	/datum/job/artificer::title,
-	/datum/job/matron::title,
-	/datum/job/feldsher::title,
-	/datum/job/apothecary::title,
-	/datum/job/gaffer::title,
-	/datum/job/persistence/carpenter::title,
-	/datum/job/persistence/stonemason::title,
-	))
-GLOBAL_PROTECT(serf_positions)
-
-GLOBAL_LIST_INIT(peasant_positions, list(
-	/datum/job/farmer::title,
-	/datum/job/miner::title,
-	/datum/job/butcher::title,
-	/datum/job/cook::title,
-	/datum/job/carpenter::title,
-	/datum/job/mason::title,
-	/datum/job/jester::title,
-	/datum/job/hunter::title,
-	/datum/job/fisher::title,
-	/datum/job/bard::title,
-	/datum/job/persistence/woodsman::title,
-	/datum/job/persistence/miner::title,
-	/datum/job/persistence/farmer::title,
 ))
-GLOBAL_PROTECT(peasant_positions)
+GLOBAL_PROTECT(chapel_positions)
 
-GLOBAL_LIST_INIT(apprentices_positions, list(
-	/datum/job/bapprentice::title,
-	/datum/job/mageapprentice::title,
-	/datum/job/servant::title,
-	/datum/job/tapster::title,
-	/datum/job/gaffer_assistant::title,
-	/datum/job/clinicapprentice::title,
-	))
-GLOBAL_PROTECT(apprentices_positions)
+GLOBAL_LIST_INIT(chapel_positions, list(
 
-GLOBAL_LIST_INIT(company_positions, list(
-	/datum/job/merchant::title,
-	/datum/job/shophand::title,
-	/datum/job/grabber::title,
-	))
-GLOBAL_PROTECT(company_positions)
+))
+GLOBAL_PROTECT(townwatch_positions)
+
+GLOBAL_LIST_INIT(scholars_positions, list(
+
+))
+GLOBAL_PROTECT(scholars_positions)
+
+GLOBAL_LIST_INIT(traders_positions, list(
+
+))
+GLOBAL_PROTECT(traders_positions)
+
+GLOBAL_LIST_INIT(tavern_positions, list(
+
+))
+GLOBAL_PROTECT(tavern_positions)
+
+GLOBAL_LIST_INIT(town_positions, list(
+
+))
+GLOBAL_PROTECT(town_positions)
+
+GLOBAL_LIST_INIT(outsiders_positions, list(
+
+))
+GLOBAL_PROTECT(outsiders_positions)
+
+GLOBAL_LIST_INIT(adventurers_positions, list(
+
+))
+GLOBAL_PROTECT(adventurers_positions)
+
+GLOBAL_LIST_INIT(villains_positions, list(
+
+))
+GLOBAL_PROTECT(villains_positions)
 
 GLOBAL_LIST_INIT(allmig_positions, list(
 	/datum/job/adventurer::title,
@@ -89,14 +74,18 @@ GLOBAL_LIST_EMPTY(job_assignment_order)
 
 /proc/get_job_assignment_order()
 	var/list/sorting_order = list()
-	sorting_order += GLOB.noble_positions
-	sorting_order += GLOB.garrison_positions
-	sorting_order += GLOB.church_positions
-	sorting_order += GLOB.serf_positions
-	sorting_order += GLOB.company_positions
-	sorting_order += GLOB.peasant_positions
-	sorting_order += GLOB.apprentices_positions
-	sorting_order += GLOB.allmig_positions
+	sorting_order += GLOB.lords_positions
+	sorting_order += GLOB.keep_positions
+	sorting_order += GLOB.townhall_positions
+	sorting_order += GLOB.townwatch_positions
+	sorting_order += GLOB.chapel_positions
+	sorting_order += GLOB.scholars_positions
+	sorting_order += GLOB.traders_positions
+	sorting_order += GLOB.tavern_positions
+	sorting_order += GLOB.town_positions
+	sorting_order += GLOB.outsiders_positions
+	sorting_order += GLOB.adventurers_positions
+	sorting_order += GLOB.villains_positions
 	return sorting_order
 
 GLOBAL_LIST_INIT(exp_specialmap, list(

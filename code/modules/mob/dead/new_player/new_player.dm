@@ -457,13 +457,18 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.txt"))
 	var/column_counter = 0
 
 	var/static/list/omegalist = list(
-		GLOB.noble_positions,
-		GLOB.garrison_positions,
-		GLOB.church_positions,
-		GLOB.peasant_positions,
-		GLOB.apprentices_positions,
-		GLOB.serf_positions,
-		GLOB.company_positions,
+		GLOB.lords_positions,
+		GLOB.keep_positions,
+		GLOB.townhall_positions,
+		GLOB.townwatch_positions,
+		GLOB.chapel_positions,
+		GLOB.scholars_positions,
+		GLOB.traders_positions,
+		GLOB.tavern_positions,
+		GLOB.town_positions,
+		GLOB.outsiders_positions,
+		GLOB.adventurers_positions,
+		GLOB.villains_positions,
 		GLOB.allmig_positions,
 	)
 
@@ -550,7 +555,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.txt"))
 						if(new_slots > job_datum.spawn_positions)
 							job_datum.set_spawn_and_total_positions(get_total_town_members())
 					var/command_bold = ""
-					if(job in GLOB.noble_positions)
+					if(job in GLOB.lords_positions)
 						command_bold = " command"
 					var/used_name = job_datum.title
 					if(client.prefs.gender == FEMALE && job_datum.f_title)

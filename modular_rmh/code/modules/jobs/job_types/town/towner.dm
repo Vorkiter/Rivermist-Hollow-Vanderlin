@@ -21,17 +21,3 @@
 
 /datum/job/towner/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
-
-/datum/job/towner/New()
-	. = ..()
-	for(var/X in GLOB.peasant_positions)
-		peopleiknow += X
-		peopleknowme += X
-	for(var/X in GLOB.serf_positions)
-		peopleiknow += X
-	for(var/X in GLOB.church_positions)
-		peopleiknow += X
-	for(var/X in GLOB.garrison_positions)
-		peopleiknow += X
-	for(var/X in GLOB.noble_positions)
-		peopleiknow += X

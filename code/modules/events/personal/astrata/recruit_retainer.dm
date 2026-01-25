@@ -21,7 +21,7 @@
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/astrata))
 			continue
-		if(!human_mob.is_noble() || (human_mob.mind?.assigned_role.title in GLOB.church_positions))
+		if(!human_mob.is_noble() || (human_mob.mind?.assigned_role.title in GLOB.chapel_positions))
 			continue
 		if(human_mob.get_spell(/datum/action/cooldown/spell/undirected/list_target/convert_role))
 			continue
@@ -38,7 +38,7 @@
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/astrata))
 			continue
-		if(!human_mob.is_noble() || (human_mob.mind?.assigned_role.title in GLOB.church_positions))
+		if(!human_mob.is_noble() || (human_mob.mind?.assigned_role.title in GLOB.chapel_positions))
 			continue
 		if(human_mob.get_spell(/datum/action/cooldown/spell/undirected/list_target/convert_role))
 			continue

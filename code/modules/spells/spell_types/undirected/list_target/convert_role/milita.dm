@@ -13,7 +13,7 @@
 		return
 
 	//only migrants and peasants
-	if(!(cast_on.job in GLOB.peasant_positions))
+	if(!(cast_on.job in GLOB.town_positions))
 		return FALSE
 
 	return TRUE

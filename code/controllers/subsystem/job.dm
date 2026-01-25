@@ -111,7 +111,7 @@ SUBSYSTEM_DEF(job)
 	JobDebug("GRJ Giving random job, Player: [player]")
 	. = FALSE
 	for(var/datum/job/job as anything in shuffle(joinable_occupations))
-		if(job.title in GLOB.noble_positions) //If you want a command position, select it!
+		if(job.title in GLOB.lords_positions) //If you want a command position, select it!
 			continue
 
 		if(is_role_banned(player.ckey, job.title) || QDELETED(player))

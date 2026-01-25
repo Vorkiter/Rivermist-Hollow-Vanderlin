@@ -1,13 +1,18 @@
 
 /proc/reopen_roundstart_suicide_roles()
 	var/list/valid_positions = list()
-	valid_positions += GLOB.noble_positions
-	valid_positions += GLOB.church_positions
-	valid_positions += GLOB.garrison_positions
-	valid_positions += GLOB.serf_positions
-	valid_positions += GLOB.peasant_positions
-	valid_positions += GLOB.apprentices_positions
-	valid_positions += GLOB.company_positions
+	valid_positions += GLOB.lords_positions
+	valid_positions += GLOB.keep_positions
+	valid_positions += GLOB.townhall_positions
+	valid_positions += GLOB.townwatch_positions
+	valid_positions += GLOB.chapel_positions
+	valid_positions += GLOB.scholars_positions
+	valid_positions += GLOB.traders_positions
+	valid_positions += GLOB.tavern_positions
+	valid_positions += GLOB.town_positions
+	valid_positions += GLOB.outsiders_positions
+	valid_positions += GLOB.adventurers_positions
+	valid_positions += GLOB.villains_positions
 
 
 	var/list/reopened_jobs = list()
