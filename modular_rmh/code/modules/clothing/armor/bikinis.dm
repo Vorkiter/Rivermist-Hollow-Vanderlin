@@ -445,36 +445,52 @@
 	additional_items = list(/obj/item/clothing/armor/leather, /obj/item/natural/hide/cured)
 	created_item = /obj/item/clothing/armor/leather/studded/bikini
 
+/datum/anvil_recipe/armor/iron/ironchainbikini
+	name = "Haubergeon Bikini"
+	recipe_name = "chain bikini"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/armor/chainmail/iron/bikini
+
 /datum/anvil_recipe/armor/iron/ironchainbra
-	name = "Maille bikini"
+	name = "Haubergeon bra"
+	recipe_name = "chain bra"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/clothing/armor/chainmail/iron/bikini/bra
 
 /datum/anvil_recipe/armor/steel/chainkini
-	name = "Haubergon bikini (+1 Cloth)"
-	additional_items = list(/obj/item/natural/cloth)
+	name = "Haubergeon bikini"
+	recipe_name = "chain bikini"
 	created_item = /obj/item/clothing/armor/chainmail/bikini
+
+/datum/anvil_recipe/armor/steel/chainkinibra
+	name = "Haubergeon bra"
+	recipe_name = "chain bra"
+	created_item = /obj/item/clothing/armor/chainmail/bikini/bra
 
 /datum/anvil_recipe/armor/steel/platebikini
 	name = "Half-Plate bikini (+1 Steel, +1 Cured Leather)"
+	recipe_name = "haşfplate bikini"
 	additional_items = list(/obj/item/ingot/steel, /obj/item/natural/hide/cured)
 	created_item = /obj/item/clothing/armor/plate/bikini
 	craftdiff = 3
 
 /datum/anvil_recipe/armor/steel/platebra
 	name = "Half-Plate Bra (+1 Steel, +1 Cured Leather)"
+	recipe_name = "halfplate bra"
 	additional_items = list(/obj/item/ingot/steel, /obj/item/natural/hide/cured)
 	created_item = /obj/item/clothing/armor/plate/bikini/bra
 	craftdiff = 3
 
 /datum/anvil_recipe/armor/steel/fullplatebikini
 	name = "Full-Plate bikini (+2 Steel, +1 Cured Leather)"
+	recipe_name = "fullplate bikini"
 	additional_items = list(/obj/item/ingot/steel, /obj/item/ingot/steel, /obj/item/natural/hide/cured)
 	created_item = /obj/item/clothing/armor/plate/full/bikini
 	craftdiff = 4
 
 /datum/anvil_recipe/armor/steel/platefullbra
 	name = "Full-Plate Bra (+2 Steel, +1 Cured Leather)"
+	recipe_name = "fullplate bra"
 	additional_items = list(/obj/item/ingot/steel, /obj/item/ingot/steel, /obj/item/natural/hide/cured)
 	created_item = /obj/item/clothing/armor/plate/full/bikini/bra
 	craftdiff = 4

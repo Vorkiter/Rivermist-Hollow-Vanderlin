@@ -82,21 +82,25 @@
 
 /datum/anvil_recipe/armor/iron/studdedskirt
 	name = "Studded Skirt (+1 Leather Skirt)"
+	recipe_name = "studded leather skirt"
 	additional_items = list(/obj/item/clothing/pants/trou/leather/skirt)
 	created_item = /obj/item/clothing/pants/chainlegs/iron/studdedskirt
 
 /datum/anvil_recipe/armor/steel/chainskirt
 	name = "Chain Skirt"
+	recipe_name = "chain skirt"
 	created_item = /obj/item/clothing/pants/chainlegs/skirt
 	craftdiff = 2
 
 /datum/anvil_recipe/armor/iron/ichainskirt
 	name = "Iron Chain Skirt"
+	recipe_name = "iron chain skirt"
 	created_item = /obj/item/clothing/pants/chainlegs/iron/skirt
 	craftdiff = 1
 
 /datum/anvil_recipe/armor/steel/plateskirt
-	name = "Plate Tassets (+1 Steel)"
+	name = "Plate Skirt (+1 Steel)"
+	recipe_name = "plated skirt"
 	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/clothing/pants/platelegs/skirt
 	craftdiff = 4	//It's plate, no easy craft.
