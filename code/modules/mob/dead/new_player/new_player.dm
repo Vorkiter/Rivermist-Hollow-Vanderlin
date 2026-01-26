@@ -468,7 +468,6 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.txt"))
 		GLOB.town_positions,
 		GLOB.outsiders_positions,
 		GLOB.adventurers_positions,
-		GLOB.villains_positions,
 		GLOB.allmig_positions,
 	)
 

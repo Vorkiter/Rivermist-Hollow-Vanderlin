@@ -2,7 +2,7 @@
 	title = "Librarian"
 	tutorial = "A quiet keeper of knowledge, the Librarian tends the town’s modest collection of books, scrolls, and records.\
 	Tasked with preserving local history, copying worn texts, and guiding curious townsfolk toward what wisdom the shelves can offer."
-	department_flag = TOWN
+	department_flag = SCHOLARS
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = 19 //lol?
 	faction = FACTION_TOWN

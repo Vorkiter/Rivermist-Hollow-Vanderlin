@@ -12,8 +12,6 @@
 	valid_positions += GLOB.town_positions
 	valid_positions += GLOB.outsiders_positions
 	valid_positions += GLOB.adventurers_positions
-	valid_positions += GLOB.villains_positions
-
 
 	var/list/reopened_jobs = list()
 	for(var/X in GLOB.suicided_mob_list)
