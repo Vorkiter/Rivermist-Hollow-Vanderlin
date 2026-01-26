@@ -66,7 +66,6 @@
 	mob_overlay_icon = 'modular_rmh/icons/clothing/licensed-infraredbaron/onmob/armor.dmi'
 	icon_state = "hand"
 	item_state = "hand"
-	allowed_sex = list(MALE, FEMALE)
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_ARMOR //ugly hack to make it render over the head
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
 
@@ -78,7 +77,6 @@
 	icon_state = "heir"
 	item_state = "heir"
 	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
-	allowed_sex = list(MALE, FEMALE)
 	slot_flags = ITEM_SLOT_ARMOR
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
 
@@ -90,7 +88,6 @@
 	icon_state = "heiress"
 	item_state = "heiress"
 	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
-	allowed_sex = list(MALE, FEMALE)
 	slot_flags = ITEM_SLOT_ARMOR
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
 
@@ -122,7 +119,7 @@
 	mob_overlay_icon = 'modular_rmh/icons/clothing/licensed-infraredbaron/onmob/armor.dmi'
 	icon_state = "magos"
 	item_state = "magos"
-	allowed_sex = list(MALE, FEMALE)
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS|VITALS
 	slot_flags = ITEM_SLOT_ARMOR
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
 
@@ -133,6 +130,6 @@
 	mob_overlay_icon = 'modular_rmh/icons/clothing/licensed-infraredbaron/onmob/armor.dmi'
 	icon_state = "steward"
 	item_state = "steward"
-	allowed_sex = list(MALE, FEMALE)
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS|VITALS
 	slot_flags = ITEM_SLOT_ARMOR
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite

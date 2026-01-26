@@ -3,7 +3,6 @@
 	tutorial = "The depths of the hills, the ends of the lands - deeper and deeper below, you seek salt, ores, rocks - \
 	the heat and encroaching darkness shepherds you, giving forth your living... Soon enough, the earth will swallow you whole."
 	department_flag = TOWN
-	display_order = JDO_MINER
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_TOWN
 	total_positions = 12

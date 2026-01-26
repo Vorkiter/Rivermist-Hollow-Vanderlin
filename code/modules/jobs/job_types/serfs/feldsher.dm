@@ -6,7 +6,6 @@
 	At least the Apothecary understands you. \
 	You have combined ownership of the Apothecarian Workshop and the Clinic with the Apothecary. Best to work together."
 	department_flag = TOWN
-	display_order = JDO_FELDSHER
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_TOWN
 	total_positions = 1

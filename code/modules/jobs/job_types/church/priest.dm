@@ -7,7 +7,6 @@
 	It is up to you to shepherd the flock into a Ten-fearing future."
 	department_flag = TOWN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	display_order = JDO_PRIEST
 	faction = FACTION_TOWN
 	total_positions = 1
 	spawn_positions = 1
@@ -132,7 +131,7 @@
 	for(var/mob/living/carbon/HU in get_step(src, src.dir))
 		if(!HU.mind)
 			continue
-		if(is_lord_job(HU.mind.assigned_role))
+		if(is_burgmeister_job(HU.mind.assigned_role))
 			continue
 		if(!HU.head)
 			continue
@@ -149,7 +148,7 @@
 	var/datum/job/lord_job = SSjob.GetJobType(/datum/job/lord)
 	for(var/mob/living/carbon/human/HL in GLOB.human_list)
 		if(HL.mind)
-			if(is_lord_job(HL.mind.assigned_role))
+			if(is_burgmeister_job(HL.mind.assigned_role))
 				HL.mind.set_assigned_role(SSjob.GetJobType(/datum/job/towner))
 		if(HL.job == "Monarch")
 			HL.job = "Ex-Monarch"

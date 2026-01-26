@@ -1,32 +1,28 @@
-GLOBAL_VAR(lordsurname)
-GLOBAL_LIST_EMPTY(lord_titles)
+GLOBAL_VAR(burgmeistersurname)
+GLOBAL_LIST_EMPTY(burgmeister_titles)
 
-/datum/job/lord
-	title = "Monarch"
-	var/ruler_title = "Monarch"
-	tutorial = "Elevated to your throne througha a web of intrigue, political maneuvering, and divine sanction, you are the \
-	unquestioned authority of these lands. The Church has bestowed upon you the legitimacy of the gods themselves, and now \
-	you sit at the center of every plot, and every whisper of ambition. Every man, woman, and child may envy your power and \
-	would replace you in the blink of an eye. But remember, its not envy that keeps you in place, it is your will. Show them \
-	the error of their ways."
-	department_flag = TOWN
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK ) // | JOB_NEW_PLAYER_JOINABLE)
-	display_order = JDO_LORD
+/datum/job/burgmeister
+	title = "Burgmeister"
+	var/ruler_title = "Burgmeister"
+	tutorial = "In the Duskmar Duchy, while lords and ladies rule from afar, the daily governance of Rivermist Hollow falls to you, the Burgmeister. \
+		Chosen not by blood but by the will of the townsfolk, you embody merit, authority, and trust within the community. \
+		You oversee taxes, crafts, and public order, settling disputes and enforcing the laws of the Council of Lords and Ladies. \
+		Though greater powers loom above you, it is your hand that keeps the town running."
+	department_flag = TOWNHALL
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_BURGMEISTER
 	faction = FACTION_TOWN
 	total_positions = 1
 	spawn_positions = 1
-	spells = list(
-		/datum/action/cooldown/spell/undirected/list_target/grant_title,
-		/datum/action/cooldown/spell/undirected/list_target/grant_nobility,
-	)
-	allowed_races = RACES_PLAYER_ROYALTY
-	outfit = /datum/outfit/lord
+	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_IMMORTAL)
+	allowed_races = ALL_RACES_LIST
 	bypass_lastclass = TRUE
 	give_bank_account = 500
-	selection_color = "#7851A9"
-	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
+	selection_color = JCOLOR_TOWNHALL
 	can_have_apprentices = FALSE
-	job_bitflag = BITFLAG_ROYALTY
+
+	advclass_cat_rolls = list(CAT_BURGMESITER = 20)
+
 	exp_type = list(EXP_TYPE_NOBLE, EXP_TYPE_LIVING, EXP_TYPE_LEADERSHIP)
 	exp_types_granted = list(EXP_TYPE_NOBLE, EXP_TYPE_LEADERSHIP)
 	exp_requirements = list(
@@ -35,139 +31,397 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		EXP_TYPE_LEADERSHIP = 300
 	)
 
-	jobstats = list(
-		STATKEY_STR = 1,
-		STATKEY_INT = 3,
-		STATKEY_END = 3,
-		STATKEY_SPD = 1,
-		STATKEY_PER = 2,
-		STATKEY_LCK = 5
+/datum/job/burgmeister
+	...
+	job_subclasses = list(
+		/datum/job/advclass/burgmeister/marshall,
+		/datum/job/advclass/burgmeister/elected,
+		/datum/job/advclass/burgmeister/patrician,
+		/datum/job/advclass/burgmeister/scholar
 	)
 
-	skills = list(
-		/datum/skill/combat/polearms = 2,
-		/datum/skill/combat/axesmaces = 2,
-		/datum/skill/combat/crossbows = 3,
-		/datum/skill/combat/wrestling = 3,
-		/datum/skill/combat/unarmed = 1,
-		/datum/skill/combat/swords = 4,
-		/datum/skill/combat/knives = 3,
-		/datum/skill/misc/swimming = 1,
-		/datum/skill/misc/climbing = 1,
-		/datum/skill/misc/athletics = 4,
-		/datum/skill/misc/reading = 4,
-		/datum/skill/misc/riding = 3,
-		/datum/skill/labor/mathematics = 3
-	)
 
-	traits = list(
-		TRAIT_NOBLE,
-		TRAIT_NOSEGRAB,
-		TRAIT_HEAVYARMOR,
-		TRAIT_MEDIUMARMOR,
-		TRAIT_KNOWKEEPPLANS
-	)
-
-	voicepack_m = /datum/voicepack/male/evil
-
-/datum/job/lord/get_informed_title(mob/mob, change_title = FALSE, new_title)
+/datum/job/burgmeister/get_informed_title(mob/mob, change_title = FALSE, new_title)
 	if(change_title)
 		ruler_title = new_title
 		return "[ruler_title]"
 	else
 		return "[ruler_title]"
 
-/datum/job/lord/after_spawn(mob/living/carbon/human/spawned, client/player_client)
+/datum/job/burgmeister/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
 	SSticker.rulermob = spawned
-
-	addtimer(CALLBACK(spawned, TYPE_PROC_REF(/mob/living/carbon/human, lord_color_choice)), 7 SECONDS)
-
-	if(spawned.pronouns != SHE_HER)
-		ruler_title = "[SSmapping.config.monarch_title]"
-	else
-		ruler_title = "[SSmapping.config.monarch_title_f]"
-
-	if(spawned.gender == MALE)
-		SSfamilytree.AddRoyal(spawned, FAMILY_FATHER)
-	else
-		SSfamilytree.AddRoyal(spawned, FAMILY_MOTHER)
-
-	to_chat(world, "<b>[span_notice(span_big("[spawned.real_name] is [ruler_title] of [SSmapping.config.map_name]."))]</b>")
+	var/mob/living/carbon/human/H = spawned
+	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, lord_color_choice)), 7 SECONDS)
+	ruler_title = "Burgmeister"
+	to_chat(world, "<b>[span_notice(span_big("[H.real_name] is [ruler_title] of [SSmapping.config.map_name]."))]</b>")
 	to_chat(world, "<br>")
-
 	if(GLOB.keep_doors.len > 0)
-		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), spawned), 7 SECONDS)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 7 SECONDS)
+	spawned.verbs |= /mob/living/carbon/human/proc/burgmeister_announcement
 
-	if(spawned.age == AGE_OLD)
-		spawned.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
-
-	if(spawned.dna?.species?.id == SPEC_ID_HUMEN && spawned.gender == MALE)
-		spawned.dna.species.soundpack_m = new /datum/voicepack/male/evil()
-
-/datum/outfit/lord
-	name = "Monarch"
-	head = /obj/item/clothing/head/crown/serpcrown
-	backr = /obj/item/storage/backpack/satchel
-	belt = /obj/item/storage/belt/leather/plaquegold
-	beltl = /obj/item/weapon/knife/dagger/steel/special
-	beltr = /obj/item/weapon/sword/rapier
-	scabbards = list(/obj/item/weapon/scabbard/knife/royal, /obj/item/weapon/scabbard/sword/royal)
-	ring = /obj/item/clothing/ring/active/nomag
-	l_hand = /obj/item/weapon/lordscepter
-
-/datum/outfit/lord/map_override(mob/living/carbon/human/H)
-	if(SSmapping.config.map_name != "Voyage")
-		return
-	head = /obj/item/clothing/head/helmet/leather/tricorn
-	cloak = /obj/item/clothing/cloak/half
-	l_hand = null
-	armor = /obj/item/clothing/armor/leather/jacket/silk_coat
-	shirt = /obj/item/clothing/shirt/undershirt/puritan
-	wrists = null
-	shoes = /obj/item/clothing/shoes/boots
-
-/datum/outfit/lord/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
+/datum/outfit/burgmeister/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
 	. = ..()
-
 	if(equipped_human.gender == MALE)
-		pants = /obj/item/clothing/pants/trou/formal
+		pants = /obj/item/clothing/pants/tights/colored/black
 		shirt = /obj/item/clothing/shirt/undershirt/fancy
-		armor = /obj/item/clothing/armor/gambeson/arming
-		shoes = /obj/item/clothing/shoes/nobleboot
-		cloak = /obj/item/clothing/cloak/lordcloak
 	else
-		pants = /obj/item/clothing/pants/tights/colored/random
-		armor = /obj/item/clothing/shirt/dress/royal
-		shoes = /obj/item/clothing/shoes/nobleboot
-		cloak = /obj/item/clothing/cloak/lordcloak/ladycloak
-		wrists = /obj/item/clothing/wrists/royalsleeves
+		shirt = /obj/item/clothing/shirt/dress/silkdress/colored/black
 
-	if(equipped_human.wear_mask)
-		if(istype(equipped_human.wear_mask, /obj/item/clothing/face/eyepatch))
-			qdel(equipped_human.wear_mask)
-			mask = /obj/item/clothing/face/lordmask
-		else if(istype(equipped_human.wear_mask, /obj/item/clothing/face/eyepatch/left))
-			qdel(equipped_human.wear_mask)
-			mask = /obj/item/clothing/face/lordmask/l
+//SUBCLASSES
 
-/datum/job/exlord //just used to change the lords title
-	title = "Ex-Monarch"
+/datum/job/advclass/burgmeister/marshall
+	title = "Ex-Guard Captain"
+	tutorial = "You once led the city watch and now act as Burgmeister. Your experience in combat and leadership makes you authoritative and respected in town affairs."
+
+	outfit = /datum/outfit/burgmeister/marshall
+	category_tags = list(CAT_BURGMESITER)
+
+	jobstats = list(
+	    STATKEY_STR = 3,
+	    STATKEY_END = 3,
+	    STATKEY_CON = 2,
+	    STATKEY_PER = 2,
+	    STATKEY_SPD = 2,
+	    STATKEY_INT = 1,
+	    STATKEY_LCK = 1
+	)
+
+	skills = list(
+	    /datum/skill/combat/swords = 3,
+	    /datum/skill/combat/axesmaces = 3,
+	    /datum/skill/combat/shields = 3,
+	    /datum/skill/combat/wrestling = 2,
+	    /datum/skill/misc/athletics = 3,
+	    /datum/skill/misc/sneaking = 1,
+	    /datum/skill/misc/reading = 2,
+	    /datum/skill/misc/climbing = 2,
+	    /datum/skill/misc/swimming = 2
+	)
+
+	traits = list(
+	    TRAIT_HEAVYARMOR,
+	    TRAIT_MEDIUMARMOR,
+	    TRAIT_BLINDFIGHTING,
+	    TRAIT_DODGEEXPERT,
+	    TRAIT_BREADY,
+	    TRAIT_EMPATH
+	)
+
+/datum/job/advclass/burgmeister/marshall/after_spawn(mob/living/carbon/human/spawned, client/player_client)
+	. = ..()
+	var/static/list/selectable = list( \
+		"Dagger" = /obj/item/weapon/knife/dagger/silver, \
+		"Rapier" = /obj/item/weapon/sword/rapier/dec, \
+		"Cane Blade" = /obj/item/weapon/sword/rapier/caneblade, \
+		)
+	var/choice = spawned.select_equippable(spawned, selectable, time_limit = 1 MINUTES, message = "Choose your weapon", title = "NOBLE")
+	if(!choice)
+		return
+	switch(choice)
+		if("Dagger")
+			spawned.clamped_adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+			var/scabbard = new /obj/item/weapon/scabbard/knife/noble()
+			if(!spawned.equip_to_appropriate_slot(scabbard))
+				qdel(scabbard)
+		if("Rapier")
+			spawned.clamped_adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+			var/scabbard = new /obj/item/weapon/scabbard/sword/noble()
+			if(!spawned.equip_to_appropriate_slot(scabbard))
+				qdel(scabbard)
+		if("Cane Blade")
+			spawned.clamped_adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+			var/scabbard = new /obj/item/weapon/scabbard/cane()
+			if(!spawned.equip_to_appropriate_slot(scabbard))
+				qdel(scabbard)
+
+/datum/outfit/burgmeister/marshall
+	name = "Burgmeister Marshall"
+	head = null
+	cloak = /obj/item/clothing/cloak/half/colored/red
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/duke
+	shirt = /obj/item/clothing/shirt/undershirt/fancy
+	pants = /obj/item/clothing/pants/trou/leather/advanced
+	shoes = /obj/item/clothing/shoes/boots/leather/advanced
+	backl = /obj/item/storage/backpack/satchel
+	backr = null
+	belt = /obj/item/storage/belt/leather/plaquegold
+	beltr = /obj/item/storage/belt/pouch/coins/veryrich
+	ring = /obj/item/clothing/ring/active/nomag
+
+/datum/outfit/burgmeister/marshall/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
+	. = ..()
+	// Clear all previous equipment
+	for(var/slot in list("head","cloak","armor","shirt","pants","shoes","backl","backr","belt","beltl","ring","l_hand"))
+		if(equipped_human[slot])
+			qdel(equipped_human[slot])
+
+/datum/job/advclass/burgmeister/elected
+	title = "Elected Burgmeister"
+	tutorial = "You were chosen by the townsfolk to serve as Burgmeister. Your social skills, perception, and wisdom allow you to maintain order and ensure the town prospers."
+	category_tags = list(CAT_BURGMESITER)
+
+	jobstats = list(
+	    STATKEY_INT = 3,
+	    STATKEY_PER = 3,
+	    STATKEY_LCK = 2,
+	    STATKEY_END = 1,
+	    STATKEY_STR = 1,
+	    STATKEY_SPD = 2
+	)
+
+	skills = list(
+	    /datum/skill/misc/reading = 3,
+	    /datum/skill/misc/athletics = 1,
+	    /datum/skill/misc/riding = 1,
+	    /datum/skill/misc/climbing = 1,
+	    /datum/skill/misc/sneaking = 1
+	)
+
+	traits = list(
+	    TRAIT_NOBLE,
+	    TRAIT_EMPATH,
+	    TRAIT_EXTEROCEPTION,
+	    TRAIT_TUTELAGE,
+	    TRAIT_BETTER_SLEEP
+	)
+
+/datum/job/advclass/burgmeister/elected/after_spawn(mob/living/carbon/human/spawned, client/player_client)
+	. = ..()
+	var/static/list/selectable = list( \
+		"Dagger" = /obj/item/weapon/knife/dagger/silver, \
+		"Rapier" = /obj/item/weapon/sword/rapier/dec, \
+		"Cane Blade" = /obj/item/weapon/sword/rapier/caneblade, \
+		)
+	var/choice = spawned.select_equippable(spawned, selectable, time_limit = 1 MINUTES, message = "Choose your weapon", title = "NOBLE")
+	if(!choice)
+		return
+	switch(choice)
+		if("Dagger")
+			spawned.clamped_adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+			var/scabbard = new /obj/item/weapon/scabbard/knife/noble()
+			if(!spawned.equip_to_appropriate_slot(scabbard))
+				qdel(scabbard)
+		if("Rapier")
+			spawned.clamped_adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+			var/scabbard = new /obj/item/weapon/scabbard/sword/noble()
+			if(!spawned.equip_to_appropriate_slot(scabbard))
+				qdel(scabbard)
+		if("Cane Blade")
+			spawned.clamped_adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+			var/scabbard = new /obj/item/weapon/scabbard/cane()
+			if(!spawned.equip_to_appropriate_slot(scabbard))
+				qdel(scabbard)
+
+/datum/outfit/burgmeister/elected
+	name = "Elected Burgmeister"
+	head = /obj/item/clothing/head/fancyhat
+	cloak = /obj/item/clothing/cloak/raincloak/furcloak
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/hand
+	shirt = null
+	pants = null
+	shoes = /obj/item/clothing/shoes/nobleboot
+	backl = /obj/item/storage/backpack/satchel
+	backr = null
+	belt = /obj/item/storage/belt/leather/plaquegold
+	beltr = /obj/item/storage/belt/pouch/coins/veryrich
+	ring = /obj/item/clothing/ring/active/nomag
+
+/datum/outfit/burgmeister/elected/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
+	. = ..()
+	for(var/slot in list("head","cloak","armor","shirt","pants","shoes","backl","backr","belt","beltl","ring","l_hand"))
+		if(equipped_human[slot])
+			qdel(equipped_human[slot])
+	if(equipped_human.gender == MALE)
+		shirt = /obj/item/clothing/shirt/undershirt/fancy
+		pants = /obj/item/clothing/pants/tights/colored/black
+	else
+		shirt = /obj/item/clothing/shirt/dress/silkdress/colored/black
+
+/datum/job/advclass/burgmeister/patrician
+	title = "Patrician"
+	tutorial = "You are a wealthy Burgmeister whose influence comes from gold and heritage. Your resources and connections make you untouchable and influential."
+	category_tags = list(CAT_BURGMESITER)
+	give_bank_account = 2000
+
+	jobstats = list(
+	    STATKEY_LCK = 4,
+	    STATKEY_INT = 3,
+	    STATKEY_PER = 2,
+	    STATKEY_END = 1,
+	    STATKEY_STR = 1,
+	    STATKEY_SPD = 1
+	)
+
+	skills = list(
+	    /datum/skill/misc/reading = 3,
+	    /datum/skill/misc/athletics = 1,
+	    /datum/skill/craft/crafting = 2,
+	    /datum/skill/misc/sneaking = 1
+	)
+
+	traits = list(
+	    TRAIT_NOBLE,
+	    TRAIT_BETTER_SLEEP,
+	    TRAIT_EXTEROCEPTION
+	)
+
+/datum/job/advclass/burgmeister/patrician/after_spawn(mob/living/carbon/human/spawned, client/player_client)
+	. = ..()
+	var/static/list/selectable = list( \
+		"Dagger" = /obj/item/weapon/knife/dagger/silver, \
+		"Rapier" = /obj/item/weapon/sword/rapier/dec, \
+		"Cane Blade" = /obj/item/weapon/sword/rapier/caneblade, \
+		)
+	var/choice = spawned.select_equippable(spawned, selectable, time_limit = 1 MINUTES, message = "Choose your weapon", title = "NOBLE")
+	if(!choice)
+		return
+	switch(choice)
+		if("Dagger")
+			spawned.clamped_adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+			var/scabbard = new /obj/item/weapon/scabbard/knife/noble()
+			if(!spawned.equip_to_appropriate_slot(scabbard))
+				qdel(scabbard)
+		if("Rapier")
+			spawned.clamped_adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+			var/scabbard = new /obj/item/weapon/scabbard/sword/noble()
+			if(!spawned.equip_to_appropriate_slot(scabbard))
+				qdel(scabbard)
+		if("Cane Blade")
+			spawned.clamped_adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+			var/scabbard = new /obj/item/weapon/scabbard/cane()
+			if(!spawned.equip_to_appropriate_slot(scabbard))
+				qdel(scabbard)
+
+/datum/outfit/burgmeister/patrician
+	name = "Patrician Burgmeister"
+	head = /obj/item/clothing/head/crown/circlet
+	cloak = /obj/item/clothing/cloak/lordcloak
+	armor = null
+	shirt = null
+	pants = null
+	shoes = /obj/item/clothing/shoes/nobleboot
+	backl = /obj/item/storage/backpack/satchel
+	backr = null
+	belt = /obj/item/storage/belt/leather/plaquegold
+	beltr = /obj/item/storage/belt/pouch/coins/veryrich
+	ring = /obj/item/clothing/ring/active/nomag
+
+/datum/outfit/burgmeister/patrician/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
+	. = ..()
+	for(var/slot in list("head","cloak","armor","shirt","pants","shoes","backl","backr","belt","beltl","ring","l_hand"))
+		if(equipped_human[slot])
+			qdel(equipped_human[slot])
+	if(equipped_human.gender == MALE)
+		shirt = /obj/item/clothing/shirt/tunic/noblecoat
+		pants = /obj/item/clothing/pants/tights/colored/white
+	else
+		shirt = /obj/item/clothing/shirt/dress/royal
+
+/datum/job/advclass/burgmeister/scholar
+	title = "Scholar-Administrator"
+	tutorial = "You are a Burgmeister who governs with knowledge and wisdom. Your intelligence and insight ensure the town is managed efficiently and the laws are fair."
+	category_tags = list(CAT_BURGMESITER)
+
+	jobstats = list(
+	    STATKEY_INT = 4,
+	    STATKEY_PER = 3,
+	    STATKEY_CON = 2,
+	    STATKEY_END = 1,
+	    STATKEY_STR = 1,
+	    STATKEY_SPD = 1,
+	    STATKEY_LCK = 2
+	)
+
+	skills = list(
+	    /datum/skill/misc/reading = 4,
+	    /datum/skill/misc/athletics = 1,
+	    /datum/skill/labor/mathematics = 3,
+	    /datum/skill/misc/sneaking = 1
+	)
+
+	traits = list(
+	    TRAIT_EMPATH,
+	    TRAIT_EXTEROCEPTION,
+	    TRAIT_TUTELAGE,
+	    TRAIT_BETTER_SLEEP
+	)
+
+/datum/outfit/burgmeister/scholar
+	name = "Scholar-Administrator Burgmeister"
+	head = /obj/item/clothing/head/fancyhat
+	cloak = /obj/item/clothing/cloak/cape/archivist
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/magos
+	shirt = /obj/item/clothing/shirt/tunic/colored/black
+	pants = /obj/item/clothing/pants/tights/colored/black
+	shoes = /obj/item/clothing/shoes/nobleboot
+	backl = /obj/item/storage/backpack/satchel
+	backr = null
+	belt = /obj/item/storage/belt/leather/plaquegold
+	beltr = /obj/item/storage/belt/pouch/coins/veryrich
+	ring = /obj/item/clothing/ring/active/nomag
+
+/datum/outfit/burgmeister/scholar/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
+	. = ..()
+	for(var/slot in list("head","cloak","armor","shirt","pants","shoes","backl","backr","belt","beltl","ring","l_hand"))
+		if(equipped_human[slot])
+			qdel(equipped_human[slot])
+
+//EX-LORD SYSTEM
+
+/datum/job/exburgmeister //just used to change the lords title
+	title = "Ex-Burgmeister"
 	department_flag = TOWN
 	faction = FACTION_TOWN
 	total_positions = 0
 	spawn_positions = 0
 	display_order = JDO_LORD
 
-/proc/give_lord_surname(mob/living/carbon/human/family_guy, preserve_original = FALSE)
-	if(!GLOB.lordsurname)
+/proc/give_burgmeister_surname(mob/living/carbon/human/family_guy, preserve_original = FALSE)
+	if(!GLOB.burgmeistersurname)
 		return
 	if(preserve_original)
-		family_guy.fully_replace_character_name(family_guy.real_name, family_guy.real_name + " " + GLOB.lordsurname)
+		family_guy.fully_replace_character_name(family_guy.real_name, family_guy.real_name + " " + GLOB.burgmeistersurname)
 		return family_guy.real_name
 	var/list/chopped_name = splittext(family_guy.real_name, " ")
 	if(length(chopped_name) > 1)
-		family_guy.fully_replace_character_name(family_guy.real_name, chopped_name[1] + " " + GLOB.lordsurname)
+		family_guy.fully_replace_character_name(family_guy.real_name, chopped_name[1] + " " + GLOB.burgmeistersurname)
 	else
-		family_guy.fully_replace_character_name(family_guy.real_name, family_guy.real_name + " " + GLOB.lordsurname)
+		family_guy.fully_replace_character_name(family_guy.real_name, family_guy.real_name + " " + GLOB.burgmeistersurname)
 	return family_guy.real_name
+
+//ANNOUNCEMENT SYSTEM
+
+/mob/living/carbon/human/proc/burgmeister_announcement()
+	set name = "Announcement"
+	set category = "Burgmeister"
+	if(stat)
+		return
+
+	var/static/last_announcement_time = 0
+
+	if(world.time < last_announcement_time + 1 MINUTES)
+		var/time_left = round((last_announcement_time + 1 MINUTES - world.time) / 10)
+		to_chat(src, "<span class='warning'>You must wait [time_left] more seconds before making another announcement.</span>")
+		return
+
+	var/inputty = input("Make an announcement", "RIVERMIST HOLLOW") as text|null
+	if(inputty)
+		var/area/A = get_area(src)
+		if(!(istype(A, /area/indoors/town/rmh/town_hall) || istype(A, /area/outdoors/town)))
+			to_chat(src, "<span class='warning'>I need to do this from the Town Hall or the Town Square.</span>")
+			return FALSE
+
+		priority_announce(
+			"[inputty]",
+			title = "[src.real_name], the Burgmeister of Rivermist Hollow",
+			sound = 'sound/misc/bell.ogg'
+		)
+
+		src.log_talk(
+			"[TIMETOTEXT4LOGS] [inputty]",
+			LOG_SAY,
+			tag = "Burgmeister announcement"
+		)
+
+		last_announcement_time = world.time

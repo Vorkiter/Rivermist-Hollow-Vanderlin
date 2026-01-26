@@ -17,7 +17,6 @@
 	Mercenary Guild's master in town, and make sure your members bring back the heads of any slain monsters \
 	or bandits. For the Head Eater hungers..."
 
-	display_order = JDO_GAFFER
 	cmode_music = 'sound/music/cmode/towner/CombatGaffer.ogg'
 	outfit = /datum/outfit/gaffer
 	give_bank_account = 20

@@ -8,7 +8,6 @@
 	In either case, your little world is the lowest office in the Realm; from it your guests see only hell."
 	department_flag = TOWN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	display_order = JDO_DUNGEONEER
 	faction = FACTION_TOWN
 	total_positions = 1
 	spawn_positions = 1

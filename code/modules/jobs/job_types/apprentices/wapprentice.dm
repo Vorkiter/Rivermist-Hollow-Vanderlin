@@ -14,7 +14,6 @@
 	allowed_sexes = list(MALE, FEMALE)
 	cmode_music = "sound/music/cmode/adventurer/CombatSorcerer.ogg"
 	outfit = /datum/outfit/mageapprentice
-	display_order = JDO_WAPP
 	give_bank_account = TRUE
 	bypass_lastclass = TRUE
 	banned_leprosy = FALSE

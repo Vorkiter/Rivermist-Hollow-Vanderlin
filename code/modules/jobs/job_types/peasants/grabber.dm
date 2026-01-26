@@ -4,7 +4,6 @@
 	You are responsible for hauling materials and goods to-and-fro the docks and warehouses, protecting their transportation from conniving thieves. \
 	Keep your eye out for the security of the Merchant, and they will surely treat you like family."
 	department_flag = TOWN
-	display_order = JDO_GRABBER
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_TOWN
 	total_positions = 4

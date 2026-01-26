@@ -701,7 +701,7 @@
 	if(href_list[VV_HK_CORONATE])
 		if(!src.mind)
 			return
-		if(is_lord_job(mind.assigned_role))
+		if(is_burgmeister_job(mind.assigned_role))
 			return
 
 		var/appointment_type = browser_alert(usr, "Are you sure you want to coronate [src.real_name] as the new Monarch?", "Confirmation", DEFAULT_INPUT_CHOICES)
@@ -715,7 +715,7 @@
 		for(var/mob/living/carbon/human/HL in GLOB.human_list)
 			//this sucks ass. refactor to locate the current ruler/consort
 			if(HL.mind)
-				if(is_lord_job(HL.mind.assigned_role))
+				if(is_burgmeister_job(HL.mind.assigned_role))
 					HL.mind.set_assigned_role(SSjob.GetJobType(/datum/job/towner))
 			//would be better to change their title directly, but that's not possible since the title comes from the job datum
 			if(HL.job == "Monarch")
@@ -739,8 +739,8 @@
 		if(!new_title)
 			return
 		admin_title = new_title
-		if(is_lord_job(human_job))
-			var/datum/job/lord_job = SSjob.GetJobType(/datum/job/lord)
+		if(is_burgmeister_job(human_job))
+			var/datum/job/lord_job = SSjob.GetJobType(/datum/job/burgmeister)
 			lord_job?.get_informed_title(src, TRUE, new_title)
 
 /mob/living/carbon/human/MouseDrop_T(mob/living/target, mob/living/user)

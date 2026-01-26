@@ -3,7 +3,6 @@
 	tutorial = "The blood of a noble family runs through your veins. You are the living proof that the minor houses \
 	still exist in spite of the Monarch. You have many mammons to your name, but with wealth comes \
 	danger, so keep your wits and tread lightly..."
-	display_order = JDO_MINOR_NOBLE
 	department_flag = TOWN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_TOWN

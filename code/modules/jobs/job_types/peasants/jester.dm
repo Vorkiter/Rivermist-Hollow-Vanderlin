@@ -5,7 +5,6 @@
 	Your cheap tricks and illusions of intelligence will only work for so long, \
 	and someday you'll find yourself at the end of something sharper than you."
 	department_flag = TOWN
-	display_order = JDO_JESTER
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_TOWN
 	total_positions = 1

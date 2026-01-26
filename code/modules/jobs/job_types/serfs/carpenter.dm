@@ -4,7 +4,6 @@
 	For it is by your axe that the great trees of forests are felled, and it is by your hands from which the shining beacon of civilization is built."
 	department_flag = TOWN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	display_order = JDO_CARPENTER
 	faction = FACTION_TOWN
 	total_positions = 6
 	spawn_positions = 4

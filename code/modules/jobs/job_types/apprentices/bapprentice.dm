@@ -8,7 +8,6 @@
 	faction = FACTION_TOWN
 	total_positions = 2
 	spawn_positions = 2
-	display_order = JDO_BAPP
 	give_bank_account = TRUE
 	bypass_lastclass = TRUE
 	can_have_apprentices = FALSE

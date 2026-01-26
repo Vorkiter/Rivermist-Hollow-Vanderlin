@@ -67,7 +67,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/HU = user
 
-		if(!is_lord_job(HU.mind?.assigned_role))
+		if(!is_burgmeister_job(HU.mind?.assigned_role))
 			to_chat(user, "<span class='danger'>The rod doesn't obey me.</span>")
 			return
 

@@ -91,68 +91,16 @@
 // job display orders //
 
 #define JDO_DEFAULT 0
+//LORDS
 #define JDO_LORD 1
-#define JDO_HAND 2
-#define JDO_STEWARD 3
-#define JDO_MINOR_NOBLE 3.5
-
-#define JDO_MAGICIAN 4
-#define JDO_WAPP 5
-
-#define JDO_APOTHECARY 6
-#define JDO_FELDSHER 6.1
-#define JDO_CLINICAPPRENTICE 6.2
-
-#define JDO_CAPTAIN 7
-#define JDO_VET 7.1
-#define JDO_CITYWATCHMEN 8.1
-#define JDO_DUNGEONEER 9
-
-#define JDO_PRIEST 12
-#define JDO_CLERIC 13
-#define JDO_MONK 14
-
-#define JDO_SHEPHERD 17
-
-#define JDO_MERCHANT 18
-#define JDO_SHOPHAND 18.1
-#define JDO_GRABBER 18.2
-
-#define JDO_TAILOR 19
-
-#define JDO_ARMORER 20
-#define JDO_WSMITH 21
-#define JDO_BAPP 22
-#define JDO_ARTIFICER 23
-
-#define JDO_BUTLER 25
-#define JDO_SERVANT 26
-
-#define JDO_INNKEEP 27
-#define JDO_COOK 28
-
-#define JDO_BUTCHER 28.1
-#define JDO_SOILSON 28.2
-#define JDO_FISHER 28.3
-#define JDO_HUNTER 28.4
-#define JDO_CARPENTER 28.6
-#define JDO_MASON 28.61
-#define JDO_MINER 28.8
-#define JDO_MATRON 28.9
-#define JDO_GRAVEMAN 29
-
-
-#define JDO_JESTER 30
-#define JDO_BARD 30.1
-
-#define JDO_CHIEF 32
-
-#define JDO_ADVENTURER 33
-#define JDO_GAFFER 33.1
-#define JDO_PILGRIM 34.2
-#define JDO_MIGRANT  34.3
-
-#define JDO_MERCENARY 35
+#define JDO_SECONDLORD 2
+//KEEP
+#define JDO_KEEPGUARD 3
+#define JDO_KEEPSERVANT 3.1
+//TOWNHALL
+#define JDO_BURGMEISTER 4
+#define JDO_COUNCILOR 4.5
+#define JDO_SERVANT 5
 
 #define BITFLAG_CHURCH (1<<0)
 #define BITFLAG_ROYALTY (1<<1)

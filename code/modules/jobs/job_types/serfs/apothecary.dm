@@ -7,7 +7,6 @@
 	You have combined ownership of the Apothecarian Workshop and the Clinic with the Feldsher. Best to work together."
 	department_flag = TOWN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	display_order = JDO_APOTHECARY
 	faction = FACTION_TOWN
 	total_positions = 1
 	spawn_positions = 1

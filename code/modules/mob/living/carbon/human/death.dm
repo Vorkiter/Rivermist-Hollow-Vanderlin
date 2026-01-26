@@ -87,7 +87,7 @@
 
 		if(mind && yeae)
 			// Omens are handled here
-			if((is_lord_job(mind.assigned_role)))
+			if((is_burgmeister_job(mind.assigned_role)))
 				//addomen(OMEN_NOLORD)
 				for(var/mob/living/carbon/human/HU in GLOB.player_list)
 					if(HU.stat <= CONSCIOUS && is_in_roguetown(HU))

@@ -8,7 +8,6 @@
 	Till the soil and produce fresh food for those around you, and maybe you'll be more than an unsung hero someday."
 	department_flag = TOWN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	display_order = JDO_SOILSON
 	faction = FACTION_TOWN
 	total_positions = 12
 	spawn_positions = 12

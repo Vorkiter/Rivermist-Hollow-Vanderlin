@@ -13,7 +13,7 @@ GLOBAL_PROTECT(keep_positions)
 
 
 GLOBAL_LIST_INIT(townhall_positions, list(
-	/datum/job/roguetown/village/townmaster::title,
+	/datum/job/burgmeister::title,
 ))
 GLOBAL_PROTECT(townhall_positions)
 
