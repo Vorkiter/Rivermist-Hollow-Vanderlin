@@ -1,4 +1,5 @@
 GLOBAL_LIST_INIT(generated_slave_phrases, list()) //retarded dev made GLOB right here and entire fucking proc oh my goooooooooooooooood
+GLOBAL_LIST_INIT(slave_collars, list())
 GLOBAL_LIST_INIT(slave_phrases_translations, list(
 		"touch_phrase" = "Touch Themself",
 		"orgasm_phrase" = "Orgasm",
@@ -65,8 +66,10 @@ GLOBAL_LIST_INIT(reverse_slave_phrases_translations, list(
 		"lock_phrase" = null,
 	)
 	var/collar_bound = FALSE
-	var/bound_ring
+	var/obj/item/clothing/ring/slave_control/bound_ring
 	var/stuck = FALSE
+	var/mob/living/carbon/human/bearer
+	var/list_name
 	COOLDOWN_DECLARE(collar_phrase_usage)
 
 /obj/item/clothing/neck/slave_collar/male
@@ -91,7 +94,21 @@ GLOBAL_LIST_INIT(reverse_slave_phrases_translations, list(
 
 /obj/item/clothing/neck/slave_collar/equipped(mob/living/carbon/human/human)
 	. = ..()
-	RegisterSignal(human, COMSIG_MOVABLE_HEAR, PROC_REF(process_phrase), override = TRUE)
+	var/mob/living/carbon/human/parent = loc
+	if(ismob(parent) && parent.wear_neck == src)
+		RegisterSignal(human, COMSIG_MOVABLE_HEAR, PROC_REF(process_phrase), override = TRUE)
+		list_name = parent.name
+		if(parent.job)
+			list_name += " the [parent.job]"
+		GLOB.slave_collars[list_name] = src
+		bearer = parent
+
+/obj/item/clothing/neck/slave_collar/dropped(mob/user)
+	. = ..()
+	if(bearer)
+		GLOB.slave_collars.Remove(list_name)
+		UnregisterSignal(bearer, COMSIG_MOVABLE_HEAR)
+		bearer = null
 
 /obj/item/clothing/neck/slave_collar/Destroy()
 	stuck = FALSE
@@ -107,21 +124,27 @@ GLOBAL_LIST_INIT(reverse_slave_phrases_translations, list(
 		bind_collar(src, I, user)
 	return ..()
 
-/obj/item/clothing/neck/slave_collar/proc/bind_collar(obj/item/clothing/neck/slave_collar/s_c, obj/item/clothing/ring/slave_control/s_r, mob/living/user)
-	if(s_c.collar_bound)
+/obj/item/clothing/neck/slave_collar/proc/bind_collar(obj/item/clothing/ring/slave_control/s_r, mob/living/user, master_ring = FALSE)
+	if(collar_bound && !master_ring)
 		to_chat(user, "<span class='warning'>The collar is already bound.</span>")
-		return
-	if(s_r.ring_bound)
-		to_chat(user, "<span class='warning'>The ring is already bound.</span>")
+		return FALSE
+	//if(s_r.ring_bound)
+	//	to_chat(user, "<span class='warning'>The ring is already bound.</span>")
 	to_chat(user, "<span class='info'>You bind the ring to the collar, transferring the control words.</span>")
-	user.visible_message("<span class='info'><b>[user] touches the ring and collar together, producing a dull chime.</b></span>")
-	s_c.collar_bound = TRUE
-	s_c.bound_ring = s_r
+	if(!master_ring)
+		user.visible_message("<span class='info'><b>[user] touches the ring and collar together, producing a dull chime.</b></span>")
+	else if(bearer)
+		to_chat(bearer, "<span class='info'><b>Some unknown force seems to *yank* you by your collar.</b></span>")
+	if(bound_ring)
+		var/obj/item/clothing/ring/slave_control/ring = bound_ring
+		ring.bound_collar = null
+		ring.phrases_list = null
+	collar_bound = TRUE
+	bound_ring = s_r
 
-	s_r.ring_bound = TRUE
 	s_r.phrases_list = phrases_list
-	s_r.bound_collar = s_c
-	return
+	s_r.bound_collar = src
+	return TRUE
 
 
 /obj/item/clothing/neck/slave_collar/proc/process_phrase(datum/source, list/hear_args)
