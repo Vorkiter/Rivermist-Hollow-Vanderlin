@@ -347,7 +347,7 @@
 /datum/component/arousal/proc/update_arousal_effects()
 	update_pink_screen()
 	handle_statuses()
-	update_erect_state()
+	//update_erect_state()
 
 /datum/component/arousal/proc/try_ejaculate(datum/sex_action/s_action, mob/living/carbon/human/action_initiator, mob/living/carbon/human/action_target, giving = FALSE)
 	if(orgasm_progress < PASSIVE_EJAC_THRESHOLD)
@@ -677,7 +677,7 @@
 	if(arousal >= BLUEBALLS_GAIN_THRESHOLD)
 		user.add_stress(/datum/stress_event/blue_balls)
 	else if(arousal <= BLUEBALLS_LOOSE_THRESHOLD)
-		user.remove_stress(/datum/stress_event/blue_balls)*/
+		user.remove_stress(/datum/stress_event/blue_balls)
 
 /datum/component/arousal/proc/update_erect_state()
 	var/mob/user = parent
@@ -689,7 +689,7 @@
 			user.regenerate_icons()
 
 	if(penis && hascall(penis, "update_erect_state"))// && !istype(penis, /obj/item/organ/genitals/penis/internal))//if(penis && hascall(penis, "update_erect_state"))
-		penis.update_erect_state()
+		penis.update_erect_state()*/
 
 
 /datum/component/arousal/proc/damage_from_pain(pain_amt, giving)

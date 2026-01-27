@@ -1400,14 +1400,15 @@
 		player_book_titles = SSlibrarian.pull_player_book_titles()
 		if(title)
 			player_book_content = SSlibrarian.file2playerbook(title)
-		else
+		else if(LAZYLEN(player_book_titles))
 			player_book_content = SSlibrarian.file2playerbook(pick(player_book_titles))
-		player_book_title = player_book_content["book_title"]
-		player_book_author = player_book_content["author"]
-		player_book_author_ckey = player_book_content["author_ckey"]
-		player_book_icon = player_book_content["icon"]
-		player_book_text = player_book_content["text"]
-		update_book_data()
+		if(LAZYLEN(player_book_content))
+			player_book_title = player_book_content["book_title"]
+			player_book_author = player_book_content["author"]
+			player_book_author_ckey = player_book_content["author_ckey"]
+			player_book_icon = player_book_content["icon"]
+			player_book_text = player_book_content["text"]
+			update_book_data()
 
 /obj/item/manuscript
 	name = "manuscript"

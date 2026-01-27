@@ -314,7 +314,7 @@
 
 /mob/living/proc/give_genitals()
 	if(!isanimal(src))
-		var/mob/living/carbon/human/species/user = src
+		var/mob/living/carbon/human/user = src
 		if(gender == MALE)
 			var/obj/item/organ/genitals/filling_organ/testicles/testicles = user.getorganslot(ORGAN_SLOT_TESTICLES)
 			if(!testicles)

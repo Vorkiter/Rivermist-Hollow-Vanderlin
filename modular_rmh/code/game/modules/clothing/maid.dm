@@ -8,7 +8,7 @@
 	sleeved = 'modular_rmh/icons/clothing/onmob/maid_sleeves.dmi'
 	icon_state = "maid_dress"
 	item_state = "maid_dress"
-	flags_inv = HIDEBOOB|HIDECROTCH|HIDEBELLY
+	flags_inv = HIDEBOOB|HIDECROTCH|HIDEBELLY|HIDEBUTT
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	allowed_race = SPECIES_BASE_BODY

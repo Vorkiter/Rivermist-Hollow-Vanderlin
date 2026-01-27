@@ -12,7 +12,12 @@
 /datum/sprite_accessory/genitals/testicles/adjust_appearance_list(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
 	gender_genitals_adjust(appearance_list, organ, bodypart, owner, OFFSET_TESTICLES)
 
-/datum/sprite_accessory/genitals/testicles/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+/datum/sprite_accessory/genitals/testicles/is_visible(obj/item/organ/genitals/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	draw_above_clothes = FALSE
+	if(organ.visible_through_clothes)
+		if(organ.visible_through_clothes == DRAW_ABOVE)
+			draw_above_clothes = TRUE
+		return TRUE
 	if(owner)
 		var/obj/item/organ/genitals/penis/penis = owner.getorganslot(ORGAN_SLOT_PENIS)
 		if(penis && penis.sheath_type == SHEATH_TYPE_SLIT)

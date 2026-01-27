@@ -6,8 +6,12 @@
 /datum/sprite_accessory/genitals/vagina/adjust_appearance_list(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
 	gender_genitals_adjust(appearance_list, organ, bodypart, owner, OFFSET_VAGINA)
 
-/datum/sprite_accessory/genitals/vagina/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
-
+/datum/sprite_accessory/genitals/vagina/is_visible(obj/item/organ/genitals/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	draw_above_clothes = FALSE
+	if(organ.visible_through_clothes)
+		if(organ.visible_through_clothes == DRAW_ABOVE)
+			draw_above_clothes = TRUE
+		return TRUE
 	return is_human_part_visible(owner, HIDEJUMPSUIT|HIDEUNDIESBOT)
 
 /datum/sprite_accessory/genitals/vagina/human

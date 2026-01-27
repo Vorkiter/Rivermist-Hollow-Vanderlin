@@ -41,6 +41,15 @@
 		else
 			basic_mob.visible_message(span_boldwarning("[basic_mob] has her eyes on [target_living], cunt dripping!"))
 
+	SEND_SIGNAL(basic_mob, COMSIG_SET_ERECT_STATE, 4)
+
+	var/obj/item/organ/genitals/picked_organ
+	if(basic_mob.getorganslot(ORGAN_SLOT_PENIS))
+		picked_organ = basic_mob.getorganslot(ORGAN_SLOT_PENIS)
+	else if(basic_mob.getorganslot(ORGAN_SLOT_VAGINA))
+		picked_organ = basic_mob.getorganslot(ORGAN_SLOT_VAGINA)
+	picked_organ.toggle_visibility("Show Above clothes")
+
 	basic_mob.start_sex_session(target_living)
 	if(QDELETED(target))
 		return FALSE
@@ -253,6 +262,18 @@
 /datum/ai_behavior/horny/finish_action(datum/ai_controller/controller, succeeded, target_key, targetting_datum_key, hiding_location_key)
 	. = ..()
 	var/mob/living/basic_mob = controller.pawn
+
+	SEND_SIGNAL(basic_mob, COMSIG_SET_ERECT_STATE, 0)
+
+
+	var/obj/item/organ/genitals/picked_organ
+	if(basic_mob.getorganslot(ORGAN_SLOT_PENIS))
+		picked_organ = basic_mob.getorganslot(ORGAN_SLOT_PENIS)
+		picked_organ.toggle_visibility(FALSE)
+	if(basic_mob.getorganslot(ORGAN_SLOT_VAGINA))
+		picked_organ = basic_mob.getorganslot(ORGAN_SLOT_VAGINA)
+		picked_organ.toggle_visibility(FALSE)
+
 
 	seekboredom = 0
 	knockdown_need = TRUE

@@ -1000,6 +1000,10 @@
 			var/new_resist = text2num(href_list["value"])
 			if(new_resist >= RESIST_NONE && new_resist <= RESIST_HIGH)
 				set_current_resist(new_resist)
+		if("manual_arousal_up")
+			adjust_arousal_manual(1)
+		if("manual_arousal_down")
+			adjust_arousal_manual(-1)
 		if("speed_up")
 			adjust_speed(1)
 		if("speed_down")
@@ -1293,9 +1297,13 @@
 	resistance_to_pleasure = clamp(new_resist, RESIST_NONE, RESIST_HIGH)
 	SEND_SIGNAL(user, COMSIG_SEX_SET_HOLDING, resistance_to_pleasure)
 
+/datum/sex_session/proc/adjust_arousal_manual(amt)
+	manual_arousal = clamp(manual_arousal + amt, SEX_MANUAL_AROUSAL_MIN, SEX_MANUAL_AROUSAL_MAX)
+	var/aroused = manual_arousal > 2
+	SEND_SIGNAL(user, COMSIG_SET_ERECT_STATE, aroused)
+
 /datum/sex_session/proc/get_character_slot(mob/target_mob)
 	return target_mob?.client?.prefs.current_slot || 1
-
 
 /proc/get_player_notes_about(viewer_ckey, target_ckey, character_slot = 1)
 	var/datum/save_manager/SM = get_save_manager(viewer_ckey)
