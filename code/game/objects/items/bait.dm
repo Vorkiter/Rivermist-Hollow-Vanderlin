@@ -8,7 +8,7 @@
 	throwforce = 0
 	var/check_counter = 0
 	var/list/attracted_types = list(/mob/living/simple_animal/hostile/retaliate/bigrat = 10,
-										/mob/living/simple_animal/hostile/retaliate/goat = 33,
+									/mob/living/simple_animal/hostile/retaliate/goat = 33,
 									/mob/living/simple_animal/hostile/retaliate/goatmale = 33,
 									/mob/living/simple_animal/pet/cat/cabbit = 33,
 									/mob/living/simple_animal/hostile/retaliate/chicken = 55)
@@ -27,6 +27,7 @@
 	. = ..()
 	user.visible_message("<span class='notice'>[user] begins deploying the bait...</span>", \
 						"<span class='notice'>I begin deploying the bait...</span>")
+
 	if(do_after(user, deploy_speed * (1/(user.get_skill_level(/datum/skill/craft/traps) + 1)), src)) //rogtodo hunting skill
 		user.dropItemToGround(src, TRUE)
 		START_PROCESSING(SSobj, src)
@@ -109,7 +110,7 @@
 							/mob/living/simple_animal/pet/cat/cabbit = 50, // Rabbits love sweet things
 							/mob/living/simple_animal/hostile/retaliate/saiga = 20,
 							/mob/living/simple_animal/hostile/retaliate/saigabuck = 20,
-							/mob/living/simple_animal/hostile/retaliate/wolf = 10)
+							/mob/living/simple_animal/hostile/retaliate/mole/briars = 20)
 
 
 /obj/item/bait/bloody
