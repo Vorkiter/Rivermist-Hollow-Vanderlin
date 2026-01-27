@@ -659,8 +659,8 @@
 	skillcraft = /datum/skill/craft/carpentry
 
 /datum/repeatable_crafting_recipe/crafting/wheatlbait
-	name = "bait (wheat)"
-	output = /obj/item/bait
+	name = "sweet bait (wheat)"
+	output = /obj/item/bait/sweet
 	requirements = list(
 		/obj/item/natural/cloth = 1,
 		/obj/item/reagent_containers/food/snacks/produce/grain/wheat = 2,
@@ -669,8 +669,8 @@
 	attacked_atom = /obj/item/natural/cloth
 
 /datum/repeatable_crafting_recipe/crafting/oatbait
-	name = "bait (oat)"
-	output = /obj/item/bait
+	name = "sweet bait (oat)"
+	output = /obj/item/bait/sweet
 	requirements = list(
 		/obj/item/natural/cloth = 1,
 		/obj/item/reagent_containers/food/snacks/produce/grain/oat = 2,
