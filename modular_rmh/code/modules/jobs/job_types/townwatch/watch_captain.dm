@@ -85,7 +85,7 @@
 	wrists = /obj/item/clothing/wrists/bracers/jackchain
 	gloves = /obj/item/clothing/gloves/plate
 	pants = /obj/item/clothing/pants/chainlegs
-	shoes = /obj/item/clothing/shoes/boots/leather/advanced
+	shoes = /obj/item/clothing/shoes/boots/armor/light
 	backr = /obj/item/storage/backpack/satchel/black
 	backl = /obj/item/weapon/shield/tower/metal
 	belt = /obj/item/storage/belt/leather/watch_captain

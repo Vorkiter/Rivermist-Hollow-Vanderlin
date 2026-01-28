@@ -73,9 +73,9 @@
 	wrists = /obj/item/clothing/wrists/bracers/jackchain
 	gloves = /obj/item/clothing/gloves/chain/iron
 	pants = /obj/item/clothing/pants/chainlegs/iron
-	shoes = /obj/item/clothing/shoes/boots/leather/advanced
+	shoes = /obj/item/clothing/shoes/boots/armor/light
 	backr = /obj/item/storage/backpack/satchel/black
-	backl = /obj/item/weapon/shield/tower/metal
+	backl = /obj/item/weapon/shield/heater
 	belt = /obj/item/storage/belt/leather/watch_captain
 	beltr = /obj/item/weapon/scabbard/sword
 	beltl = /obj/item/weapon/mace/stunmace

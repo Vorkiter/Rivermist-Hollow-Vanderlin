@@ -1,5 +1,5 @@
 /datum/job/watch_veteran
-	title = "Watch Veteran"
+	title = "Town Watch Veteran"
 	tutorial = "You are a seasoned veteran of the Town Watch. \
 	Years of patrols, riots, night watches, and close calls have hardened you. \
 	You train new watchmen, steady patrols in dangerous moments, and serve as an example of discipline. \
@@ -91,19 +91,19 @@
 
 /datum/job/watch_veteran/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	. = ..()
-	var/weapons = list("Sword + Shield", "Sword + Bow", "Sword + Crossbow", "Zweihander", "Halberd")
+	var/weapons = list("Sword + Shield", "Sword + Longbow", "Sword + Crossbow", "Zweihander", "Halberd")
 	var/weapon_choice = browser_input_list(spawned, "CHOOSE YOUR WEAPON.", "TAKE UP ARMS", weapons)
 
 	switch(weapon_choice)
 		if("Sword + Shield")
 			spawned.put_in_hands(new /obj/item/weapon/sword/arming(get_turf(spawned)), TRUE)
-			spawned.equip_to_slot_or_del(new /obj/item/weapon/shield/tower/metal, ITEM_SLOT_BACK_L, TRUE)
-			spawned.equip_to_slot_or_del(new /obj/item/weapon/scabbard/sword, ITEM_SLOT_BELT_L, TRUE)
+			spawned.put_in_hands(new /obj/item/weapon/scabbard/sword(get_turf(spawned)), TRUE)
+			spawned.equip_to_slot_or_del(new /obj/item/weapon/shield/heater, ITEM_SLOT_BACK_L, TRUE)
 		if("Sword + Bow")
 			spawned.put_in_hands(new /obj/item/weapon/sword/arming(get_turf(spawned)), TRUE)
 			spawned.put_in_hands(new /obj/item/weapon/scabbard/sword(get_turf(spawned)), TRUE)
 			spawned.equip_to_slot_or_del(new /obj/item/ammo_holder/quiver/arrows, ITEM_SLOT_BELT_L, TRUE)
-			spawned.equip_to_slot_or_del(new /obj/item/gun/ballistic/revolver/grenadelauncher/bow, ITEM_SLOT_BACK_L, TRUE)
+			spawned.equip_to_slot_or_del(new /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long, ITEM_SLOT_BACK_L, TRUE)
 		if("Sword + Bow")
 			spawned.put_in_hands(new /obj/item/weapon/sword/arming(get_turf(spawned)), TRUE)
 			spawned.put_in_hands(new /obj/item/weapon/scabbard/sword(get_turf(spawned)), TRUE)

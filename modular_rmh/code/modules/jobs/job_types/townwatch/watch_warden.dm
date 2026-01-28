@@ -1,5 +1,5 @@
 /datum/job/watch_warden
-	title = "Watch Warden"
+	title = "Town Watch Warden"
 	tutorial = "You are a Warden of the Town Watch. \
 	You oversee prisoners, guard the town gates, and ensure that sentences are carried out lawfully. \
 	Your duty is vigilance, containment, and control — not mercy, not glory."
@@ -55,7 +55,7 @@
 
 /datum/outfit/watch_warden
 	name = "Town Watch Warden"
-	head = /obj/item/clothing/head/helmet/nasal
+	head = /obj/item/clothing/head/helmet/townwatch/town_warden
 	mask = null
 	neck = /obj/item/clothing/neck/coif
 	cloak = /obj/item/clothing/cloak/half/guard
@@ -64,7 +64,7 @@
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	gloves = /obj/item/clothing/gloves/leather
 	pants = /obj/item/clothing/pants/trou/leather/splint
-	shoes = /obj/item/clothing/shoes/boots/leather
+	shoes = /obj/item/clothing/shoes/boots/armor/light
 	backr = /obj/item/storage/backpack/satchel/black
 	backl = null
 	belt = /obj/item/storage/belt/leather/watch_captain
