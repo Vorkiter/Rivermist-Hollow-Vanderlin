@@ -8,7 +8,7 @@
 	icon = 'icons/roguetown/items/perfume.dmi'
 	icon_state = "lipstick"
 	w_class = WEIGHT_CLASS_TINY
-	var/colour = "#821d2c"
+	var/colour = "#5a151f"
 	var/open = FALSE
 
 /obj/item/lipstick/purple

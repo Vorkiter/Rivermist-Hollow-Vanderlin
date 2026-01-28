@@ -191,6 +191,19 @@
 	releasedrain = 0
 	blade_class = BCLASS_PUNCH
 
+/*
+/datum/intent/shave
+	name = "shave"
+	icon_state =
+	chargetime = 0
+	noaa = FALSE
+	candodge = FALSE
+	canparry = FALSE
+	misscost = 0
+	no_attack = TRUE
+	releasedrain = 0
+	blade_class = BCLASS_PUNCH
+*/
 /obj/item/weapon/knife/scissors/pre_attack(atom/A, mob/living/user, params)
 	if(user.used_intent.type == /datum/intent/snip && isitem(A))
 		var/obj/item/item = A
@@ -221,6 +234,8 @@
 			qdel(item)
 			user.mind.add_sleep_experience(/datum/skill/misc/sewing, (user.STAINT)) //We're getting experience for salvaging!
 			return
+		//if(user.used_intent.type == /datum/intent/shave && ) на будущие стрижки лобковых волос
+
 	return ..()
 
 /obj/item/weapon/knife/scissors/steel

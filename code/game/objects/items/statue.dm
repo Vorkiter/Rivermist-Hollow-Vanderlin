@@ -206,6 +206,7 @@
 	icon_state = "cameo_silv"
 
 /obj/item/statue/silver/comb
+	parent_type = /obj/item/hairbrush
 	name = "silver comb"
 	desc = "A silver comb, great for combing your hair or lack thereof."
 	icon = 'icons/roguetown/items/precious_objects.dmi'
@@ -372,6 +373,7 @@
 	icon_state = "elven_gold"
 
 /obj/item/statue/gold/comb
+	parent_type = /obj/item/hairbrush
 	name = "golden comb "
 	desc =  "A golden comb, great for combing your hair or lack thereof."
 	icon = 'icons/roguetown/items/precious_objects.dmi'
@@ -469,6 +471,7 @@
 	sellprice = 30
 
 /obj/item/statue/bronze/comb
+	parent_type = /obj/item/hairbrush
 	name = "bronze comb"
 	desc =  "A bronze comb, great for combing your hair or lack thereof."
 	icon = 'icons/roguetown/items/precious_objects.dmi'

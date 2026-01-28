@@ -132,6 +132,9 @@
 			if(HAS_TRAIT(src, TRAIT_ALLURE))
 				//Handsome only if male, beautiful in all other pronouns.
 				. += span_love(span_bold("[self_inspect ? "I have" : "[t_He] has"] quite a tempting appeal"))
+			if(has_status_effect(STATUS_EFFECT_COMB_HAIR))
+				. += span_love(span_bold("[self_inspect ? "I have" : "[t_He] has"] clean and well-combed hair."))
+
 		if(length(GLOB.tennite_schisms))
 			var/datum/tennite_schism/S = GLOB.tennite_schisms[1]
 			var/user_side = (WEAKREF(user) in S.supporters_astrata) ? "astrata" : (WEAKREF(user) in S.supporters_challenger) ? "challenger" : null
