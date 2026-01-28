@@ -152,6 +152,7 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 
 #define CAT_BURGMESITER		"CAT_BURGMESITER"		// Burgmeister class - 4 types
 #define CAT_COUNCILOR		"CAT_COUNCILOR"		// Councilor class - 3 types
+#define CAT_SERVANT			"CAT_SERVANT"		// Councilor class - 3 types
 
 // Character category and its buys
 #define TRIUMPH_CAT_CHARACTER "CHARACTER"

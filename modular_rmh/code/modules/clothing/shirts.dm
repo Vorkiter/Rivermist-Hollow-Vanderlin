@@ -35,6 +35,9 @@
 	mob_overlay_icon = 'modular_rmh/icons/clothing/onmob/shirts.dmi'
 	sleeved = 'modular_rmh/icons/clothing/onmob/helpers/sleeves_shirts.dmi'
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
+	nodismemsleeves = TRUE
+	sleevetype = null
+	sleeved = null
 
 /obj/item/clothing/shirt/undershirt/eastshirt2
 	icon = 'modular_rmh/icons/clothing/shirts.dmi'

@@ -8,9 +8,7 @@
 	map_file_name = "daftmarsh.dmm"
 	// Disabled for Daftmarsh.
 	blacklist = list(
-		/datum/job/tapster, //Unneeded.
 		/datum/job/shophand, //Unneeded honestly.
-		/datum/job/gaffer_assistant, //Never filled, prefer to just ditch it.
 		/datum/job/minor_noble, //Minor nobles will have to approach via pilgrim waves and be guests that way.
 	)
 	// Limited positions to ensure core roles are filled.

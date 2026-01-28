@@ -9,12 +9,10 @@
 	blacklist = list(
 		/datum/job/shophand, //Unneeded honestly.
 		/datum/job/dungeoneer,
-		/datum/job/gaffer_assistant //Never filled, prefer to just ditch it.
 	)
 	// Limited positions to ensure core roles are filled.
 	slot_adjust = list(
 		/datum/job/feldsher = 2,
-		/datum/job/tapster = 2,
 		/datum/job/cook = 2,
 		/datum/job/servant = 3,
 		/datum/job/carpenter = 2,

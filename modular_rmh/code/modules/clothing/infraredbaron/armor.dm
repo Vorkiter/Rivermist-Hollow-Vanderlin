@@ -24,6 +24,9 @@
 	smeltresult = /obj/item/ingot/steel
 	sewrepair = FALSE
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
+	nodismemsleeves = TRUE
+	sleevetype = null
+	sleeved = null
 
 /obj/item/clothing/suit/roguetown/armor/leather/duchess
 	name = "duchess' court gown"
@@ -35,6 +38,9 @@
 	icon_state = "duchess"
 	item_state = "duchess"
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
+	nodismemsleeves = TRUE
+	sleevetype = null
+	sleeved = null
 
 /obj/item/clothing/suit/roguetown/armor/leather/marshall
 	name = "marshall uniform"
@@ -53,11 +59,12 @@
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	sewrepair = TRUE
-	sleevetype = null
-	sleeved = null
 	armor_class = AC_LIGHT
 	salvage_result = /obj/item/natural/hide/cured
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
+	nodismemsleeves = TRUE
+	sleevetype = null
+	sleeved = null
 
 /obj/item/clothing/suit/roguetown/armor/leather/burgmeister
 	name = "burgmeister's civic vestments"
@@ -68,6 +75,9 @@
 	item_state = "hand"
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_ARMOR //ugly hack to make it render over the head
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
+	nodismemsleeves = TRUE
+	sleevetype = null
+	sleeved = null
 
 /obj/item/clothing/suit/roguetown/armor/leather/adjutant
 	name = "councilor's uniform"
@@ -79,6 +89,9 @@
 	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
 	slot_flags = ITEM_SLOT_ARMOR
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
+	nodismemsleeves = TRUE
+	sleevetype = null
+	sleeved = null
 
 /obj/item/clothing/suit/roguetown/armor/leather/heiress
 	name = "council clerk attire"
@@ -90,6 +103,9 @@
 	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
 	slot_flags = ITEM_SLOT_ARMOR
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
+	nodismemsleeves = TRUE
+	sleevetype = null
+	sleeved = null
 
 /obj/item/clothing/suit/roguetown/armor/councillor
 	name = "councilor's formal attire"
@@ -107,10 +123,11 @@
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	sewrepair = TRUE
-	r_sleeve_status = SLEEVE_NORMAL
-	l_sleeve_status = SLEEVE_NORMAL
 	armor_class = AC_LIGHT
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
+	nodismemsleeves = TRUE
+	sleevetype = null
+	sleeved = null
 
 /obj/item/clothing/suit/roguetown/armor/leather/magos
 	name = "magos-administrator robes"
@@ -122,6 +139,9 @@
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|VITALS
 	slot_flags = ITEM_SLOT_ARMOR
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
+	nodismemsleeves = TRUE
+	sleevetype = null
+	sleeved = null
 
 /obj/item/clothing/suit/roguetown/armor/leather/banker
 	name = "guild banker’s suit"
@@ -133,3 +153,6 @@
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|VITALS
 	slot_flags = ITEM_SLOT_ARMOR
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
+	nodismemsleeves = TRUE
+	sleevetype = null
+	sleeved = null

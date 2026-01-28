@@ -116,6 +116,7 @@
 	name = "Councilor Adjutant"
 	head = null
 	mask = null
+	neck = null
 	cloak = /obj/item/clothing/cloak/half/duelcape/townhall
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/adjutant
 	shirt = null
@@ -127,8 +128,12 @@
 	backl = null
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltr = /obj/item/storage/belt/pouch/coins/rich
-	beltl = /obj/item/key/hand
+	beltl = /obj/item/storage/keyring/rmh_councilor
 	ring = /obj/item/clothing/ring/slave_control
+
+	backpack_contents = list(
+		/obj/item/clothing/neck/slave_collar
+	)
 
 // ─────────────────────────────
 
@@ -166,6 +171,7 @@
 	name = "Councilor Clerk"
 	head = /obj/item/clothing/head/stewardtophat
 	mask = /obj/item/clothing/face/spectacles
+	neck = null
 	cloak = /obj/item/clothing/cloak/cape/puritan/townhall
 	armor = /obj/item/clothing/armor/gambeson/steward/townhall
 	shirt = null
@@ -177,9 +183,13 @@
 	backl = null
 	belt = /obj/item/storage/belt/leather/plaquegold
 	beltr = /obj/item/storage/belt/pouch/coins/rich
-	beltl = /obj/item/key/hand
+	beltl = /obj/item/storage/keyring/rmh_councilor
 	ring = /obj/item/clothing/ring/slave_control
 	l_hand = /obj/item/weapon/mace/cane/noble
+
+	backpack_contents = list(
+		/obj/item/clothing/neck/slave_collar
+	)
 
 /datum/outfit/councilor/clerk/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
 	. = ..()
@@ -228,6 +238,7 @@
 	name = "Advisor Councilor"
 	head = /obj/item/clothing/head/chaperon/colored/greyscale/townhall
 	mask = null
+	neck = null
 	cloak = /obj/item/clothing/cloak/cape/colored/townhall
 	armor = /obj/item/clothing/suit/roguetown/armor/councillor
 	shirt = /obj/item/clothing/shirt/undershirt/fancy
@@ -239,8 +250,12 @@
 	backl = null
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltr = /obj/item/storage/belt/pouch/coins/rich
-	beltl = /obj/item/key/hand
+	beltl = /obj/item/storage/keyring/rmh_councilor
 	ring = /obj/item/clothing/ring/slave_control
+
+	backpack_contents = list(
+		/obj/item/clothing/neck/slave_collar
+	)
 
 //ANNOUNCEMENT SYSTEM
 

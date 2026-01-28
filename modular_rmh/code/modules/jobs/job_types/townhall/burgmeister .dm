@@ -142,6 +142,7 @@ GLOBAL_LIST_EMPTY(burgmeister_titles)
 	name = "Burgmeister Marshall"
 	head = null
 	mask = null
+	neck = null
 	cloak = /obj/item/clothing/cloak/ordinatorcape/townhall
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/marshall
 	shirt = /obj/item/clothing/shirt/undershirt/fancy
@@ -153,12 +154,13 @@ GLOBAL_LIST_EMPTY(burgmeister_titles)
 	backl = null
 	belt = /obj/item/storage/belt/leather/plaquegold
 	beltr = /obj/item/storage/belt/pouch/coins/veryrich
-	beltl = /obj/item/key/lord
+	beltl = /obj/item/storage/keyring/rmh_burgmeister
 	ring = /obj/item/clothing/ring/slave_control
 	backpack_contents = list(
 		/obj/item/storage/belt/pouch/bullets,
 		/obj/item/reagent_containers/glass/bottle/aflask,
 		/obj/item/gun/ballistic/revolver/grenadelauncher/pistol,
+		/obj/item/clothing/neck/slave_collar,
 	)
 
 // ─────────────────────────────
@@ -225,6 +227,7 @@ GLOBAL_LIST_EMPTY(burgmeister_titles)
 	name = "Elected Burgmeister"
 	head = /obj/item/clothing/head/fancyhat
 	mask = null
+	neck = null
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/burgmeister
 	shirt = null
@@ -236,8 +239,12 @@ GLOBAL_LIST_EMPTY(burgmeister_titles)
 	backl = null
 	belt = /obj/item/storage/belt/leather/plaquegold
 	beltr = /obj/item/storage/belt/pouch/coins/veryrich
-	beltl = /obj/item/key/lord
+	beltl = /obj/item/storage/keyring/rmh_burgmeister
 	ring = /obj/item/clothing/ring/slave_control
+
+	backpack_contents = list(
+		/obj/item/clothing/neck/slave_collar
+	)
 
 /datum/outfit/burgmeister/elected/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
 	. = ..()
@@ -310,6 +317,7 @@ GLOBAL_LIST_EMPTY(burgmeister_titles)
 	name = "Patrician Burgmeister"
 	head = /obj/item/clothing/head/crown/circlet
 	mask = null
+	neck = null
 	cloak = null
 	armor = null
 	shirt = null
@@ -321,9 +329,13 @@ GLOBAL_LIST_EMPTY(burgmeister_titles)
 	backl = null
 	belt = /obj/item/storage/belt/leather/plaquegold
 	beltr = /obj/item/storage/belt/pouch/coins/veryrich
-	beltl = /obj/item/key/lord
+	beltl = /obj/item/storage/keyring/rmh_burgmeister
 	ring = /obj/item/clothing/ring/slave_control
 	l_hand = /obj/item/weapon/mace/cane/noble
+
+	backpack_contents = list(
+		/obj/item/clothing/neck/slave_collar
+	)
 
 /datum/outfit/burgmeister/patrician/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
 	. = ..()
@@ -372,6 +384,7 @@ GLOBAL_LIST_EMPTY(burgmeister_titles)
 	name = "Scholar-Administrator Burgmeister"
 	head = /obj/item/clothing/head/roguehood/colored/townhall
 	mask = /obj/item/clothing/face/spectacles
+	neck = null
 	cloak = /obj/item/clothing/cloak/cape/puritan/townhall
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/magos
 	shirt = /obj/item/clothing/shirt/tunic/colored/black
@@ -383,8 +396,12 @@ GLOBAL_LIST_EMPTY(burgmeister_titles)
 	backl = null
 	belt = /obj/item/storage/belt/leather/plaquegold
 	beltr = /obj/item/storage/belt/pouch/coins/veryrich
-	beltl = /obj/item/key/lord
+	beltl = /obj/item/storage/keyring/rmh_burgmeister
 	ring = /obj/item/clothing/ring/slave_control
+
+	backpack_contents = list(
+		/obj/item/clothing/neck/slave_collar
+	)
 
 //EX-LORD SYSTEM
 
