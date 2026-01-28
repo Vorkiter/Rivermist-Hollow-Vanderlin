@@ -29,7 +29,8 @@
 
 /datum/sex_action/foot_lick/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	var/datum/sex_session/sex_session = get_sex_session(user, target)
-	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] licks [target]'s feet..."))
+	if(can_show_action_message(user, target))
+		user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] licks [target]'s feet..."))
 	user.make_sucking_noise()
 	sex_session.perform_sex_action(user, target, 0.5, 0, 0, src)
 

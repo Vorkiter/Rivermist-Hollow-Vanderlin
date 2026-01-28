@@ -55,6 +55,8 @@
 	var/check_incapacitated = TRUE
 	/// Whether participants must be on same tile
 	var/check_same_tile = FALSE
+	/// Whether the action can be performed at distance
+	var/check_distance = TRUE
 	/// Whether this requires a grab
 	var/require_grab = FALSE
 	/// Minimum grab state required
@@ -89,6 +91,8 @@
 	var/gags_target = FALSE
 	/// Sound volume for actions
 	var/action_volume = 50
+	/// So that we don't spam messages with every thrust for example
+	var/next_message_time = 0
 
 /datum/sex_action/Destroy()
 	// Clean up any tracked storage entries
@@ -357,3 +361,13 @@
 		else
 			new /obj/effect/temp_visual/heart/sex_effects/red_heart(get_turf(user))
 
+
+/datum/sex_action/proc/can_show_action_message(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(world.time >= next_message_time)
+		var/datum/sex_session/sex_session = get_sex_session(user, target)
+		var/speed_time = 40
+		if(sex_session)
+			speed_time = rand(10, 100 - sex_session.get_current_speed() * 10)
+		next_message_time = world.time + speed_time
+		return TRUE
+	return FALSE

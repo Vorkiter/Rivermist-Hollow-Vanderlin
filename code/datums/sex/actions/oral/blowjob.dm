@@ -46,7 +46,8 @@
 	var/datum/sex_session/sex_session = get_sex_session(user, target)
 	user.make_sucking_noise()
 	do_thrust_animate(user, target)
-	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] sucks [target] off."))
+	if(can_show_action_message(user, target))
+		user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] sucks [target] off."))
 
 	sex_session.perform_sex_action(target, user, 2, 0, 2, src)
 	sex_session.handle_passive_ejaculation(target)

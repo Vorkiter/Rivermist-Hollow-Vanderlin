@@ -23,7 +23,8 @@
 
 /datum/sex_action/npc/npc_anal_ride_sex/on_perform(mob/living/user, mob/living/target)
 	var/datum/sex_session/sex_session = get_sex_session(user, target)
-	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] rides [target]."))
+	if(can_show_action_message(user, target))
+		user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] rides [target]."))
 	playsound(target, sex_session.get_force_sound(), 50, TRUE, -2, ignore_walls = FALSE)
 	do_thrust_animate(user, target)
 

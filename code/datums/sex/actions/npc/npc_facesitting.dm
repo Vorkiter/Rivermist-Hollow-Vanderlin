@@ -16,7 +16,8 @@
 /datum/sex_action/npc/npc_facesitting/on_perform(mob/living/user, mob/living/target)
 	var/datum/sex_session/sex_session = get_sex_session(user, target)
 	var/verbstring = pick(list("rubs", "smushes", "forces"))
-	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] [verbstring] [user.p_their()] butt against [target] face."))
+	if(can_show_action_message(user, target))
+		user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] [verbstring] [user.p_their()] butt against [target] face."))
 	target.make_sucking_noise()
 	do_thrust_animate(user, target)
 

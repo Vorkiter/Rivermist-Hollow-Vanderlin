@@ -218,7 +218,7 @@
 		return FALSE
 	if(user.stat != CONSCIOUS)
 		return FALSE
-	if(!user.Adjacent(target))
+	if(!user.Adjacent(target) && action.check_distance)
 		return FALSE
 	if(action.check_incapacitated && user.incapacitated())
 		return FALSE
