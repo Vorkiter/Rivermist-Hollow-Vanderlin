@@ -2,7 +2,7 @@
 	category = CATEGORY_HUMAN
 	weight = WEIGHT_MOB
 
-/datum/keybinding/human/can_use(client/user)
+/datum/keybinding/human/down(client/user)
 	if(!iscarbon(user.mob))
 		return FALSE
 	return TRUE
