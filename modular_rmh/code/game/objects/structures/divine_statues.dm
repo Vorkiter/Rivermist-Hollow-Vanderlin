@@ -29,14 +29,22 @@
 	name = "awakened statue of Selûne"
 	icon_state = "selune_guard"
 
-/obj/structure/fluff/statue/selune/guard/Initialize()
+/obj/structure/fluff/statue/selune/guard/Initialize(mapload)
+	. = ..()
+	update_appearance(UPDATE_OVERLAYS)
+
+/obj/structure/fluff/statue/selune/guard/update_overlays()
 	. = ..()
 	. += emissive_appearance(icon, "selune_guard_overlay")
 
 /obj/structure/fluff/statue/selune/guard_left
 	name = "awakened statue of Selûne"
-	icon_state = "selune_guard"
+	icon_state = "selune_guard_left"
 
-/obj/structure/fluff/statue/selune/guard_left/Initialize()
+/obj/structure/fluff/statue/selune/guard_left/Initialize(mapload)
+	. = ..()
+	update_appearance(UPDATE_OVERLAYS)
+
+/obj/structure/fluff/statue/selune/guard_left/update_overlays()
 	. = ..()
 	. += emissive_appearance(icon, "selune_guard_left_overlay")
