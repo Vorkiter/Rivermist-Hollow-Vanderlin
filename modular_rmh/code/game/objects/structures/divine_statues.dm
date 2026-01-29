@@ -1,3 +1,5 @@
+//By SayonaraEcho
+
 /obj/structure/fluff/statue/sune
 	name = "statue of Sune"
 	desc = "Sune Firehair, goddess of love, beauty, passion, and pleasure. She teaches that beauty is sacred, love is transformative, and desire is a force to be celebrated rather than denied."
