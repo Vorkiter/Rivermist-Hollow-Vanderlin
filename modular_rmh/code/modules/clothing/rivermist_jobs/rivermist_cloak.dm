@@ -18,3 +18,6 @@
 /obj/item/clothing/cloak/captain/town_watch
 	name = "watch captain's cape"
 	desc = "A cape with a gold-embroidered heraldry of Duskmar Duchy."
+
+/obj/item/clothing/cloak/cape/colored/moon_priest
+	color = "#62656C"

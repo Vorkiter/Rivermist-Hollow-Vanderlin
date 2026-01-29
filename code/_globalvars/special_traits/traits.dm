@@ -515,16 +515,6 @@
 		character.beltr = null
 	qdel(pouch)
 
-/datum/special_trait/hussite
-	name = "Known Heretic"
-	greet_text = span_boldwarning("I've been denounced by the church for either reasons legitimate or not!")
-	req_text = "Non-church role"
-	weight = 20
-	restricted_jobs = list(/datum/job/priest)
-
-/datum/special_trait/hussite/on_apply(mob/living/carbon/human/character, silent)
-	GLOB.excommunicated_players += character.real_name
-
 /datum/special_trait/outlaw
 	name = "Known Outlaw"
 	greet_text = span_boldwarning("Whether for crimes I did or was accused of, I have been declared an outlaw!")
@@ -707,18 +697,6 @@
 
 /datum/special_trait/keenears/on_apply(mob/living/carbon/human/character, silent)
 	ADD_TRAIT(character, TRAIT_KEENEARS, "[type]")
-
-/datum/special_trait/bestial
-	name = "Bestial"
-	greet_text = span_notice("I am blessed by Dendor I feel closer to beasts than men, I can whisper in their tongue.")
-	weight = 50
-	req_text = "Worship Dendor and be an acolyte"
-	allowed_jobs = list(/datum/job/monk)
-
-/datum/special_trait/bestial/on_apply(mob/living/carbon/human/character, silent)
-	character.grant_language(/datum/language/beast)
-	character.add_spell(/datum/action/cooldown/spell/undirected/howl/call_of_the_moon, silent = TRUE)
-	ADD_TRAIT(character, TRAIT_NASTY_EATER, "[type]") // eat the raw meat
 
 /datum/special_trait/glutton
 	name = "The Glutton"

@@ -9,3 +9,9 @@
 
 /obj/item/storage/keyring/watch_captain
 	keys = list(/obj/item/key/garrison, /obj/item/key/forrestgarrison, /obj/item/key/veteran, /obj/item/key/lieutenant, /obj/item/key/dungeon, /obj/item/key/captain, /obj/item/key/atarms)
+
+/obj/item/storage/keyring/watch_captain
+	keys = list(/obj/item/key/garrison, /obj/item/key/forrestgarrison, /obj/item/key/veteran, /obj/item/key/lieutenant, /obj/item/key/dungeon, /obj/item/key/captain, /obj/item/key/atarms)
+
+/obj/item/storage/keyring/town_chapel
+	keys = list(/obj/item/key/priest, /obj/item/key/church)

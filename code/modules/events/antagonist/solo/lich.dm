@@ -25,7 +25,6 @@
 
 	restricted_roles = list(
 		/datum/job/lord,
-		/datum/job/priest,
 	)
 
 

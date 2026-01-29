@@ -155,6 +155,8 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 #define CAT_SERVANT			"CAT_SERVANT"		// Servant class - 3 types
 //TOWNWATCH
 #define CAT_WATCHMAN		"CAT_WATCHMAN"		// Town Watch Guard class - 3 types
+//CHAPEL
+#define CAT_CHAPEL			"CAT_CHAPEL"		// Chapel acolyte class - 3 types
 
 // Character category and its buys
 #define TRIUMPH_CAT_CHARACTER "CHARACTER"

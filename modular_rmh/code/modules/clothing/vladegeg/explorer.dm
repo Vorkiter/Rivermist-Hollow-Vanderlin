@@ -5,9 +5,9 @@
 	armor = ARMOR_LEATHER
 	icon_state = "vest"
 	item_state = "vest"
-	icon = 'modular_rmh/icons/clothing/explorer.dmi'
-	sleeved = 'modular_rmh/icons/clothing/onmob/explorer_sleeves.dmi'
-	mob_overlay_icon = 'modular_rmh/icons/clothing/onmob/explorer.dmi'
+	icon = 'modular_rmh/icons/clothing/vladegeg/explorer.dmi'
+	mob_overlay_icon = 'modular_rmh/icons/clothing/vladegeg/onmob/explorer.dmi'
+	sleeved = 'modular_rmh/icons/clothing/vladegeg/onmob/helpers/explorer_sleeves.dmi'
 	allowed_race = SPECIES_BASE_BODY
 	nodismemsleeves = FALSE
 
@@ -15,9 +15,9 @@
 	. = ..()
 
 /obj/item/clothing/pants/trou/leather/explorer
-	icon = 'modular_rmh/icons/clothing/explorer.dmi'
-	mob_overlay_icon = 'modular_rmh/icons/clothing/onmob/explorer.dmi'
-	sleeved = 'modular_rmh/icons/clothing/onmob/explorer_sleeves.dmi'
+	icon = 'modular_rmh/icons/clothing/vladegeg/explorer.dmi'
+	mob_overlay_icon = 'modular_rmh/icons/clothing/vladegeg/onmob/explorer.dmi'
+	sleeved = 'modular_rmh/icons/clothing/vladegeg/onmob/helpers/explorer_sleeves.dmi'
 	sleevetype = "leg"
 	name = "explorer's trousers"
 	desc = "Hardy yet comfortable leather pants, suited even for hardest field work."
@@ -31,8 +31,8 @@
 	allowed_race = SPECIES_BASE_BODY
 
 /obj/item/clothing/head/explorer
-	icon = 'modular_rmh/icons/clothing/explorer.dmi'
-	mob_overlay_icon = 'modular_rmh/icons/clothing/onmob/explorer.dmi'
+	icon = 'modular_rmh/icons/clothing/vladegeg/explorer.dmi'
+	mob_overlay_icon = 'modular_rmh/icons/clothing/vladegeg/onmob/explorer.dmi'
 	name = "explorer's hat"
 	desc = "The perfect protection both from heat and things falling on your head."
 	icon_state = "hat"

@@ -13,3 +13,6 @@
 		/obj/item/rope/chain = 1,
 		/obj/item/storage/keyring/watch_captain,
 	)
+
+/obj/item/storage/belt/leather/cloth/heart_priest
+	color = CLOTHING_BLOOD_RED

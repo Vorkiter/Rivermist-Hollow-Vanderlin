@@ -36,7 +36,9 @@ GLOBAL_PROTECT(townwatch_positions)
 
 
 GLOBAL_LIST_INIT(chapel_positions, list(
-	/datum/job/priest::title,
+	/datum/job/moon_priest::title,
+	/datum/job/heart_priest::title,
+	/datum/job/acolyte::title,
 ))
 
 GLOBAL_PROTECT(chapel_positions)

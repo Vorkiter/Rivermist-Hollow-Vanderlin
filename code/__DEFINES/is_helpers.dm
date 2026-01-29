@@ -175,14 +175,14 @@ GLOBAL_LIST_INIT(RATS_DONT_EAT, typecacheof(list(
 	#define is_unassigned_job(job_type) (istype(job_type, /datum/job/unassigned))
 //Townhall
 	#define is_burgmeister_job(job_type) (istype(job_type, /datum/job/burgmeister))
+//Chapel
+	#define is_priest_job(job_type) (istype(job_type, /datum/job/moon_priest || /datum/job/heart_priest))
+
 // Nobility
 	#define is_lord_job(job_type) (istype(job_type, /datum/job/lord))
 	#define is_consort_job(job_type) (istype(job_type, /datum/job/consort))
 	#define is_merchant_job(job_type) (istype(job_type, /datum/job/merchant))
 	#define is_steward_job(job_type) (istype(job_type, /datum/job/steward))
-// Garrison
-// Church
-	#define is_priest_job(job_type) (istype(job_type, /datum/job/priest))
 // Serfs
 	#define is_gaffer_job(job_type) (istype(job_type, /datum/job/gaffer))
 // Peasantry

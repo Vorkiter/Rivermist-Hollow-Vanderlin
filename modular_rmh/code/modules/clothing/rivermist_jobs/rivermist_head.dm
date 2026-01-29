@@ -38,3 +38,9 @@
 	max_integrity = INTEGRITY_STRONG
 	prevent_crits = ALL_CRITICAL_HITS
 	item_weight = 6 * STEEL_MULTIPLIER
+
+/obj/item/clothing/head/crown/circlet/silverdiadem/moon_priest
+	name = "silver diadem"
+	desc = "A luxurious diadem forged out of silver, etched with lunar sigils and blessed under moonlight. Worn by priests of Selûne as a symbol of guidance, mercy, and quiet vigilance in the dark."
+	icon_state = "diadem_s"
+	sellprice = VALUE_SILVER_ITEM

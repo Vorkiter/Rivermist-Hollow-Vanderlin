@@ -3,9 +3,9 @@
 	name = "leopard robe"
 	desc = "An exquisite silky robe with a lepard pattern."
 	body_parts_covered = CHEST|GROIN|VITALS
-	icon = 'modular_rmh/icons/clothing/tig.dmi'
-	mob_overlay_icon = 'modular_rmh/icons/clothing/onmob/tig.dmi'
-	sleeved = 'modular_rmh/icons/clothing/onmob/tig_sleeves.dmi'
+	icon = 'modular_rmh/icons/clothing/vladegeg/tig.dmi'
+	mob_overlay_icon = 'modular_rmh/icons/clothing/vladegeg/onmob/tig.dmi'
+	sleeved = 'modular_rmh/icons/clothing/vladegeg/onmob/helpers/tig_sleeves.dmi'
 	sleevetype = "armor"
 	icon_state = "tig"
 	item_state = "tig"
@@ -33,3 +33,6 @@
 		if(ishuman(user))
 			var/mob/living/carbon/H = user
 			H.update_inv_armor()
+
+/obj/item/clothing/shirt/leo_robe/colored
+	color = "#FFFFFF"

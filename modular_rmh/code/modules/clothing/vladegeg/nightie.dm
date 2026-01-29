@@ -3,8 +3,8 @@
 	name = "nightgown"
 	desc = "An elegant and enticing nightgown, made for comfort - and allure."
 	body_parts_covered = CHEST|GROIN|VITALS
-	icon = 'modular_rmh/icons/clothing/nightie.dmi'
-	mob_overlay_icon = 'modular_rmh/icons/clothing/onmob/nightie.dmi'
+	icon = 'modular_rmh/icons/clothing/vladegeg/nightie.dmi'
+	mob_overlay_icon = 'modular_rmh/icons/clothing/vladegeg/onmob/nightie.dmi'
 	sleeved = null
 	sleevetype = null
 	icon_state = "dress"
@@ -15,3 +15,10 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	nodismemsleeves = TRUE
+
+/obj/item/clothing/shirt/nightgown/colored
+	color = "#FFFFFF"
+
+/obj/item/clothing/shirt/nightgown/colored/random/Initialize()
+	color = pick_assoc(GLOB.common_dyes)
+	return ..()

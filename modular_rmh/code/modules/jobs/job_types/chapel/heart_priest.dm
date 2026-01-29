@@ -1,0 +1,94 @@
+/datum/job/heart_priest
+	title = "Heart Priest"
+	f_title = "Heart Priestess"
+	tutorial = "You serve Sune Firehair, Lady of Love and Beauty. \
+	Where hearts ache and spirits falter, you restore warmth and desire. \
+	This chapel is a place of healing, art, and emotional refuge."
+	department_flag = CHAPEL
+	faction = FACTION_TOWN
+	total_positions = 1
+	spawn_positions = 1
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_HEART_PRIEST
+
+	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
+	allowed_races = ALL_RACES_LIST
+
+	outfit = /datum/outfit/heart_priest
+	selection_color = JCOLOR_CHAPEL
+
+	exp_type = list(EXP_TYPE_CHURCH)
+	exp_types_granted = list(EXP_TYPE_CHURCH, EXP_TYPE_CLERIC)
+	exp_requirements = list(EXP_TYPE_CHURCH = 700)
+
+	allowed_patrons = list(/datum/patron/faerun/good_gods/Sune)
+	jobstats = list(
+		STATKEY_STR = 0,
+		STATKEY_PER = 1,
+		STATKEY_INT = 2,
+		STATKEY_CON = 1,
+		STATKEY_END = 2,
+		STATKEY_SPD = 2,
+		STATKEY_LCK = 3
+	)
+
+	skills = list(
+		/datum/skill/magic/holy = 4,
+		/datum/skill/misc/reading = 4,
+		/datum/skill/misc/medicine = 3,
+		/datum/skill/misc/music = 4,
+		/datum/skill/misc/athletics = 2,
+		/datum/skill/combat/unarmed = 2,
+		/datum/skill/combat/whipsflails = 2,
+		/datum/skill/misc/sewing = 3,
+	)
+
+	traits = list(
+		TRAIT_HOLY,
+		TRAIT_ALLURE,
+		TRAIT_GOODLOVER,
+		TRAIT_BEAUTIFUL,
+		TRAIT_SECRET_OFFICIANT,
+		TRAIT_EMPATH
+	)
+
+	languages = list(/datum/language/celestial)
+
+/datum/job/heart_priest/after_spawn(mob/living/carbon/human/spawned, client/player_client)
+	. = ..()
+	spawned.verbs |= /mob/living/carbon/human/proc/churchannouncement
+
+	var/holder = spawned.patron?.devotion_holder
+	if(holder)
+		var/datum/devotion/devotion = new holder()
+		devotion.make_priest()
+		devotion.grant_to(spawned)
+
+//OUTFIT
+
+/datum/outfit/heart_priest
+	name = "Heart Priest"
+	head = /obj/item/clothing/head/flowercrown/rosa
+	mask = null
+	neck = /obj/item/clothing/neck/psycross/silver/sune
+	cloak = /obj/item/clothing/cloak/half/colored/red
+	armor = null
+	shirt = /obj/item/clothing/shirt/toga
+	wrists = null
+	gloves = null
+	pants = null
+	shoes = /obj/item/clothing/shoes/toga_sandals
+	backr = /obj/item/storage/backpack/satchel
+	backl = null
+	belt = /obj/item/storage/belt/leather/cloth/heart_priest
+	beltr = /obj/item/storage/belt/pouch/coins/rich
+	beltl = /obj/item/storage/keyring/town_chapel
+	ring = /obj/item/clothing/ring/gold/rontz
+	l_hand = null
+	r_hand = /obj/item/weapon/polearm/woodstaff/aries
+
+	backpack_contents = list(
+		/obj/item/needle/blessed = 1,
+		/obj/item/reagent_containers/glass/bottle/stronghealthpot = 2,
+		/obj/item/reagent_containers/glass/bottle/beer/emberwine = 1
+	)
