@@ -3872,6 +3872,7 @@
 #include "modular_rmh\code\game\objects\lighting\candlep.dm"
 #include "modular_rmh\code\game\objects\lighting\fires.dm"
 #include "modular_rmh\code\game\objects\structures\canopy.dm"
+#include "modular_rmh\code\game\objects\structures\divine_statues.dm"
 #include "modular_rmh\code\game\objects\structures\festive_tree.dm"
 #include "modular_rmh\code\game\objects\structures\flags.dm"
 #include "modular_rmh\code\game\objects\structures\flora.dm"
