@@ -74,14 +74,49 @@
 
 /mob/living/carbon/human/send_speech(message, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, list/message_mods = list(), original_message)
 	. = ..()
-	if(!message_mods[WHISPER_MODE])
-		send_voice(message)
+	send_voice(message, message_mods)
 
-/mob/living/carbon/human/proc/send_voice(message, skip_thingy)
+/mob/living/carbon/human/proc/send_voice(message, list/message_mods)
 	if(!length(message))
 		return
-	if(dna.species)
-		dna.species.send_voice(src)
+	dna?.species?.send_voice(src, message, message_mods)
 
-/datum/species/proc/send_voice(mob/living/carbon/human/H)
-	playsound(get_turf(H), 'sound/misc/talk.ogg', 100, FALSE, -1)
+/datum/species/proc/send_voice(mob/living/carbon/human/H, message, list/message_mods)
+	if(!H)
+		return
+
+	//If high arousal - moan
+	var/datum/component/arousal/A = H.GetComponent(/datum/component/arousal)
+	if(A)
+		if(A.arousal >= 75)
+			H.emote(H.can_speak() ? "sexmoanhvy" : "sexmoangag_org", intentional = FALSE)
+			return
+		if(A.arousal >= 40)
+			H.emote(H.can_speak() ? "sexmoanmed" : "sexmoangag", intentional = FALSE)
+			return
+		if(A.arousal >= 15)
+			H.emote(H.can_speak() ? "sexmoanlight" : "sexmoangag", intentional = FALSE)
+			return
+	// --------------------------
+
+
+	// Whisper
+	if(message_mods[WHISPER_MODE])
+		H.emote("psst", intentional = FALSE)
+		return
+
+	// Singing
+	if(message_mods[MODE_SING])
+		H.emote("hum", intentional = FALSE)
+		return
+
+	// Speech
+	switch(say_test(message))
+		if("1") // ?
+			H.emote("huh", intentional = FALSE)
+		if("2") // !
+			H.emote("clearthroat", intentional = FALSE)
+		if("3") // !!
+			H.emote("scream", intentional = FALSE)
+		else
+			H.emote("hmm", intentional = FALSE)

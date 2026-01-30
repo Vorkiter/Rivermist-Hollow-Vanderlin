@@ -306,6 +306,7 @@
 	message = "clears their throat."
 	message_muffled = "makes a muffled noise."
 	emote_type = EMOTE_AUDIBLE
+	nomsg = TRUE
 
 /mob/living/carbon/human/verb/emote_clearthroat()
 	set name = "Clearthroat"
@@ -418,6 +419,7 @@
 	nomsg = TRUE
 	emote_type = EMOTE_AUDIBLE
 	only_forced_audio = TRUE
+	nomsg = TRUE
 
 // ............... G ..................
 /datum/emote/living/gag
@@ -534,6 +536,8 @@
 	key_third_person = "hmms"
 	message = "hmms."
 	emote_type = EMOTE_AUDIBLE
+	nomsg = TRUE
+
 /mob/living/carbon/human/verb/emote_hmm()
 	set name = "Hmm"
 	set category = "Noises"
@@ -563,6 +567,7 @@
 	message = "hums."
 	message_muffled = "makes a muffled hum."
 	emote_type = EMOTE_AUDIBLE
+	nomsg = TRUE
 
 /mob/living/carbon/human/verb/emote_hum()
 	set name = "Hum"
