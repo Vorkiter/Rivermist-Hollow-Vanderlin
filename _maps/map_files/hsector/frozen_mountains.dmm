@@ -277,6 +277,7 @@
 "br" = (
 /obj/structure/door/stone,
 /obj/effect/mapping_helpers/access/locker,
+/obj/effect/spawner/trap,
 /turf/open/floor/metal/barograte,
 /area/indoors/cave/rmh_dwarf_keep/forge)
 "bs" = (
@@ -1073,6 +1074,10 @@
 	},
 /turf/open/floor/dirt,
 /area/outdoors/mountains/rmh_mountains/frozen/lowlands)
+"eL" = (
+/obj/effect/spawner/trap,
+/turf/open/floor/concrete,
+/area/indoors/cave/rmh_dwarf_keep/grand)
 "eN" = (
 /obj/structure/flora/tree/pine{
 	icon_state = "pine4-snow"
@@ -1466,6 +1471,10 @@
 	},
 /turf/open/floor/snow/rough,
 /area/outdoors/mountains/rmh_mountains/frozen/lowlands)
+"gr" = (
+/obj/effect/spawner/trap,
+/turf/open/floor/cobblerock/alt,
+/area/indoors/cave/rmh_dwarf_keep)
 "gt" = (
 /turf/closed/wall/mineral/stone/moss/blue,
 /area/outdoors/mountains/rmh_mountains)
@@ -1556,6 +1565,12 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/hexstone,
 /area/indoors/cave/rmh_dwarf_keep/living)
+"gL" = (
+/obj/structure/lever/hidden{
+	redstone_id = "dwarffortress1"
+	},
+/turf/closed/wall/mineral/craftstone,
+/area/indoors/cave/rmh_dwarf_keep/communal)
 "gN" = (
 /obj/item/natural/stone,
 /turf/open/floor/snow/rough,
@@ -1873,6 +1888,12 @@
 	},
 /turf/open/floor/tile/checkeralt,
 /area/indoors/town/manor)
+"hW" = (
+/obj/structure/lever/hidden{
+	redstone_id = "dwarffortress1"
+	},
+/turf/closed/wall/mineral/craftstone,
+/area/indoors/cave/rmh_dwarf_keep/grand)
 "hY" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/cobblerock,
@@ -1929,6 +1950,12 @@
 	dir = 4
 	},
 /area/indoors/town/manor)
+"im" = (
+/obj/effect/decal/edge{
+	dir = 5
+	},
+/turf/open/floor/herringbone,
+/area/indoors/cave/rmh_dwarf_keep/grand)
 "in" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/wood,
@@ -2026,9 +2053,9 @@
 /turf/open/floor/dirt,
 /area/indoors/town/manor)
 "iN" = (
-/mob/living/simple_animal/hostile/retaliate/minotaur/axe,
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/volcanic,
-/area/indoors/cave/rmh_dwarf_keep/grand)
+/area/outdoors/exposed/rmh_dwarf_keep)
 "iO" = (
 /obj/effect/decal/cleanable/dreamfiend_ichor/large,
 /turf/open/floor/herringbone,
@@ -2235,6 +2262,11 @@
 	},
 /turf/open/floor/grass/cold,
 /area/outdoors/mountains/rmh_mountains/frozen/lowlands)
+"jv" = (
+/obj/effect/decal/cleanable/debris/stone,
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/turf/open/floor/herringbone,
+/area/indoors/cave/rmh_dwarf_keep/communal)
 "jw" = (
 /obj/item/natural/rock,
 /turf/open/floor/cobblerock/alt,
@@ -2271,6 +2303,10 @@
 	},
 /turf/open/floor/dirt,
 /area/outdoors/mountains/rmh_mountains/frozen/lowlands)
+"jC" = (
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/turf/open/floor/herringbone,
+/area/indoors/cave/rmh_dwarf_keep/communal)
 "jD" = (
 /obj/structure/flora/tree/pine/dead{
 	icon_state = "dead2"
@@ -2413,10 +2449,11 @@
 /turf/open/floor/carpet,
 /area/indoors/town/manor)
 "kh" = (
-/obj/effect/decal/cleanable/debris/stone,
-/mob/living/simple_animal/hostile/retaliate/minotaur,
+/obj/effect/decal/edge{
+	dir = 9
+	},
 /turf/open/floor/herringbone,
-/area/indoors/cave/rmh_dwarf_keep/entrance)
+/area/indoors/cave/rmh_dwarf_keep/grand)
 "ki" = (
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/naturalstone,
@@ -2434,6 +2471,11 @@
 /obj/structure/flora/grass/both,
 /turf/open/floor/snow/rough,
 /area/outdoors/mountains/rmh_mountains/frozen/forsaken_village)
+"kp" = (
+/obj/item/fertilizer/ash,
+/mob/living/simple_animal/hostile/retaliate/voidstoneobelisk,
+/turf/open/floor/hexstone,
+/area/indoors/cave/rmh_dwarf_keep/treasury)
 "kq" = (
 /obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/cobble,
@@ -2588,6 +2630,11 @@
 	},
 /turf/open/floor/carpet/lord/left,
 /area/indoors/town/manor)
+"ld" = (
+/obj/effect/decal/cleanable/debris/wood,
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/turf/open/floor/hexstone,
+/area/indoors/cave/rmh_dwarf_keep/living)
 "le" = (
 /obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/herringbone,
@@ -2925,6 +2972,10 @@
 /obj/effect/decal/cleanable/dreamfiend_ichor/large,
 /turf/open/floor/herringbone,
 /area/indoors/cave/rmh_dwarf_keep/communal)
+"mx" = (
+/obj/effect/spawner/trap,
+/turf/open/floor/volcanic,
+/area/indoors/cave/rmh_dwarf_keep/grand)
 "my" = (
 /obj/structure/bars/pipe{
 	dir = 1;
@@ -3183,6 +3234,10 @@
 "nt" = (
 /turf/open/floor/dirt,
 /area/under/town/basement/keep)
+"ny" = (
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/turf/open/floor/hexstone,
+/area/indoors/cave/rmh_dwarf_keep/living)
 "nz" = (
 /obj/item/natural/rock,
 /obj/effect/decal/cleanable/debris/stone,
@@ -3452,7 +3507,6 @@
 /area/indoors/town/manor)
 "oX" = (
 /obj/structure/rack,
-/obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/herringbone,
 /area/outdoors/exposed/rmh_dwarf_keep)
 "oY" = (
@@ -3469,6 +3523,12 @@
 	},
 /turf/open/floor/tile/harem,
 /area/indoors/town/manor)
+"pa" = (
+/obj/structure/gate/bars{
+	redstone_id = "dwarffortress1"
+	},
+/turf/open/floor/herringbone,
+/area/indoors/cave/rmh_dwarf_keep/grand)
 "pb" = (
 /obj/structure/bars/pipe{
 	pixel_y = 7;
@@ -3506,6 +3566,12 @@
 /obj/structure/table/church/end/alt,
 /turf/open/floor/hexstone,
 /area/indoors/cave/rmh_dwarf_keep/entrance)
+"pj" = (
+/obj/structure/door/stone,
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/spawner/trap,
+/turf/open/floor/metal/barograte,
+/area/indoors/cave/rmh_dwarf_keep)
 "pl" = (
 /obj/structure/table/vtable/v2,
 /obj/item/reagent_containers/glass/bottle/clayfancyvase{
@@ -3576,6 +3642,7 @@
 /area/indoors/town/manor)
 "pA" = (
 /obj/structure/door/viewport/stone/broken,
+/obj/effect/spawner/trap,
 /turf/open/floor/concrete,
 /area/indoors/cave/rmh_dwarf_keep/living)
 "pB" = (
@@ -3688,6 +3755,10 @@
 /obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/hexstone,
 /area/indoors/cave/rmh_dwarf_keep/entrance)
+"qf" = (
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/turf/open/floor/herringbone,
+/area/indoors/cave/rmh_dwarf_keep/grand)
 "qg" = (
 /obj/effect/decal/cleanable/debris/stone,
 /obj/item/natural/stone,
@@ -3782,9 +3853,13 @@
 /turf/open/floor/ruinedwood/herringbone,
 /area/indoors/town/manor)
 "qz" = (
-/mob/living/simple_animal/hostile/retaliate/minotaur,
-/turf/open/floor/hexstone,
-/area/indoors/cave/rmh_dwarf_keep/grand)
+/obj/effect/decal/cleanable/debris/stone,
+/obj/effect/decal/edge{
+	dir = 8
+	},
+/obj/effect/spawner/trap,
+/turf/open/floor/herringbone,
+/area/indoors/cave/rmh_dwarf_keep/communal)
 "qB" = (
 /obj/item/fertilizer/ash,
 /turf/open/floor/hexstone,
@@ -4674,9 +4749,9 @@
 /turf/open/floor/grass/cold,
 /area/outdoors/exposed/rmh/manorgarri)
 "uv" = (
-/mob/living/simple_animal/hostile/retaliate/minotaur,
-/turf/open/floor/herringbone,
-/area/indoors/cave/rmh_dwarf_keep/entrance)
+/obj/effect/spawner/trap,
+/turf/open/floor/concrete,
+/area/indoors/cave/rmh_dwarf_keep/living)
 "uw" = (
 /obj/structure/chair/bench/couchablack,
 /obj/item/instrument/harp,
@@ -4832,6 +4907,10 @@
 	},
 /turf/open/floor/hexstone,
 /area/indoors/cave/rmh_dwarf_keep/living)
+"vd" = (
+/mob/living/simple_animal/hostile/retaliate/voidstoneobelisk,
+/turf/open/floor/hexstone,
+/area/indoors/cave/rmh_dwarf_keep/treasury)
 "ve" = (
 /turf/open/floor/tile/checkeralt,
 /area/indoors/town/manor)
@@ -5017,6 +5096,12 @@
 /obj/effect/spawner/map_spawner/loot/dungeon/money,
 /turf/open/floor/hexstone,
 /area/indoors/cave/rmh_dwarf_keep/entrance)
+"vL" = (
+/obj/effect/decal/edge{
+	dir = 10
+	},
+/turf/open/floor/herringbone,
+/area/indoors/cave/rmh_dwarf_keep/communal)
 "vM" = (
 /obj/structure/fluff/railing/border{
 	dir = 4;
@@ -5085,7 +5170,13 @@
 /turf/open/floor/hexstone,
 /area/indoors/cave/rmh_dwarf_keep/entrance)
 "vZ" = (
-/mob/living/simple_animal/hostile/retaliate/voiddragon,
+/mob/living/simple_animal/hostile/retaliate/voiddragon{
+	maxHealth = 3500;
+	health = 3500;
+	STASPD = 20;
+	STAEND = 20;
+	STACON = 20
+	},
 /turf/open/floor/volcanic,
 /area/indoors/cave/rmh_dwarf_keep/treasury)
 "wa" = (
@@ -5106,6 +5197,7 @@
 /area/indoors/town/manor)
 "wd" = (
 /obj/structure/door/viewport/stone/broken,
+/obj/effect/spawner/trap,
 /turf/open/floor/concrete,
 /area/indoors/cave/rmh_dwarf_keep/entrance)
 "we" = (
@@ -5375,11 +5467,9 @@
 /turf/open/floor/concrete,
 /area/indoors/cave/rmh_dwarf_keep/smelters)
 "xm" = (
-/obj/structure/closet/crate/chest/old_crate,
-/obj/effect/spawner/map_spawner/loot/weapon,
-/obj/effect/spawner/map_spawner/loot/weapon,
-/turf/open/floor/herringbone,
-/area/outdoors/exposed/rmh_dwarf_keep)
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/turf/open/floor/snow,
+/area/outdoors/mountains/rmh_mountains/frozen)
 "xn" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/carpet,
@@ -5512,9 +5602,12 @@
 /turf/open/floor/grass/cold,
 /area/outdoors/exposed/rmh/manorgarri)
 "xT" = (
-/mob/living/simple_animal/hostile/retaliate/minotaur/axe,
-/turf/open/floor/hexstone,
-/area/indoors/cave/rmh_dwarf_keep/living)
+/obj/effect/decal/cleanable/debris/stone,
+/obj/effect/decal/edge{
+	dir = 9
+	},
+/turf/open/floor/herringbone,
+/area/indoors/cave/rmh_dwarf_keep/communal)
 "xU" = (
 /obj/structure/fake_machine/submission,
 /turf/open/floor/tile{
@@ -5639,9 +5732,8 @@
 /turf/open/floor/tile/brownbrick,
 /area/indoors/cave/rmh_dwarf_keep/forge)
 "yy" = (
-/mob/living/simple_animal/hostile/retaliate/minotaur,
-/turf/open/floor/hexstone,
-/area/indoors/cave/rmh_dwarf_keep/entrance)
+/turf/open/floor/blocks,
+/area/under/rmh_bedrock)
 "yz" = (
 /obj/structure/table/wood/large/corner_new{
 	dir = 6
@@ -6031,6 +6123,7 @@
 /area/indoors/cave/rmh_dwarf_keep/entrance)
 "At" = (
 /obj/structure/door/stone,
+/obj/effect/spawner/trap,
 /turf/open/floor/concrete,
 /area/indoors/cave/rmh_dwarf_keep/living)
 "Aw" = (
@@ -6155,9 +6248,9 @@
 /turf/closed/wall/mineral/decostone/end,
 /area/indoors/town/manor)
 "Bf" = (
-/mob/living/simple_animal/hostile/retaliate/minotaur,
-/turf/open/floor/hexstone,
-/area/indoors/cave/rmh_dwarf_keep/living)
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/turf/open/transparent/openspace,
+/area/outdoors/rmh_air)
 "Bg" = (
 /obj/structure/closet/crate/crafted_closet/lord,
 /obj/item/clothing/shirt/tunic/silktunic,
@@ -6456,10 +6549,10 @@
 /turf/open/floor/volcanic,
 /area/outdoors/exposed/rmh_dwarf_keep)
 "Cp" = (
-/mob/living/simple_animal/hostile/retaliate/minotaur,
-/obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/herringbone,
-/area/indoors/cave/rmh_dwarf_keep/grand)
+/obj/structure/door/stone,
+/obj/effect/spawner/trap,
+/turf/open/floor/concrete,
+/area/indoors/cave/rmh_dwarf_keep/entrance)
 "Cq" = (
 /obj/structure/chair/wood/alt/fancy{
 	icon_state = "chair1";
@@ -6528,6 +6621,11 @@
 	dir = 4
 	},
 /area/indoors/cave/rmh_dwarf_keep/entrance)
+"CC" = (
+/obj/effect/decal/cleanable/debris/stone,
+/obj/effect/spawner/trap,
+/turf/open/floor/volcanic,
+/area/indoors/cave/rmh_dwarf_keep/grand)
 "CD" = (
 /obj/structure/flora/tree/pine/dead{
 	icon_state = "dead3"
@@ -6802,6 +6900,11 @@
 /obj/item/ore/tin,
 /turf/open/water/sewer,
 /area/indoors/cave/rmh_dwarf_keep/smelters)
+"DU" = (
+/obj/effect/decal/cleanable/debris/stone,
+/obj/effect/spawner/trap,
+/turf/open/floor/herringbone,
+/area/indoors/cave/rmh_dwarf_keep/grand)
 "DV" = (
 /obj/structure/fluff/pillow{
 	dir = 8
@@ -7028,6 +7131,10 @@
 "EU" = (
 /turf/open/floor/church,
 /area/indoors/cave/rmh_dwarf_keep/throne)
+"EV" = (
+/obj/effect/spawner/trap,
+/turf/open/floor/herringbone,
+/area/indoors/cave/rmh_dwarf_keep/grand)
 "EW" = (
 /turf/open/floor/dark_ice{
 	base_icon_state = "blackice"
@@ -7754,6 +7861,7 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
+/obj/effect/spawner/trap,
 /turf/open/floor/concrete,
 /area/indoors/cave/rmh_dwarf_keep/living)
 "Ik" = (
@@ -7974,6 +8082,10 @@
 /obj/effect/decal/cleanable/debris/wood,
 /turf/open/floor/hexstone,
 /area/indoors/cave/rmh_dwarf_keep/living)
+"IY" = (
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/turf/open/floor/hexstone,
+/area/indoors/cave/rmh_dwarf_keep/entrance)
 "Ja" = (
 /obj/structure/rack,
 /obj/item/weapon/polearm/halberd/bardiche,
@@ -8119,6 +8231,10 @@
 	},
 /turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_dwarf_keep/entrance)
+"JI" = (
+/obj/effect/spawner/trap,
+/turf/open/floor/hexstone,
+/area/indoors/cave/rmh_dwarf_keep/grand)
 "JK" = (
 /obj/structure/table/wood/treestump/burnt,
 /turf/open/floor/dirt,
@@ -8184,9 +8300,10 @@
 /turf/open/floor/blocks,
 /area/under/town/basement/keep)
 "JY" = (
-/mob/living/simple_animal/hostile/retaliate/minotaur/axe,
-/turf/open/floor/concrete,
-/area/indoors/cave/rmh_dwarf_keep/grand)
+/obj/effect/decal/cleanable/debris/stone,
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/turf/open/floor/hexstone,
+/area/indoors/cave/rmh_dwarf_keep/living)
 "JZ" = (
 /obj/structure/chair/bench/couch{
 	icon_state = "redcouch2"
@@ -8629,6 +8746,11 @@
 "LV" = (
 /obj/effect/decal/cleanable/debris/stone,
 /turf/open/floor/hexstone,
+/area/indoors/cave/rmh_dwarf_keep/grand)
+"LW" = (
+/obj/effect/decal/cleanable/debris/stone,
+/obj/effect/spawner/trap,
+/turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_dwarf_keep/grand)
 "LX" = (
 /obj/structure/stairs/stone{
@@ -9188,6 +9310,7 @@
 "Oh" = (
 /obj/structure/door/stone,
 /obj/effect/mapping_helpers/access/locker,
+/obj/effect/spawner/trap,
 /turf/open/floor/metal/barograte,
 /area/indoors/cave/rmh_dwarf_keep/smelters)
 "Oi" = (
@@ -9248,11 +9371,11 @@
 /turf/closed/wall/mineral/decostone/cand,
 /area/indoors/town/manor)
 "Ow" = (
-/mob/living/simple_animal/hostile/retaliate/minotaur,
-/turf/open/floor/carpet/lord/left{
+/obj/effect/decal/edge{
 	dir = 1
 	},
-/area/indoors/cave/rmh_dwarf_keep/throne)
+/turf/open/floor/herringbone,
+/area/indoors/cave/rmh_dwarf_keep/grand)
 "Ox" = (
 /turf/open/floor/dark_ice{
 	base_icon_state = "blackice"
@@ -9965,6 +10088,11 @@
 	},
 /turf/open/floor/herringbone,
 /area/indoors/town/manor)
+"RO" = (
+/obj/effect/decal/cleanable/debris/stone,
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/turf/open/floor/blocks,
+/area/indoors/cave/rmh_dwarf_keep/communal)
 "RP" = (
 /turf/open/floor/ruinedwood/spiral,
 /area/outdoors/mountains/rmh_mountains/frozen/forsaken_village)
@@ -10022,10 +10150,10 @@
 /turf/open/floor/herringbone,
 /area/indoors/cave/rmh_dwarf_keep/entrance)
 "Sd" = (
-/mob/living/simple_animal/hostile/retaliate/minotaur/axe,
 /obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/herringbone,
-/area/indoors/cave/rmh_dwarf_keep/grand)
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/turf/open/floor/hexstone,
+/area/indoors/cave/rmh_dwarf_keep/entrance)
 "Sf" = (
 /obj/item/natural/bundle/plank,
 /obj/effect/decal/cleanable/debris/wood,
@@ -10344,6 +10472,11 @@
 /obj/structure/chair/bench/couchablack/r,
 /turf/open/floor/carpet/royalblack,
 /area/indoors/town/manor)
+"TF" = (
+/obj/effect/decal/cleanable/debris/stone,
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/turf/open/floor/herringbone,
+/area/indoors/cave/rmh_dwarf_keep/entrance)
 "TG" = (
 /turf/open/floor/hexstone,
 /area/outdoors/exposed/rmh_dwarf_keep)
@@ -10493,6 +10626,10 @@
 /obj/structure/closet/crate/chest/old_crate,
 /turf/open/floor/herringbone,
 /area/outdoors/exposed/rmh_dwarf_keep)
+"Up" = (
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/turf/open/floor/herringbone,
+/area/indoors/cave/rmh_dwarf_keep/entrance)
 "Uq" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -10835,6 +10972,21 @@
 /obj/structure/flora/grass/bush/wall/tall,
 /turf/open/floor/grass,
 /area/indoors/town/manor)
+"VK" = (
+/mob/living/simple_animal/hostile/retaliate/minotaur{
+	name = "Brawler Minotaur";
+	health = 3500;
+	maxHealth = 3500;
+	max_energy = 1500;
+	maximum_stamina = 300;
+	maxbloodpool = 5000;
+	STASTR = 20;
+	STASPD = 20;
+	STAEND = 20;
+	STACON = 20
+	},
+/turf/open/floor/blocks,
+/area/under/rmh_bedrock)
 "VL" = (
 /obj/item/natural/stone,
 /turf/open/floor/dirt,
@@ -10904,10 +11056,9 @@
 /turf/open/floor/carpet/red,
 /area/indoors/town/manor)
 "Wa" = (
-/obj/structure/rack,
-/obj/effect/spawner/map_spawner/loot/weapon,
-/turf/open/floor/herringbone,
-/area/outdoors/exposed/rmh_dwarf_keep)
+/obj/effect/spawner/trap,
+/turf/open/floor/hexstone,
+/area/indoors/cave/rmh_dwarf_keep)
 "Wb" = (
 /turf/open/floor/dirt/road/snowy/corner,
 /area/outdoors/mountains/rmh_mountains/frozen)
@@ -10930,6 +11081,10 @@
 	},
 /turf/open/floor/snow/patchy,
 /area/outdoors/mountains/rmh_mountains)
+"Wg" = (
+/obj/effect/spawner/trap,
+/turf/open/floor/cobblerock/alt,
+/area/indoors/cave/rmh_cave/to_underdark)
 "Wh" = (
 /turf/open/floor/carpet/lord/center{
 	dir = 2
@@ -24711,7 +24866,7 @@ Ok
 GS
 GS
 EZ
-EZ
+vd
 qB
 Im
 Im
@@ -25485,7 +25640,7 @@ GS
 GS
 zW
 EZ
-EZ
+vd
 EZ
 GS
 zW
@@ -26517,7 +26672,7 @@ Ok
 GS
 GS
 bB
-EZ
+vd
 EZ
 dw
 dw
@@ -27291,7 +27446,7 @@ Ok
 GS
 dw
 EZ
-EZ
+vd
 EZ
 GS
 GS
@@ -28581,7 +28736,7 @@ Ok
 GS
 GS
 qB
-qB
+kp
 EZ
 GS
 dw
@@ -29402,7 +29557,7 @@ VV
 AT
 Ik
 Ik
-wi
+gr
 VV
 Ez
 CP
@@ -29644,7 +29799,7 @@ aC
 iD
 VV
 qD
-qD
+Wa
 Te
 Ik
 Ik
@@ -30387,7 +30542,7 @@ jt
 Lw
 Jq
 NV
-TN
+CC
 Jq
 qi
 SG
@@ -31258,7 +31413,7 @@ yZ
 AT
 Ik
 AT
-rV
+pj
 ov
 TS
 iW
@@ -31664,7 +31819,7 @@ sI
 Qq
 ov
 iW
-ov
+eL
 Qq
 sI
 Qq
@@ -31949,7 +32104,7 @@ iW
 iW
 iW
 iW
-iW
+DU
 iW
 iW
 iW
@@ -32063,7 +32218,7 @@ ov
 ov
 ov
 NV
-Oi
+mx
 Lw
 TN
 jt
@@ -32431,7 +32586,7 @@ Qq
 sI
 Qq
 ov
-jt
+EV
 ov
 Qq
 sI
@@ -32480,7 +32635,7 @@ ov
 jt
 jt
 iW
-iW
+DU
 TS
 Qq
 bH
@@ -32709,7 +32864,7 @@ iW
 iW
 jt
 Oi
-iN
+Oi
 jt
 iW
 jt
@@ -33068,7 +33223,7 @@ bH
 Qq
 TS
 jt
-jt
+qf
 iW
 iW
 ov
@@ -33098,7 +33253,7 @@ iW
 jt
 LV
 TN
-jt
+EV
 ov
 sI
 RZ
@@ -33175,7 +33330,7 @@ bH
 IQ
 IQ
 IQ
-IQ
+gL
 IQ
 IQ
 IQ
@@ -33303,9 +33458,9 @@ IQ
 IQ
 OB
 QE
-QE
-le
-le
+vL
+qz
+xT
 QE
 OB
 IQ
@@ -33328,7 +33483,7 @@ TS
 iW
 jt
 jt
-Sd
+iW
 ov
 ov
 ov
@@ -33714,7 +33869,7 @@ IQ
 Qq
 Qq
 Qq
-jt
+im
 iW
 ov
 Qq
@@ -33842,8 +33997,8 @@ lQ
 IQ
 IQ
 RZ
-Qq
-jt
+hW
+Ow
 iW
 ov
 sI
@@ -33972,7 +34127,7 @@ An
 QE
 Qq
 Qq
-jt
+kh
 jt
 ov
 Qq
@@ -34068,7 +34223,7 @@ QE
 QE
 QE
 AG
-le
+jv
 QE
 le
 le
@@ -34114,7 +34269,7 @@ Oi
 Oi
 Oi
 Oi
-jt
+EV
 ov
 ov
 ov
@@ -34138,7 +34293,7 @@ ov
 ov
 jt
 ov
-JY
+ov
 ov
 ov
 ov
@@ -34237,7 +34392,7 @@ jt
 jt
 jt
 jt
-jt
+qf
 jt
 jt
 jt
@@ -34253,7 +34408,7 @@ iW
 jt
 Oi
 Oi
-jt
+EV
 jt
 jt
 Oi
@@ -34270,7 +34425,7 @@ jt
 jt
 jt
 jt
-jt
+EV
 jt
 Oi
 jt
@@ -34357,7 +34512,7 @@ IQ
 QE
 An
 QE
-jt
+pa
 jt
 jt
 Oi
@@ -34465,7 +34620,7 @@ le
 SC
 OQ
 Xj
-Xj
+RO
 Xj
 ZA
 QE
@@ -34486,7 +34641,7 @@ IQ
 QE
 An
 kH
-Lw
+JI
 Lw
 Oi
 eh
@@ -34548,7 +34703,7 @@ Lw
 jt
 iW
 GB
-tj
+LW
 Jq
 Jq
 SG
@@ -34559,7 +34714,7 @@ aU
 tH
 vQ
 cG
-Ns
+Wg
 Ns
 mv
 Bo
@@ -34706,7 +34861,7 @@ bH
 bH
 bH
 IQ
-QE
+jC
 QE
 QE
 le
@@ -34749,7 +34904,7 @@ jt
 jt
 sC
 jt
-jt
+EV
 jt
 Oi
 Oi
@@ -34987,7 +35142,7 @@ QE
 SC
 BC
 BC
-QE
+jC
 le
 le
 NF
@@ -35004,7 +35159,7 @@ QE
 QE
 Qq
 Qq
-jt
+im
 jt
 ov
 Qq
@@ -35132,8 +35287,8 @@ lQ
 IQ
 IQ
 RZ
-Qq
-jt
+hW
+Ow
 jt
 ov
 sI
@@ -35262,7 +35417,7 @@ IQ
 IQ
 Qq
 Qq
-jt
+kh
 jt
 ov
 Qq
@@ -35534,7 +35689,7 @@ jt
 jt
 iW
 jt
-jt
+EV
 jt
 jt
 jt
@@ -35567,7 +35722,7 @@ iW
 jt
 jt
 jt
-jt
+EV
 iW
 iW
 iW
@@ -35678,7 +35833,7 @@ jt
 Oi
 Lw
 iW
-jt
+EV
 ov
 ov
 ov
@@ -36606,7 +36761,7 @@ sI
 Qq
 ov
 jt
-iW
+DU
 jt
 jt
 VR
@@ -36785,9 +36940,9 @@ bH
 bH
 bH
 bH
-bH
-bH
-bH
+yy
+yy
+yy
 bH
 bH
 bH
@@ -36914,9 +37069,9 @@ bH
 bH
 bH
 bH
-bH
-bH
-bH
+yy
+VK
+yy
 bH
 bH
 bH
@@ -37043,9 +37198,9 @@ bH
 bH
 bH
 bH
-bH
-bH
-bH
+yy
+yy
+yy
 bH
 bH
 bH
@@ -37082,7 +37237,7 @@ jt
 jt
 iW
 iW
-iW
+DU
 iW
 iW
 jt
@@ -37122,7 +37277,7 @@ jt
 jt
 jt
 jt
-Cp
+iW
 jt
 jt
 TS
@@ -37224,8 +37379,8 @@ ov
 qF
 mH
 Oi
-qz
-iW
+Lw
+DU
 jt
 ov
 ov
@@ -37708,7 +37863,7 @@ Lb
 AT
 AT
 Lb
-rV
+pj
 ov
 TS
 jt
@@ -37989,7 +38144,7 @@ jt
 jt
 jt
 jt
-iW
+DU
 jt
 jt
 jt
@@ -38138,7 +38293,7 @@ jt
 iW
 iW
 iW
-iW
+DU
 iW
 fy
 iW
@@ -38512,7 +38667,7 @@ Qq
 Qq
 jt
 jt
-Lw
+JI
 LV
 AZ
 Lw
@@ -39031,7 +39186,7 @@ LV
 qi
 Pn
 Lw
-Lw
+JI
 Lw
 Lw
 iW
@@ -40450,7 +40605,7 @@ EU
 EU
 VM
 Bh
-Ow
+NS
 EU
 EU
 EU
@@ -65541,7 +65696,7 @@ pg
 pg
 QF
 AS
-pg
+ny
 cq
 bH
 bH
@@ -65819,7 +65974,7 @@ AS
 pg
 vw
 QA
-pg
+ny
 ZN
 QF
 lx
@@ -66064,7 +66219,7 @@ bH
 cq
 pg
 pg
-xT
+pg
 AS
 pg
 CJ
@@ -67783,7 +67938,7 @@ bH
 bH
 Zm
 UR
-mb
+UR
 hd
 hd
 hd
@@ -68169,13 +68324,13 @@ bH
 bH
 bH
 iY
-xm
-Wa
+Uo
+oX
 UR
 AD
 AD
 UR
-Wa
+oX
 iY
 bH
 bH
@@ -68257,7 +68412,7 @@ QN
 iQ
 qZ
 og
-nQ
+uv
 cq
 QN
 QN
@@ -68301,7 +68456,7 @@ Zm
 Zm
 Zm
 UR
-Wa
+oX
 oS
 Zm
 Zm
@@ -68400,7 +68555,7 @@ sj
 xG
 cq
 cq
-Bf
+pg
 pg
 Hb
 cq
@@ -69024,7 +69179,7 @@ pg
 UB
 QF
 lx
-pg
+ny
 cq
 cq
 bH
@@ -69173,7 +69328,7 @@ QF
 lx
 lx
 Ia
-lx
+JY
 lx
 sV
 QA
@@ -69290,7 +69445,7 @@ bH
 jZ
 QA
 lx
-pg
+ny
 Ia
 lx
 pg
@@ -69300,7 +69455,7 @@ lx
 JP
 pg
 pg
-AS
+ld
 Ia
 lx
 pg
@@ -97445,7 +97600,7 @@ ii
 ii
 ii
 ii
-ii
+Bf
 ii
 ii
 ii
@@ -97580,7 +97735,7 @@ ii
 ii
 ii
 ii
-ii
+Bf
 ii
 ii
 ii
@@ -98309,7 +98464,7 @@ JT
 rr
 JT
 CB
-QP
+Cp
 oO
 QG
 bH
@@ -98709,14 +98864,14 @@ CB
 Jy
 WM
 Jy
-pn
+Jy
 bp
 bp
 Jy
 CB
 oO
 YR
-Jy
+IY
 Jy
 YR
 lk
@@ -99096,14 +99251,14 @@ lk
 bT
 JT
 JT
-JT
+Up
 JT
 JT
 bT
 lk
 lk
 Jy
-Jy
+IY
 UU
 bp
 lk
@@ -99336,7 +99491,7 @@ DG
 JT
 rr
 rr
-rr
+TF
 rr
 rr
 JT
@@ -99361,7 +99516,7 @@ Pl
 JT
 JT
 lk
-QP
+Cp
 Ar
 El
 JT
@@ -99637,7 +99792,7 @@ QL
 QL
 AN
 AN
-QL
+xm
 QL
 bH
 bH
@@ -99733,7 +99888,7 @@ DG
 DG
 DG
 rr
-kh
+rr
 JT
 JT
 JC
@@ -100239,7 +100394,7 @@ DG
 Pl
 JT
 rr
-rr
+TF
 rr
 rr
 JT
@@ -100407,7 +100562,7 @@ NZ
 xP
 AN
 AN
-QL
+xm
 QL
 QL
 QL
@@ -101057,7 +101212,7 @@ AN
 AN
 AN
 AN
-QL
+xm
 bH
 bH
 bH
@@ -101071,7 +101226,7 @@ Xu
 Qw
 AD
 yA
-Xu
+iN
 iY
 Bv
 bH
@@ -101153,7 +101308,7 @@ JT
 JT
 El
 Dt
-QP
+Cp
 lk
 JT
 JT
@@ -101269,7 +101424,7 @@ bH
 PW
 JT
 rr
-uv
+JT
 JT
 JT
 JT
@@ -101541,7 +101696,7 @@ lk
 Jy
 Jy
 ZU
-iS
+Sd
 Jy
 qP
 El
@@ -101933,7 +102088,7 @@ CB
 eW
 iS
 YR
-Jy
+IY
 Jy
 zE
 KT
@@ -102450,7 +102605,7 @@ lk
 oO
 KT
 Jy
-yy
+Jy
 Jy
 Jy
 oO
