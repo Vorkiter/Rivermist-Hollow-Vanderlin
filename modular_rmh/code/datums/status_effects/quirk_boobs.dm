@@ -3,7 +3,7 @@
 	id = "bigboobs"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/boobs_quirk
 	examine_text = span_notice("They have massive MAGICAL GOODS!")
-	effectedstats = list("constitution" = 2, "speed" = -2)
+	//effectedstats = list("constitution" = 2, "speed" = -2)
 	duration = -1
 	var/initialbreasts
 

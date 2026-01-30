@@ -382,24 +382,28 @@
 //---------------------------------------------------------------------------------------------------------------------------------
 
 /datum/status_effect/debuff/flatboobs/permanent/lite
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/flatboobslite
-	examine_text = span_notice("They are as flat as a board!")
+	examine_text = null
+	alert_type = null
 	effectedstats = list("speed" = 2)
 
 /datum/status_effect/debuff/vsmallboobs/permanent/lite
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/vsmallboobslite
+	examine_text = null
+	alert_type = null
 	effectedstats = list("speed" = 1)
 
 /datum/status_effect/debuff/smallboobs/permanent/lite
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/smallboobslite
+	examine_text = null
+	alert_type = null
 	//effectedstats = list("speed" = 1)
 
 /datum/status_effect/debuff/largeboobs/permanent/lite
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/largeboobslite
+	examine_text = null
+	alert_type = null
 	effectedstats = list("constitution" = 1, "speed" = -1)
 
 /datum/status_effect/debuff/bigboobs/permanent/lite
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/bigboobslite
+	examine_text = null
+	alert_type = null
 	effectedstats = list("constitution" = 2, "speed" = -1)
 
 //---------------------------------------------------------------------------------------------------------------------------------

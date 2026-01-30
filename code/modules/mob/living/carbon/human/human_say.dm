@@ -74,7 +74,8 @@
 
 /mob/living/carbon/human/send_speech(message, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, list/message_mods = list(), original_message)
 	. = ..()
-	send_voice(message, message_mods)
+	if(prob(50))
+		send_voice(message, message_mods)
 
 /mob/living/carbon/human/proc/send_voice(message, list/message_mods)
 	if(!length(message))
