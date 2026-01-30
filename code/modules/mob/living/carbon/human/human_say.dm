@@ -74,8 +74,7 @@
 
 /mob/living/carbon/human/send_speech(message, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, list/message_mods = list(), original_message)
 	. = ..()
-	if(prob(30))
-		send_voice(message, message_mods)
+	send_voice(message, message_mods)
 
 /mob/living/carbon/human/proc/send_voice(message, list/message_mods)
 	if(!length(message))
@@ -112,28 +111,40 @@
 	// Speech
 	switch(say_test(message))
 		if("1") // ?
-			switch(H.voice_type)
-				if(VOICE_TYPE_MASC)
-					playsound(H, pick(list('sound/vo/male/gen/huh (1).ogg','sound/vo/male/gen/huh (2).ogg','sound/vo/male/gen/huh (3).ogg')), 100, FALSE, -1, ignore_walls = FALSE)
-					return
-				else
-					playsound(H, pick(list('sound/vo/female/gen/huh (1).ogg','sound/vo/female/gen/huh (2).ogg','sound/vo/female/gen/huh (3).ogg')), 100, FALSE, -1, ignore_walls = FALSE)
-					return
+			if(prob(30))
+				switch(H.voice_type)
+					if(VOICE_TYPE_MASC)
+						playsound(H, pick(list('sound/vo/male/gen/huh (1).ogg','sound/vo/male/gen/huh (2).ogg','sound/vo/male/gen/huh (3).ogg')), 100, FALSE, -1, ignore_walls = FALSE)
+						return
+					else
+						playsound(H, pick(list('sound/vo/female/gen/huh (1).ogg','sound/vo/female/gen/huh (2).ogg','sound/vo/female/gen/huh (3).ogg')), 100, FALSE, -1, ignore_walls = FALSE)
+						return
+			else
+				playsound(H, 'sound/misc/talk.ogg', 100, FALSE, -1, ignore_walls = FALSE)
+				return
 		if("2") // !
-			switch(H.voice_type)
-				if(VOICE_TYPE_MASC)
-					playsound(H, 'modular_rmh/sound/vo/speech/mexclaim.ogg', 100, FALSE, -1, ignore_walls = FALSE)
-					return
-				else
-					playsound(H, 'modular_rmh/sound/vo/speech/fexclaim.ogg', 100, FALSE, -1, ignore_walls = FALSE)
-					return
+			if(prob(30))
+				switch(H.voice_type)
+					if(VOICE_TYPE_MASC)
+						playsound(H, 'modular_rmh/sound/vo/speech/mexclaim.ogg', 100, FALSE, -1, ignore_walls = FALSE)
+						return
+					else
+						playsound(H, 'modular_rmh/sound/vo/speech/fexclaim.ogg', 100, FALSE, -1, ignore_walls = FALSE)
+						return
+			else
+				playsound(H, 'sound/misc/talk.ogg', 100, FALSE, -1, ignore_walls = FALSE)
+				return
 		if("3") // !!
 			playsound(H, 'sound/misc/talk.ogg', 100, FALSE, -1, ignore_walls = FALSE)
 		else
-			switch(H.voice_type)
-				if(VOICE_TYPE_MASC)
-					playsound(H, 'modular_rmh/sound/vo/speech/mtalk.ogg', 100, FALSE, -1, ignore_walls = FALSE)
-					return
-				else
-					playsound(H, 'modular_rmh/sound/vo/speech/ftalk.ogg', 100, FALSE, -1, ignore_walls = FALSE)
-					return
+			if(prob(30))
+				switch(H.voice_type)
+					if(VOICE_TYPE_MASC)
+						playsound(H, 'modular_rmh/sound/vo/speech/mtalk.ogg', 100, FALSE, -1, ignore_walls = FALSE)
+						return
+					else
+						playsound(H, 'modular_rmh/sound/vo/speech/ftalk.ogg', 100, FALSE, -1, ignore_walls = FALSE)
+						return
+			else
+				playsound(H, 'sound/misc/talk.ogg', 100, FALSE, -1, ignore_walls = FALSE)
+				return
