@@ -114,6 +114,7 @@
 	sellprice = 25
 
 /obj/item/carvedgem/shell/comb
+	parent_type = /obj/item/hairbrush
 	name = "shell comb"
 	desc = "A luxurious comb carved out of shell."
 	icon_state = "comb_shell"
@@ -259,6 +260,7 @@
 	sellprice = 30
 
 /obj/item/carvedgem/rose/comb
+	parent_type = /obj/item/hairbrush
 	name = "rosellusk comb"
 	desc = "A luxurious comb carved out of rosellusk."
 	icon_state = "comb_rose"
@@ -406,6 +408,7 @@
 	sellprice = 65
 
 /obj/item/carvedgem/jade/comb
+	parent_type = /obj/item/hairbrush
 	name = "joapstone comb"
 	desc = "A luxurious comb carved out of joapstone."
 	icon_state = "comb_jade"
@@ -544,6 +547,7 @@
 	sellprice = 45
 
 /obj/item/carvedgem/onyxa/comb
+	parent_type = /obj/item/hairbrush
 	name = "onyxa comb"
 	desc = "A luxurious comb carved out of onyxa."
 	icon_state = "comb_onyxa"
@@ -690,6 +694,7 @@
 	sellprice = 90
 
 /obj/item/carvedgem/turq/comb
+	parent_type = /obj/item/hairbrush
 	name = "ceruleabaster comb"
 	desc = "A luxurious comb carved out of ceruleabaster."
 	icon_state = "comb_turq"
@@ -837,6 +842,7 @@
 	sellprice = 75
 
 /obj/item/carvedgem/coral/comb
+	parent_type = /obj/item/hairbrush
 	name = "aoetal comb"
 	desc = "A luxurious comb carved out of aoetal."
 	icon_state = "comb_coral"
@@ -983,6 +989,7 @@
 	sellprice = 65
 
 /obj/item/carvedgem/amber/comb
+	parent_type = /obj/item/hairbrush
 	name = "petriamber comb"
 	desc = "A luxurious comb carved out of petriamber."
 	icon_state = "comb_amber"
@@ -1129,6 +1136,7 @@
 	sellprice = 95
 
 /obj/item/carvedgem/opal/comb
+	parent_type = /obj/item/hairbrush
 	name = "opaloise comb"
 	desc = "A luxurious comb carved out of opaloise."
 	icon_state = "comb_opal"

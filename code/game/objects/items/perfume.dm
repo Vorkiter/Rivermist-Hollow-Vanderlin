@@ -63,7 +63,7 @@
 	if(ismob(target))
 		var/mob/living/hygiene_target = target
 		hygiene_target.adjust_hygiene(10)
-	target.AddComponent(/datum/component/temporary_pollution_emission, fragrance_type, 5, 10 MINUTES)
+	target.AddComponent(/datum/component/temporary_pollution_emission, fragrance_type, 5, 600 SECONDS)
 
 /obj/item/perfume/random
 	icon_state = MAP_SWITCH("perfume-bottle-empty", "random-perfume")
