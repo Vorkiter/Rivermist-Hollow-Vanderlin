@@ -29,11 +29,11 @@
 	job_bitflag = BITFLAG_GARRISON
 
 	jobstats = list(
-		STATKEY_STR = 2,
+		STATKEY_STR = 3,
 		STATKEY_PER = 2,
 		STATKEY_INT = 1,
-		STATKEY_CON = 2,
-		STATKEY_END = 2,
+		STATKEY_CON = 3,
+		STATKEY_END = 3,
 		STATKEY_SPD = 2
 	)
 

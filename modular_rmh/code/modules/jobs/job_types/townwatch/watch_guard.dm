@@ -62,8 +62,8 @@
 
 	jobstats = list(
 		STATKEY_STR = 2,
-		STATKEY_END = 2,
-		STATKEY_CON = 2
+		STATKEY_END = 3,
+		STATKEY_CON = 3,
 	)
 
 	skills = list(
@@ -140,7 +140,7 @@
 
 	jobstats = list(
 		STATKEY_STR = 2,
-		STATKEY_END = 1,
+		STATKEY_END = 2,
 		STATKEY_CON = 2,
 	)
 
@@ -232,7 +232,7 @@
 
 /datum/job/advclass/watch_guard/sentinel/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	. = ..()
-	var/weapons = list("Longbow", "Crossbow", "Musket")
+	var/weapons = list("Longbow", "Crossbow")
 	var/weapon_choice = browser_input_list(spawned, "CHOOSE YOUR WEAPON.", "TAKE UP ARMS", weapons)
 
 	switch(weapon_choice)
