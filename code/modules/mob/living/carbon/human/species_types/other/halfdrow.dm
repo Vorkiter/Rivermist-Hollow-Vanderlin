@@ -211,7 +211,7 @@
 	addtimer(CALLBACK(src, PROC_REF(give_darkling), C), 50)
 
 
-/datum/species/human/halfdrow/proc/give_darkling(mob/living/carbon/human/C)
+datum/species/proc/give_darkling(mob/living/carbon/human/C)
 	if(!C || QDELETED(C))
 		return
 
