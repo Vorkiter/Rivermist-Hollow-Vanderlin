@@ -87,16 +87,9 @@
 
 	//If high arousal - moan
 	var/datum/component/arousal/A = H.GetComponent(/datum/component/arousal)
-	if(A)
-		if(A.arousal >= 75)
-			H.emote(H.can_speak() ? "sexmoanhvy" : "sexmoangag_org", intentional = FALSE)
-			return
-		if(A.arousal >= 40)
-			H.emote(H.can_speak() ? "sexmoanmed" : "sexmoangag", intentional = FALSE)
-			return
-		if(A.arousal >= 15)
-			H.emote(H.can_speak() ? "sexmoanlight" : "sexmoangag", intentional = FALSE)
-			return
+	if(A.arousal >= 40)
+		H.emote(H.can_speak() ? "sexmoanlight" : "sexmoangag", intentional = FALSE)
+		return
 	// --------------------------
 
 
