@@ -72,7 +72,9 @@
 	name = "Dusk Spire Manor Baths"
 	first_time_text = "DUSK SPIRE MANOR BATHS"
 	icon_state = "bath"
-	background_track = 'sound/music/area/bath.ogg'
+	background_track = 'modular_rmh/sound/music/area/baths.ogg'
+	background_track_dusk = 'modular_rmh/sound/music/area/baths_dusk.ogg'
+	background_track_night = 'modular_rmh/sound/music/area/baths_night.ogg'
 
 /area/indoors/town/rmh/manor/vault
 	name = "Dusk Spire Manor Vault"

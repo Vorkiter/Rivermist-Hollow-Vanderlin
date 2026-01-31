@@ -398,14 +398,16 @@
 	name = "Town Baths"
 	first_time_text = "TOWN BATHS"
 	icon_state = "bath"
-	background_track = 'sound/music/area/bath.ogg'
-	background_track_dusk = null
-	background_track_night = null
+	background_track = 'modular_rmh/sound/music/area/baths.ogg'
+	background_track_dusk = 'modular_rmh/sound/music/area/baths_dusk.ogg'
+	background_track_night = 'modular_rmh/sound/music/area/baths_night.ogg'
 	converted_type = /area/outdoors/exposed/rmh/bath
 
 /area/outdoors/exposed/rmh/bath
 	name = "Town Baths"
-	background_track = 'sound/music/area/bath.ogg'
+	background_track = 'modular_rmh/sound/music/area/baths.ogg'
+	background_track_dusk = 'modular_rmh/sound/music/area/baths_dusk.ogg'
+	background_track_night = 'modular_rmh/sound/music/area/baths_night.ogg'
 
 /area/indoors/town/rmh/crafters_guild
 	name = "Crafters Guild"
