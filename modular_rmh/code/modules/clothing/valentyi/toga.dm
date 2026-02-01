@@ -45,3 +45,8 @@
 	else
 		icon_state = "[base_icon]"
 		changed_icon = "[base_icon]"
+
+/datum/repeatable_crafting_recipe/sewing/toga
+	name = "toga"
+	output = /obj/item/clothing/shirt/toga
+	requirements = list(/obj/item/natural/cloth = 2)

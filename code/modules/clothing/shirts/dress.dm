@@ -157,7 +157,7 @@
 //End Servant Clothing
 
 /obj/item/clothing/shirt/dress/gen/sexy
-	slot_flags = ITEM_SLOT_ARMOR
+	slot_flags = ITEM_SLOT_SHIRT | ITEM_SLOT_ARMOR
 	name = "dress"
 	desc = ""
 	body_parts_covered = null
