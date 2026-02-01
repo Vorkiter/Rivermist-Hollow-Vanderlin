@@ -70,7 +70,7 @@
 	neck = /obj/item/clothing/neck/gorget
 	cloak = /obj/item/clothing/cloak/half/guard
 	armor = /obj/item/clothing/armor/plate/iron
-	shirt = /obj/item/clothing/armor/gambeson/heavy
+	shirt = /obj/item/clothing/armor/gambeson/heavy/colored/town_watch
 	wrists = /obj/item/clothing/wrists/bracers/jackchain
 	gloves = /obj/item/clothing/gloves/chain/iron
 	pants = /obj/item/clothing/pants/chainlegs/iron

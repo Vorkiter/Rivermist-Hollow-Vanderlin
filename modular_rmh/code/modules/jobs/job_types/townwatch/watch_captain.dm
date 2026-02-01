@@ -81,7 +81,7 @@
 	neck = /obj/item/clothing/neck/gorget
 	cloak = /obj/item/clothing/cloak/captain/town_watch
 	armor = /obj/item/clothing/armor/plate
-	shirt = /obj/item/clothing/armor/gambeson/heavy
+	shirt = /obj/item/clothing/armor/gambeson/heavy/colored/town_watch
 	wrists = /obj/item/clothing/wrists/bracers/jackchain
 	gloves = /obj/item/clothing/gloves/plate
 	pants = /obj/item/clothing/pants/chainlegs

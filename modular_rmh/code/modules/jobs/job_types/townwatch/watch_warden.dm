@@ -60,7 +60,7 @@
 	neck = /obj/item/clothing/neck/coif
 	cloak = /obj/item/clothing/cloak/half/guard
 	armor = /obj/item/clothing/armor/cuirass/iron
-	shirt = /obj/item/clothing/armor/gambeson
+	shirt = /obj/item/clothing/armor/gambeson/colored/town_watch
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	gloves = /obj/item/clothing/gloves/leather
 	pants = /obj/item/clothing/pants/trou/leather/splint

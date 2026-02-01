@@ -21,3 +21,13 @@
 	prevent_crits = ALL_EXCEPT_BLUNT
 	max_integrity = INTEGRITY_STRONGEST
 	stand_speed_reduction = 1.2
+
+/obj/item/clothing/armor/gambeson/colored
+	icon_state = "gambesonl"
+	misc_flags = CRAFTING_TEST_EXCLUDE
+
+/obj/item/clothing/armor/gambeson/colored/town_watch
+	uses_lord_coloring = LORD_SECONDARY
+
+/obj/item/clothing/armor/gambeson/heavy/colored/town_watch
+	uses_lord_coloring = LORD_SECONDARY

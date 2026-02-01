@@ -69,7 +69,7 @@
 	neck = /obj/item/clothing/neck/gorget
 	cloak = /obj/item/clothing/cloak/half/guard
 	armor = /obj/item/clothing/armor/cuirass
-	shirt = /obj/item/clothing/armor/gambeson/heavy
+	shirt = /obj/item/clothing/armor/gambeson/heavy/colored/town_watch
 	wrists = /obj/item/clothing/wrists/bracers/jackchain
 	gloves = /obj/item/clothing/gloves/chain/iron
 	pants = /obj/item/clothing/pants/chainlegs/iron
@@ -91,19 +91,6 @@
 		/obj/item/reagent_containers/glass/bottle/stronghealthpot,
 		/obj/item/flashlight/flare/torch/lantern,
 	)
-
-/datum/outfit/watch_sergeant/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
-	. = ..()
-	cloak = pick(/obj/item/clothing/cloak/half/guard, /obj/item/clothing/cloak/half/guardsecond)
-
-	if(equipped_human.dna && !(equipped_human.dna.species.id in RACES_PLAYER_NONDISCRIMINATED))
-		mask = /obj/item/clothing/face/shepherd
-
-/datum/outfit/watch_sergeant/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
-	. = ..()
-	if(H.cloak && !findtext(H.cloak.name, "([H.real_name])"))
-		H.cloak.name = "[H.cloak.name] ([H.real_name])"
-
 
 /datum/job/watch_sergeant/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	. = ..()

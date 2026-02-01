@@ -105,7 +105,7 @@
 	neck = /obj/item/clothing/neck/gorget
 	cloak = /obj/item/clothing/cloak/half/guard
 	armor = /obj/item/clothing/armor/leather/jacket/gatemaster_jacket/armored/bulwark
-	shirt = /obj/item/clothing/armor/gambeson/heavy
+	shirt = /obj/item/clothing/armor/gambeson/heavy/colored/town_watch
 	wrists = /obj/item/clothing/wrists/bracers/jackchain
 	gloves = /obj/item/clothing/gloves/chain
 	pants = /obj/item/clothing/pants/chainlegs
@@ -170,7 +170,7 @@
 	neck = /obj/item/clothing/neck/chaincoif
 	cloak = /obj/item/clothing/cloak/half/guard
 	armor = /obj/item/clothing/armor/cuirass
-	shirt = /obj/item/clothing/armor/gambeson
+	shirt = /obj/item/clothing/armor/gambeson/colored/town_watch
 	wrists = /obj/item/clothing/wrists/bracers/jackchain
 	gloves = /obj/item/clothing/gloves/chain
 	pants = /obj/item/clothing/pants/trou/leather/splint
@@ -250,7 +250,7 @@
 	neck = /obj/item/clothing/neck/coif/cloth
 	cloak = /obj/item/clothing/cloak/half/guard
 	armor = /obj/item/clothing/armor/brigandine/light
-	shirt = /obj/item/clothing/armor/gambeson
+	shirt = /obj/item/clothing/armor/gambeson/colored/town_watch
 	wrists = /obj/item/clothing/wrists/bracers/leather/advanced
 	gloves = /obj/item/clothing/gloves/leather/advanced
 	pants = /obj/item/clothing/pants/trou/leather/splint
