@@ -20,8 +20,7 @@
 	cmode_music = 'sound/music/cmode/nobility/CombatSpymaster.ogg'
 
 	spells = list(
-		/datum/action/cooldown/spell/undirected/hag_call,
-		/datum/action/cooldown/spell/undirected/seek_orphan,
+		/datum/action/cooldown/spell/undirected/hag_call
 	)
 
 	exp_type = list(EXP_TYPE_LIVING, EXP_TYPE_ADVENTURER, EXP_TYPE_THIEF)

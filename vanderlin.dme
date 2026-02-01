@@ -3467,7 +3467,6 @@
 #include "code\modules\spells\spell_types\undirected\regenerate.dm"
 #include "code\modules\spells\spell_types\undirected\rituos.dm"
 #include "code\modules\spells\spell_types\undirected\secondsight.dm"
-#include "code\modules\spells\spell_types\undirected\seek_orphan.dm"
 #include "code\modules\spells\spell_types\undirected\shadow_step.dm"
 #include "code\modules\spells\spell_types\undirected\soul_speak.dm"
 #include "code\modules\spells\spell_types\undirected\tragedy.dm"

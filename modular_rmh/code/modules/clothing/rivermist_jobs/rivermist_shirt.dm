@@ -4,3 +4,6 @@
 
 /obj/item/clothing/shirt/clothvest/colored/townhall
 	color = CLOTHING_BLACK
+
+/obj/item/clothing/shirt/robe/colored/moon_acolyte
+	color = "#62656C"

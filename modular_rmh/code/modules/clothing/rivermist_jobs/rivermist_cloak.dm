@@ -21,3 +21,7 @@
 
 /obj/item/clothing/cloak/cape/colored/moon_priest
 	color = "#62656C"
+
+/obj/item/clothing/cloak/half/shadowcloak/warrior_priest
+	name = "dark cloak"
+	desc = "A heavy leather cloak held together by a gilded pin."

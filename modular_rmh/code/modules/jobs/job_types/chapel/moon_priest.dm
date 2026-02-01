@@ -54,8 +54,35 @@
 
 	languages = list(/datum/language/celestial)
 
-	spells = list(/datum/action/cooldown/spell/undirected/list_target/convert_role/chapel_acolyte,
+	magic_user = TRUE
+	spell_points = 30
 
+	spells = list(/datum/action/cooldown/spell/undirected/list_target/convert_role/chapel_acolyte,
+		/datum/action/cooldown/spell/undirected/call_bird/priest,
+		/datum/action/cooldown/spell/undirected/touch/orison,
+		/datum/action/cooldown/spell/healing,
+		/datum/action/cooldown/spell/healing/greater,
+		/datum/action/cooldown/spell/revive,
+		/datum/action/cooldown/spell/attach_bodypart,
+		/datum/action/cooldown/spell/diagnose/holy,
+		/datum/action/cooldown/spell/cure_rot,
+		/datum/action/cooldown/spell/status/guidance,
+		/datum/action/cooldown/spell/essence/toxic_cleanse,
+		/datum/action/cooldown/spell/undirected/touch/darkvision,
+		/datum/action/cooldown/spell/undirected/secondsight,
+		/datum/action/cooldown/spell/undirected/touch/non_detection,
+		/datum/action/cooldown/spell/undirected/feather_falling,
+		/datum/action/cooldown/spell/undirected/longstrider,
+		/datum/action/cooldown/spell/undirected/conjure_item/light,
+		/datum/action/cooldown/spell/undirected/forcewall/breakable,
+		/datum/action/cooldown/spell/aoe/churn_undead,
+		/datum/action/cooldown/spell/aoe/abrogation,
+		/datum/action/cooldown/spell/undirected/locate_dead,
+		/datum/action/cooldown/spell/undirected/soul_speak,
+		/datum/action/cooldown/spell/projectile/moonlit_dagger,
+		/datum/action/cooldown/spell/sacred_flame,
+		/datum/action/cooldown/spell/undirected/divine_strike,
+		/datum/action/cooldown/spell/essence/silence,
 	)
 
 /datum/job/moon_priest/after_spawn(mob/living/carbon/human/spawned, client/player_client)
