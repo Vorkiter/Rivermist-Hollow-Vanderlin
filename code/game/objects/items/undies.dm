@@ -81,6 +81,12 @@
 	item_state = "braies"
 	flags_inv = HIDEBUTT|HIDECROTCH
 
+/obj/item/clothing/undies/thong
+	name = "thong"
+	icon_state = "thong"
+	item_state = "thong"
+	gendered = TRUE
+
 // Craft
 
 /datum/repeatable_crafting_recipe/sewing/undies

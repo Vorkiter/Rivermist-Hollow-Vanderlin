@@ -2,7 +2,7 @@
 	name = "stockings"
 	desc = "A legwear made just for the pure aesthetics. Popular in courts and brothels alike."
 	icon = 'modular_rmh/icons/clothing/stockings.dmi'
-	mob_overlay_icon = 'modular_rmh/icons/mob/sprite_accessory/stockings.dmi'
+	mob_overlay_icon = 'modular_rmh/icons/clothing/onmob/stockings.dmi'
 	icon_state = "stockings"
 	item_state = "stockings"
 	resistance_flags = FLAMMABLE
@@ -116,6 +116,169 @@
 
 /obj/item/clothing/legwears/fishnet/purple
 	color = "#664357"
+
+//garters
+
+/obj/item/clothing/legwears/stockings_wg
+	name = "stockings with garters"
+	desc = "Stockings held up by delicate garters. A practical yet alluring design."
+	icon_state = "stockings_wg"
+	item_state = "stockings_wg"
+
+/obj/item/clothing/legwears/stockings_wg/white
+	color = "#e6e5e5"
+
+/obj/item/clothing/legwears/stockings_wg/black
+	color = "#2b292e"
+
+/obj/item/clothing/legwears/stockings_wg/blue
+	color = "#173266"
+
+/obj/item/clothing/legwears/stockings_wg/red
+	color = "#6F0000"
+
+/obj/item/clothing/legwears/stockings_wg/purple
+	color = "#664357"
+
+//silk garters
+
+/obj/item/clothing/legwears/silk_wg
+	name = "silk stockings with garters"
+	desc = "Silk stockings supported by fine garters. Favored by nobles and courtesans."
+	icon_state = "silk_wg"
+	item_state = "silk_wg"
+
+/obj/item/clothing/legwears/silk_wg/white
+	color = "#e6e5e5"
+
+/obj/item/clothing/legwears/silk_wg/black
+	color = "#2b292e"
+
+/obj/item/clothing/legwears/silk_wg/blue
+	color = "#173266"
+
+/obj/item/clothing/legwears/silk_wg/red
+	color = "#6F0000"
+
+/obj/item/clothing/legwears/silk_wg/purple
+	color = "#664357"
+
+//stirrup
+
+/obj/item/clothing/legwears/stockings_sir
+	name = "stirrup stockings"
+	desc = "Stockings with stirrups that hook under the foot for a tight fit."
+	icon_state = "stockings_sir"
+	item_state = "stockings_sir"
+
+/obj/item/clothing/legwears/stockings_sir/white
+	color = "#e6e5e5"
+
+/obj/item/clothing/legwears/stockings_sir/black
+	color = "#2b292e"
+
+/obj/item/clothing/legwears/stockings_sir/blue
+	color = "#173266"
+
+/obj/item/clothing/legwears/stockings_sir/red
+	color = "#6F0000"
+
+/obj/item/clothing/legwears/stockings_sir/purple
+	color = "#664357"
+
+//silk stirrup
+
+/obj/item/clothing/legwears/silk_sir
+	name = "silk stirrup stockings"
+	desc = "Silk stockings with stirrups, smooth and form-fitting."
+	icon_state = "silk_sir"
+	item_state = "silk_sir"
+
+/obj/item/clothing/legwears/silk_sir/white
+	color = "#e6e5e5"
+
+/obj/item/clothing/legwears/silk_sir/black
+	color = "#2b292e"
+
+/obj/item/clothing/legwears/silk_sir/blue
+	color = "#173266"
+
+/obj/item/clothing/legwears/silk_sir/red
+	color = "#6F0000"
+
+/obj/item/clothing/legwears/silk_sir/purple
+	color = "#664357"
+
+//fishnet stirrup
+
+/obj/item/clothing/legwears/fishnet_sir
+	name = "fishnet stirrup stockings"
+	desc = "Fishnet stockings fitted with stirrups. Bold and unapologetic."
+	icon_state = "fishnet_sir"
+	item_state = "fishnet_sir"
+
+/obj/item/clothing/legwears/fishnet_sir/white
+	color = "#e6e5e5"
+
+/obj/item/clothing/legwears/fishnet_sir/black
+	color = "#2b292e"
+
+/obj/item/clothing/legwears/fishnet_sir/blue
+	color = "#173266"
+
+/obj/item/clothing/legwears/fishnet_sir/red
+	color = "#6F0000"
+
+/obj/item/clothing/legwears/fishnet_sir/purple
+	color = "#664357"
+
+//pantyhose
+
+/obj/item/clothing/legwears/thighs
+	name = "pantyhose"
+	desc = "Form-fitting pantyhose."
+	icon_state = "thighs"
+	item_state = "thighs"
+
+/obj/item/clothing/legwears/silk_thighs
+	name = "silk pantyhose"
+	desc = "Smooth silk pantyhose."
+	icon_state = "silk_thighs"
+	item_state = "silk_thighs"
+
+/obj/item/clothing/legwears/fishnet_thighs
+	name = "fishnet pantyhose"
+	desc = "Fishnet pantyhose."
+	icon_state = "fishnet_thighs"
+	item_state = "fishnet_thighs"
+
+//crotchless pantyhose
+
+/obj/item/clothing/legwears/thighs_cl
+	name = "crotchless pantyhose"
+	desc = "Pantyhose with an intentionally open design."
+	icon_state = "thighs_cl"
+	item_state = "thighs_cl"
+
+/obj/item/clothing/legwears/silk_thighs_cl
+	name = "silk crotchless pantyhose"
+	desc = "Silk pantyhose with an intentionally open design."
+	icon_state = "silk_thighs_cl"
+	item_state = "silk_thighs_cl"
+
+/obj/item/clothing/legwears/fishnet_thighs_cl
+	name = "fishnet crotchless pantyhose"
+	desc = "Fishnet pantyhose with an intentionally open design."
+	icon_state = "fishnet_thighs_cl"
+	item_state = "fishnet_thighs_cl"
+
+//Priestess
+
+/obj/item/clothing/legwears/priestess
+	name = "priestess stockings"
+	desc = "Pure white stockings adorned with delicate golden bands, worn by priestesses during rites and ceremonies."
+	icon_state = "priestess"
+	item_state = "priestess"
 
 // Supply
 
@@ -240,6 +403,24 @@
 					/obj/item/clothing/legwears/fishnet/purple,
 				)
 
+//Garters
+
+/datum/supply_pack/rogue/wardrobe/suits/stockings_wg_white
+	name = "White Stockings with Garters"
+	cost = 15
+	contains = list(
+		/obj/item/clothing/legwears/stockings_wg/white,
+		/obj/item/clothing/legwears/stockings_wg/white,
+	)
+
+/datum/supply_pack/rogue/wardrobe/suits/stockings_wg_white_silk
+	name = "White Silk Stockings with Garters"
+	cost = 35
+	contains = list(
+		/obj/item/clothing/legwears/silk_wg/white,
+		/obj/item/clothing/legwears/silk_wg/white,
+	)
+
 // Craft
 
 /datum/repeatable_crafting_recipe/sewing/stockings_white
@@ -261,3 +442,21 @@
 	output = /obj/item/clothing/legwears/fishnet/white
 	requirements = list(/obj/item/natural/fibers = 2)
 	craftdiff = 3
+
+/datum/repeatable_crafting_recipe/sewing/stockings_wg
+	name = "stockings with garters"
+	output = /obj/item/clothing/legwears/stockings_wg/white
+	requirements = list(
+		/obj/item/natural/cloth = 1,
+		/obj/item/natural/fibers = 2
+	)
+	craftdiff = 3
+
+/datum/repeatable_crafting_recipe/sewing/silk_stockings_wg
+	name = "silk stockings with garters"
+	output = /obj/item/clothing/legwears/silk_wg/white
+	requirements = list(
+		/obj/item/natural/silk = 1,
+		/obj/item/natural/fibers = 2
+	)
+	craftdiff = 4
