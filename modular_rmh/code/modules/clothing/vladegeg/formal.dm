@@ -16,6 +16,8 @@
 /obj/item/clothing/pants/skirt/pencil
 	name = "pencil skirt"
 	desc = "A fitted skirt tailored to follow the line of the legs, narrowing toward the hem."
+	icon = 'modular_rmh/icons/clothing/vladegeg/formal.dmi'
+	mob_overlay_icon = 'modular_rmh/icons/clothing/vladegeg/onmob/formal.dmi'
 	icon_state = "skirt"
 	item_state = "skirt"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/pants.dmi'

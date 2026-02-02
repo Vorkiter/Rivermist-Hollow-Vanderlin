@@ -70,7 +70,7 @@
 /datum/outfit/town_scholar/librarian
 	name = "Librarian"
 	head = null
-	mask = null
+	mask = /obj/item/clothing/face/spectacles
 	neck = null
 	cloak = null
 	armor = null
@@ -147,7 +147,7 @@
 /datum/outfit/town_scholar/explorer
 	name = "Explorer"
 	head = /obj/item/clothing/head/explorer
-	mask = null
+	mask = /obj/item/clothing/face/spectacles
 	neck = null
 	cloak = null
 	armor = null
@@ -211,7 +211,7 @@
 /datum/outfit/town_scholar/archivist
 	name = "Archivist"
 	head = null
-	mask = null
+	mask = /obj/item/clothing/face/spectacles
 	neck = null
 	cloak = /obj/item/clothing/cloak/cape/archivist
 	armor = /obj/item/clothing/shirt/robe/archivist

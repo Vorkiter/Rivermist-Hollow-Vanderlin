@@ -58,7 +58,10 @@ GLOBAL_PROTECT(scholars_positions)
 
 
 GLOBAL_LIST_INIT(traders_positions, list(
-	/datum/job/merchant::title,
+	/datum/job/waterdeep_merchant::title,
+	/datum/job/waterdeep_banker::title,
+	/datum/job/waterdeep_guild_guard::title,
+	/datum/job/waterdeep_guild_assistant::title,
 ))
 GLOBAL_PROTECT(traders_positions)
 

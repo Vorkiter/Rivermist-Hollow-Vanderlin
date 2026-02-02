@@ -18,3 +18,6 @@
 
 /obj/item/storage/keyring/master_wizard
 	keys = list(/obj/item/key/tower, /obj/item/key/mage)
+
+/obj/item/storage/keyring/waterdeep_guild
+	keys = list(/obj/item/key/merchant, /obj/item/key/steward, /obj/item/key/vault, /obj/item/key/warehouse)

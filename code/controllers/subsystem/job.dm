@@ -564,7 +564,7 @@ SUBSYSTEM_DEF(job)
 
 /datum/controller/subsystem/job/proc/do_required_jobs()
 	var/amt_picked = 0
-	var/list/require = list(/datum/job/lord, /datum/job/merchant)
+	var/list/require = list(/datum/job/lord, /datum/job/waterdeep_merchant)
 
 	for(var/job_type in require)
 		var/datum/job/job = GetJobType(job_type)

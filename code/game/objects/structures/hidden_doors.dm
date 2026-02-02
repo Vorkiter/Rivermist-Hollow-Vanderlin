@@ -61,7 +61,10 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 /obj/structure/door/secret/merchant
 	vip = list(
-		/datum/job/merchant,
+		/datum/job/waterdeep_merchant,
+		/datum/job/waterdeep_banker,
+		/datum/job/waterdeep_guild_guard,
+		/datum/job/waterdeep_guild_assistant,
 	)
 
 /obj/structure/door/secret/wizard //for wizard tower
