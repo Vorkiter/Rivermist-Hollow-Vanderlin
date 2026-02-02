@@ -32,6 +32,9 @@
 	outfit = /datum/outfit/guild_wizard/expert
 	category_tags = list(CAT_GUILDWIZARD)
 
+	apprentice_name = "Guild Wizard Apprentice"
+	can_have_apprentices = TRUE
+
 	magic_user = TRUE
 	spell_points = 40
 	attunements_max = 15

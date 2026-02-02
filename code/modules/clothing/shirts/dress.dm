@@ -135,18 +135,6 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 	uses_lord_coloring = LORD_SECONDARY
 
-/obj/item/clothing/shirt/dress/maid/Initialize(mapload, ...)
-	. = ..()
-	// I fucking love pilgrims
-	AddComponent(
-		/datum/component/equipment_stress/job_specific, \
-		/datum/stress_event/maiddress, \
-		list(TRAIT_VILLAIN = null, TRAIT_NOBLE = /datum/stress_event/maiddress/noble), \
-		department_exceptions = list(/datum/job/advclass/pilgrim, /datum/job/grabber), \
-		inverse = TRUE, \
-	)
-
-
 //................ Servant Gown   ............... //
 /obj/item/clothing/shirt/dress/maid/servant
 	name = "servant gown"

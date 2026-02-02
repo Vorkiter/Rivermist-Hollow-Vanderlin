@@ -52,15 +52,3 @@
 	grid_width = 64
 	grid_height = 64
 	pocket_storage_component_path = /datum/component/storage/concrete/grid/cloak
-
-/obj/item/clothing/cloak/apron/maid/Initialize(mapload, ...)
-	. = ..()
-	// I fucking love pilgrims
-	AddComponent(
-		/datum/component/equipment_stress/job_specific, \
-		/datum/stress_event/maidapron, \
-		list(TRAIT_VILLAIN = null, TRAIT_NOBLE = /datum/stress_event/maidapron/noble), \
-		department_exceptions = list(/datum/job/advclass/pilgrim, /datum/job/grabber), \
-		inverse = TRUE, \
-	)
-

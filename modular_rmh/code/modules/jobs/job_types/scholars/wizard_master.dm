@@ -14,6 +14,9 @@
 	outfit = /datum/outfit/guild_master_wizard
 	selection_color = JCOLOR_SCHOLARS
 
+	apprentice_name = "Guild Wizard Apprentice"
+	can_have_apprentices = TRUE
+
 	give_bank_account = 120
 	exp_types_granted = list(EXP_TYPE_MAGICK, EXP_TYPE_ADVENTURER, EXP_TYPE_NOBLE)
 

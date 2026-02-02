@@ -49,7 +49,8 @@ GLOBAL_LIST_INIT(scholars_positions, list(
 	/datum/job/guild_master_wizard::title,
 	/datum/job/guild_wizard::title,
 	/datum/job/guild_wizard_apprentice::title,
-
+	/datum/job/town_apothecary::title,
+	/datum/job/town_apothecary_apprentice::title,
 	/datum/job/town_scholar::title,
 ))
 GLOBAL_PROTECT(scholars_positions)
