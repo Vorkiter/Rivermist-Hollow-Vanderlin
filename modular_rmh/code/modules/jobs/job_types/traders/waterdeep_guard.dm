@@ -16,6 +16,7 @@
 	outfit = /datum/outfit/waterdeep_guild_guard
 	selection_color = JCOLOR_TRADERS
 
+	give_bank_account = 100
 	exp_type = list(EXP_TYPE_LIVING)
 	exp_types_granted = list(EXP_TYPE_COMBAT, EXP_TYPE_MERCHANT_COMPANY)
 	exp_requirements = list(

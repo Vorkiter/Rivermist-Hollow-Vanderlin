@@ -153,15 +153,14 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 #define CAT_CHAPEL			"CAT_CHAPEL"		// Chapel acolyte class - 3 types
 //SCHOLARS
 #define CAT_GUILDWIZARD		"GUILDWIZARD"		// Guild wizard class - 2 types
-#define CAT_ARCHIVIST		"ARCHIVIST"			// Archivist class -
+#define CAT_ARCHIVIST		"ARCHIVIST"			// Archivist class - 3 types
 //TRADERS
-#define CAT_SHOPHAND		"SHOPHAND"			// Waterdeep assistant class - 3 types
+#define CAT_SHOPHAND		"SHOPHAND"			// Waterdeep assistant class - 2 types
 //TAVERN
 #define CAT_AHEAD			"AHEAD"				// Adventurer's guild head class - 2 types
-#define CAT_AASSIST			"AASSIST"			// Adventurer's guild assistant class - 2 types
-#define CAT_WAITRESS		"WAITRESS"			// Waitress class -
+#define CAT_WAITRESS		"WAITRESS"			// Waitress class - 4 types
 //TOWN
-#define CAT_TOWNER 			"CAT_TOWNER"  		// Towner class - Villagers can use it
+#define CAT_TOWNER 			"CAT_TOWNER"  		// Towner class - 3 types
 #define CAT_PERFORMER		"PERFORMER"			// Performer class - 2 types
 #define CAT_ARTISAN			"ARTISAN"			// Artisan class -
 #define CAT_ARTISANAP		"ARTISANAP"			// Artisan apprentice class -

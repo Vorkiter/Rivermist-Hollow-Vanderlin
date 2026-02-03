@@ -20,7 +20,7 @@
 		/datum/job/advclass/guild_wizard/adept,
 	)
 
-	give_bank_account = 80
+	give_bank_account = 60
 	exp_types_granted = list(EXP_TYPE_MAGICK, EXP_TYPE_ADVENTURER)
 
 //SUBCLASSES

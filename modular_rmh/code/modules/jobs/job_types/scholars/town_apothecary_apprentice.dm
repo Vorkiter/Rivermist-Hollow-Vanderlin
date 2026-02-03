@@ -17,7 +17,7 @@
 	outfit = /datum/outfit/town_apothecary_apprentice
 	selection_color = JCOLOR_SCHOLARS
 
-	give_bank_account = 50
+	give_bank_account = 20
 	exp_type = list(EXP_TYPE_LIVING)
 	exp_requirements = list(
 		EXP_TYPE_LIVING = 200

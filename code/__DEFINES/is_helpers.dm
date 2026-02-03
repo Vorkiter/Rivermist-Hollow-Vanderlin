@@ -180,11 +180,14 @@ GLOBAL_LIST_INIT(RATS_DONT_EAT, typecacheof(list(
 //Traders
 	#define is_merchant_job(job_type) (istype(job_type, /datum/job/waterdeep_merchant))
 	#define is_banker_job(job_type) (istype(job_type, /datum/job/waterdeep_banker))
+//Tavern
+	#define is_adventurers_guildmaster_job(job_type) (istype(job_type, /datum/job/adventurers_guildmaster))
+	#define is_adventurers_assistant_job(job_type) (istype(job_type, /datum/job/adventurers_assistant))
+
+
 
 // Nobility
 	#define is_lord_job(job_type) (istype(job_type, /datum/job/lord))
-// Serfs
-	#define is_gaffer_job(job_type) (istype(job_type, /datum/job/gaffer))
 // Peasantry
 	#define is_jester_job(job_type) (istype(job_type, /datum/job/jester))
 	#define is_adventurer_job(job_type) (istype(job_type, /datum/job/advclass/adventurer))
@@ -192,8 +195,6 @@ GLOBAL_LIST_INIT(RATS_DONT_EAT, typecacheof(list(
 	#define is_pilgrim_job(job_type) (istype(job_type, /datum/job/advclass/pilgrim))
 	#define is_vagrant_job(job_type) (istype(job_type, /datum/job/vagrant))
 	#define is_servant_job(job_type) (istype(job_type, /datum/job/servant))
-//  Apprentices
-	#define is_gaffer_assistant_job(job_type) (istype(job_type, /datum/job/gaffer_assistant))
 // Villains
 	#define is_skeleton_job(job_type) (istype(job_type, /datum/job/skeleton))
 		#define is_skeleton_knight_job(job_type) (istype(job_type, /datum/job/skeleton/knight))

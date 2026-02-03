@@ -21,7 +21,7 @@
 		/datum/job/advclass/town_scholar/archivist
 	)
 
-	give_bank_account = 80
+	give_bank_account = 40
 	exp_types_granted = list(EXP_TYPE_MAGICK, EXP_TYPE_LIVING)
 	exp_type = list(EXP_TYPE_LIVING)
 	exp_requirements = list(EXP_TYPE_LIVING = 250)

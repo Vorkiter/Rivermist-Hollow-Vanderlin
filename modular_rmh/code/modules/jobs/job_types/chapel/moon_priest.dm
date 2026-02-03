@@ -18,7 +18,7 @@
 	outfit = /datum/outfit/moon_priest
 	selection_color = JCOLOR_CHAPEL
 
-	give_bank_account = 200
+	give_bank_account = 100
 
 	exp_type = list(EXP_TYPE_CHURCH)
 	exp_types_granted = list(EXP_TYPE_CHURCH, EXP_TYPE_CLERIC)

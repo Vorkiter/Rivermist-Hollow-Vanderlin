@@ -14,7 +14,7 @@
 	outfit = /datum/outfit/guild_wizard_apprentice
 	selection_color = JCOLOR_SCHOLARS
 
-	give_bank_account = 60
+	give_bank_account = 20
 	exp_types_granted = list(EXP_TYPE_MAGICK, EXP_TYPE_ADVENTURER)
 
 	jobstats = list(

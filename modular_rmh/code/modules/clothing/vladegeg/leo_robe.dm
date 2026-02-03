@@ -1,5 +1,5 @@
 /obj/item/clothing/shirt/leo_robe
-	slot_flags = ITEM_SLOT_ARMOR
+	slot_flags = ITEM_SLOT_SHIRT | ITEM_SLOT_ARMOR
 	name = "leopard robe"
 	desc = "An exquisite silky robe with a lepard pattern."
 	body_parts_covered = CHEST|GROIN|VITALS
@@ -9,7 +9,6 @@
 	sleevetype = "armor"
 	icon_state = "tig"
 	item_state = "tig"
-	allowed_sex = list(FEMALE)
 	flags_inv = HIDEBOOB|HIDECROTCH|HIDEBELLY
 	color = "#d88a32ff"
 	r_sleeve_status = SLEEVE_NORMAL

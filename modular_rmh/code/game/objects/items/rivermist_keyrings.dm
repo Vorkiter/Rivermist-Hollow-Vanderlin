@@ -21,3 +21,6 @@
 
 /obj/item/storage/keyring/waterdeep_guild
 	keys = list(/obj/item/key/merchant, /obj/item/key/steward, /obj/item/key/vault, /obj/item/key/warehouse)
+
+/obj/item/storage/keyring/adventurers_guild
+	keys = list(/obj/item/key/gaffer, /obj/item/key/mercenary)

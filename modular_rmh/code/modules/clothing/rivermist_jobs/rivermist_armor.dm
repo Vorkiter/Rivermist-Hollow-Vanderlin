@@ -31,3 +31,6 @@
 
 /obj/item/clothing/armor/gambeson/heavy/colored/town_watch
 	uses_lord_coloring = LORD_SECONDARY
+
+/obj/item/clothing/armor/corset/colored/black
+	color = CLOTHING_BLACK

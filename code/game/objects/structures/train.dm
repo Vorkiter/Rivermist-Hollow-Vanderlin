@@ -11,7 +11,7 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	var/in_use = FALSE
 	var/static/list/uncryoable = list(
-		/datum/job/gaffer //opening up the slot will break the gaffer ring code
+		/datum/job/adventurers_guildmaster //opening up the slot will break the gaffer ring code
 	)
 
 /obj/structure/train/MouseDrop_T(atom/dropping, mob/user)

@@ -17,7 +17,7 @@
 
 	advclass_cat_rolls = list(CAT_CHAPEL = 20)
 
-	give_bank_account = 80
+	give_bank_account = 40
 
 	job_subclasses = list(
 		/datum/job/advclass/acolyte/base,

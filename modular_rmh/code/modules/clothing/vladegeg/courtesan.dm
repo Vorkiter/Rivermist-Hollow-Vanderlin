@@ -2,6 +2,7 @@
 	name = "courtesan dress"
 	desc = ""
 	body_parts_covered = CHEST|GROIN|VITALS
+	slot_flags = ITEM_SLOT_SHIRT | ITEM_SLOT_ARMOR
 	icon_state = "dress"
 	icon = 'modular_rmh/icons/clothing/vladegeg/courtesan.dmi'
 	mob_overlay_icon = 'modular_rmh/icons/clothing/vladegeg/onmob/courtesan.dmi'
