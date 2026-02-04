@@ -106,6 +106,9 @@
 			to_chat(M, span_nicegreen("A falcon swoops low and drops [send_item.name] before you!"))
 
 /obj/effect/falcon_messenger/proc/cleanup()
+	send_item = null
+	target_turf = null
+	recipient = null
 	qdel(src)
 
 /obj/projectile/magic/falcon_dive
