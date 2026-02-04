@@ -283,9 +283,22 @@ GLOBAL_PROTECT(no_child_icons)
 	if(slot_flags & ITEM_SLOT_ARMOR)
 		update_inv_armor()
 	//RMH add
-	if(slot_flags & ITEM_SLOT_UNDERWEAR)
-		update_inv_undies()
-	if(slot_flags & ITEM_SLOT_SOCKS)
+	var/extra_flags = (slot_flags << 1) >> 1 //We "cut off" the 24th bit of the extra slots flag so that the bitwise & can work.
+	if((extra_flags & ITEM_SLOT_UNDER_BOTTOM) && (slot_flags & ITEM_SLOT_EXTRA))
+		update_inv_undie_bot()
+	if((extra_flags & ITEM_SLOT_UNDER_TOP) && (slot_flags & ITEM_SLOT_EXTRA))
+		update_inv_undie_top()
+	if((extra_flags & ITEM_SLOT_UNDERSHIRT) && (slot_flags & ITEM_SLOT_EXTRA))
+		update_inv_undershirt()
+	if((extra_flags & ITEM_SLOT_GARTER) && (slot_flags & ITEM_SLOT_EXTRA))
+		update_inv_garter()
+	if((extra_flags & ITEM_SLOT_CHOKER) && (slot_flags & ITEM_SLOT_EXTRA))
+		update_inv_choker()
+	if((extra_flags & ITEM_SLOT_EARRING_L) && (slot_flags & ITEM_SLOT_EXTRA))
+		update_inv_earring_l()
+	if((extra_flags & ITEM_SLOT_EARRING_R) && (slot_flags & ITEM_SLOT_EXTRA))
+		update_inv_earring_l()
+	if((extra_flags & ITEM_SLOT_SOCKS) && (slot_flags & ITEM_SLOT_EXTRA))
 		update_inv_socks()
 	update_reflection()
 
@@ -310,7 +323,13 @@ GLOBAL_PROTECT(no_child_icons)
 		update_inv_pants()
 		update_inv_shirt()
 		update_inv_mouth()
-		update_inv_undies()
+		update_inv_undie_bot()
+		update_inv_undie_top()
+		update_inv_undershirt()
+		update_inv_garter()
+		update_inv_choker()
+		update_inv_earring_l()
+		update_inv_earring_r()
 		update_inv_socks()
 		update_transform()
 		//damage overlays
@@ -332,7 +351,13 @@ GLOBAL_PROTECT(no_child_icons)
 	update_inv_pants()
 	update_inv_shirt()
 	update_inv_mouth()
-	update_inv_undies()
+	update_inv_undie_bot()
+	update_inv_undie_top()
+	update_inv_undershirt()
+	update_inv_garter()
+	update_inv_choker()
+	update_inv_earring_l()
+	update_inv_earring_r()
 	update_inv_socks()
 
 /* --------------------------------------- */
@@ -1229,8 +1254,8 @@ GLOBAL_PROTECT(no_child_icons)
 	apply_overlay(MOUTH_LAYER)
 
 
-/mob/living/carbon/human/update_inv_undies() //on case by case basis for now
-	remove_overlay(UNDERWEAR_LAYER)
+/mob/living/carbon/human/update_inv_undie_bot() //on case by case basis for now
+	remove_overlay(UNDERWEAR_BOT_LAYER)
 
 	if(underwear)
 		var/b_size = 0
@@ -1251,29 +1276,24 @@ GLOBAL_PROTECT(no_child_icons)
 				racecustom = species.custom_id
 			else
 				racecustom = species.id
-		if(underwear.covers_breasts)
-			var/obj/item/organ/genitals/filling_organ/breasts/boob = getorganslot(ORGAN_SLOT_BREASTS)
-			if(boob)
-				b_size = boob.organ_size
 		if(!underwear.gendered)
 			use_female_sprites = FALSE
-		var/mutable_appearance/underwear_overlay = underwear.build_worn_icon(age, UNDERWEAR_LAYER, coom = use_female_sprites, customi = racecustom, breast_size = b_size)
+		var/mutable_appearance/underwear_overlay = underwear.build_worn_icon(age, UNDERWEAR_BOT_LAYER, coom = use_female_sprites, customi = racecustom, breast_size = b_size)
 
 		if(LAZYACCESS(offsets, OFFSET_UNDIES))
 			underwear_overlay.pixel_x += offsets[OFFSET_UNDIES][1]
 			underwear_overlay.pixel_y += offsets[OFFSET_UNDIES][2]
-		overlays_standing[UNDERWEAR_LAYER] = underwear_overlay
+		overlays_standing[UNDERWEAR_BOT_LAYER] = underwear_overlay
 
 	update_body_parts(redraw = TRUE)
 	update_body()
 
-	apply_overlay(UNDERWEAR_LAYER)
+	apply_overlay(UNDERWEAR_BOT_LAYER)
 
 /mob/living/carbon/human/update_inv_socks() //on case by case basis for now
 	remove_overlay(LEGWEAR_LAYER)
 
 	if(legwear_socks)
-		var/b_size
 		var/datum/species/species = dna?.species
 		var/use_female_sprites = FALSE
 		if(species?.sexes)
@@ -1290,7 +1310,7 @@ GLOBAL_PROTECT(no_child_icons)
 				racecustom = species.custom_id
 			else
 				racecustom = species.id
-		var/mutable_appearance/legwear_socks_overlay = legwear_socks.build_worn_icon(age, LEGWEAR_LAYER, coom = use_female_sprites, customi = racecustom, breast_size = b_size)
+		var/mutable_appearance/legwear_socks_overlay = legwear_socks.build_worn_icon(age, LEGWEAR_LAYER, coom = use_female_sprites, customi = racecustom)
 
 		if(LAZYACCESS(offsets, OFFSET_PANTS))
 			legwear_socks_overlay.pixel_x += offsets[OFFSET_PANTS][1]
@@ -1301,6 +1321,222 @@ GLOBAL_PROTECT(no_child_icons)
 	update_body()
 
 	apply_overlay(LEGWEAR_LAYER)
+
+/mob/living/carbon/human/update_inv_undie_top() //on case by case basis for now
+	remove_overlay(UNDERWEAR_TOP_LAYER)
+
+	if(bra)
+		var/b_size = 0
+		var/datum/species/species = dna?.species
+		var/use_female_sprites = FALSE
+		if(species?.sexes)
+			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+				use_female_sprites = FEMALE_SPRITES
+		var/list/offsets
+		if(use_female_sprites)
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+		else
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
+
+		var/racecustom
+		if(species?.custom_clothes)
+			if(species.custom_id)
+				racecustom = species.custom_id
+			else
+				racecustom = species.id
+
+		var/obj/item/organ/genitals/filling_organ/breasts/boob = getorganslot(ORGAN_SLOT_BREASTS)
+		if(boob)
+			b_size = boob.organ_size
+		if(!bra.gendered)
+			use_female_sprites = FALSE
+		var/mutable_appearance/underwear_overlay = bra.build_worn_icon(age, UNDERWEAR_TOP_LAYER, coom = use_female_sprites, customi = racecustom, breast_size = b_size)
+
+		if(LAZYACCESS(offsets, OFFSET_BRA))
+			underwear_overlay.pixel_x += offsets[OFFSET_BRA][1]
+			underwear_overlay.pixel_y += offsets[OFFSET_BRA][2]
+		overlays_standing[UNDERWEAR_TOP_LAYER] = underwear_overlay
+
+	update_body_parts(redraw = TRUE)
+	update_body()
+
+	apply_overlay(UNDERWEAR_TOP_LAYER)
+
+/mob/living/carbon/human/update_inv_garter() //on case by case basis for now
+	remove_overlay(GARTER_LAYER)
+
+	if(garter)
+		var/datum/species/species = dna?.species
+		var/use_female_sprites = FALSE
+		if(species?.sexes)
+			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+				use_female_sprites = FEMALE_SPRITES
+		var/list/offsets
+		if(use_female_sprites)
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+		else
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
+
+		var/racecustom
+		if(species?.custom_clothes)
+			if(species.custom_id)
+				racecustom = species.custom_id
+			else
+				racecustom = species.id
+		if(!garter.gendered)
+			use_female_sprites = FALSE
+		var/mutable_appearance/garter_overlay = garter.build_worn_icon(age, GARTER_LAYER, coom = use_female_sprites, customi = racecustom)
+
+		if(LAZYACCESS(offsets, OFFSET_NECK))
+			garter_overlay.pixel_x += offsets[OFFSET_NECK][1]
+			garter_overlay.pixel_y += offsets[OFFSET_NECK][2]
+		overlays_standing[GARTER_LAYER] = garter_overlay
+
+	update_body_parts(redraw = TRUE)
+	update_body()
+
+	apply_overlay(GARTER_LAYER)
+
+/mob/living/carbon/human/update_inv_undershirt() //on case by case basis for now
+	remove_overlay(UNDERSHIRT_LAYER)
+
+	if(undershirt)
+		var/b_size = 0
+		var/datum/species/species = dna?.species
+		var/use_female_sprites = FALSE
+		if(species?.sexes)
+			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+				use_female_sprites = FEMALE_SPRITES
+		var/list/offsets
+		if(use_female_sprites)
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+		else
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
+
+		var/racecustom
+		if(species?.custom_clothes)
+			if(species.custom_id)
+				racecustom = species.custom_id
+			else
+				racecustom = species.id
+
+		var/obj/item/organ/genitals/filling_organ/breasts/boob = getorganslot(ORGAN_SLOT_BREASTS)
+		if(boob)
+			b_size = boob.organ_size
+
+		if(!undershirt.gendered)
+			use_female_sprites = FALSE
+		var/mutable_appearance/undershirt_overlay = undershirt.build_worn_icon(age, UNDERSHIRT_LAYER, coom = use_female_sprites, customi = racecustom, breast_size = b_size)
+
+		if(LAZYACCESS(offsets, OFFSET_SHIRT))
+			undershirt_overlay.pixel_x += offsets[OFFSET_SHIRT][1]
+			undershirt_overlay.pixel_y += offsets[OFFSET_SHIRT][2]
+		overlays_standing[UNDERSHIRT_LAYER] = undershirt_overlay
+
+	update_body_parts(redraw = TRUE)
+	update_body()
+
+	apply_overlay(UNDERSHIRT_LAYER)
+
+/mob/living/carbon/human/update_inv_choker() //on case by case basis for now
+	remove_overlay(CHOKER_LAYER)
+
+	if(choker)
+		var/datum/species/species = dna?.species
+		var/use_female_sprites = FALSE
+		if(species?.sexes)
+			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+				use_female_sprites = FEMALE_SPRITES
+		var/list/offsets
+		if(use_female_sprites)
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+		else
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
+		var/racecustom
+		if(species?.custom_clothes)
+			if(species.custom_id)
+				racecustom = species.custom_id
+			else
+				racecustom = species.id
+		var/mutable_appearance/choker_overlay = choker.build_worn_icon(age, CHOKER_LAYER, coom = use_female_sprites, customi = racecustom)
+
+		if(LAZYACCESS(offsets, OFFSET_NECK))
+			choker_overlay.pixel_x += offsets[OFFSET_NECK][1]
+			choker_overlay.pixel_y += offsets[OFFSET_NECK][2]
+		overlays_standing[CHOKER_LAYER] = choker_overlay
+
+	update_body_parts(redraw = TRUE)
+	update_body()
+
+	apply_overlay(CHOKER_LAYER)
+
+/mob/living/carbon/human/update_inv_earring_l()
+	remove_overlay(EARRING_L_LAYER)
+
+	if(earring_l)
+		var/datum/species/species = dna?.species
+		var/use_female_sprites = FALSE
+		if(species?.sexes)
+			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+				use_female_sprites = FEMALE_SPRITES
+		var/list/offsets
+		if(use_female_sprites)
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+		else
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
+
+		var/racecustom
+		if(species?.custom_clothes)
+			if(species.custom_id)
+				racecustom = species.custom_id
+			else
+				racecustom = species.id
+
+		var/mutable_appearance/earring_l_overlay = earring_l.build_worn_icon(age, EARRING_L_LAYER, coom = use_female_sprites, customi = racecustom)
+
+		if(LAZYACCESS(offsets, OFFSET_HEAD))
+			earring_l_overlay.pixel_x += offsets[OFFSET_HEAD][1]
+			earring_l_overlay.pixel_y += offsets[OFFSET_HEAD][2]
+		overlays_standing[EARRING_L_LAYER] = earring_l_overlay
+
+	update_body_parts(redraw = TRUE)
+	update_body()
+
+	apply_overlay(EARRING_L_LAYER)
+
+/mob/living/carbon/human/update_inv_earring_r()
+	remove_overlay(EARRING_R_LAYER)
+
+	if(earring_r)
+		var/datum/species/species = dna?.species
+		var/use_female_sprites = FALSE
+		if(species?.sexes)
+			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+				use_female_sprites = FEMALE_SPRITES
+		var/list/offsets
+		if(use_female_sprites)
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+		else
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
+
+		var/racecustom
+		if(species?.custom_clothes)
+			if(species.custom_id)
+				racecustom = species.custom_id
+			else
+				racecustom = species.id
+
+		var/mutable_appearance/earring_r_overlay = earring_r.build_worn_icon(age, EARRING_R_LAYER, coom = use_female_sprites, customi = racecustom)
+
+		if(LAZYACCESS(offsets, OFFSET_HEAD))
+			earring_r_overlay.pixel_x += offsets[OFFSET_HEAD][1]
+			earring_r_overlay.pixel_y += offsets[OFFSET_HEAD][2]
+		overlays_standing[EARRING_R_LAYER] = earring_r_overlay
+
+	update_body_parts(redraw = TRUE)
+	update_body()
+
+	apply_overlay(EARRING_R_LAYER)
 //endrogue
 
 

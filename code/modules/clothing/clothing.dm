@@ -76,6 +76,7 @@
 	var/datum/wet/wet
 	var/wetable = TRUE
 	var/proper_drying = FALSE
+	var/gendered = TRUE
 	COOLDOWN_DECLARE(wet_stress_cd)
 
 /obj/item/clothing/Initialize()

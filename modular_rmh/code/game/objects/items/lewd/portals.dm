@@ -110,7 +110,7 @@
     item_state = "panties"
     icon_state = "panties"
     gendered = TRUE
-    slot_flags = ITEM_SLOT_UNDERWEAR
+    slot_flags = ITEM_SLOT_UNDER_BOTTOM
     loadout_blacklisted = TRUE
 
     var/obj/item/portallight/linked_light = null

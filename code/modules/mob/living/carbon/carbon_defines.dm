@@ -33,6 +33,12 @@
 
 	var/obj/item/clothing/undies/underwear = null	//Underwear item
 	var/obj/item/clothing/legwears/legwear_socks = null	//legwear item
+	var/obj/item/clothing/undershirt = null	//Underwear item
+	var/obj/item/clothing/bra/bra = null	//Underwear item
+	var/obj/item/clothing/garter/garter = null	//Underwear item
+	var/obj/item/clothing/choker = null	//legwear item
+	var/obj/item/earring_l = null	//Underwear item
+	var/obj/item/earring_r = null	//Underwear item
 
 	var/datum/dna/dna = null//Carbon
 	var/datum/mind/last_mind = null //last mind to control this mob, for blood-based cloning

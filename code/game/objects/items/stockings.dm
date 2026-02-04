@@ -12,12 +12,15 @@
 	max_integrity = 200
 	integrity_failure = 0.1
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
-	var/gendered
-	var/covers_breasts = FALSE
 	sewrepair = TRUE
 	salvage_result = /obj/item/natural/cloth
 	slot_flags = ITEM_SLOT_MOUTH | ITEM_SLOT_SOCKS
 	muteinmouth = TRUE
+	var/icon_state_base
+
+/obj/item/clothing/legwears/Initialize(mapload, ...)
+	. = ..()
+	icon_state_base = icon_state
 
 /obj/item/clothing/legwears/attack(mob/M, mob/user, def_zone)
 	if(ishuman(M))
@@ -35,13 +38,13 @@
 /obj/item/clothing/legwears/equipped(mob/living/carbon/user, slot)
 	. = ..()
 	if(user.mouth == src)
-		slot_flags = ITEM_SLOT_MOUTH
+		icon_state = null
 		user.update_body()
 		user.update_body_parts()
 
 /obj/item/clothing/legwears/dropped(mob/user)
 	. = ..()
-	slot_flags = ITEM_SLOT_MOUTH | ITEM_SLOT_SOCKS
+	icon_state = icon_state_base
 
 
 /obj/item/clothing/legwears/random/Initialize()
