@@ -110,6 +110,7 @@ GLOBAL_LIST_INIT(adventurers_positions, list(
 	/datum/job/adventurer_bard::title,
 	/datum/job/adventurer_cleric::title,
 	/datum/job/adventurer_druid::title,
+	/datum/job/adventurer_fighter::title,
 	/datum/job/adventurer_monk::title,
 	/datum/job/adventurer_paladin::title,
 	/datum/job/adventurer_ranger::title,

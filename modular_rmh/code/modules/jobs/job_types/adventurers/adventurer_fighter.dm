@@ -3,8 +3,8 @@
 	tutorial = "Fighters have mastered the art of combat, wielding weapons with unmatched skill and wearing armour like a second skin."
 	department_flag = ADVENTURERS
 	faction = FACTION_NEUTRAL
-	total_positions = 5
-	spawn_positions = 5
+	total_positions = 10
+	spawn_positions = 10
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_ADVENTURER_FIGHTER
 

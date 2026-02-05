@@ -3,8 +3,8 @@
 	tutorial = "With stealth, skill, and uncanny reflexes, rogues' versatility lets them get the upper hand in almost any situation."
 	department_flag = ADVENTURERS
 	faction = FACTION_NEUTRAL
-	total_positions = 5
-	spawn_positions = 5
+	total_positions = 10
+	spawn_positions = 10
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_ADVENTURER_ROGUE
 

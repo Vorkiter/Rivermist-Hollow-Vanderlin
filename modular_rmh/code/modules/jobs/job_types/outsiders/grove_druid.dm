@@ -89,7 +89,7 @@
 /datum/outfit/grove_druid
 	name = "Grove Druid"
 	head = null
-	mask = /obj/item/clothing/face/druid
+	mask = null
 	neck = null
 	cloak = null
 	armor = /obj/item/clothing/armor/leather/advanced/druid

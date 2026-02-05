@@ -5,8 +5,8 @@
 	BOUND BY OATHS, THEY MAY ONLY FOLLOW GODS WHO EMBODY LAW, JUSTICE, OR RIGHTEOUS BATTLE."
 	department_flag = ADVENTURERS
 	faction = FACTION_NEUTRAL
-	total_positions = 5
-	spawn_positions = 5
+	total_positions = 10
+	spawn_positions = 10
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_ADVENTURER_PALADIN
 
@@ -29,7 +29,7 @@
 	selection_color = JCOLOR_ADVENTURERS
 	scales = TRUE
 
-	exp_types_granted = list(EXP_TYPE_ADVENTURER, EXP_TYPE_COMBAT)
+	exp_types_granted = list(EXP_TYPE_ADVENTURER, EXP_TYPE_COMBAT, EXP_TYPE_CLERIC)
 
 	magic_user = TRUE
 	spell_points = 20

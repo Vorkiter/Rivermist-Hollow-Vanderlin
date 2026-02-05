@@ -1,24 +1,13 @@
 /datum/job/forest_ranger
 	title = "Forest Ranger"
 	tutorial = "You serve beyond the town walls, patrolling forests, swamps, and river paths under the Forest Warden’s command. \
-	Your duty is simple: guide travelers, watch the borders, and deal with threats before they reach Rivermist Hollow. \
-	ALLOWED PATRONS: Silvanus, Mielikki, Selune, Malar. \
-	HUNTERS AND GUARDIANS OF THE WILD, THEY FOLLOW PATRONS TIED TO NATURE, THE HUNT, AND SURVIVAL."
+	Your duty is simple: guide travelers, watch the borders, and deal with threats before they reach Rivermist Hollow."
 	department_flag = OUTSIDERS
 	faction = FACTION_NEUTRAL
 	total_positions = 4
 	spawn_positions = 4
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_FOREST_RANGER
-
-	allowed_patrons = list(
-		/datum/patron/faerun/neutral_gods/Silvanus,
-
-		/datum/patron/faerun/good_gods/Mielikki,
-		/datum/patron/faerun/good_gods/Selune,
-
-		/datum/patron/faerun/evil_gods/Malar
-	)
 
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	allowed_races = ALL_RACES_LIST
