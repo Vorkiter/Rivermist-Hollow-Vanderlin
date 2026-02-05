@@ -32,3 +32,6 @@
 /obj/item/clothing/cloak/cape/colored/random/Initialize()
 	color = pick_assoc(GLOB.noble_dyes)
 	return ..()
+
+/obj/item/clothing/cloak/cape/colored/brown
+	color = CLOTHING_BROWN

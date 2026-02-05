@@ -57,7 +57,7 @@
 		return
 
 	owner.visible_message(span_notice("[owner] causes unpredictable magical effects."))
-	switch(rand(1, 48))
+	switch(rand(1, 50))
 		if(1)
 			var/datum/action/cooldown/spell/enchantment/green_flame/G = new
 			G.owner = owner
@@ -318,3 +318,13 @@
 			BL.owner = owner
 			owner.visible_message(span_danger("[owner] shrouds [target]'s eyes in darkness!"))
 			BL.cast(cast_on)
+		if(49)
+			var/datum/action/cooldown/spell/essence/silence/SIL = new
+			SIL.owner = owner
+			owner.visible_message(span_notice("[owner] creates a zone of absolute silence!"))
+			SIL.cast(cast_on)
+		if(50)
+			var/datum/action/cooldown/spell/essence/toxic_cleanse/TC = new
+			TC.owner = owner
+			owner.visible_message(span_notice("[owner] cleanses all toxins from the area!"))
+			TC.cast(cast_on)
