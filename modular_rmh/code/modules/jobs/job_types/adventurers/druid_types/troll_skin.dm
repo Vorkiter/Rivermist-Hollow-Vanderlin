@@ -4,6 +4,7 @@
 
 	outfit = /datum/outfit/adventurer_druid/troll_skin
 	category_tags = list(CAT_ADVENTURER_DRUID)
+	total_positions = 2
 
 	jobstats = list(
 		STATKEY_STR = 1,
