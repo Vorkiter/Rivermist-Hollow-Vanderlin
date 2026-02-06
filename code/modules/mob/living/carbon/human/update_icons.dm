@@ -1399,13 +1399,23 @@ GLOBAL_PROTECT(no_child_icons)
 
 /mob/living/carbon/human/update_inv_undershirt() //on case by case basis for now
 	remove_overlay(UNDERSHIRT_LAYER)
+	remove_overlay(UNDERSLEEVE_LAYER)
 
 	if(undershirt)
 		var/b_size = 0
 		var/datum/species/species = dna?.species
+		var/hideboob = FALSE
+		if(wear_armor?.flags_inv & HIDEBOOB)
+			hideboob = TRUE
+		if(cloak?.flags_inv & HIDEBOOB)
+			hideboob = TRUE
+		if(species?.no_boobs)
+			hideboob = TRUE
 		var/use_female_sprites = FALSE
 		if(species?.sexes)
-			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+			if(gender == FEMALE && !species.swap_female_clothes)
+				use_female_sprites = hideboob ? FEMALE_SPRITES : FEMALE_BOOB
+			else if(gender == MALE && species.swap_male_clothes)
 				use_female_sprites = FEMALE_SPRITES
 		var/list/offsets
 		if(use_female_sprites)
@@ -1413,6 +1423,7 @@ GLOBAL_PROTECT(no_child_icons)
 		else
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
 
+		var/armsindex = get_limbloss_index(ARM_RIGHT, ARM_LEFT)
 		var/racecustom
 		if(species?.custom_clothes)
 			if(species.custom_id)
@@ -1433,9 +1444,23 @@ GLOBAL_PROTECT(no_child_icons)
 			undershirt_overlay.pixel_y += offsets[OFFSET_SHIRT][2]
 		overlays_standing[UNDERSHIRT_LAYER] = undershirt_overlay
 
+		//add sleeve overlays, then offset
+		var/list/sleeves = list()
+		var/femw = use_female_sprites ? "_f" : ""
+		if(undershirt.sleeved && armsindex > 0)
+			sleeves = get_sleeves_layer(undershirt, armsindex, UNDERSLEEVE_LAYER)
+
+		if(sleeves)
+			for(var/mutable_appearance/S as anything in sleeves)
+				if(LAZYACCESS(offsets, OFFSET_SHIRT))
+					S.pixel_x += offsets[OFFSET_SHIRT][1]
+					S.pixel_y += offsets[OFFSET_SHIRT][2]
+			overlays_standing[UNDERSLEEVE_LAYER] = sleeves
+
 	update_body_parts(redraw = TRUE)
 	update_body()
 
+	apply_overlay(UNDERSLEEVE_LAYER)
 	apply_overlay(UNDERSHIRT_LAYER)
 
 /mob/living/carbon/human/update_inv_choker() //on case by case basis for now
