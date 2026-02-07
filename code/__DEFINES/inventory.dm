@@ -47,9 +47,10 @@
 #define ITEM_SLOT_GARTER		(ITEM_SLOT_EXTRA | (1<<5))
 #define ITEM_SLOT_EARRING_L		(ITEM_SLOT_EXTRA | (1<<6))
 #define ITEM_SLOT_EARRING_R		(ITEM_SLOT_EXTRA | (1<<7))
+#define ITEM_SLOT_ARMSLEEVES	(ITEM_SLOT_EXTRA | (1<<8))
 /// Inside of a character's backpack
 
-#define SLOTS_AMT			28 // Keep this up to date! //This is for UI slots, extra ones not needed.
+#define SLOTS_AMT			29 // Keep this up to date! //This is for UI slots, extra ones not needed.
 
 #define ITEM_SLOT_BACK			(ITEM_SLOT_BACK_L | ITEM_SLOT_BACK_R)
 #define ITEM_SLOT_HIP			(ITEM_SLOT_BELT_L | ITEM_SLOT_BELT_R)

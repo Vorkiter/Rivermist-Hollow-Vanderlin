@@ -297,9 +297,11 @@ GLOBAL_PROTECT(no_child_icons)
 	if((extra_flags & ITEM_SLOT_EARRING_L) && (slot_flags & ITEM_SLOT_EXTRA))
 		update_inv_earring_l()
 	if((extra_flags & ITEM_SLOT_EARRING_R) && (slot_flags & ITEM_SLOT_EXTRA))
-		update_inv_earring_l()
+		update_inv_earring_r()
 	if((extra_flags & ITEM_SLOT_SOCKS) && (slot_flags & ITEM_SLOT_EXTRA))
 		update_inv_socks()
+	if((extra_flags & ITEM_SLOT_ARMSLEEVES) && (slot_flags & ITEM_SLOT_EXTRA))
+		update_inv_armsleeves()
 	update_reflection()
 
 //For legacy support.
@@ -359,6 +361,7 @@ GLOBAL_PROTECT(no_child_icons)
 	update_inv_earring_l()
 	update_inv_earring_r()
 	update_inv_socks()
+	update_inv_armsleeves()
 
 /* --------------------------------------- */
 //vvvvvv UPDATE_INV PROCS vvvvvv
@@ -1446,7 +1449,6 @@ GLOBAL_PROTECT(no_child_icons)
 
 		//add sleeve overlays, then offset
 		var/list/sleeves = list()
-		var/femw = use_female_sprites ? "_f" : ""
 		if(undershirt.sleeved && armsindex > 0)
 			sleeves = get_sleeves_layer(undershirt, armsindex, UNDERSLEEVE_LAYER)
 
@@ -1517,6 +1519,8 @@ GLOBAL_PROTECT(no_child_icons)
 			else
 				racecustom = species.id
 
+		if(!earring_l.gendered)
+			use_female_sprites = FALSE
 		var/mutable_appearance/earring_l_overlay = earring_l.build_worn_icon(age, EARRING_L_LAYER, coom = use_female_sprites, customi = racecustom)
 
 		if(LAZYACCESS(offsets, OFFSET_HEAD))
@@ -1551,6 +1555,8 @@ GLOBAL_PROTECT(no_child_icons)
 			else
 				racecustom = species.id
 
+		if(!earring_r.gendered)
+			use_female_sprites = FALSE
 		var/mutable_appearance/earring_r_overlay = earring_r.build_worn_icon(age, EARRING_R_LAYER, coom = use_female_sprites, customi = racecustom)
 
 		if(LAZYACCESS(offsets, OFFSET_HEAD))
@@ -1562,6 +1568,56 @@ GLOBAL_PROTECT(no_child_icons)
 	update_body()
 
 	apply_overlay(EARRING_R_LAYER)
+
+/mob/living/carbon/human/update_inv_armsleeves()
+	remove_overlay(BOTTOM_ARM_LAYER)
+	remove_overlay(ARMSLEEVE_LAYER)
+
+	if(armsleeves)
+		var/datum/species/species = dna?.species
+		var/armsindex = get_limbloss_index(ARM_RIGHT, ARM_LEFT)
+
+		var/use_female_sprites = FALSE
+		if(species?.sexes)
+			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+				use_female_sprites = FEMALE_SPRITES
+
+		var/list/offsets
+		if(use_female_sprites)
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+		else
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
+
+		var/racecustom
+		if(species?.custom_clothes)
+			if(species.custom_id)
+				racecustom = species.custom_id
+			else
+				racecustom = species.id
+
+		var/mutable_appearance/armsleeves_overlay = armsleeves.build_worn_icon(age, BOTTOM_ARM_LAYER, coom = use_female_sprites, sleeveindex = armsindex, customi = racecustom)
+
+		if(LAZYACCESS(offsets, OFFSET_WRISTS))
+			armsleeves_overlay.pixel_x += offsets[OFFSET_WRISTS][1]
+			armsleeves_overlay.pixel_y += offsets[OFFSET_WRISTS][2]
+
+		overlays_standing[BOTTOM_ARM_LAYER] = armsleeves_overlay
+
+		//add sleeve overlays, then offset
+		var/list/sleeves = list()
+		if(armsleeves.sleeved && armsindex > 0)
+			sleeves = get_sleeves_layer(armsleeves,armsindex,ARMSLEEVE_LAYER)
+
+		if(sleeves)
+			for(var/mutable_appearance/S as anything in sleeves)
+				if(LAZYACCESS(offsets, OFFSET_WRISTS))
+					S.pixel_x += offsets[OFFSET_WRISTS][1]
+					S.pixel_y += offsets[OFFSET_WRISTS][2]
+			overlays_standing[ARMSLEEVE_LAYER] = sleeves
+
+	apply_overlay(BOTTOM_ARM_LAYER)
+	apply_overlay(ARMSLEEVE_LAYER)
+
 //endrogue
 
 

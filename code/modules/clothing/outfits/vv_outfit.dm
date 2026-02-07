@@ -63,6 +63,8 @@
 			earring_r = item_path
 		if(ITEM_SLOT_SOCKS)
 			legwear_socks = item_path
+		if(ITEM_SLOT_ARMSLEEVES)
+			armsleeves = item_path
 
 /datum/outfit/varedit/proc/add_scabbard(scabbard_path)
 	LAZYADD(scabbards, scabbard_path)

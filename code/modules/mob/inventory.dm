@@ -428,6 +428,7 @@
 		obscured |= ITEM_SLOT_PANTS
 		obscured |= ITEM_SLOT_SOCKS
 		obscured |= ITEM_SLOT_UNDERSHIRT
+		obscured |= ITEM_SLOT_ARMSLEEVES
 	if(hidden_slots & HIDESHOES)
 		obscured |= ITEM_SLOT_SHOES
 	if(hidden_slots & HIDEBELT)

@@ -398,6 +398,11 @@
 	else
 		dat += "<tr><td><A href='byond://?src=[REF(src)];item=[ITEM_SLOT_UNDERSHIRT];extra_only=[extra_only]'>[(undershirt && !(undershirt.item_flags & ABSTRACT)) ? undershirt : "<font color=grey>Undershirt</font>"]</A></td></tr>"
 
+	if((extra_obscured & ITEM_SLOT_ARMSLEEVES) && (obscured & ITEM_SLOT_EXTRA))
+		dat += "<tr><td><font color=grey>Obscured</font></td></tr>"
+	else
+		dat += "<tr><td><A href='byond://?src=[REF(src)];item=[ITEM_SLOT_ARMSLEEVES];extra_only=[extra_only]'>[(armsleeves && !(armsleeves.item_flags & ABSTRACT)) ? armsleeves : "<font color=grey>Armsleeves</font>"]</A></td></tr>"
+
 	if((extra_obscured & ITEM_SLOT_GARTER) && (obscured & ITEM_SLOT_EXTRA))
 		dat += "<tr><td><font color=grey>Obscured</font></td></tr>"
 	else

@@ -54,9 +54,6 @@
 	allows_accessory_color_customization = FALSE
 	sprite_accessories = list(
 		/datum/sprite_accessory/accessories/nothing,
-		/datum/sprite_accessory/accessories/earrings/sil,
-		/datum/sprite_accessory/accessories/earrings,
-		/datum/sprite_accessory/accessories/earrings/em,
 		/datum/sprite_accessory/accessories/choker,
 		/datum/sprite_accessory/accessories/chokere,
 		/datum/sprite_accessory/accessories/eyepierce,

@@ -9,6 +9,8 @@
 #define SMALCLOTHES_GARTER_COLOR_PREFERENCES "Garter Color"
 #define SMALCLOTHES_UNDERSHIRT_PREFERENCES "Undershirt Preferences"
 #define SMALCLOTHES_UNDERSHIRT_COLOR_PREFERENCES "Undershirt Color"
+#define SMALCLOTHES_ARMSLEEVE_PREFERENCES "Armsleeve Preferences"
+#define SMALCLOTHES_ARMSLEEVE_COLOR_PREFERENCES "Armsleeve Color"
 
 GLOBAL_LIST_EMPTY(selectable_undies)
 GLOBAL_LIST_EMPTY(cached_undies_flat_icons)
@@ -20,6 +22,8 @@ GLOBAL_LIST_EMPTY(selectable_garters)
 GLOBAL_LIST_EMPTY(cached_garters_flat_icons)
 GLOBAL_LIST_EMPTY(selectable_undershirts)
 GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
+GLOBAL_LIST_EMPTY(selectable_armsleeves)
+GLOBAL_LIST_EMPTY(cached_armsleeves_flat_icons)
 
 /proc/get_cached_undies_flat_icon(obj/item/clothing/undies/undie_type)
 	var/cache_key = "[undie_type]"
@@ -56,6 +60,13 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 		GLOB.cached_undershirts_flat_icons[cache_key] = "<img src='data:image/png;base64, [icon2base64(getFlatIcon(dummy))]'>"
 	return GLOB.cached_undershirts_flat_icons[cache_key]
 
+/proc/get_cached_armsleeves_flat_icon(obj/item/clothing/armsleeves/armsleeve)
+	var/cache_key = "[armsleeve]"
+	if(!GLOB.cached_armsleeves_flat_icons[cache_key])
+		var/image/dummy = image(initial(armsleeve.icon), null, initial(armsleeve.icon_state), initial(armsleeve.layer))
+		GLOB.cached_armsleeves_flat_icons[cache_key] = "<img src='data:image/png;base64, [icon2base64(getFlatIcon(dummy))]'>"
+	return GLOB.cached_armsleeves_flat_icons[cache_key]
+
 /datum/preferences/proc/validate_smallclothes_preferences()
 	if(!smallclothes_preferences)
 		smallclothes_preferences = list()
@@ -75,6 +86,9 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 	if(!length(GLOB.selectable_undershirts))
 		GLOB.selectable_undershirts = get_global_selectable_undershirts()
 
+	if(!length(GLOB.selectable_armsleeves))
+		GLOB.selectable_armsleeves = get_global_selectable_armsleeves()
+
 	if(!smallclothes_preferences[SMALCLOTHES_RANDOM_PREFERENCES])
 		smallclothes_preferences[SMALCLOTHES_RANDOM_PREFERENCES] = FALSE
 
@@ -93,6 +107,9 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 
 		if(!(smallclothes_preferences[SMALCLOTHES_UNDERSHIRT_PREFERENCES] in GLOB.selectable_undershirts) && !isnull(smallclothes_preferences[SMALCLOTHES_UNDERSHIRT_PREFERENCES]))
 			smallclothes_preferences[SMALCLOTHES_UNDERSHIRT_PREFERENCES] = get_random_undershirt()
+
+		if(!(smallclothes_preferences[SMALCLOTHES_ARMSLEEVE_PREFERENCES] in GLOB.selectable_armsleeves) && !isnull(smallclothes_preferences[SMALCLOTHES_ARMSLEEVE_PREFERENCES]))
+			smallclothes_preferences[SMALCLOTHES_ARMSLEEVE_PREFERENCES] = get_random_armsleeve()
 	else
 		if(!smallclothes_preferences[SMALCLOTHES_UNDIE_PREFERENCES])
 			smallclothes_preferences[SMALCLOTHES_UNDIE_PREFERENCES] = get_random_undie()
@@ -104,6 +121,8 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 			smallclothes_preferences[SMALCLOTHES_GARTER_PREFERENCES] = get_random_garter()
 		if(!smallclothes_preferences[SMALCLOTHES_UNDERSHIRT_PREFERENCES])
 			smallclothes_preferences[SMALCLOTHES_UNDERSHIRT_PREFERENCES] = get_random_undershirt()
+		if(!smallclothes_preferences[SMALCLOTHES_ARMSLEEVE_PREFERENCES])
+			smallclothes_preferences[SMALCLOTHES_ARMSLEEVE_PREFERENCES] = get_random_armsleeve()
 
 /datum/preferences/proc/reset_smallclothes_preferences()
 	smallclothes_preferences = list()
@@ -113,6 +132,7 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 	smallclothes_preferences[SMALCLOTHES_BRA_PREFERENCES] = null
 	smallclothes_preferences[SMALCLOTHES_GARTER_PREFERENCES] = null
 	smallclothes_preferences[SMALCLOTHES_UNDERSHIRT_PREFERENCES] = null
+	smallclothes_preferences[SMALCLOTHES_ARMSLEEVE_PREFERENCES] = null
 
 /datum/preferences/proc/get_default_undie()
 	return /obj/item/clothing/undies
@@ -128,6 +148,9 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 
 /datum/preferences/proc/get_default_undershirt()
 	return /obj/item/clothing/undershirt
+
+/datum/preferences/proc/get_default_armsleeve()
+	return /obj/item/clothing/armsleeves
 
 /datum/preferences/proc/get_random_undie()
 	if(!length(GLOB.selectable_undies))
@@ -157,6 +180,12 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 	if(!length(GLOB.selectable_undershirts))
 		GLOB.selectable_undershirts = get_global_selectable_undershirts()
 	var/list/choices = GLOB.selectable_undershirts
+	return pick(choices)
+
+/datum/preferences/proc/get_random_armsleeve()
+	if(!length(GLOB.selectable_armsleeves))
+		GLOB.selectable_armsleeves = get_global_selectable_armsleeves()
+	var/list/choices = GLOB.selectable_armsleeves
 	return pick(choices)
 
 /datum/preferences/proc/handle_undies_topic(mob/user, href_list)
@@ -224,6 +253,8 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 			show_garter_selection_ui(user, SMALCLOTHES_GARTER_PREFERENCES)
 		if("choose_undershirt")
 			show_undershirt_selection_ui(user, SMALCLOTHES_UNDERSHIRT_PREFERENCES)
+		if("choose_armsleeve")
+			show_armsleeve_selection_ui(user, SMALCLOTHES_ARMSLEEVE_PREFERENCES)
 
 		if("confirm_bra")
 			var/bra_type = text2path(href_list["bra_type"])
@@ -248,6 +279,15 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 			var/preference_type = href_list["preference_type"]
 			if(ispath(undershirt_type, /obj/item/clothing/undershirt) && (undershirt_type in GLOB.selectable_undershirts) || isnull(undershirt_type))
 				smallclothes_preferences[preference_type] = undershirt_type
+				user << browse(null, "window=garter_selection")
+				update_preview_icon()
+				show_smallclothes_ui(user)
+
+		if("confirm_armsleeve")
+			var/armsleeve_type = text2path(href_list["armsleeve_type"])
+			var/preference_type = href_list["preference_type"]
+			if(ispath(armsleeve_type, /obj/item/clothing/armsleeves) && (armsleeve_type in GLOB.selectable_armsleeves) || isnull(armsleeve_type))
+				smallclothes_preferences[preference_type] = armsleeve_type
 				user << browse(null, "window=garter_selection")
 				update_preview_icon()
 				show_smallclothes_ui(user)
@@ -294,6 +334,19 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 				update_preview_icon()
 				show_smallclothes_ui(user)
 
+		if("armsleeve_color")
+			var/armsleeve_type = text2path(href_list["armsleeve_type"])
+			var/preference_type = href_list["preference_type"]
+			if(!isnull(armsleeve_type))
+				var/choice = input(user, "Choose a color.", "armsleeve Colour") as null|anything in colorlist
+				if (choice && colorlist[choice])
+					smallclothes_preferences[preference_type] = colorlist[choice]
+					to_chat(user, "The colour for your armsleeve has been set to <b>[choice].</b>.")
+				else
+					smallclothes_preferences[preference_type] = null
+					to_chat(user, "The colour for your armsleeve loadout item has been cleared.")
+				update_preview_icon()
+				show_smallclothes_ui(user)
 
 
 /datum/preferences/proc/print_smallclothes_page(mob/user)
@@ -307,6 +360,8 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 		GLOB.selectable_garters = get_global_selectable_garters()
 	if(!length(GLOB.selectable_undershirts))
 		GLOB.selectable_undershirts = get_global_selectable_undershirts()
+	if(!length(GLOB.selectable_armsleeves))
+		GLOB.selectable_armsleeves = get_global_selectable_armsleeves()
 	var/list/dat = list()
 
 	var/current_undie = smallclothes_preferences[SMALCLOTHES_UNDIE_PREFERENCES]
@@ -314,6 +369,7 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 	var/current_bra = smallclothes_preferences[SMALCLOTHES_BRA_PREFERENCES]
 	var/current_garter = smallclothes_preferences[SMALCLOTHES_GARTER_PREFERENCES]
 	var/current_undershirt = smallclothes_preferences[SMALCLOTHES_UNDERSHIRT_PREFERENCES]
+	var/current_armsleeve = smallclothes_preferences[SMALCLOTHES_ARMSLEEVE_PREFERENCES]
 	var/random_preferences = smallclothes_preferences[SMALCLOTHES_RANDOM_PREFERENCES]
 
 	var/bra_name = "None"
@@ -348,6 +404,17 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 		undershirt_color = smallclothes_preferences[SMALCLOTHES_UNDERSHIRT_COLOR_PREFERENCES]
 	else if(random_preferences)
 		undershirt_name = "Random"
+
+	var/armsleeve_name = "None"
+	var/armsleeve_icon = ""
+	var/armsleeve_color
+	if(current_armsleeve && !random_preferences)
+		var/obj/item/clothing/armsleeves/armsleeve_instance = current_armsleeve
+		armsleeve_name = capitalize(initial(armsleeve_instance.name))
+		armsleeve_icon = get_cached_armsleeves_flat_icon(current_armsleeve)
+		armsleeve_color = smallclothes_preferences[SMALCLOTHES_ARMSLEEVE_COLOR_PREFERENCES]
+	else if(random_preferences)
+		armsleeve_name = "Random"
 
 	var/undie_name = "None"
 	var/undie_icon = ""
@@ -433,9 +500,20 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 	else
 		dat += "<a href='byond://?_src_=prefs;preference=choose_undershirt;preference_type=[SMALCLOTHES_UNDERSHIRT_PREFERENCES];task=change_smallclothes_preferences'>[encode_special_chars(undershirt_name)]</a>"
 	if (undershirt_color)
-		dat += "<a href='byond://?_src_=prefs;undershirt_type=[current_undershirt];preference=undershirt_color;preference_type=[SMALCLOTHES_UNDERSHIRT_COLOR_PREFERENCES];task=change_smallclothes_preferences'> <span style='border: 1px solid #161616; background-color: [legwear_color ? legwear_color : "#FFFFFF"];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
+		dat += "<a href='byond://?_src_=prefs;undershirt_type=[current_undershirt];preference=undershirt_color;preference_type=[SMALCLOTHES_UNDERSHIRT_COLOR_PREFERENCES];task=change_smallclothes_preferences'> <span style='border: 1px solid #161616; background-color: [undershirt_color ? undershirt_color : "#FFFFFF"];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
 	else
 		dat += "<a href='byond://?_src_=prefs;undershirt_type=[current_undershirt];preference=undershirt_color;preference_type=[SMALCLOTHES_UNDERSHIRT_COLOR_PREFERENCES];task=change_smallclothes_preferences'>(C)</a>"
+	dat += "</span></div>"
+
+	dat += "<div [random_preferences ? "" : "class='smallclothes-item'"]><b>Armsleeves: </b> <span class='smallclothes-icon'>[armsleeve_icon]</span> <span class='smallclothes-text'>"
+	if(random_preferences)
+		dat += "<font color='orange'>[encode_special_chars(armsleeve_name)]</font>"
+	else
+		dat += "<a href='byond://?_src_=prefs;preference=choose_armsleeve;preference_type=[SMALCLOTHES_ARMSLEEVE_PREFERENCES];task=change_smallclothes_preferences'>[encode_special_chars(armsleeve_name)]</a>"
+	if (armsleeve_color)
+		dat += "<a href='byond://?_src_=prefs;armsleeve_type=[current_armsleeve];preference=armsleeve_color;preference_type=[SMALCLOTHES_ARMSLEEVE_COLOR_PREFERENCES];task=change_smallclothes_preferences'> <span style='border: 1px solid #161616; background-color: [armsleeve_color ? armsleeve_color : "#FFFFFF"];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
+	else
+		dat += "<a href='byond://?_src_=prefs;armsleeve_type=[current_armsleeve];preference=armsleeve_color;preference_type=[SMALCLOTHES_ARMSLEEVE_COLOR_PREFERENCES];task=change_smallclothes_preferences'>(C)</a>"
 	dat += "</span></div>"
 	return dat
 
@@ -459,6 +537,7 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 		character.smallclothes_preferences[SMALCLOTHES_BRA_PREFERENCES] = get_random_bra()
 		character.smallclothes_preferences[SMALCLOTHES_GARTER_PREFERENCES] = get_random_garter()
 		character.smallclothes_preferences[SMALCLOTHES_UNDERSHIRT_PREFERENCES] = get_random_undershirt()
+		character.smallclothes_preferences[SMALCLOTHES_ARMSLEEVE_PREFERENCES] = get_random_armsleeve()
 
 	var/current_undie = character.smallclothes_preferences[SMALCLOTHES_UNDIE_PREFERENCES]
 	var/obj/item/clothing/undies/old_u = character.underwear
@@ -510,6 +589,16 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 		var/obj/item/clothing/undershirt/U = new current_undershirt
 		U.color = smallclothes_preferences[SMALCLOTHES_UNDERSHIRT_COLOR_PREFERENCES]
 		character.equip_to_slot_if_possible(U, ITEM_SLOT_UNDERSHIRT, TRUE, disable_warning = TRUE)
+
+	var/current_armsleeve = character.smallclothes_preferences[SMALCLOTHES_ARMSLEEVE_PREFERENCES]
+	var/obj/item/clothing/armsleeves/old_ar = character.armsleeves
+	if(old_ar)
+		character.dropItemToGround(old_ar)
+		qdel(old_ar)
+	if(current_armsleeve)
+		var/obj/item/clothing/armsleeves/ar = new current_armsleeve
+		ar.color = smallclothes_preferences[SMALCLOTHES_ARMSLEEVE_COLOR_PREFERENCES]
+		character.equip_to_slot_if_possible(ar, ITEM_SLOT_ARMSLEEVES, TRUE, disable_warning = TRUE)
 
 	character.update_body()
 	character.update_body_parts()
@@ -632,6 +721,47 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 
 	var/title ="Select Undershirt"
 	var/datum/browser/popup = new(user, "undershirt_selection", "<div align='center'>[title]</div>", 400, 600)
+	popup.set_content(dat.Join())
+	popup.open(FALSE)
+
+
+/datum/preferences/proc/show_armsleeve_selection_ui(mob/user, preference_type)
+	if(smallclothes_preferences[SMALCLOTHES_RANDOM_PREFERENCES])
+		to_chat(user, span_warning("You cannot choose smallclothes while random preferences are enabled. Disable random preferences first."))
+		return
+
+	var/list/dat = list()
+	dat += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">"
+	dat += "<style>"
+	dat += ".armsleeve-item { display: flex; align-items: center; margin-bottom: 5px; }"
+	dat += ".armsleeve-icon { vertical-align: middle; }"
+	dat += ".armsleeve-text { vertical-align: middle; line-height: 32px; }"
+	dat += "</style>"
+
+	var/list/armsleeve_list = list()
+	for(var/armsleeve_type in GLOB.selectable_armsleeves)
+		var/obj/item/clothing/armsleeves/armsleeve_instance
+		var/armsleeve_name
+		if(armsleeve_type)
+			armsleeve_instance = armsleeve_type
+			armsleeve_name = initial(armsleeve_instance.name)
+		else
+			armsleeve_name = "None"
+		armsleeve_list += list(list("type" = armsleeve_type, "name" = armsleeve_name))
+
+	for(var/list/armsleeve_data in armsleeve_list)
+		var/armsleeve_type = armsleeve_data["type"]
+		if(armsleeve_type)
+			var/armsleeve_name = armsleeve_data["name"]
+			var/display_name = capitalize(armsleeve_name)
+			var/armsleeve_icon = get_cached_armsleeves_flat_icon(armsleeve_type)
+			dat += "<div class='armsleeve-item'><span class='armsleeve-icon'>[armsleeve_icon]</span> <span class='armsleeve-text'><a href='byond://?_src_=prefs;preference=confirm_armsleeve;armsleeve_type=[armsleeve_type];preference_type=[preference_type];task=change_smallclothes_preferences'>[encode_special_chars(display_name)]</a></span></div>"
+		else
+			var/display_name = "None"
+			dat += "<div class='armsleeve-item'><span class='armsleeve-text'><a href='byond://?_src_=prefs;preference=confirm_armsleeve;armsleeve_type=[armsleeve_type];preference_type=[preference_type];task=change_smallclothes_preferences'>[encode_special_chars(display_name)]</a></span></div>"
+
+	var/title ="Select armsleeve"
+	var/datum/browser/popup = new(user, "armsleeve_selection", "<div align='center'>[title]</div>", 400, 600)
 	popup.set_content(dat.Join())
 	popup.open(FALSE)
 
@@ -880,3 +1010,31 @@ GLOBAL_LIST_EMPTY(cached_undershirts_flat_icons)
 	filtered_undershirt_types += null
 
 	return filtered_undershirt_types
+
+/proc/get_global_selectable_armsleeves()
+	var/list/blacklisted_armsleeves = list(
+		)
+
+	var/list/armsleeve_types = typesof(/obj/item/clothing/armsleeves) - blacklisted_armsleeves
+
+	var/list/filtered_armsleeve_types = list()
+	var/list/name_to_type = list()
+
+	for(var/armsleeve_type in armsleeve_types)
+		var/obj/item/clothing/armsleeves/armsleeve_instance = armsleeve_type
+		if(armsleeve_instance.loadout_blacklisted)
+			continue
+		var/armsleeve_name = initial(armsleeve_instance.name)
+
+		if(!name_to_type[armsleeve_name])
+			name_to_type[armsleeve_name] = armsleeve_type
+			filtered_armsleeve_types += armsleeve_type
+		else
+			var/existing_type = name_to_type[armsleeve_name]
+			if(ispath(existing_type, armsleeve_type))
+				name_to_type[armsleeve_name] = armsleeve_type
+				filtered_armsleeve_types -= existing_type
+				filtered_armsleeve_types += armsleeve_type
+	filtered_armsleeve_types += null
+
+	return filtered_armsleeve_types

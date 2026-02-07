@@ -433,6 +433,8 @@
 					if(BODY_ZONE_R_ARM)
 						if (V.get_item_by_slot(ITEM_SLOT_BACK_R))
 							stealpos.Add(V.get_item_by_slot(ITEM_SLOT_BACK_R))
+						if (V.get_item_by_slot(ITEM_SLOT_ARMSLEEVES))
+							stealpos.Add(V.get_item_by_slot(ITEM_SLOT_ARMSLEEVES))
 					if(BODY_ZONE_PRECISE_NECK)
 						if (V.get_item_by_slot(ITEM_SLOT_NECK))
 							stealpos.Add(V.get_item_by_slot(ITEM_SLOT_NECK))

@@ -262,6 +262,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/detail_tag
 	var/detail_color
 
+	/// Whether or not we use gendered onmob sprites
+	var/gendered = TRUE
 
 	// ~Grid INVENTORY VARIABLES
 	/// Width we occupy on the hud - Keep null to generate based on w_class
@@ -1117,6 +1119,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		owner.update_inv_choker()
 	if((extra_flags & ITEM_SLOT_SOCKS) && (flags & ITEM_SLOT_EXTRA))
 		owner.update_inv_socks()
+	if((extra_flags & ITEM_SLOT_ARMSLEEVES) && (flags & ITEM_SLOT_ARMSLEEVES))
+		owner.update_inv_armsleeves()
 	if(H)
 		if(flags & ITEM_SLOT_HEAD && H.head == src)
 			owner.update_inv_head()

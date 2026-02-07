@@ -65,6 +65,8 @@
 
 	var/shirt = null
 
+	var/armsleeves = null
+
 	var/mouth = null
 
 	var/pants = null
@@ -224,6 +226,8 @@
 		H.equip_to_slot_or_del(new armor(H),ITEM_SLOT_ARMOR, TRUE)
 	if(shirt)
 		H.equip_to_slot_or_del(new shirt(H),ITEM_SLOT_SHIRT, TRUE)
+	if(armsleeves)
+		H.equip_to_slot_or_del(new armsleeves(H),ITEM_SLOT_ARMSLEEVES, TRUE)
 	if(accessory)
 		var/obj/item/clothing/pants/U = H.wear_pants
 		if(U)

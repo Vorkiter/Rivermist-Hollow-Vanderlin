@@ -1266,6 +1266,12 @@ GLOBAL_LIST_EMPTY(donator_races)
 			if( !((extra_flags & ITEM_SLOT_SOCKS) && (I.slot_flags & ITEM_SLOT_EXTRA)) )
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		if(ITEM_SLOT_ARMSLEEVES)
+			if(H.armsleeves)
+				return FALSE
+			if( !((extra_flags & ITEM_SLOT_ARMSLEEVES) && (I.slot_flags & ITEM_SLOT_EXTRA)) )
+				return FALSE
+			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 	return FALSE //Unsupported slot
 
 /datum/species/proc/equip_delay_self_check(obj/item/I, mob/living/carbon/human/H, bypass_equip_delay_self)
