@@ -7,6 +7,8 @@
 	var/category = CATEGORY_MISC
 	var/weight = WEIGHT_LOWEST
 	var/keybind_signal
+	/// Is this a clientside verb trigger? If so, this should be set to the name of the verb.
+	var/clientside
 
 /datum/keybinding/New()
 
@@ -15,10 +17,7 @@
 		classic_keys = hotkey_keys.Copy()
 
 /datum/keybinding/proc/down(client/user)
-	SHOULD_CALL_PARENT(TRUE)
-	if(keybind_signal)
-		SEND_SIGNAL(user.mob, keybind_signal)
-	return FALSE
+    return FALSE
 
 /datum/keybinding/proc/up(client/user)
 	SHOULD_CALL_PARENT(TRUE)

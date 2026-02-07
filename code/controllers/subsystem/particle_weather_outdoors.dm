@@ -5,33 +5,33 @@
 
 /datum/time_of_day/dawn
 	name = "Dawn"
-	color = list("#394579", "#49385d", "#3a1537")
-	start = 8 HOURS //8:00:00 AM
+	color = list("#3b4c99", "#5d417e", "#50184b")
+	start = 5.5 HOURS //5:30:00 AM
 
 /datum/time_of_day/sunrise
 	name = "Sunrise"
-	color = "#F598AB"
-	start = 9.5 HOURS  //9:30:00 AM
+	color = list("#F598AB","#e26d6d", "#e96e4f")
+	start = 7.5 HOURS  //7:30:00 AM
 
 /datum/time_of_day/daytime
 	name = "Daytime"
-	color = list("#dbbfbf", "#ddd7bd", "#add1b0", "#a4c0ca", "#ae9dc6", "#d09fbf")
-	start = 10 HOURS //10:00:00 AM
+	color = list("#f7baba", "#f5eabe", "#fffacece", "#bfd7e0d8", "#d2c1ebde", "#e7bbd8ea")
+	start = 8 HOURS //8:00:00 AM
 
 /datum/time_of_day/sunset
 	name = "Sunset"
-	color = "#ff8a63"
-	start = 15 HOURS //3:00:00 PM
+	color = "#fc7c52"
+	start = 18 HOURS //6:00:00 PM
 
 /datum/time_of_day/dusk
 	name = "Dusk"
-	color = list("#c26f56", "#c05271", "#b84933")
-	start = 15.5 HOURS //3:30:00 PM
+	color = list("#df6e4c", "#df4974", "#cf472b")
+	start = 18.5 HOURS //6:30:00 PM
 
 /datum/time_of_day/midnight
 	name = "Midnight"
-	color = list("#100a18", "#0c0412", "#0f0012")
-	start = 16 HOURS //4:00:00 PM
+	color = list("#29173f96", "#2f0f46a8", "#34013fab")
+	start = 20 HOURS //8:00:00 PM
 
 GLOBAL_LIST_EMPTY(SUNLIGHT_QUEUE_WORK)   /* turfs to be stateChecked */
 GLOBAL_LIST_EMPTY(SUNLIGHT_QUEUE_UPDATE) /* turfs to have their colors updated via corners (filter out the unroofed dudes) */

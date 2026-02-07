@@ -159,5 +159,5 @@
 		switch(human_job.type)
 			if(/datum/job/lord)
 				removeomen(OMEN_NOLORD)
-			if(/datum/job/moon_priest || /datum/job/heart_priest)
+			if(/datum/job/moon_priest, /datum/job/heart_priest)
 				removeomen(OMEN_NOPRIEST)

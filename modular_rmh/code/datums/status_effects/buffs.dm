@@ -2,7 +2,8 @@
 	id = "Darkling"
 	alert_type =  /atom/movable/screen/alert/status_effect/darkling_darkly
 	effectedstats = list(STATKEY_PER = 1)
-	duration = 5 SECONDS
+	duration = 2 MINUTES
+	status_type = STATUS_EFFECT_REFRESH
 
 /atom/movable/screen/alert/status_effect/darkling_darkly
 	name = "Darkling"

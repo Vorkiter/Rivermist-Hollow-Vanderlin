@@ -96,7 +96,7 @@
 	else
 		target_organ = target.getorganslot(hole_id)
 	var/list/stored_items = SEND_SIGNAL(target_organ, COMSIG_BODYSTORAGE_GET_LISTS)
-	var/list/stored_items_layer = stored_items[STORAGE_LAYER_DEEP]
+	var/list/stored_items_layer = stored_items[STORAGE_LAYER_INNER]
 	if(!stored_items_layer.len)
 		return FALSE
 	return TRUE

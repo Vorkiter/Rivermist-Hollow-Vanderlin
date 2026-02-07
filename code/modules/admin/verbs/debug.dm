@@ -68,6 +68,18 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		message_admins("[key_name_admin(src)] has deleted all ([counter]) instances of [hsbitem].")
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Delete All") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+/client/proc/cmd_get_mob(mob/M in GLOB.mob_list)
+	set category = "Admin"
+	set name = "Get Mob"
+	set desc = ""
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(alert(src, "Confirm?", "Message", "Yes", "No") != "Yes")
+		return
+
+	M.forceMove(get_turf(mob))
+
 /client/proc/cmd_assume_direct_control(mob/M in GLOB.mob_list)
 	set category = "Admin"
 	set name = "Assume direct control"

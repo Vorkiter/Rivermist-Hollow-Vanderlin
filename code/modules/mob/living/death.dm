@@ -90,7 +90,7 @@ GLOBAL_LIST_EMPTY(last_words)
 	update_health_hud()
 	stop_pulling()
 
-	to_chat(src, span_green("A bleak afterlife awaits... but the Gods may let you walk again in another shape! Spirit, you must descend in a Journey to the Underworld and wait there for judgment..."))
+	to_chat(src, span_red("As the last spark of life dies out in your mortal body, you are filled wih incredible regret, and terror - of what comes next..."))
 
 	. = ..()
 

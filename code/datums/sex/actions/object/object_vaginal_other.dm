@@ -39,7 +39,8 @@
 	var/obj/item/dildo = user.get_active_held_item()
 
 	var/datum/sex_session/sex_session = get_sex_session(user, target)
-	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] fucks [target]'s cunt with \the [dildo]."))
+	if(can_show_action_message(user, target))
+		user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] fucks [target]'s cunt with \the [dildo]."))
 	if(user.rogue_sneaking || user.alpha <= 100)
 		action_volume *= 0.5
 	playsound(target, sex_session.get_force_sound(), 50, TRUE, -2, ignore_walls = FALSE)

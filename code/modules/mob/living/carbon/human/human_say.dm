@@ -74,14 +74,70 @@
 
 /mob/living/carbon/human/send_speech(message, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, list/message_mods = list(), original_message)
 	. = ..()
-	if(!message_mods[WHISPER_MODE])
-		send_voice(message)
+	send_voice(message, message_mods)
 
-/mob/living/carbon/human/proc/send_voice(message, skip_thingy)
+/mob/living/carbon/human/proc/send_voice(message, list/message_mods)
 	if(!length(message))
 		return
-	if(dna.species)
-		dna.species.send_voice(src)
+	dna?.species?.send_voice(src, message, message_mods)
 
-/datum/species/proc/send_voice(mob/living/carbon/human/H)
-	playsound(get_turf(H), 'sound/misc/talk.ogg', 100, FALSE, -1)
+/datum/species/proc/send_voice(mob/living/carbon/human/H, message, list/message_mods)
+	if(!H)
+		return
+
+	//If high arousal - moan
+	var/datum/component/arousal/A = H.GetComponent(/datum/component/arousal)
+	if(A.arousal >= 40)
+		H.emote(H.can_speak() ? "sexmoanlight" : "sexmoangag", intentional = FALSE)
+		return
+	// --------------------------
+
+
+	// Whisper
+	if(message_mods[WHISPER_MODE])
+		playsound(H, 'sound/vo/psst.ogg', 20, FALSE, -1, ignore_walls = FALSE)
+		return
+	// Singing
+	if(message_mods[MODE_SING])
+		H.emote("hum", intentional = FALSE)
+		return
+	// Speech
+	switch(say_test(message))
+		if("1") // ?
+			if(prob(30))
+				switch(H.voice_type)
+					if(VOICE_TYPE_MASC)
+						playsound(H, pick(list('sound/vo/male/gen/huh (1).ogg','sound/vo/male/gen/huh (2).ogg','sound/vo/male/gen/huh (3).ogg')), 100, FALSE, -1, ignore_walls = FALSE)
+						return
+					else
+						playsound(H, pick(list('sound/vo/female/gen/huh (1).ogg','sound/vo/female/gen/huh (2).ogg','sound/vo/female/gen/huh (3).ogg')), 100, FALSE, -1, ignore_walls = FALSE)
+						return
+			else
+				playsound(H, 'sound/misc/talk.ogg', 100, FALSE, -1, ignore_walls = FALSE)
+				return
+		if("2") // !
+			if(prob(30))
+				switch(H.voice_type)
+					if(VOICE_TYPE_MASC)
+						playsound(H, 'modular_rmh/sound/vo/speech/mexclaim.ogg', 100, FALSE, -1, ignore_walls = FALSE)
+						return
+					else
+						playsound(H, 'modular_rmh/sound/vo/speech/fexclaim.ogg', 100, FALSE, -1, ignore_walls = FALSE)
+						return
+			else
+				playsound(H, 'sound/misc/talk.ogg', 100, FALSE, -1, ignore_walls = FALSE)
+				return
+		if("3") // !!
+			playsound(H, 'sound/misc/talk.ogg', 100, FALSE, -1, ignore_walls = FALSE)
+		else
+			if(prob(30))
+				switch(H.voice_type)
+					if(VOICE_TYPE_MASC)
+						playsound(H, 'modular_rmh/sound/vo/speech/mtalk.ogg', 100, FALSE, -1, ignore_walls = FALSE)
+						return
+					else
+						playsound(H, 'modular_rmh/sound/vo/speech/ftalk.ogg', 100, FALSE, -1, ignore_walls = FALSE)
+						return
+			else
+				playsound(H, 'sound/misc/talk.ogg', 100, FALSE, -1, ignore_walls = FALSE)
+				return

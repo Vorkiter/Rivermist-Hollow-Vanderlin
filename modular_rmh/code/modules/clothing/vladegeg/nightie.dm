@@ -9,7 +9,8 @@
 	sleevetype = null
 	icon_state = "dress"
 	item_state = "dress"
-	flags_inv = HIDEBOOB|HIDECROTCH|HIDEBELLY
+	allowed_sex = list(FEMALE)
+	flags_inv = HIDEBOOB|HIDECROTCH|HIDEBELLY|HIDEBUTT
 	color = "#e74b6dff"
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL

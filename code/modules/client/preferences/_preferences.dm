@@ -190,6 +190,10 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/musicvol = 50
 	var/mastervol = 50
 
+	var/static/default_cmusic_type = /datum/combat_music/default
+	var/datum/combat_music/combat_music
+	var/combat_music_helptext_shown = FALSE
+
 	var/anonymize = TRUE
 
 	var/lastclass
@@ -299,6 +303,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		charflaw = new charflaw()
 	if(!selected_patron)
 		selected_patron = GLOB.patronlist[default_patron]
+	if(!combat_music)
+		combat_music = GLOB.cmode_tracks_by_type[default_cmusic_type]
 	key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key) // give them default keybinds and update their movement keys
 	if(isclient(C))
 		C.update_movement_keys()
@@ -438,6 +444,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		dat += "<b>Preferred Gender:</b> <a href='?_src_=prefs;preference=gender_choice'>[gender_choice ? gender_choice : "Any Gender"]</a><BR>"
 	dat += "<b>Dominance:</b> <a href='?_src_=prefs;preference=domhand'>[domhand == 1 ? "Left-handed" : "Right-handed"]</a><BR>"
 	dat += "<b>Food Preferences:</b> <a href='?_src_=prefs;preference=culinary;task=menu'>Change</a><BR>"
+	var/musicname = (combat_music.shortname ? combat_music.shortname : combat_music.name)
+	dat += "<b>Combat Music:</b> <a href='?_src_=prefs;preference=combat_music;task=input'>[musicname || "FUCK!"]</a><BR>"
+
 	dat += "</tr></table>"
 	//-----------END OF IDENT TABLE-----------//
 
@@ -534,12 +543,21 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		dat = list("<center>REGISTER!</center>")
 
 	user?.client.acquire_dpi()
+
+	// Изменить размер главного окна - stonekeep_prefwin - skin.dmf
+	// Кривота, если трогать ширину
+	winset(user, "stonekeep_prefwin", "size=700x685")
 	winshow(user, "stonekeep_prefwin", TRUE)
 	winshow(user, "stonekeep_prefwin.character_preview_map", TRUE)
-	var/datum/browser/popup = new(user, "preferences_browser", "<div align='center'>Character Sheet</div>", 700, 650)
+
+	// Изменить размер браузера внутри окна
+	winset(user, "stonekeep_prefwin.preferences_browser", "size=700x685")
+
+	var/datum/browser/popup = new(user, "preferences_browser", "<div align='center'>Character Sheet</div>", 700, 685)
 	popup.set_window_options(can_close = TRUE)
 	popup.set_content(dat.Join())
 	popup.open(FALSE)
+
 	update_preview_icon()
 	onclose(user, "stonekeep_prefwin", src)
 
@@ -1227,6 +1245,13 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				else
 					user.cancel_looping_ambience()
 
+				if((prefs_variable & AMBIENTOCCLUSION) && user.client)
+					ambientocclusion = toggles & AMBIENTOCCLUSION
+					update_occlusion(user.client)
+				else
+					ambientocclusion = toggles & AMBIENTOCCLUSION
+					update_occlusion(user.client)
+
 				user.client?.update_ambience_pref()
 
 			else if(toggle_type == "Maptext Toggles")
@@ -1401,6 +1426,22 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						to_chat(user, "<font color='purple'>Likely Worshippers: [selected_patron.worshippers]</font>")
 						to_chat(user, "<font color='red'>Considers these to be Sins: [selected_patron.sins]</font>")
 						to_chat(user, "<font color='white'>Blessed with boon(s): [selected_patron.boons]</font>")
+
+				if("combat_music") // if u change shit here look at /client/verb/combat_music() too
+					if(!combat_music_helptext_shown)
+						to_chat(user, span_notice("<span class='bold'>Combat Music Override</span>\n") + \
+						"Options other than \"Default\" override whatever the game dynamically sets for you, \
+						which is influenced by your job class, villain status, or certain events.\n\
+						You can change this later through \"Combat Mode Music\" in the Options tab.\"</span>")
+						combat_music_helptext_shown = TRUE
+					var/track_select = browser_input_list(user, "Set a track to be your combat music.", "Combat Music", GLOB.cmode_tracks_by_name, combat_music?.name)
+					if(track_select)
+						combat_music = GLOB.cmode_tracks_by_name[track_select]
+						to_chat(user, span_notice("Selected track: <b>[track_select]</b>."))
+						if(combat_music.desc)
+							to_chat(user, "<i>[combat_music.desc]</i>")
+						if(combat_music.credits)
+							to_chat(user, span_info("Song name: <b>[combat_music.credits]</b>"))
 
 				if("voice")
 					var/new_voice = input(user, "SELECT YOUR HERO'S VOICE COLOR", "THE THROAT","#"+voice_color) as color|null
@@ -1895,14 +1936,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					toggles ^= MIDROUND_ANTAG
 
 				if("ambientocclusion")
-					ambientocclusion = !ambientocclusion
-					if(parent && parent.screen && parent.screen.len)
-						var/atom/movable/screen/plane_master/game_world/PM = locate(/atom/movable/screen/plane_master/game_world) in parent.screen
-						PM.backdrop(parent.mob)
-						PM = locate(/atom/movable/screen/plane_master/game_world_fov_hidden) in parent.screen
-						PM.backdrop(parent.mob)
-						PM = locate(/atom/movable/screen/plane_master/game_world_above) in parent.screen
-						PM.backdrop(parent.mob)
+					toggles ^= AMBIENTOCCLUSION
+					ambientocclusion = toggles & AMBIENTOCCLUSION
+					update_occlusion(parent)
 
 				if("auto_fit_viewport")
 					auto_fit_viewport = !auto_fit_viewport
@@ -2091,6 +2127,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 
 	character.domhand = domhand
+	character.cmode_music_override = combat_music.musicpath
+	character.cmode_music_override_name = combat_music.name
 	character.voice_color = voice_color
 	character.set_patron(selected_patron)
 	character.familytree_pref = family
@@ -2409,3 +2447,17 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	</tr>
 	"}
 
+/proc/update_occlusion(client/parent_cl)
+	if(parent_cl && parent_cl.screen && parent_cl.screen.len)
+		var/atom/movable/screen/plane_master/game_world/PM = locate(/atom/movable/screen/plane_master/game_world) in parent_cl.screen
+		PM.backdrop(parent_cl.mob)
+		PM = locate(/atom/movable/screen/plane_master/game_world_fov_hidden) in parent_cl.screen
+		PM.backdrop(parent_cl.mob)
+		PM = locate(/atom/movable/screen/plane_master/game_world_above) in parent_cl.screen
+		PM.backdrop(parent_cl.mob)
+		PM = locate(/atom/movable/screen/plane_master/game_world_below) in parent_cl.screen
+		PM.backdrop(parent_cl.mob)
+		PM = locate(/atom/movable/screen/plane_master/massive_obj) in parent_cl.screen
+		PM.backdrop(parent_cl.mob)
+		PM = locate(/atom/movable/screen/plane_master/game_world_walls) in parent_cl.screen
+		PM.backdrop(parent_cl.mob)

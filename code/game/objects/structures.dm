@@ -12,6 +12,7 @@
 	var/w_class = WEIGHT_CLASS_NORMAL
 	var/climb_offset = 0 //offset up when climbed
 	var/mob/living/structureclimber
+	plane = GAME_PLANE_LOWER
 
 	var/last_redstone_state = 0
 	var/bonus_pressure = 0

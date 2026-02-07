@@ -53,6 +53,8 @@
 
 #define STATUS_EFFECT_GOOD_MUSIC /datum/status_effect/good_music
 
+#define STATUS_EFFECT_COMB_HAIR /datum/status_effect/comb_hair
+
 #define STATUS_EFFECT_REGENERATIVE_CORE /datum/status_effect/regenerative_core
 
 #define STATUS_EFFECT_ANTIMAGIC /datum/status_effect/antimagic //grants antimagic (and reapplies if lost) for the duration

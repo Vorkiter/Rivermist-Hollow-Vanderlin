@@ -51,6 +51,11 @@
 	blend_mode = BLEND_OVERLAY
 	render_target = GAME_PLANE_RENDER_TARGET
 
+/atom/movable/screen/plane_master/game_world/backdrop(mob/mymob)
+	clear_filters()
+	if(istype(mymob) && mymob.client && mymob.client.prefs && mymob.client.prefs.ambientocclusion)
+		add_filter("ambient_occlusion_filter", 1, drop_shadow_filter(x=0, y=-2, size=3, offset=1, color="#04080f96"))
+
 /atom/movable/screen/plane_master/area
 	name = "area plane master"
 	plane = AREA_PLANE
@@ -62,6 +67,11 @@
 	plane = MASSIVE_OBJ_PLANE
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
+
+/atom/movable/screen/plane_master/massive_obj/backdrop(mob/mymob)
+	clear_filters()
+	if(istype(mymob) && mymob.client && mymob.client.prefs && mymob.client.prefs.ambientocclusion)
+		add_filter("ambient_occlusion_filter", 1, drop_shadow_filter(x=0, y=-2, size=3, offset=1, color="#04080f96"))
 
 /atom/movable/screen/plane_master/ghost
 	name = "ghost plane master"
@@ -164,6 +174,12 @@
 	appearance_flags = PLANE_MASTER
 	blend_mode = BLEND_OVERLAY
 
+/atom/movable/screen/plane_master/game_world_fov_hidden/backdrop(mob/mymob)
+	clear_filters()
+	add_filter("FOV_hidden", 1, alpha_mask_filter(render_source = FIELD_OF_VISION_BLOCKER_RENDER_TARGET, flags = MASK_INVERSE))
+	if(istype(mymob) && mymob.client && mymob.client.prefs && mymob.client.prefs.ambientocclusion)
+		add_filter("ambient_occlusion_filter", 1, drop_shadow_filter(x=0, y=-2, size=3, offset=1, color="#04080f96"))
+
 /atom/movable/screen/plane_master/game_world_fov_hidden/Initialize()
 	. = ..()
 	add_filter("FOV_hidden", 1, alpha_mask_filter(render_source = FIELD_OF_VISION_BLOCKER_RENDER_TARGET, flags = MASK_INVERSE))
@@ -173,6 +189,11 @@
 	plane = GAME_PLANE_UPPER
 	appearance_flags = PLANE_MASTER
 	blend_mode = BLEND_OVERLAY
+
+/atom/movable/screen/plane_master/game_world_above/backdrop(mob/mymob)
+	clear_filters()
+	if(istype(mymob) && mymob.client && mymob.client.prefs && mymob.client.prefs.ambientocclusion)
+		add_filter("ambient_occlusion_filter", 1, drop_shadow_filter(x=0, y=-2, size=3, offset=1, color="#04080f96"))
 
 /atom/movable/screen/plane_master/field_of_vision_blocker
 	name = "field of vision blocker plane master"
@@ -278,3 +299,25 @@
 	name = "reflective_cutting_plane"
 	plane = REFLECTIVE_DISPLACEMENT_PLANE
 	render_target = REFLECTIVE_DISPLACEMENT_PLANE_RENDER_TARGET
+
+/atom/movable/screen/plane_master/game_world_below
+	name = "lowest game world plane master"
+	plane = GAME_PLANE_LOWER
+	appearance_flags = PLANE_MASTER
+	blend_mode = BLEND_OVERLAY
+
+/atom/movable/screen/plane_master/game_world_below/backdrop(mob/mymob)
+	clear_filters()
+	if(istype(mymob) && mymob.client && mymob.client.prefs && mymob.client.prefs.ambientocclusion)
+		add_filter("ambient_occlusion_filter", 1, drop_shadow_filter(x=0, y=-2, size=3, offset=1.5, color="#04080f96"))
+
+/atom/movable/screen/plane_master/game_world_walls
+	name = "game world walls"
+	plane = WALL_PLANE
+	appearance_flags = PLANE_MASTER
+	blend_mode = BLEND_OVERLAY
+
+/atom/movable/screen/plane_master/game_world_walls/backdrop(mob/mymob)
+	clear_filters()
+	if(istype(mymob) && mymob.client && mymob.client.prefs && mymob.client.prefs.ambientocclusion)
+		add_filter("ambient_occlusion_filter", 1, drop_shadow_filter(x=0, y=-2, size=8, offset=4, color="#000000ff"))

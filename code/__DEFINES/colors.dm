@@ -108,8 +108,8 @@
 #define CLOTHING_ASH_GREY "#676262"
 #define CLOTHING_CANVAS "#858564"
 #define CLOTHING_LINEN "#a1a17a"
-#define CLOTHING_WHITE "#ffffff"
-#define CLOTHING_WET "#afafaf"
+//#define CLOTHING_WHITE "#ffffff"
+//#define CLOTHING_WET "#afafaf"
 
 //normal clothing
 #define CLOTHING_RED			"#8b2323"

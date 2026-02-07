@@ -132,6 +132,9 @@
 			if(HAS_TRAIT(src, TRAIT_ALLURE))
 				//Handsome only if male, beautiful in all other pronouns.
 				. += span_love(span_bold("[self_inspect ? "I have" : "[t_He] has"] quite a tempting appeal"))
+			if(has_status_effect(STATUS_EFFECT_COMB_HAIR))
+				. += span_love(span_bold("[self_inspect ? "I have" : "[t_He] has"] clean and well-combed hair."))
+
 		if(length(GLOB.tennite_schisms))
 			var/datum/tennite_schism/S = GLOB.tennite_schisms[1]
 			var/user_side = (WEAKREF(user) in S.supporters_astrata) ? "astrata" : (WEAKREF(user) in S.supporters_challenger) ? "challenger" : null
@@ -626,6 +629,7 @@
 	SEND_SIGNAL(src, COMSIG_SEX_GET_AROUSAL, arousal_data)
 	if(wear_pants)
 		var/obj/item/clothing/pantsies = wear_pants
+		var/obj/item/clothing/undies = underwear
 		if(pantsies.flags_inv & HIDECROTCH)
 			if(!pantsies.genital_access)
 				if(arousal_data["arousal"] > VISIBLE_AROUSAL_THRESHOLD)
@@ -634,7 +638,7 @@
 					if(getorganslot(ORGAN_SLOT_VAGINA))
 						organ_desc += "[capitalize(m1)] shifting their legs uncomfortably."
 					//show_pant_desc = TRUE
-		else if(underwear)
+		else if(undies)
 			if(arousal_data["arousal"] > VISIBLE_AROUSAL_THRESHOLD)
 				if(getorganslot(ORGAN_SLOT_PENIS))
 					organ_desc += "[capitalize(m1)] pitching a tent in [m2] [underwear.name]."
@@ -756,7 +760,7 @@
 				. += span_notice("Inscryption[N ? " by [N]'s " : ""][W ? "Wonder #[W]" : ""]: [K ? K : ""]")
 
 	if(!obscure_name) // Miniature headshot on examine
-		if(headshot_link && client?.is_donator())
+		if(headshot_link)
 			. += "<img src=[headshot_link] width=100 height=100/>"
 
 	if(Adjacent(user))

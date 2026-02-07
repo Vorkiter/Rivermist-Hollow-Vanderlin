@@ -6,25 +6,19 @@
 	icon_state = "bog"
 	ambientsounds = DRONING_BOG_DAY
 	ambientnight = DRONING_BOG_NIGHT
-	//spookysounds = SPOOKY_FROG
-	//spookynight = SPOOKY_GEN
-	background_track = 'sound/music/area/bog.ogg'
-	background_track_dusk = null
-	background_track_night = null
+	background_track = 'sound/music/area/forest.ogg'
+	background_track_dusk = 'sound/music/area/forest.ogg'
+	background_track_night = 'sound/music/area/forest.ogg'
 	ambush_times = list("night","dawn","dusk","day")
-	//Minotaurs too strong for the lazy amount of places this area covers
-	/*ambush_mobs = list(
+	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/troll/bog = 20,
 				/mob/living/simple_animal/hostile/retaliate/spider = 40,
-				/mob/living/carbon/human/species/skeleton/npc/bogguard = 20,
-				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 30,
-				new /datum/ambush_config/bog_guard_deserters = 50,
-				new /datum/ambush_config/bog_guard_deserters/hard = 25,
-				new /datum/ambush_config/mirespiders_ambush = 110,
-				new /datum/ambush_config/mirespiders_crawlers = 25,
-				new /datum/ambush_config/mirespiders_aragn = 10,
-				new /datum/ambush_config/mirespiders_unfair = 5)*/
-	converted_type = /area/indoors/shelter/bog
+				/mob/living/carbon/human/species/orc/ambush = 40,
+				/mob/living/simple_animal/hostile/retaliate/bogbug = 20,
+				/mob/living/simple_animal/hostile/retaliate/gator = 20,
+				/mob/living/carbon/human/species/goblin/npc/ambush = 30,
+				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 30)
+	converted_type = /area/indoors/shelter/bog/rmh
 	//deathsight_message = "a swamp"
 
 /area/indoors/shelter/bog/rmh
@@ -70,11 +64,15 @@
 	background_track_night = 'sound/music/area/forestnight.ogg'
 	soundenv = 15
 	ambush_times = list("night","dawn","dusk","day")
-	/*ambush_mobs = list(
+	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/wolf = 40,
-				/mob/living/carbon/human/species/skeleton/npc/easy = 10,
-				/mob/living/carbon/human/species/goblin/npc/ambush = 30,
-				/mob/living/carbon/human/species/human/northern/highwayman/ambush = 30)*/
+				/mob/living/simple_animal/hostile/retaliate/bobcat = 35,
+				/mob/living/simple_animal/hostile/retaliate/smallrat = 20,
+				/mob/living/simple_animal/hostile/retaliate/raccoon = 35,
+				/mob/living/simple_animal/hostile/retaliate/direbear = 5,
+				/mob/living/simple_animal/hostile/retaliate/fox = 35,
+				/mob/living/carbon/human/species/skeleton/npc/peasant = 10,
+				/mob/living/carbon/human/species/goblin/npc/ambush = 30)
 	first_time_text = "THE DARK FOREST"
 	converted_type = /area/indoors/shelter/woods
 	//deathsight_message = "somewhere in the forest"

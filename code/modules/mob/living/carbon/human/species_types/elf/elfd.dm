@@ -107,7 +107,7 @@
 		OFFSET_PANTS = list(0,1),\
 		OFFSET_SHIRT = list(0,1),\
 		OFFSET_ARMOR = list(0,1),\
-		OFFSET_UNDIES = list(0,1),\
+		OFFSET_UNDIES = list(0,0),\
 	)
 
 	offset_features_f = list(
@@ -126,7 +126,7 @@
 		OFFSET_PANTS = list(0,1),\
 		OFFSET_SHIRT = list(0,1),\
 		OFFSET_ARMOR = list(0,1),\
-		OFFSET_UNDIES = list(0,1),\
+		OFFSET_UNDIES = list(0,0),\
 	)
 
 	specstats_m = list(STATKEY_STR = 0, STATKEY_PER = 1, STATKEY_INT = 0, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 1)
@@ -218,12 +218,7 @@
 /datum/species/elf/dark/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	. = ..()
 
-	spawn(5)
-		if(!C || QDELETED(C))
-			return
-
-		if(!C.GetComponent(/datum/component/darkling))
-			C.AddComponent(/datum/component/darkling)
+	addtimer(CALLBACK(src, PROC_REF(give_darkling), C), 50)
 
 /datum/species/elf/dark/on_species_loss(mob/living/carbon/human/C)
 	. = ..()

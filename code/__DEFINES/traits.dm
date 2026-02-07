@@ -641,3 +641,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_DARKLING "Darkling"
 #define TRAIT_WILDMAGIC "Wildmagic"
 #define TRAIT_DRUNKMASTER "Drunkmaster"
+
+// Resurrection rune Severed
+#define TRAIT_RUNE_SEVERED				"runesevered"

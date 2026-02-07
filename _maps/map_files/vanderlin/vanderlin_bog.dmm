@@ -5979,7 +5979,7 @@
 	color = "#7D9BAE"
 	},
 /obj/item/broom,
-/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,

@@ -117,6 +117,11 @@
 	else
 		C = owner
 
+	if(owner && owner.client) //little hack so that players don't lose their heads
+		dismemberable = FALSE
+	else
+		dismemberable = TRUE
+
 	real_name = C.real_name
 	if(HAS_TRAIT(C, TRAIT_HUSK))
 		real_name = "Unknown"

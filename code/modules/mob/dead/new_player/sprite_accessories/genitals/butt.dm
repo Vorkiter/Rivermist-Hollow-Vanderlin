@@ -10,13 +10,12 @@
 	var/obj/item/organ/genitals/butt/buttie = organ
 	return "[icon_state]_[buttie.organ_size]"
 
-/datum/sprite_accessory/genitals/butt/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
-	//if(organ.visible_through_clothes)
-	//	return TRUE
-	//var/obj/item/organ/genitals/butt/buttie = organ
-	if(owner)
-		if(owner.underwear)
-			return FALSE
+/datum/sprite_accessory/genitals/butt/is_visible(obj/item/organ/genitals/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	draw_above_clothes = FALSE
+	if(organ.visible_through_clothes)
+		if(organ.visible_through_clothes == DRAW_ABOVE)
+			draw_above_clothes = TRUE
+		return TRUE
 	return is_human_part_visible(owner, HIDEBUTT|HIDEUNDIESBOT)
 
 /datum/sprite_accessory/genitals/butt/pair

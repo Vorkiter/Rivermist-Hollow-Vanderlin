@@ -1325,7 +1325,7 @@
 /mob/living/carbon/get_total_weight()
 	var/held_weight = 0
 
-	for(var/obj/item/worn_item as anything in (get_equipped_items(TRUE) + held_items))
+	for(var/obj/item/worn_item as anything in (get_equipped_items(TRUE) + held_items + get_organs_items()))
 		if(isnull(worn_item))
 			continue
 		var/modifier = 1

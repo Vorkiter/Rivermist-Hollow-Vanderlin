@@ -347,7 +347,7 @@
 /datum/component/arousal/proc/update_arousal_effects()
 	update_pink_screen()
 	handle_statuses()
-	update_erect_state()
+	//update_erect_state()
 
 /datum/component/arousal/proc/try_ejaculate(datum/sex_action/s_action, mob/living/carbon/human/action_initiator, mob/living/carbon/human/action_target, giving = FALSE)
 	if(orgasm_progress < PASSIVE_EJAC_THRESHOLD)
@@ -392,12 +392,12 @@
 			var/obj/item/organ/genitals/filling_organ/testicles/testes = mob.getorganslot(ORGAN_SLOT_TESTICLES)
 			if(testes)
 				if(testes.reagents)
-					var/cum_to_take = min(3, testes.reagents.total_volume)
+					var/cum_to_take = min(3, 10 * testes.organ_size)
 					turf.add_liquid_from_reagents(testes.reagents, amount = cum_to_take)
 		if(mob.getorganslot(ORGAN_SLOT_VAGINA))
 			var/obj/item/organ/genitals/filling_organ/vagina/vag = mob.getorganslot(ORGAN_SLOT_VAGINA)
 			if(vag)
-				var/femcum_to_take = min(3, vag.reagents.total_volume)
+				var/femcum_to_take = min(3, vag.reagents.total_volume*0.3)
 				if(vag.reagents)
 					turf.add_liquid_from_reagents(vag.reagents, amount = femcum_to_take)
 		after_ejaculation(FALSE, mob, null)
@@ -409,13 +409,13 @@
 				var/obj/item/organ/genitals/filling_organ/testicles/testes = mob.getorganslot(ORGAN_SLOT_TESTICLES)
 				if(testes)
 					if(testes.reagents)
-						var/cum_to_take = min(3, testes.reagents.total_volume)
+						var/cum_to_take = min(3, 10 * testes.organ_size)
 						turf.add_liquid_from_reagents(testes.reagents, amount = cum_to_take)
 			if(mob.getorganslot(ORGAN_SLOT_VAGINA))
 				var/obj/item/organ/genitals/filling_organ/vagina/vag = mob.getorganslot(ORGAN_SLOT_VAGINA)
 				if(vag)
 					if(vag.reagents)
-						var/femcum_to_take = min(3, vag.reagents.total_volume)
+						var/femcum_to_take = min(3, vag.reagents.total_volume*0.3)
 						turf.add_liquid_from_reagents(vag.reagents, amount = femcum_to_take)
 			after_ejaculation(FALSE, mob, target)
 		else
@@ -453,13 +453,13 @@
 			var/turf/turf = get_turf(target)
 			if(testes)
 				if(testes.reagents)
-					var/cum_to_take = CLAMP((testes.reagents.maximum_volume/2), 1, testes.reagents.total_volume)
+					var/cum_to_take = CLAMP((testes.reagents.maximum_volume/2), 1, 10 * testes.organ_size)
 					turf.add_liquid_from_reagents(testes.reagents, amount = cum_to_take)
 					if(target)
 						target.apply_status_effect(/datum/status_effect/facial)
 			if(vag)
 				if(vag.reagents)
-					var/femcum_to_take = min(8, vag.reagents.total_volume)
+					var/femcum_to_take = min(8, vag.reagents.total_volume*0.3)
 					turf.add_liquid_from_reagents(vag.reagents, amount = femcum_to_take)
 			if(target && (!action || !action.knot_on_finish))
 				apply_facial_effect(target)
@@ -496,7 +496,7 @@
 						testes.reagents.trans_to(target, cum_to_take, transfered_by = user, method = INGEST)
 				if(user.getorganslot(ORGAN_SLOT_VAGINA) && action.check_sex_lock(user, ORGAN_SLOT_VAGINA))
 					if(vag && vag.reagents)
-						var/femcum_to_take = min(8, vag.reagents.total_volume)
+						var/femcum_to_take = min(8, vag.reagents.total_volume*0.3)
 						vag.reagents.trans_to(target, femcum_to_take, transfered_by = user, method = INGEST)
 			if(target)
 				if(is_oral)
@@ -515,7 +515,7 @@
 					turf.add_liquid_from_reagents(testes.reagents, amount = cum_to_take)
 			if(vag)
 				if(vag.reagents)
-					var/femcum_to_take = min(2, vag.reagents.total_volume)
+					var/femcum_to_take = min(2, vag.reagents.total_volume*0.3)
 					turf.add_liquid_from_reagents(vag.reagents, amount = femcum_to_take)
 	if(testes)
 		if(testes.reagents)
@@ -677,7 +677,7 @@
 	if(arousal >= BLUEBALLS_GAIN_THRESHOLD)
 		user.add_stress(/datum/stress_event/blue_balls)
 	else if(arousal <= BLUEBALLS_LOOSE_THRESHOLD)
-		user.remove_stress(/datum/stress_event/blue_balls)*/
+		user.remove_stress(/datum/stress_event/blue_balls)
 
 /datum/component/arousal/proc/update_erect_state()
 	var/mob/user = parent
@@ -689,7 +689,7 @@
 			user.regenerate_icons()
 
 	if(penis && hascall(penis, "update_erect_state"))// && !istype(penis, /obj/item/organ/genitals/penis/internal))//if(penis && hascall(penis, "update_erect_state"))
-		penis.update_erect_state()
+		penis.update_erect_state()*/
 
 
 /datum/component/arousal/proc/damage_from_pain(pain_amt, giving)
@@ -924,12 +924,12 @@
 		if(recent_orgasm_count >= HIGH_ORGASM_THRESHOLD_GAIN + nymph_mod)
 			user.apply_status_effect(/datum/status_effect/debuff/orgasmbroken)
 
-	if(user.has_status_effect(/datum/status_effect/debuff/nympho_addiction))
+	/*if(user.has_status_effect(/datum/status_effect/debuff/nympho_addiction))
 		if(recent_orgasm_count <= OVER_THE_TOP_ORGASM_THRESHOLD_LOSS + nymph_mod)
 			user.remove_status_effect(/datum/status_effect/debuff/nympho_addiction)
 	else
 		if(recent_orgasm_count >= OVER_THE_TOP_ORGASM_THRESHOLD_GAIN + nymph_mod)
-			user.apply_status_effect(/datum/status_effect/debuff/nympho_addiction)
+			user.apply_status_effect(/datum/status_effect/debuff/nympho_addiction)*/
 
 	if(user.has_penis())
 		if(user.has_status_effect(/datum/status_effect/blue_balls))

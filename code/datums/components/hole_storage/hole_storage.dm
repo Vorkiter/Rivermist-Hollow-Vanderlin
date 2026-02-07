@@ -148,6 +148,7 @@
 		apply_outer_overlay(incoming_item)
 	if(diff > 0)
 		handle_stretch(source, diff)
+	owner.encumbrance_to_speed()
 
 /**
  * Checks if an item fits in the selected layer
@@ -211,6 +212,7 @@
 	layer_storage_cur_bulk[target_layer] -= removed_item.body_storage_bulk
 	if(removed_item.has_body_storage_overlay)
 		remove_outer_overlay(removed_item)
+	owner.encumbrance_to_speed()
 
 /**
  * Swaps a random item between two layers. Layers should be different
@@ -387,3 +389,10 @@
 		AddComponent(hole_type, src, location, the_mob)
 
 
+/mob/living/proc/get_organs_items()
+	var/list/res = list()
+	for(var/obj/item/organ/org in internal_organs)
+		if(org.contents.len)
+			for(var/obj/item/el in org.contents)
+				res += el
+	return res

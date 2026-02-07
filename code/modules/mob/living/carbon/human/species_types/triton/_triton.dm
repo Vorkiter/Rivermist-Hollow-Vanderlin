@@ -94,7 +94,7 @@
 		OFFSET_PANTS = list(0,0),\
 		OFFSET_SHIRT = list(0,0),\
 		OFFSET_ARMOR = list(0,0),\
-		OFFSET_UNDIES = list(0,0),\
+		OFFSET_UNDIES = list(0,-1),\
 	)
 
 	offset_genitals_m = list(

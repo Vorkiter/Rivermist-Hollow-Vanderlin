@@ -119,7 +119,7 @@
 /datum/status_effect/debuff/orgasmbroken
 	id = "orgasmbroken"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/orgasmbroken
-	effectedstats = list("intelligence" = -10, "strength" = -2, "speed" = -2, "perception" = -5, "endurance" = 2, "constitution" = -2)
+	effectedstats = list("intelligence" = -2, "strength" = -1, "speed" = -1, "perception" = -2, "endurance" = 2, "constitution" = -1)
 	duration = -1
 
 /datum/stress_event/orgasmbroken
@@ -323,105 +323,297 @@
 	stress_change = -3
 	desc = list(span_green("My loins took a GOOD beating!~"),span_green("My loins got slammed GOOD!"),span_green("My loins got beaten GOOD!"))
 
+//---------------------------------------------------------------------------------------------------------------------------------
+
+/datum/status_effect/debuff/flatboobs
+	id = "flatboobs"
+	examine_text = span_notice("They have magical flat goodies!")
+	effectedstats = list("speed" = 2)
+	duration = 10 MINUTES
+	var/initialbreasts
+
+/datum/status_effect/debuff/vsmallboobs
+	id = "vsmallboobs"
+	examine_text = span_notice("They have magical very small goodies!")
+	effectedstats = list("speed" = 2)
+	duration = 10 MINUTES
+	var/initialbreasts
+
+/datum/status_effect/debuff/smallboobs
+	id = "smallboobs"
+	examine_text = span_notice("They have magical small goodies!")
+	effectedstats = list("speed" = 1)
+	duration = 10 MINUTES
+	var/initialbreasts
+
+/datum/status_effect/debuff/largeboobs
+	id = "largeboobs"
+	//alert_type = /atom/movable/screen/alert/status_effect/debuff/largeboobs
+	examine_text = span_notice("They have large MAGICAL GOODS!")
+	effectedstats = list("constitution" = 1, "speed" = -1)
+	duration = 10 MINUTES
+	var/initialbreasts
+
 /datum/status_effect/debuff/bigboobs
 	id = "bigboobs"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/bigboobs
 	examine_text = span_notice("They have massive MAGICAL GOODS!")
-	effectedstats = list("constitution" = 3, "speed" = -1)
+	effectedstats = list("constitution" = 2, "speed" = -2)
 	duration = 10 MINUTES
-	var/initialpenis
-	var/initialbutt
-	var/initialball
 	var/initialbreasts
-	var/nodrawback = FALSE
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+/datum/status_effect/debuff/flatboobs/permanent
+	duration = -1
+
+/datum/status_effect/debuff/vsmallboobs/permanent
+	duration = -1
+
+/datum/status_effect/debuff/smallboobs/permanent
+	duration = -1
+
+/datum/status_effect/debuff/largeboobs/permanent
+	duration = -1 //used for quirk
 
 /datum/status_effect/debuff/bigboobs/permanent
 	duration = -1 //used for quirk
-/*
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+/datum/status_effect/debuff/flatboobs/permanent/lite
+	examine_text = null
+	alert_type = null
+	effectedstats = list("speed" = 2)
+
+/datum/status_effect/debuff/vsmallboobs/permanent/lite
+	examine_text = null
+	alert_type = null
+	effectedstats = list("speed" = 1)
+
+/datum/status_effect/debuff/smallboobs/permanent/lite
+	examine_text = null
+	alert_type = null
+	//effectedstats = list("speed" = 1)
+
+/datum/status_effect/debuff/largeboobs/permanent/lite
+	examine_text = null
+	alert_type = null
+	effectedstats = list("constitution" = 1, "speed" = -1)
+
 /datum/status_effect/debuff/bigboobs/permanent/lite
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/bigboobslite
-	examine_text = span_notice("They have massive GOODS!")
-	nodrawback = TRUE
-	effectedstats = null*/
+	examine_text = null
+	alert_type = null
+	effectedstats = list("constitution" = 2, "speed" = -1)
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+/atom/movable/screen/alert/status_effect/debuff/flatboobs
+	name = "Flat Chest!" //was gonna name it a curse but it isn't a technically one.
+	desc = "They feel as light as feather! But they are gone..."
+	//icon = 'modular_stonehedge/licensed-eaglephntm/icons/mob/screen_alert.dmi'
+	icon_state = "status"
+
+/atom/movable/screen/alert/status_effect/debuff/vsmallboobs
+	name = "Small Breasts" //was gonna name it a curse but it isn't a technically one.
+	desc = "They feel as light as an apple! But they are very small!."
+	//icon = 'modular_stonehedge/licensed-eaglephntm/icons/mob/screen_alert.dmi'
+	icon_state = "status"
+
+/atom/movable/screen/alert/status_effect/debuff/smallboobs
+	name = "Moderate breasts" //was gonna name it a curse but it isn't a technically one.
+	desc = "They feel as heavy as dagger! But they are small!"
+	//icon = 'modular_stonehedge/licensed-eaglephntm/icons/mob/screen_alert.dmi'
+	icon_state = "status"
+
+/atom/movable/screen/alert/status_effect/debuff/largeboobs
+	name = "Big breasts" //was gonna name it a curse but it isn't a technically one.
+	desc = "They feel as heavy as iron and are massive... My back hurts a little."
+	//icon = 'modular_stonehedge/licensed-eaglephntm/icons/mob/screen_alert.dmi'
+	icon_state = "status"
 
 /atom/movable/screen/alert/status_effect/debuff/bigboobs
-	name = "Enchanted Endowment" //was gonna name it a curse but it isn't a technically one.
+	name = "Huge Breasts" //was gonna name it a curse but it isn't a technically one.
 	desc = "They feel as heavy as gold and are massive... My back hurts."
 	//icon = 'modular_stonehedge/licensed-eaglephntm/icons/mob/screen_alert.dmi'
 	icon_state = "status"
-/*
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+/atom/movable/screen/alert/status_effect/debuff/flatboobslite
+	name = "Natural Endowment"
+	desc = "I got flat, natural bits."
+
+/atom/movable/screen/alert/status_effect/debuff/vsmallboobslite
+	name = "Natural Endowment"
+	desc = "I got very small, natural bits."
+
+/atom/movable/screen/alert/status_effect/debuff/smallboobslite
+	name = "Natural Endowment"
+	desc = "I got small, natural bits."
+
+/atom/movable/screen/alert/status_effect/debuff/largeboobslite
+	name = "Natural Endowment"
+	desc = "I got large, natural bits."
+
 /atom/movable/screen/alert/status_effect/debuff/bigboobslite
 	name = "Natural Endowment"
-	desc = "I got unusually large, natural bits, they aren't as heavy as an enchanted one thankfully."
-	icon = 'modular_stonehedge/licensed-eaglephntm/icons/mob/screen_alert.dmi'
-	icon_state = "bigboobslite"
-*/
+	desc = "I got unusually large, natural bits."
+
+//---------------------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------------
+
+/datum/status_effect/debuff/flatboobs/on_apply()
+	. = ..()
+	var/mob/living/carbon/human/species/user = owner
+	if(!user)
+		return
+	if(duration == -1) //hack for applied status
+		return
+	to_chat(user, span_warning("Gah! My tits shrink to impossible sizes!"))
+	var/obj/item/organ/genitals/forgan = user.getorganslot(ORGAN_SLOT_BREASTS)
+
+	if(forgan)
+		initialbreasts = forgan.organ_size
+		forgan.organ_size = BREAST_SIZE_FLAT
+	user.update_body_parts(TRUE)
+
+/datum/status_effect/debuff/vsmallboobs/on_apply()
+	. = ..()
+	var/mob/living/carbon/human/species/user = owner
+	if(!user)
+		return
+	if(duration == -1) //hack for applied status
+		return
+	to_chat(user, span_warning("Gah! My tits shrink to very small sizes!"))
+	var/obj/item/organ/genitals/forgan = user.getorganslot(ORGAN_SLOT_BREASTS)
+
+	if(forgan)
+		initialbreasts = forgan.organ_size
+		forgan.organ_size = BREAST_SIZE_VERY_SMALL
+	user.update_body_parts(TRUE)
+
+/datum/status_effect/debuff/smallboobs/on_apply()
+	. = ..()
+	var/mob/living/carbon/human/species/user = owner
+	if(!user)
+		return
+	if(duration == -1) //hack for applied status
+		return
+	to_chat(user, span_warning("Gah! My tits shrink to small sizes!"))
+	var/obj/item/organ/genitals/forgan = user.getorganslot(ORGAN_SLOT_BREASTS)
+	if(forgan)
+		initialbreasts = forgan.organ_size
+		forgan.organ_size = BREAST_SIZE_SMALL
+	user.update_body_parts(TRUE)
+
+/datum/status_effect/debuff/largeboobs/on_apply()
+	. = ..()
+	var/mob/living/carbon/human/species/user = owner
+	if(!user)
+		return
+	if(duration == -1) //hack for applied status
+		return
+	to_chat(user, span_warning("Gah! My tits expand to large sizes!"))
+	var/obj/item/organ/genitals/forgan = user.getorganslot(ORGAN_SLOT_BREASTS)
+	if(forgan)
+		initialbreasts = forgan.organ_size
+		forgan.organ_size = BREAST_SIZE_LARGE //making it right way, no math while im working
+	user.update_body_parts(TRUE)
+
 /datum/status_effect/debuff/bigboobs/on_apply()
 	. = ..()
 	var/mob/living/carbon/human/species/user = owner
 	if(!user)
 		return
-	/*if(nodrawback)
-		ADD_TRAIT(user, TRAIT_ENDOWMENTLITE, id)
-	else
-		ADD_TRAIT(user, TRAIT_ENDOWMENT, id)*/
-	to_chat(user, span_warning("Gah! my [user.gender == FEMALE ? "TITS" : "JUNK"] expand to impossible sizes!"))
-	//max them out.
-	for(var/obj/item/organ/genitals/forgan as anything in user.internal_organs) //as anything cause i either do this or use for() twice which is i guess worse.
-		if(istype(forgan, /obj/item/organ/genitals/penis))
-			initialpenis = forgan.organ_size
-			forgan.organ_size = TOTAL_PENIS_SIZE
-			continue
-		/*if(istype(forgan, /obj/item/organ/butt))
-			initialbutt = forgan.organ_size
-			forgan.organ_size = TOTAL_BUTT_SIZE
-			continue*/
-		if(istype(forgan, /obj/item/organ/genitals/filling_organ/testicles))
-			initialball = forgan.organ_size
-			forgan.organ_size = TOTAL_TESTICLES_SIZE
-			continue
-		if(istype(forgan, /obj/item/organ/genitals/filling_organ/breasts))
-			initialbreasts = forgan.organ_size
-			forgan.organ_size = TOTAL_BREASTS_SIZE - 2
-			continue
-		continue
+	if(duration == -1) //hack for applied status
+		return
+	to_chat(user, span_warning("Gah! My tits expand to impossible sizes!"))
+	var/obj/item/organ/genitals/forgan = user.getorganslot(ORGAN_SLOT_BREASTS)
+	if(forgan)
+		initialbreasts = forgan.organ_size
+		forgan.organ_size = BREAST_SIZE_ENORMOUS //making it right way, no math while im working
 	user.update_body_parts(TRUE)
-	//drop our unwearable equipment to the floor.
-	/*if(user.gender == MALE)
-		var/obj/item/clothing/thepants = user.wear_pants
-		if(thepants && !thepants?.can_hold_endowed)
-			user.dropItemToGround(thepants)
-	else
-		var/obj/item/clothing/theshirt = user.wear_shirt
-		var/obj/item/clothing/thearmor = user.wear_armor
-		if(theshirt && !theshirt?.can_hold_endowed)
-			user.dropItemToGround(theshirt)
-		if(thearmor && !thearmor?.can_hold_endowed)
-			user.dropItemToGround(thearmor)*/
+
+//---------------------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------------
+
+/datum/status_effect/debuff/flatboobs/on_remove()
+	. = ..()
+	var/mob/living/carbon/human/species/user = owner
+	if(!user)
+		return
+	if(duration == -1) //hack for applied status
+		return
+	to_chat(user, span_notice("Phew, My bits expand back to the way they were."))
+	//return to pref sizes.
+	var/obj/item/organ/genitals/forgan = user.getorganslot(ORGAN_SLOT_BREASTS)
+
+	if(forgan)
+		forgan.organ_size = initialbreasts
+	user.update_body_parts(TRUE)
+
+/datum/status_effect/debuff/vsmallboobs/on_remove()
+	. = ..()
+	var/mob/living/carbon/human/species/user = owner
+	if(!user)
+		return
+	if(duration == -1) //hack for applied status
+		return
+	to_chat(user, span_notice("Phew, My bits expand back to the way they were."))
+	//return to pref sizes.
+	var/obj/item/organ/genitals/forgan = user.getorganslot(ORGAN_SLOT_BREASTS)
+
+	if(forgan)
+		forgan.organ_size = initialbreasts
+	user.update_body_parts(TRUE)
+
+/datum/status_effect/debuff/smallboobs/on_remove()
+	. = ..()
+	var/mob/living/carbon/human/species/user = owner
+	if(!user)
+		return
+	if(duration == -1) //hack for applied status
+		return
+	to_chat(user, span_notice("Phew, My bits expand back to the way they were."))
+	//return to pref sizes.
+	var/obj/item/organ/genitals/forgan = user.getorganslot(ORGAN_SLOT_BREASTS)
+
+	if(forgan)
+		forgan.organ_size = initialbreasts
+	user.update_body_parts(TRUE)
+
+/datum/status_effect/debuff/largeboobs/on_remove()
+	. = ..()
+	var/mob/living/carbon/human/species/user = owner
+	if(!user)
+		return
+	if(duration == -1) //hack for applied status
+		return
+	to_chat(user, span_notice("Phew, My bits shrunk back to the way they were."))
+	//return to pref sizes.
+	var/obj/item/organ/genitals/forgan = user.getorganslot(ORGAN_SLOT_BREASTS)
+
+	if(forgan)
+		forgan.organ_size = initialbreasts
+	user.update_body_parts(TRUE)
 
 /datum/status_effect/debuff/bigboobs/on_remove()
 	. = ..()
 	var/mob/living/carbon/human/species/user = owner
 	if(!user)
 		return
-	//REMOVE_TRAIT(user, TRAIT_ENDOWMENT, id)
+	if(duration == -1) //hack for applied status
+		return
 	to_chat(user, span_notice("Phew, My bits shrunk back to the way they were."))
 	//return to pref sizes.
-	for(var/obj/item/organ/genitals/forgan as anything in user.internal_organs)
-		if(istype(forgan, /obj/item/organ/genitals/penis))
-			forgan.organ_size = initialpenis
-			continue
-		/*if(istype(forgan, /obj/item/organ/butt))
-			forgan.organ_size = initialbutt
-			continue*/
-		if(istype(forgan, /obj/item/organ/genitals/filling_organ/testicles))
-			forgan.organ_size = initialball
-			continue
-		if(istype(forgan, /obj/item/organ/genitals/filling_organ/breasts))
-			forgan.organ_size = initialbreasts
-			continue
-		continue
+	var/obj/item/organ/genitals/forgan = user.getorganslot(ORGAN_SLOT_BREASTS)
+
+	if(forgan)
+		forgan.organ_size = initialbreasts
 	user.update_body_parts(TRUE)
+
+//---------------------------------------------------------------------------------------------------------------------------------
 
 // Underdwellers Debuffs
 /datum/status_effect/debuff/darkling_glare

@@ -138,7 +138,7 @@
 	created_item = /obj/item/clothing/armor/chainmail/iron
 
 /datum/anvil_recipe/armor/iron/chainkini
-	name = "Iron Chainkini (+fur)"
+	name = "Iron Amazon Chainkini (+fur)"
 	recipe_name = "Fur skirt and maille chest holder"
 	additional_items = list(/obj/item/natural/fur)
 	created_item = /obj/item/clothing/armor/amazon_chainkini

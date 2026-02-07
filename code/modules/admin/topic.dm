@@ -765,7 +765,7 @@
 		if(alert(usr, "Confirm?", "Message", "Yes", "No") != "Yes")
 			return
 		var/mob/M = locate(href_list["getmob"])
-		usr.client.Getmob(M)
+		M.forceMove(get_turf(usr))
 
 	else if(href_list["increase_skill"])
 		var/mob/M = locate(href_list["increase_skill"])

@@ -8,6 +8,7 @@
 	baseturfs = /turf/open/floor/naturalstone
 	smoothing_groups = SMOOTH_GROUP_CLOSED
 	pass_flags_self = PASSCLOSEDTURF
+	plane = WALL_PLANE
 
 	var/above_floor
 	var/wallpress = TRUE

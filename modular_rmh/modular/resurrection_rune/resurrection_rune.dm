@@ -42,11 +42,15 @@
 			to_chat(mind_user.get_ghost(TRUE, TRUE), span_blue("Somewhere, you are being remade anew..."))
 			resurrecting |= mind_user
 			addtimer(CALLBACK(src, PROC_REF(spawn_new_body), mind_user), 5 SECONDS)
-	for(var/mob/H in GLOB.player_list) //revive unlinked bodies //idk how to add unlinked souls though
+	for(var/mob/H in GLOB.rune_roundstart_mobs) //revive unlinked bodies //idk how to add unlinked souls though
+		if(!H)
+			return
 		if(sub_rune.is_main)
 			return
 		if(ishuman(H) && !(H.status_flags & GODMODE))
 			var/mob/living/carbon/human/unlinked = H
+			if(HAS_TRAIT(unlinked, TRAIT_RUNE_SEVERED))
+				return
 			if(!isnull(unlinked.client))
 				if(!unlinked.rune_linked)
 					var/turf/tur = get_turf(H)
@@ -147,6 +151,8 @@
 	body.ExtinguishMob()
 	body.forceMove(T)
 	body.revive(full_heal = TRUE, admin_revive = TRUE)
+	body.clear_fullscreens()
+	body.reload_fullscreen()
 
 	var/was_zombie = body.mind?.has_antag_datum(/datum/antagonist/zombie)
 	var/has_rot = FALSE
@@ -168,16 +174,9 @@
 		body.apply_status_effect(/datum/status_effect/debuff/revived/rune/rough)
 	body.apply_status_effect(/datum/status_effect/debuff/rune_glow)
 
-	/*if(H.has_quirk(/datum/quirk/night_vision)) //idc
-		var/obj/item/organ/eyes/eyes = H.getorgan(/obj/item/organ/eyes)
-		if(!eyes || eyes.lighting_alpha)
-			return
-		eyes.see_in_dark = 7 // Same as half-darksight eyes
-		eyes.lighting_alpha = LIGHTING_PLANE_ALPHA_NV_TRAIT
-		eyes.Insert(H)*/
-
 	playsound(T, 'sound/misc/vampirespell.ogg', 100, FALSE, -1)
-	to_chat(body, span_blue("You are back."))
+	to_chat(body, span_blue("Despite everything, you are back to life..."))
+	to_chat(body, span_red("...But you remember the gnashing horror of what brought you here in minute detail - and you are terrified of repeating it."))
 
 /datum/resurrection_rune_controller/proc/remove_zombie(mob/living/carbon/target, has_rot, was_zombie)
 

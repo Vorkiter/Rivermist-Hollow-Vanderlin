@@ -2084,6 +2084,8 @@ GLOBAL_LIST_EMPTY(custom_outfits) //Admin created outfits
 		if(antag_role)
 			character.mind.add_antag_datum(antag_role)
 
+		if(assigned_job.rune_linked)
+			GLOB.rune_roundstart_mobs += character
 
 		var/mob/living/carbon/human/human_character = character
 		var/fakekey = get_display_ckey(human_character.ckey)

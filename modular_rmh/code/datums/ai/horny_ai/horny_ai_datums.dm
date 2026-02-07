@@ -41,6 +41,15 @@
 		else
 			basic_mob.visible_message(span_boldwarning("[basic_mob] has her eyes on [target_living], cunt dripping!"))
 
+	SEND_SIGNAL(basic_mob, COMSIG_SET_ERECT_STATE, 4)
+
+	var/obj/item/organ/genitals/picked_organ
+	if(basic_mob.getorganslot(ORGAN_SLOT_PENIS))
+		picked_organ = basic_mob.getorganslot(ORGAN_SLOT_PENIS)
+	else if(basic_mob.getorganslot(ORGAN_SLOT_VAGINA))
+		picked_organ = basic_mob.getorganslot(ORGAN_SLOT_VAGINA)
+	picked_organ.toggle_visibility("Show Above clothes")
+
 	basic_mob.start_sex_session(target_living)
 	if(QDELETED(target))
 		return FALSE
@@ -193,11 +202,12 @@
 					else if(human_target.cmode)
 						basic_mob.visible_message(span_danger("[basic_mob] manages to tug [human_target]'s [human_target.wear_pants.name] out of the way!"))
 					return
-		else
+		else if(prob(30))
 			for(var/obj/item/item as anything in human_target.get_equipped_items(FALSE))
 				if(istype(item, /obj/item/clothing) || istype(item, /obj/item/storage/belt))
 					if(!do_after(basic_mob, 1 SECONDS, human_target))
-						item.take_damage(damage_amount = item.max_integrity * 0.4, sound_effect = FALSE)
+						if(!istype(item, /obj/item/storage) && !istype(item, /obj/item/clothing/ring))
+							item.take_damage(damage_amount = item.max_integrity * 0.2, sound_effect = FALSE)
 						basic_mob.visible_message(span_danger("[basic_mob] manages to rip [human_target]'s [item] off!"))
 						human_target.dropItemToGround(item)
 						item.throw_at(pick(orange(2, get_turf(human_target))), 2, 1, basic_mob, TRUE)
@@ -252,6 +262,18 @@
 /datum/ai_behavior/horny/finish_action(datum/ai_controller/controller, succeeded, target_key, targetting_datum_key, hiding_location_key)
 	. = ..()
 	var/mob/living/basic_mob = controller.pawn
+
+	SEND_SIGNAL(basic_mob, COMSIG_SET_ERECT_STATE, 0)
+
+
+	var/obj/item/organ/genitals/picked_organ
+	if(basic_mob.getorganslot(ORGAN_SLOT_PENIS))
+		picked_organ = basic_mob.getorganslot(ORGAN_SLOT_PENIS)
+		picked_organ.toggle_visibility(FALSE)
+	if(basic_mob.getorganslot(ORGAN_SLOT_VAGINA))
+		picked_organ = basic_mob.getorganslot(ORGAN_SLOT_VAGINA)
+		picked_organ.toggle_visibility(FALSE)
+
 
 	seekboredom = 0
 	knockdown_need = TRUE

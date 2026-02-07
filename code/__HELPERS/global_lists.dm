@@ -72,6 +72,16 @@
 		GLOB.patrons_by_faith[patron.associated_faith][path] = patron
 		GLOB.preference_patrons[path] = patron
 
+	// Combat Music Overrides
+	for (var/path in subtypesof(/datum/combat_music))
+		var/datum/combat_music/combat_music = new path()
+		GLOB.cmode_tracks_by_type[path] = combat_music
+
+	for (var/path in GLOB.cmode_tracks_by_type)
+		var/datum/combat_music/trackref = GLOB.cmode_tracks_by_type[path]
+		cmode_track_to_namelist(trackref)
+
+
 //creates every subtype of prototype (excluding prototype) and adds it to list L.
 //if no list/L is provided, one is created.
 /proc/init_subtypes(prototype, list/L)

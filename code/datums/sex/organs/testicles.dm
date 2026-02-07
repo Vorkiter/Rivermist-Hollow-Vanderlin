@@ -11,7 +11,7 @@
 	var/virility = TRUE
 	reagent_to_make = /datum/reagent/consumable/cum
 	reagent_generate_rate = 6
-	storage_per_size = 200 //more size since they have so little size selections.
+	storage_per_size = 75
 	startsfilled = TRUE
 	blocker = ITEM_SLOT_PANTS
 	organ_sizeable  = TRUE

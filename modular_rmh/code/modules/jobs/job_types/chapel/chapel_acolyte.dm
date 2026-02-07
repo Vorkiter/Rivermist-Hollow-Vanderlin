@@ -404,7 +404,7 @@
 
 // ─────────────────────────────
 
-datum/job/advclass/acolyte/nun_regal
+/datum/job/advclass/acolyte/nun_regal
 	title = "Regal Nun"
 	tutorial = "You are a revered and adorned figure of the chapel. \
 	Through ritual, elegance, and sacred allure, you embody devotion elevated into ceremony."

@@ -216,6 +216,7 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/skeleton/guard,
 /turf/open/floor/dirt,
 /area/under/town/basement)
 "bg" = (
@@ -981,8 +982,9 @@
 /turf/closed/wall/mineral/wooddark/horizontal,
 /area/outdoors/woods/rmh)
 "ge" = (
-/turf/closed/wall/mineral/stone,
-/area/outdoors/bog/rmh/north)
+/mob/living/simple_animal/hostile/skeleton/guard,
+/turf/open/floor/dirt,
+/area/under/cavewet/rmh/swamp_caves)
 "gf" = (
 /turf/closed/wall/mineral/tent,
 /area/indoors/shelter/rtfield)
@@ -1471,12 +1473,10 @@
 /turf/closed/wall/mineral/wood,
 /area/indoors/dungeon)
 "ju" = (
-/obj/structure/stairs/stone{
-	dir = 4;
-	damage_deflection = 900
-	},
-/turf/open/floor/cobblerock,
-/area/outdoors/bog/rmh/north)
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/skeleton/guard,
+/turf/open/floor/dirt,
+/area/under/town/basement)
 "jx" = (
 /obj/structure/flora/grass/bush_meagre,
 /turf/open/floor/dirt/snowy,
@@ -1511,9 +1511,7 @@
 "jN" = (
 /obj/effect/mapping_helpers/secret_door_creator{
 	name = "Orcdungeon Secret Door";
-	redstone_id = "orcd";
-	vip_message = "orcd";
-	vips = list("orcd")
+	redstone_id = "orcd"
 	},
 /turf/closed/wall/mineral/stonebrick/reddish,
 /area/under/cave/orcdungeon{
@@ -2641,8 +2639,10 @@
 /turf/open/floor/cobble/alt,
 /area/outdoors)
 "qx" = (
-/turf/closed/wall/mineral/stone/moss,
-/area/outdoors/bog/rmh/north)
+/turf/open/transparent/openspace,
+/area/under/cave/orcdungeon{
+	name = "oldruins"
+	})
 "qy" = (
 /turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_cave/wet/mindflayer)
@@ -6425,6 +6425,11 @@
 /obj/structure/flora/newbranch,
 /turf/open/transparent/openspace,
 /area/outdoors/rmh_air)
+"Oa" = (
+/obj/structure/fluff/walldeco/vinez,
+/mob/living/simple_animal/hostile/skeleton/guard,
+/turf/open/floor/cobble/alt,
+/area/under/town/basement)
 "Oc" = (
 /obj/structure/fluff/railing/corner/north_east,
 /obj/machinery/light/fueled/wallfire/candle/l,
@@ -7871,6 +7876,10 @@
 /obj/structure/fluff/railing/border/west,
 /turf/open/floor/cobble/alt,
 /area/indoors)
+"WX" = (
+/mob/living/simple_animal/hostile/retaliate/wolf,
+/turf/open/floor/dirt/snowy,
+/area/outdoors/woods/rmh)
 "WY" = (
 /obj/structure/fluff/railing/tall/palisade{
 	dir = 4
@@ -8216,12 +8225,7 @@
 	icon_state = "6";
 	name = "teleport rune"
 	},
-/obj/effect/decal/cobbleedge{
-	icon = 'icons/roguetown/misc/structure.dmi';
-	icon_state = "shitportal";
-	name = "rune portal";
-	pixel_y = 11
-	},
+/obj/effect/decal/portal,
 /turf/open/floor/greenstone/runed,
 /area/indoors/town/rmh/magician/pass)
 "Ze" = (
@@ -12758,7 +12762,7 @@ mN
 iA
 ty
 mg
-hg
+ju
 PP
 mr
 QH
@@ -13192,7 +13196,7 @@ hg
 ob
 ve
 qj
-rl
+Oa
 oZ
 fL
 QH
@@ -16433,7 +16437,7 @@ QH
 QH
 IL
 PK
-rv
+ge
 uM
 QH
 QH
@@ -25767,7 +25771,7 @@ QH
 rv
 rv
 rv
-uM
+Ev
 uM
 rv
 rv
@@ -26206,7 +26210,7 @@ uM
 uM
 uM
 uM
-uM
+Ev
 rv
 rv
 uM
@@ -64860,7 +64864,7 @@ yQ
 yQ
 yQ
 cW
-yQ
+WX
 fX
 yQ
 yQ
@@ -78309,10 +78313,10 @@ VW
 Eg
 VW
 VW
-qx
-qx
-ge
-qx
+gv
+gv
+dN
+gv
 VW
 VW
 VW
@@ -78526,10 +78530,10 @@ VW
 VW
 VW
 VW
-ge
-AQ
-AQ
+dN
 qx
+qx
+gv
 VW
 VW
 FI
@@ -78743,10 +78747,10 @@ FI
 VW
 VW
 VW
-ge
-ju
-ju
-qx
+dN
+oy
+oy
+gv
 FI
 FI
 FI
@@ -78960,10 +78964,10 @@ FI
 VW
 VW
 VW
-qx
-pV
-pV
-qx
+gv
+TW
+TW
+gv
 FI
 FI
 VW

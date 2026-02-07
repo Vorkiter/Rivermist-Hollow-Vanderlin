@@ -36,6 +36,10 @@
 	var/static/list/accessory_icon_cache = list()
 	///are we emissive
 	var/glows = FALSE
+	/// Should we draw it above most clothes
+	var/draw_above_clothes = FALSE
+	/// Layer we switch to
+	var/draw_above_clothes_layer = UNDER_CLOAK_LAYER
 
 /datum/sprite_accessory/New()
 	if(color_keys > 1)
@@ -157,11 +161,15 @@
 			appearance.pixel_y = pixel_y
 			if(!dummy_block)
 				appearance.overlays += emissive_blocker(cached_icon, "[overlay_icon_state]_[get_layer_suffix(iterated_layer)]")
+			if(draw_above_clothes && iterated_layer != BODY_BEHIND_LAYER)
+				appearance.layer = draw_above_clothes_layer
 			appearance_list += appearance
 			if(glows)
 				var/mutable_appearance/emissive = emissive_appearance(icon, "[overlay_icon_state]_[get_layer_suffix(iterated_layer)]", layer = -iterated_layer, appearance_flags = KEEP_TOGETHER)
 				emissive.pixel_x = pixel_x
 				emissive.pixel_y = pixel_y
+				if(draw_above_clothes && iterated_layer != BODY_BEHIND_LAYER)
+					emissive.layer = draw_above_clothes_layer
 				appearance_list += emissive
 	else
 		var/mutable_appearance/appearance = mutable_appearance(cached_icon, overlay_icon_state, layer = -layer)
@@ -169,11 +177,15 @@
 		appearance.pixel_y = pixel_y
 		if(!dummy_block)
 			appearance.overlays += emissive_blocker(cached_icon, overlay_icon_state)
+		if(draw_above_clothes)
+			appearance.layer = draw_above_clothes_layer
 		appearance_list += appearance
 		if(glows)
 			var/mutable_appearance/emissive = emissive_appearance(icon, overlay_icon_state, layer = -layer)
 			emissive.pixel_x = pixel_x
 			emissive.pixel_y = pixel_y
+			if(draw_above_clothes)
+				emissive.layer = draw_above_clothes_layer
 			appearance_list += emissive
 
 	return appearance_list

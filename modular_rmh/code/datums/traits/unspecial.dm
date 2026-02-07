@@ -631,8 +631,8 @@
 
 /datum/quirk/endowed/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder
-	H.remove_status_effect(/datum/status_effect/debuff/bigboobs/permanent)
-	H.apply_status_effect(/datum/status_effect/debuff/bigboobs/permanent)
+	H.remove_status_effect(/datum/status_effect/debuff/boobs_quirk)
+	H.apply_status_effect(/datum/status_effect/debuff/boobs_quirk)
 
 /*/datum/quirk/endowedlite
 	name = "Naturally Endowed"

@@ -119,7 +119,7 @@
 		OFFSET_PANTS = list(0,1),\
 		OFFSET_SHIRT = list(0,1),\
 		OFFSET_ARMOR = list(0,1),\
-		OFFSET_UNDIES = list(0,1),\
+		OFFSET_UNDIES = list(0,0),\
 	)
 
 	specstats_m = list(STATKEY_STR = 0, STATKEY_PER = 2, STATKEY_INT = 0, STATKEY_CON = 0, STATKEY_END = 1, STATKEY_SPD = 2, STATKEY_LCK = 0)

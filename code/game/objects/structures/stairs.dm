@@ -6,10 +6,11 @@
 	icon = 'icons/obj/stairs.dmi'
 	icon_state = "stairs"
 	anchored = TRUE
-	layer = 2
+	layer = 5
 	obj_flags = CAN_BE_HIT | IGNORE_SINK | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
 	no_over_text = TRUE
 	var/should_sink = FALSE
+	plane = FLOOR_PLANE
 
 /obj/structure/stairs/Initialize(mapload)
 	. = ..()

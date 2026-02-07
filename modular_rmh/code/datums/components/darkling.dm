@@ -33,6 +33,7 @@
 
 	// Darkness buff
 	if(current_light_stress == 0 && light <= 0.1)
+		darkling.remove_status_effect(/datum/status_effect/debuff/darkling_glare)
 		if(!msg_dark_warn)
 			to_chat(darkling, span_info("Darkness is good on my eyes."))
 			msg_dark_warn = 1
@@ -43,11 +44,14 @@
 
 	// Light debuff
 	if(current_light_stress >= 10 && current_light_stress < 30)
+		darkling.remove_status_effect(/datum/status_effect/darkling_darkly)
+		darkling.remove_status_effect(/datum/status_effect/debuff/darkling_glare)
 		if(!msg_light_warn)
 			to_chat(darkling, span_warning("The light stings my eyes."))
 			msg_light_warn = 1
 			msg_dark_warn = 0
 	if(current_light_stress >= 30)
+		darkling.remove_status_effect(/datum/status_effect/darkling_darkly)
 		darkling.add_stress(/datum/stress_event/darkling_toobright)
 		darkling.apply_status_effect(/datum/status_effect/debuff/darkling_glare)
 

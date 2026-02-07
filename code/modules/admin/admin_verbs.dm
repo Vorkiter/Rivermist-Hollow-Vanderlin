@@ -153,6 +153,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/show_tip,
 	/client/proc/smite,
 	/client/proc/cmd_assume_direct_control,
+	/client/proc/cmd_get_mob,
 	/client/proc/heart_attack,
 	))
 GLOBAL_PROTECT(admin_verbs_fun)

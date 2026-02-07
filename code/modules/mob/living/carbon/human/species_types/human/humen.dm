@@ -88,7 +88,7 @@
 		OFFSET_PANTS = list(0,0),\
 		OFFSET_SHIRT = list(0,0),\
 		OFFSET_ARMOR = list(0,0),\
-		OFFSET_UNDIES = list(0,0),\
+		OFFSET_UNDIES = list(0,-1),\
 	)
 
 	specstats_m = list(STATKEY_STR = 1, STATKEY_PER = 1, STATKEY_INT = 1, STATKEY_CON = 1, STATKEY_END = 1, STATKEY_SPD = 1, STATKEY_LCK = 1)
@@ -181,36 +181,45 @@
 
 /datum/species/human/northern/on_species_gain(mob/living/carbon/human/C, datum/species/old_species)
 	. = ..()
+	addtimer(CALLBACK(src, PROC_REF(species_stat_pick), C, "Human Versatility", "Choose an attribute to gain +1:", 1, FALSE), 100)
 
-	spawn(10)
-		if(!C || !C.client)
-			return
+/datum/species/proc/species_stat_pick(
+	mob/living/carbon/human/C,
+	title,
+	message,
+	picks = 1,
+	allow_duplicates = FALSE,
+	modifier_id = "species_permanent"
+)
+	if(!C || !C.client)
+		return
 
-		var/list/choices = list(
-			"Strength"      = STATKEY_STR,
-			"Perception"   = STATKEY_PER,
-			"Intelligence" = STATKEY_INT,
-			"Constitution" = STATKEY_CON,
-			"Endurance"    = STATKEY_END,
-			"Speed"        = STATKEY_SPD,
-			"Fortune"      = STATKEY_LCK
-		)
+	var/list/choices = list(
+		"Strength"      = STATKEY_STR,
+		"Perception"   = STATKEY_PER,
+		"Intelligence" = STATKEY_INT,
+		"Constitution" = STATKEY_CON,
+		"Endurance"    = STATKEY_END,
+		"Speed"        = STATKEY_SPD,
+		"Fortune"      = STATKEY_LCK
+	)
 
+	while(picks > 0 && choices.len)
 		var/choice = input(
 			C,
-			"Choose an attribute to gain +1:",
-			"Human Versatility"
+			"[message]\n[picks] remaining.",
+			title
 		) as null|anything in choices
 
 		if(!choice)
 			return
 
-		switch(choices[choice])
-			if(STATKEY_STR) C.base_strength++
-			if(STATKEY_PER) C.base_perception++
-			if(STATKEY_INT) C.base_intelligence++
-			if(STATKEY_CON) C.base_constitution++
-			if(STATKEY_END) C.base_endurance++
-			if(STATKEY_SPD) C.base_speed++
-			if(STATKEY_LCK) C.base_fortune++
+		var/stat = choices[choice]
+		var/id = "[modifier_id]_[stat]"
 
+		C.set_stat_modifier(id, stat, 1)
+
+		if(!allow_duplicates)
+			choices -= choice
+
+		picks--

@@ -20,6 +20,7 @@
 /obj/item/organ/genitals/penis/Insert(mob/living/carbon/M, special, drop_if_replaced)
 	. = ..()
 	RegisterSignal(M, COMSIG_SEX_AROUSAL_CHANGED, PROC_REF(on_arousal_changed), TRUE)
+	RegisterSignal(M, COMSIG_SET_ERECT_STATE, PROC_REF(set_hard), TRUE)
 	if(penis_type in list(PENIS_TYPE_KNOTTED, PENIS_TYPE_TAPERED_DOUBLE_KNOTTED, PENIS_TYPE_BARBED_KNOTTED))
 		M.AddComponent(/datum/component/knotting)
 	add_bodystorage(M, null, /datum/component/body_storage/penis)
@@ -27,6 +28,7 @@
 /obj/item/organ/genitals/penis/Remove(mob/living/carbon/M, special, drop_if_replaced)
 	. = ..()
 	UnregisterSignal(M, COMSIG_SEX_AROUSAL_CHANGED)
+	UnregisterSignal(M, COMSIG_SET_ERECT_STATE)
 	if(penis_type in list(PENIS_TYPE_KNOTTED, PENIS_TYPE_TAPERED_DOUBLE_KNOTTED, PENIS_TYPE_BARBED_KNOTTED))
 		qdel(M.GetComponent(/datum/component/knotting))
 	var/datum/component/body_storage/penis/comp = GetComponent(/datum/component/body_storage/penis)
@@ -36,7 +38,6 @@
 /obj/item/organ/genitals/penis/proc/on_arousal_changed()
 	var/list/arousal_data = list()
 	SEND_SIGNAL(owner, COMSIG_SEX_GET_AROUSAL, arousal_data)
-
 	var/max_arousal = ACTIVE_EJAC_THRESHOLD || 120
 	var/current_arousal = arousal_data["arousal"] || 0
 	var/arousal_percent = min(100, (current_arousal / max_arousal) * 100)
@@ -51,8 +52,18 @@
 			new_state = ERECT_STATE_HARD
 	update_erect_state(new_state)
 
+/obj/item/organ/genitals/penis/proc/set_hard(datum/source, incoming)
+	always_hard = incoming
+	on_arousal_changed()
+
 /obj/item/organ/genitals/penis/proc/update_erect_state(new_state = ERECT_STATE_NONE)
 	var/oldstate = erect_state
+	if(owner.mind)
+		var/datum/antagonist/werewolf/W = owner.mind.has_antag_datum(/datum/antagonist/werewolf/)
+		if(W && W.transformed == TRUE)
+			owner.regenerate_icons()
+	if(!LAZYLEN(return_sessions_with_user(owner)))
+		always_hard = FALSE
 	if(always_hard)
 		erect_state = ERECT_STATE_HARD
 	else

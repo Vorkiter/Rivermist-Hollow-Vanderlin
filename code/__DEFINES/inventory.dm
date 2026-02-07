@@ -64,6 +64,8 @@
 	ITEM_SLOT_NECK,\
 	ITEM_SLOT_RING,\
 	ITEM_SLOT_HANDS,\
+	ITEM_SLOT_UNDERWEAR,\
+	ITEM_SLOT_SOCKS,\
 )
 
 //Bit flags for the flags_inv variable, which determine when a piece of clothing hides another. IE a helmet hiding glasses.

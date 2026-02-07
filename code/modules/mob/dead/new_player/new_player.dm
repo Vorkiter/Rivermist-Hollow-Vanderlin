@@ -447,6 +447,9 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.txt"))
 
 	log_manifest(character.mind.key,character.mind,character,latejoin = TRUE)
 
+	if(job.rune_linked)
+		GLOB.rune_roundstart_mobs += character
+
 
 /mob/dead/new_player/proc/LateChoices()
 	var/list/dat = list("<div class='notice' style='font-style: normal; font-size: 14px; margin-bottom: 2px; padding-bottom: 0px'>Round Duration: [DisplayTimeText(world.time - SSticker.round_start_time, 1)]</div>")

@@ -53,7 +53,7 @@
 		OFFSET_PANTS = list(0,1),\
 		OFFSET_SHIRT = list(0,1),\
 		OFFSET_ARMOR = list(0,1),\
-		OFFSET_UNDIES = list(0,1),\
+		OFFSET_UNDIES = list(0,0),\
 	)
 
 	offset_features_f = list(
@@ -72,7 +72,7 @@
 		OFFSET_PANTS = list(0,1),\
 		OFFSET_SHIRT = list(0,1),\
 		OFFSET_ARMOR = list(0,1),\
-		OFFSET_UNDIES = list(0,1),\
+		OFFSET_UNDIES = list(0,-1),\
 	)
 
 	inherent_traits = list(TRAIT_HOLLOWBONES, TRAIT_AMAZING_BACK, TRAIT_DODGEEXPERT)

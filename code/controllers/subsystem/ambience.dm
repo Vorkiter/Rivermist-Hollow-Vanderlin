@@ -129,7 +129,10 @@ SUBSYSTEM_DEF(ambience)
 		if(!used || islist(used))
 			return
 	if(cmode && cmode_music)
-		used = cmode_music
+		if(length(cmode_music_override))
+			used = pick(cmode_music_override)
+		else
+			used = cmode_music
 		vol *= 1.2
 	else if(music_enabled && HAS_TRAIT(src, TRAIT_SCHIZO_AMBIENCE))
 		used = 'sound/music/dreamer_is_still_asleep.ogg'
@@ -179,3 +182,29 @@ SUBSYSTEM_DEF(ambience)
 		sleep(0.2 SECONDS)
 		if(!client)
 			world << "Crashed at [initial(area.name)] night"
+
+/datum/controller/subsystem/ambience/proc/play_combat_music(music = null, client/dreamer)
+	if(!music || !dreamer)
+		return
+
+	var/frenq = 1
+
+	if(HAS_TRAIT(dreamer.mob, TRAIT_DRUQK))
+		frenq = -1
+
+	if(ishuman(dreamer.mob))
+		var/mob/living/carbon/human/H = dreamer.mob
+		if(H.has_status_effect(/datum/status_effect/buff/moondust))
+			frenq = 2
+		if(H.has_status_effect(/datum/status_effect/buff/weed))
+			frenq = 0.5
+
+	var/mob/living/L = dreamer.mob
+	//kill the previous droning sound
+	L.cancel_looping_ambience()
+	var/sound/combat_music = sound(pick(music), repeat = TRUE, wait = 0, channel = CHANNEL_BUZZ, volume = (dreamer?.prefs.musicvol)*1.2)
+	combat_music.frequency = frenq
+	if(!HAS_TRAIT(dreamer.mob, TRAIT_DRUQK))
+		combat_music.pitch = 1 / combat_music.frequency
+	SEND_SOUND(dreamer, combat_music)
+	dreamer.current_ambient_sound = combat_music

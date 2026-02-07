@@ -112,10 +112,10 @@
 		OFFSET_BACK = list(0,0),\
 		OFFSET_NECK = list(0,0),\
 		OFFSET_MOUTH = list(0,0),\
-		OFFSET_PANTS = list(0,1),\
+		OFFSET_PANTS = list(0,0),\
 		OFFSET_SHIRT = list(0,1),\
 		OFFSET_ARMOR = list(0,1),\
-		OFFSET_UNDIES = list(0,1),\
+		OFFSET_UNDIES = list(0,0),\
 	)
 
 	specstats_m = list(STATKEY_STR = 0, STATKEY_PER = 1, STATKEY_INT = 2, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 1, STATKEY_LCK = 0)

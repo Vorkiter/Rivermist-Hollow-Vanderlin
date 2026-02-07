@@ -666,7 +666,11 @@
 	else
 		cmode = TRUE
 		playsound_local(src, 'sound/misc/combon.ogg', 100)
-		ADD_TRAIT(src, TRAIT_BLOCKED_DIAGONAL, "combat")
+		/*if(length(L.cmode_music_override))
+			SSambience.play_combat_music(L.cmode_music_override, client)
+		else if(L.cmode_music)
+			SSambience.play_combat_music(L.cmode_music, client)
+		ADD_TRAIT(src, TRAIT_BLOCKED_DIAGONAL, "combat")*/
 		if(cmode_timer)
 			deltimer(cmode_timer)
 

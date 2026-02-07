@@ -158,6 +158,14 @@
 		owner.confused = max(0, owner.confused - 1)
 		owner.add_stress(/datum/stress_event/goodmusic)
 
+
+/datum/status_effect/comb_hair
+	id = "Combed hair"
+	alert_type = null
+	duration = 300 SECONDS
+	tick_interval = STATUS_EFFECT_NO_TICK
+	status_type = STATUS_EFFECT_REFRESH
+
 /atom/movable/screen/alert/status_effect/regenerative_core
 	name = "Regenerative Core Tendrils"
 	desc = ""

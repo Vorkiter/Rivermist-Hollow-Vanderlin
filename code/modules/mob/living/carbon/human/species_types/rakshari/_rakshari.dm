@@ -75,7 +75,7 @@
 		OFFSET_PANTS = list(0,0),\
 		OFFSET_SHIRT = list(0,2),\
 		OFFSET_ARMOR = list(0,1),\
-		OFFSET_UNDIES = list(0,0),\
+		OFFSET_UNDIES = list(0,-1),\
 	)
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,

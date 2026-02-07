@@ -281,3 +281,6 @@
 	var/area/ambience_tracked_area
 	/// new title given by an admin.
 	var/admin_title = null
+
+	var/cmode_music_override = list() // set by prefs or the verb, ignored if empty
+	var/cmode_music_override_name // solely for autoselecting as a spawned-in mob

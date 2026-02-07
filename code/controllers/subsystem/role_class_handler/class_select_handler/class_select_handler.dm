@@ -196,7 +196,7 @@
 	<head>
 		<meta charset='UTF-8'>
 		<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
-		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+		<meta http-equiv='Content-Type' content='text/html; <meta charset='UTF-8'>'/>
 		<style>
 			@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
 			@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');

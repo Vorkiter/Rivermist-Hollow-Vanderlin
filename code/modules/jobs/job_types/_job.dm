@@ -208,6 +208,9 @@
 	///The job's stat UPPER ceilings, clamped after statpacks and job stats are applied.
 	var/list/stat_ceilings
 
+	/// Does this job get revived on the res rune
+	var/rune_linked = TRUE
+
 /datum/job/New()
 	. = ..()
 	if(give_bank_account)

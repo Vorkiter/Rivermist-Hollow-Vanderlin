@@ -26,6 +26,7 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 #define COMSIG_SEX_ADJUST_ORGASM_PROG "sex_adjust_orgasm_prog"                  // (amount) - Adjust orgasm prog level
 #define COMSIG_SEX_SET_ORGASM_PROG "sex_set_orgasm_prog"                        // (amount) - Set orgasm prog to specific value
 #define COMSIG_SEX_EDGED_BY_OTHER_STATE "sex_set_edged_state"                        // (amount) - Set orgasm prog to specific value
+#define COMSIG_SET_ERECT_STATE "sex_set_erectness"						// when we set manual arousal
 
 // Knotting Component Signals
 /// Attempts to knot a target. Args: (target, force_level)
@@ -328,3 +329,6 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 #define MIN_BUTT_SIZE BUTT_SIZE_SMALL
 #define MAX_BUTT_SIZE BUTT_SIZE_LARGE //5 available, above 4 may be too big.
 #define TOTAL_BUTT_SIZE 3
+
+
+#define DRAW_ABOVE "draw_above" //for drawing organs above the clothes
