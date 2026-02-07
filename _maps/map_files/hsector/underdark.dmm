@@ -1515,10 +1515,6 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/tile/masonic/inverted,
 /area/under/underdark/rmh/shar)
-"ti" = (
-/obj/effect/landmark/start/combatlate,
-/turf/open/floor/grass/yel,
-/area/under/underdark/rmh/shrub)
 "tk" = (
 /obj/structure/closet/crate/chest/neu_iron,
 /obj/item/key/custom{
@@ -18370,7 +18366,7 @@ UR
 UR
 UR
 Mu
-ti
+XF
 gH
 Ri
 XF
