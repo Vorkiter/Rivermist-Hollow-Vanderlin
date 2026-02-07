@@ -253,6 +253,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/fiber_salvage = FALSE
 	/// Number of torn sleves, important for salvaging calculations and examine text
 	var/torn_sleeve_number = 0
+	/// Use for clothing which has cropped parts for hands and doesn't use sleeved system. They will have layer under gloves
+	var/ignore_sleeves_code = FALSE
 
 	var/blocking_behavior
 	var/wetness = 0

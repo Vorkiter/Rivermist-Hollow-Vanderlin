@@ -897,11 +897,12 @@
 			return TRUE
 
 		if(SPELL_MIRACLE)
-			var/mob/living/carbon/human/H = caster
-			if(!istype(H) || !H.cleric?.check_devotion(spell_cost))
-				if(feedback)
-					owner.balloon_alert(owner, "Devotion too weak!")
-				return FALSE
+			//SEAWEED PLEASE LOOK HERE//DISABLED UNTIL DEVOTION AND SPELLS REWORK//
+			//var/mob/living/carbon/human/H = caster
+			//if(!istype(H) || !H.cleric?.check_devotion(spell_cost))
+				//if(feedback)
+					//owner.balloon_alert(owner, "Devotion too weak!")
+				//return FALSE
 
 			return TRUE
 

@@ -132,7 +132,7 @@
 	icon = 'modular_rmh/icons/obj/flora/foliage.dmi'
 	icon_state = "tinymushrooms"
 
-	/obj/structure/flora/grass/brown
+/obj/structure/flora/grass/brown
 	icon_state = "snowgrass1bb"
 	icon = 'modular_rmh/icons/obj/flora/snowflora.dmi'
 

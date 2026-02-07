@@ -1057,7 +1057,7 @@ GLOBAL_PROTECT(no_child_icons)
 
 		//add sleeve overlays, then offset
 		var/list/sleeves = list()
-		if(wear_shirt.sleeved && armsindex > 0)
+		if(!wear_shirt.ignore_sleeves_code && wear_shirt.sleeved && armsindex > 0)
 			sleeves = get_sleeves_layer(wear_shirt, armsindex, SHIRTSLEEVE_LAYER)
 
 		if(sleeves)
@@ -1120,7 +1120,7 @@ GLOBAL_PROTECT(no_child_icons)
 
 		//add sleeve overlays, then offset
 		var/list/sleeves = list()
-		if(wear_armor.sleeved && armsindex > 0)
+		if(!wear_armor.ignore_sleeves_code && wear_armor.sleeved && armsindex > 0)
 			sleeves = get_sleeves_layer(wear_armor,armsindex,ARMORSLEEVE_LAYER)
 
 		if(sleeves)
