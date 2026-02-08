@@ -102,7 +102,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 							continue; \
 						}; \
 						for(var/target in smoothing_list) { \
-							if(smoothing_list[target] & thing_smoothing_groups[target]) { \
+							var/tg = thing_smoothing_groups[target]; \
+							if(tg && (smoothing_list[target] & tg)) { \
 								new_junction |= direction_flag; \
 								break set_adj_in_dir; \
 							}; \
@@ -118,7 +119,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 				var/neighbor_smoothing_groups = neighbor.smoothing_groups; \
 				if(neighbor_smoothing_groups) { \
 					for(var/target as anything in smoothing_list) { \
-						if(smoothing_list[target] & neighbor_smoothing_groups[target]) { \
+						var/ng = neighbor_smoothing_groups[target]; \
+						if(ng && (smoothing_list[target] & ng)) { \
 							new_junction |= direction_flag; \
 							break set_adj_in_dir; \
 						}; \
