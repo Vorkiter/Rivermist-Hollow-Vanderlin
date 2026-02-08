@@ -724,7 +724,7 @@
 		if(gloves)
 			arm_clothes = gloves
 		if(armsleeves)
-			chest_clothes = armsleeves
+			arm_clothes = armsleeves
 		if(wear_pants && ((wear_pants.body_parts_covered & HANDS) || (wear_pants.body_parts_covered & ARMS)))
 			arm_clothes = wear_pants
 		if(wear_armor && ((wear_armor.body_parts_covered & HANDS) || (wear_armor.body_parts_covered & ARMS)))

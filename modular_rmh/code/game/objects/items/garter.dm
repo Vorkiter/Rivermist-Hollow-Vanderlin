@@ -26,3 +26,10 @@
 			user.visible_message(span_notice("[user] tries to put [src] on [H]..."))
 			if(do_after(user, 50, target = H))
 				H.equip_to_slot_if_possible(src, ITEM_SLOT_GARTER, disable_warning = TRUE)
+
+/datum/repeatable_crafting_recipe/sewing/garters
+	name = "garter"
+	output = /obj/item/clothing/garter
+	requirements = list(/obj/item/natural/silk = 1,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 2

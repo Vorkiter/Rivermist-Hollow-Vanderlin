@@ -40,3 +40,18 @@
 /datum/loadout_item/choker_emerald
 	name = "Emerald Choker"
 	item_path = /obj/item/clothing/choker/emerald
+
+/datum/repeatable_crafting_recipe/sewing/choker
+	name = "Choker"
+	output = /obj/item/clothing/choker
+	requirements = list(/obj/item/natural/silk = 1,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 3
+
+/datum/repeatable_crafting_recipe/sewing/choker_emerald
+	name = "Emerald Choker"
+	output = /obj/item/clothing/choker/emerald
+	requirements = list(/obj/item/natural/silk = 1,
+				/obj/item/natural/fibers = 1,
+				/obj/item/gem/green = 1,)
+	craftdiff = 3

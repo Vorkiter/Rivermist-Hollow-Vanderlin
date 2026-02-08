@@ -309,7 +309,7 @@
 	item_state = "stockings_mesh_low"
 
 /obj/item/clothing/legwears/stockings_mesh_stirrup
-	name = "mesh stockings"
+	name = "stirrup mesh stockings"
 	desc = "Snug mesh stockings with stirrups that hook under the foot for a tight fit."
 	icon_state = "stockings_mesh_low_sir"
 	item_state = "stockings_mesh_low_sir"
@@ -514,3 +514,24 @@
 		/obj/item/natural/fibers = 2
 	)
 	craftdiff = 4
+
+/datum/repeatable_crafting_recipe/sewing/stockings_mesh
+	name = "mesh stockings"
+	output = /obj/item/clothing/legwears/stockings_mesh
+	requirements = list(
+		/obj/item/natural/cloth = 1,
+		/obj/item/natural/fibers = 2
+	)
+	craftdiff = 3
+
+/datum/repeatable_crafting_recipe/sewing/stockings_mesh/stirrup
+	name = "stirrup mesh stockings"
+	output = /obj/item/clothing/legwears/stockings_mesh_stirrup
+
+/datum/repeatable_crafting_recipe/sewing/stockings_mesh/crotchless
+	name = "crotchless mesh pantyhose"
+	output = /obj/item/clothing/legwears/stockings_mesh_crotchless
+
+/datum/repeatable_crafting_recipe/sewing/stockings_mesh/stirrup_crotchless
+	name = "crotchless mesh pantyhose with stirrups"
+	output = /obj/item/clothing/legwears/stockings_mesh_crotchless_stirrup
