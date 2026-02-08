@@ -916,19 +916,20 @@
 			return TRUE
 
 		if(SPELL_ESSENCE)
-			var/obj/item/clothing/gloves/essence_gauntlet/gaunt = target
-			if(QDELETED(target) || !istype(target))
-				stack_trace("Essence spell checking cost without being assigned to an essence gauntlet!")
-				return FALSE
-			if(!gaunt.check_gauntlet_validity(owner))
-				return FALSE
+			//SEAWEED PLEASE LOOK HERE//DISABLED UNTIL DEVOTION AND SPELLS REWORK//
+			//var/obj/item/clothing/gloves/essence_gauntlet/gaunt = target
+			//if(QDELETED(target) || !istype(target))
+			//	stack_trace("Essence spell checking cost without being assigned to an essence gauntlet!")
+			//	return FALSE
+			//if(!gaunt.check_gauntlet_validity(owner))
+			//	return FALSE
 			// Ditto
-			if(!length(gaunt.stored_vials))
-				return FALSE
-			if(!gaunt.can_consume_essence(used_cost, attunements))
-				if(feedback)
-					owner.balloon_alert(owner, "Not enough essence!")
-				return FALSE
+			//if(!length(gaunt.stored_vials))
+			//	return FALSE
+			//if(!gaunt.can_consume_essence(used_cost, attunements))
+			//	if(feedback)
+			//		owner.balloon_alert(owner, "Not enough essence!")
+			//	return FALSE
 
 			return TRUE
 
