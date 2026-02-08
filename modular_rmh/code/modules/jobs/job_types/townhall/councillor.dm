@@ -35,7 +35,8 @@
 	job_subclasses = list(
 		/datum/job/advclass/councilor/adjutant,
 		/datum/job/advclass/councilor/clerk,
-		/datum/job/advclass/councilor/advisor
+		/datum/job/advclass/councilor/advisor,
+		/datum/job/advclass/councilor/spymaster,
 	)
 
 
@@ -266,6 +267,76 @@
 
 	backpack_contents = list(
 		/obj/item/clothing/neck/slave_collar
+	)
+
+
+// ─────────────────────────────
+
+/datum/job/advclass/councilor/spymaster
+	title = "Spymaster Councilor"
+	tutorial = "You are the keeper of secrets, informants, and quiet truths. \
+	From tavern whispers to sealed correspondence, nothing of importance moves in Rivermist Hollow without your notice. \
+	You advise the Burgmeister not with speeches, but with leverage — knowing who lies, who plots, and who can be turned."
+
+	outfit = /datum/outfit/councilor/spymaster
+	category_tags = list(CAT_COUNCILOR)
+
+	jobstats = list(
+		STATKEY_INT = 4,
+		STATKEY_PER = 4,
+		STATKEY_LCK = 2,
+		STATKEY_STR = -1
+	)
+
+	skills = list(
+		/datum/skill/misc/reading = 5,
+		/datum/skill/misc/sneaking = 3,
+		/datum/skill/misc/stealing = 3,
+		/datum/skill/misc/lockpicking = 3,
+		/datum/skill/misc/athletics = 2,
+
+		/datum/skill/misc/medicine = 2,
+		/datum/skill/labor/mathematics = 2,
+
+		/datum/skill/combat/unarmed = 2,
+		/datum/skill/combat/knives = 2
+	)
+
+	traits = list(
+		TRAIT_DECEIVING_MEEKNESS,
+		TRAIT_EMPATH,
+		TRAIT_LIGHT_STEP,
+		TRAIT_THIEVESGUILD,
+	)
+
+	languages = list(/datum/language/thievescant)
+
+/datum/outfit/councilor/spymaster
+	name = "Spymaster Councilor"
+	head = /obj/item/clothing/head/chaperon/colored/greyscale/townhall
+	mask = null
+	neck = null
+	cloak = /obj/item/clothing/cloak/raincloak/colored/mortus
+	armor = /obj/item/clothing/armor/leather/splint
+	shirt = /obj/item/clothing/shirt/undershirt/colored/black
+	wrists = null
+	gloves = null
+	pants = /obj/item/clothing/pants/trou/leather
+	shoes = /obj/item/clothing/shoes/boots
+	backr = /obj/item/storage/backpack/satchel/black
+	backl = null
+	belt = /obj/item/storage/belt/leather/plaquesilver
+	beltr = /obj/item/storage/belt/pouch/coins/rich
+	beltl = /obj/item/storage/keyring/rmh_councilor
+	ring = /obj/item/clothing/ring/slave_control
+	l_hand = null
+	r_hand = null
+
+	backpack_contents = list(
+		/obj/item/clothing/neck/slave_collar,
+		/obj/item/lockpick = 1,
+		/obj/item/weapon/knife/dagger/steel = 1,
+		/obj/item/clothing/face/shepherd/rag = 1,
 	)
 
 //ANNOUNCEMENT SYSTEM

@@ -38,6 +38,8 @@
 		/datum/action/cooldown/spell/conjure/bonfire,
 		/datum/action/cooldown/spell/projectile/fire_flare,
 		/datum/action/cooldown/spell/projectile/fireball,
+		/datum/action/cooldown/spell/enrapture,
+		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 /datum/outfit/adventurer_sorcerer/desert_sorceress

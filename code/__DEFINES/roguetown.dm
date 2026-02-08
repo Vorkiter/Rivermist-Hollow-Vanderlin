@@ -143,7 +143,7 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 
 //TOWNHALL
 #define CAT_BURGMESITER		"CAT_BURGMESITER"		// Burgmeister class - 4 types
-#define CAT_COUNCILOR		"CAT_COUNCILOR"		// Councilor class - 3 types
+#define CAT_COUNCILOR		"CAT_COUNCILOR"		// Councilor class - 4 types
 #define CAT_SERVANT			"CAT_SERVANT"		// Servant class - 3 types
 //TOWNWATCH
 #define CAT_WATCHMAN		"CAT_WATCHMAN"		// Town Watch Guard class - 3 types

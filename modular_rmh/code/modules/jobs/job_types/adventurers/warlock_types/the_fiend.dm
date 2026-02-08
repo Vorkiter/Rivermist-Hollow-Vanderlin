@@ -34,6 +34,8 @@
 		/datum/action/cooldown/spell/projectile/fire_flare,
 		/datum/action/cooldown/spell/projectile/fireball,
 		/datum/action/cooldown/spell/essence/flame_jet,
+		/datum/action/cooldown/spell/enrapture,
+		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 
