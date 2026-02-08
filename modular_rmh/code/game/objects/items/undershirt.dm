@@ -16,7 +16,7 @@
 	sewrepair = TRUE
 	salvage_result = /obj/item/natural/cloth
 	slot_flags = ITEM_SLOT_UNDERSHIRT
-	flags_inv = HIDECROTCH | HIDEBOOB | HIDEBELLY
+	flags_inv = HIDEBOOB | HIDEBELLY
 	boobed = TRUE
 	nodismemsleeves = TRUE
 	sleevetype = null

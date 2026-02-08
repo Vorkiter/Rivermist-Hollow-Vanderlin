@@ -17,6 +17,8 @@
 	slot_flags = ITEM_SLOT_MOUTH | ITEM_SLOT_SOCKS
 	muteinmouth = TRUE
 	var/icon_state_base
+	var/damaged_icon = 'modular_rmh/icons/clothing/onmob/helpers/ripped_stockings_icon.dmi'
+	var/damaged_overlay_icon = 'modular_rmh/icons/clothing/onmob/helpers/ripped_stockings_onmob.dmi'
 
 /obj/item/clothing/legwears/Initialize(mapload, ...)
 	. = ..()
@@ -34,6 +36,28 @@
 			if(do_after(user, 50, target = H))
 				H.equip_to_slot_if_possible(src, ITEM_SLOT_SOCKS, disable_warning = TRUE)
 
+/obj/item/clothing/legwears/update_clothes_damaged_state(damaging = TRUE)
+	if(damaged_icon && damaged_overlay_icon)
+
+		if(damaging)
+			damaged_clothes = 1
+			icon = damaged_icon
+			mob_overlay_icon = damaged_overlay_icon
+			icon_state = icon_state + "_ripped"
+			name = "ripped " + name
+		else
+			damaged_clothes = 0
+			icon = initial(icon)
+			mob_overlay_icon = initial(mob_overlay_icon)
+			icon_state = initial(icon_state)
+			name = initial(name)
+		update_appearance(updates = ALL)
+	else
+		. = ..()
+
+	if(ismob(loc))
+		var/mob/M = loc
+		M.update_inv_socks()
 
 /obj/item/clothing/legwears/equipped(mob/living/carbon/user, slot)
 	. = ..()
@@ -45,6 +69,7 @@
 /obj/item/clothing/legwears/dropped(mob/user)
 	. = ..()
 	icon_state = icon_state_base
+	update_clothes_damaged_state(damaged_clothes)
 
 
 /obj/item/clothing/legwears/random/Initialize()
@@ -274,6 +299,32 @@
 	desc = "Fishnet pantyhose with an intentionally open design."
 	icon_state = "fishnet_thighs_cl"
 	item_state = "fishnet_thighs_cl"
+
+//Mesh
+
+/obj/item/clothing/legwears/stockings_mesh
+	name = "mesh stockings"
+	desc = "Snug mesh stockings."
+	icon_state = "stockings_mesh_low"
+	item_state = "stockings_mesh_low"
+
+/obj/item/clothing/legwears/stockings_mesh_stirrup
+	name = "mesh stockings"
+	desc = "Snug mesh stockings with stirrups that hook under the foot for a tight fit."
+	icon_state = "stockings_mesh_low_sir"
+	item_state = "stockings_mesh_low_sir"
+
+/obj/item/clothing/legwears/stockings_mesh_crotchless
+	name = "crotchless mesh pantyhose"
+	desc = "Snug mesh pantyhose with an intentionally open design."
+	icon_state = "stockings_mesh_cl"
+	item_state = "stockings_mesh_cl"
+
+/obj/item/clothing/legwears/stockings_mesh_crotchless_stirrup
+	name = "crotchless mesh pantyhose with stirrup"
+	desc = "Snug mesh pantyhose with stirrups and an intentionally open design."
+	icon_state = "stockings_mesh_sir_cl"
+	item_state = "stockings_mesh_sir_cl"
 
 //Priestess
 
