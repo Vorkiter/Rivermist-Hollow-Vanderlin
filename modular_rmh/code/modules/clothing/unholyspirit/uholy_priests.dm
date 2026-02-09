@@ -25,7 +25,7 @@
 	desc = "A lightweight cloth hood designed to frame the face without obscuring vision."
 	icon = 'modular_rmh/icons/clothing/unholyspirit/warrior_nun.dmi'
 	mob_overlay_icon = 'modular_rmh/icons/clothing/unholyspirit/onmob/warrior_nun.dmi'
-	flags_inv = HIDEEARS
+	flags_inv = HIDEEARS|HIDEHAIR
 	icon_state = "hood"
 	item_state = "hood"
 
@@ -56,6 +56,6 @@
 	desc = "A pure white hood edged with delicate golden trim, resting softly around the head."
 	icon = 'modular_rmh/icons/clothing/unholyspirit/priestess.dmi'
 	mob_overlay_icon = 'modular_rmh/icons/clothing/unholyspirit/onmob/priestess.dmi'
-	flags_inv = HIDEEARS
+	flags_inv = HIDEEARS|HIDEHAIR
 	icon_state = "hood"
 	item_state = "hood"
