@@ -566,10 +566,9 @@
 		eyet.update_appearance(UPDATE_ICON)
 	playsound_local(src, 'sound/misc/click.ogg', 100)
 
-
 /client/proc/ghostears()
-	set category = "GameMaster"
-	set name = "Ghost: Hear Speech"
+	set category = "Admin.Ghost"
+	set name = "Hear Speech"
 	if(!holder)
 		return
 	if(!prefs)
@@ -582,8 +581,8 @@
 		to_chat(src, span_info("I will hear like a mortal."))
 
 /client/proc/ghostwhispers()
-	set category = "GameMaster"
-	set name = "Ghost: Hear Whispers"
+	set category = "Admin.Ghost"
+	set name = "Hear Whispers"
 	if(!holder)
 		return
 	if(!prefs)
@@ -596,8 +595,8 @@
 		to_chat(src, span_info("I will hear like a mortal."))
 
 /client/proc/ghosteyes()
-	set category = "GameMaster"
-	set name = "Ghost: See Emotes"
+	set category = "Admin.Ghost"
+	set name = "See Emotes"
 	if(!holder)
 		return
 	if(!prefs)
@@ -611,8 +610,8 @@
 
 
 /client/proc/ghost_up()
-	set category = "GameMaster"
-	set name = "Ghost: Move Up"
+	set category = "Admin.Ghost"
+	set name = "GhostUp"
 	if(!holder)
 		return
 	. = TRUE
@@ -620,8 +619,8 @@
 		mob.ghost_up()
 
 /client/proc/ghost_down()
-	set category = "GameMaster"
-	set name = "Ghost: Move Down"
+	set category = "Admin.Ghost"
+	set name = "GhostDown"
 	if(!holder)
 		return
 	. = TRUE

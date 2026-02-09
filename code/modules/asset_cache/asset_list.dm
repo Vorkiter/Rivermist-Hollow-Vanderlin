@@ -16,6 +16,9 @@ GLOBAL_LIST_EMPTY(asset_datums)
 /datum/asset
 	abstract_type = /datum/asset
 
+	var/cached_serialized_url_mappings
+	var/cached_serialized_url_mappings_transport_type
+
 	/// Whether or not this asset should be loaded in the "early assets" SS
 	var/early = FALSE
 
@@ -40,6 +43,14 @@ GLOBAL_LIST_EMPTY(asset_datums)
 /datum/asset/proc/get_url_mappings()
 	return list()
 
+/// Returns a cached tgui message of URL mappings
+/datum/asset/proc/get_serialized_url_mappings()
+	if(isnull(cached_serialized_url_mappings) || cached_serialized_url_mappings_transport_type != SSassets.transport.type)
+		cached_serialized_url_mappings = TGUI_CREATE_MESSAGE("asset/mappings", get_url_mappings())
+		cached_serialized_url_mappings_transport_type = SSassets.transport.type
+
+	return cached_serialized_url_mappings
+
 /datum/asset/proc/register()
 	return
 
@@ -53,6 +64,8 @@ GLOBAL_LIST_EMPTY(asset_datums)
 /// Immediately regenerate the asset, overwriting any cache.
 /datum/asset/proc/regenerate()
 	unregister()
+	cached_serialized_url_mappings = null
+	cached_serialized_url_mappings_transport_type = null
 	register()
 
 /// Unregisters any assets from the transport.
@@ -66,11 +79,18 @@ GLOBAL_LIST_EMPTY(asset_datums)
 	fdel(asset_path) // just in case, sadly we can't use rust_g stuff here.
 	fcopy(file_location, asset_path)
 
-//If you don't need anything complicated.
+/// If you don't need anything complicated.
 /datum/asset/simple
 	abstract_type = /datum/asset/simple
-	var/assets = list() //! list of assets for this datum in the form of asset_filename = asset_file. At runtime the asset_file will be converted into a asset_cache datum.
-	var/legacy = FALSE //! set to true to have this asset also be sent via browse_rsc when cdn asset transports are enabled.
+	/// list of assets for this datum in the form of:
+	/// asset_filename = asset_file. At runtime the asset_file will be
+	/// converted into a asset_cache datum.
+	var/assets = list()
+	/// Set to true to have this asset also be sent via the legacy browse_rsc
+	/// system when cdn transports are enabled?
+	var/legacy = FALSE
+	/// TRUE for keeping local asset names when browse_rsc backend is used
+	var/keep_local_name = FALSE
 
 /datum/asset/simple/register()
 	for(var/asset_name in assets)
@@ -80,6 +100,8 @@ GLOBAL_LIST_EMPTY(asset_datums)
 			continue
 		if (legacy)
 			ACI.legacy = TRUE
+		if (keep_local_name)
+			ACI.keep_local_name = keep_local_name
 		assets[asset_name] = ACI
 
 /datum/asset/simple/send(client)
@@ -93,6 +115,59 @@ GLOBAL_LIST_EMPTY(asset_datums)
 /datum/asset/simple/unregister()
 	for (var/asset_name in assets)
 		SSassets.transport.unregister_asset(asset_name)
+
+// If you use a file(...) object, instead of caching the asset it will be loaded from disk every time it's requested.
+// This is useful for development, but not recommended for production.
+// And if TGS is defined, we're being run in a production environment.
+
+#ifdef TGS
+/datum/asset/simple/tgui
+	keep_local_name = FALSE
+	assets = list(
+		"tgui.bundle.js" = "tgui/public/tgui.bundle.js",
+		"tgui.bundle.css" = "tgui/public/tgui.bundle.css",
+	)
+
+/datum/asset/simple/tgui_panel
+	keep_local_name = FALSE
+	assets = list(
+		"tgui-panel.bundle.js" = "tgui/public/tgui-panel.bundle.js",
+		"tgui-panel.bundle.css" = "tgui/public/tgui-panel.bundle.css",
+	)
+
+/datum/asset/simple/tgfont
+	assets = list(
+		"tgfont.eot" = "tgui/packages/tgfont/static/tgfont.eot",
+		"tgfont.woff2" = "tgui/packages/tgfont/static/tgfont.woff2",
+		"tgfont.css" = "tgui/packages/tgfont/static/tgfont.css",
+	)
+
+#else
+/datum/asset/simple/tgui
+	keep_local_name = TRUE
+	assets = list(
+		"tgui.bundle.js" = file("tgui/public/tgui.bundle.js"),
+		"tgui.bundle.css" = file("tgui/public/tgui.bundle.css"),
+	)
+
+/datum/asset/simple/tgui_panel
+	keep_local_name = TRUE
+	assets = list(
+		"tgui-panel.bundle.js" = file("tgui/public/tgui-panel.bundle.js"),
+		"tgui-panel.bundle.css" = file("tgui/public/tgui-panel.bundle.css"),
+	)
+
+/datum/asset/simple/namespaced/tgfont
+	assets = list(
+		"tgfont.eot" = file("tgui/packages/tgfont/static/tgfont.eot"),
+		"tgfont.woff2" = file("tgui/packages/tgfont/static/tgfont.woff2"),
+	)
+	parents = list(
+		"tgfont.css" = file("tgui/packages/tgfont/static/tgfont.css"),
+	)
+
+#endif
+
 
 // For registering or sending multiple others at once
 /datum/asset/group
