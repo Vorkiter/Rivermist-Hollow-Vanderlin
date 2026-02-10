@@ -30,11 +30,6 @@
 
 	traits = list(TRAIT_FORAGER)
 
-/datum/job/advclass/combat/adventurer_ranger/steppe_wayfarer/after_spawn(mob/living/carbon/human/spawned, client/player_client)
-	. = ..()
-	new /mob/living/simple_animal/hostile/retaliate/saiga/tame/saddled(get_turf(spawned))
-	new /mob/living/simple_animal/hostile/retaliate/saigabuck/tame/saddled(get_turf(spawned))
-
 /datum/outfit/adventurer_ranger/steppe_wayfarer
 	name = "Steppe Wayfarer"
 	head = /obj/item/clothing/head/papakha
@@ -57,3 +52,23 @@
 	r_hand = null
 
 	backpack_contents = list(/obj/item/bait = 1, /obj/item/weapon/knife/hunting = 1, /obj/item/tent_kit = 1)
+
+/datum/job/advclass/combat/adventurer_ranger/steppe_wayfarer/after_spawn(mob/living/carbon/human/spawned, client/player_client)
+	. = ..()
+	spawned.update_sight()
+	var/mounts = list("White Female", "White Male", "Black Female", "Black Male", "Brown Female", "Brown Male")
+	var/mount_choice = browser_input_list(spawned, "CHOOSE YOUR MOUNT.", "YOUR HORSE", mounts)
+
+	switch(mount_choice)
+		if("White Female")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse)
+		if("White Male")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/male)
+		if("Black Female")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/black)
+		if("Black Male")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/black_male)
+		if("Brown Female")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/brown)
+		if("Brown Male")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/brown_male)

@@ -21,6 +21,7 @@
 		/datum/skill/misc/stealing = 4,
 		/datum/skill/misc/lockpicking = 1,
 		/datum/skill/misc/reading = 2,
+		/datum/skill/misc/music = 2,
 	)
 
 	jobstats = list(
@@ -32,11 +33,6 @@
 	traits = list(
 		TRAIT_DODGEEXPERT,
 	)
-
-/datum/job/advclass/combat/adventurer_ranger/borderland_rider/after_spawn(mob/living/carbon/human/spawned, client/player_client)
-	. = ..()
-	new /mob/living/simple_animal/hostile/retaliate/saiga/tame/saddled(get_turf(spawned))
-	spawned.adjust_skillrank(/datum/skill/misc/music, rand(1, 2), TRUE)
 
 /datum/outfit/adventurer_ranger/borderland_rider
 	name = "Borderland Rider"
@@ -58,3 +54,23 @@
 	ring = null
 	l_hand = null
 	r_hand = null
+
+/datum/job/advclass/combat/adventurer_ranger/borderland_rider/after_spawn(mob/living/carbon/human/spawned, client/player_client)
+	. = ..()
+	spawned.update_sight()
+	var/mounts = list("White Female", "White Male", "Black Female", "Black Male", "Brown Female", "Brown Male")
+	var/mount_choice = browser_input_list(spawned, "CHOOSE YOUR MOUNT.", "YOUR HORSE", mounts)
+
+	switch(mount_choice)
+		if("White Female")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse)
+		if("White Male")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/male)
+		if("Black Female")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/black)
+		if("Black Male")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/black_male)
+		if("Brown Female")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/brown)
+		if("Brown Male")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/brown_male)
