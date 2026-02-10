@@ -16,6 +16,7 @@
 	update_icon()
 
 /obj/item/clothing/head/courtphysician/update_icon()
+	. = ..()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
@@ -37,6 +38,7 @@
 	update_icon()
 
 /obj/item/clothing/head/roguetown/courtphysician/female/update_icon()
+	. = ..()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
@@ -129,6 +131,7 @@
 	update_icon()
 
 /obj/item/clothing/gloves/leather/courtphysician/female/update_icon()
+	. = ..()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
@@ -157,6 +160,7 @@
 	update_icon()
 
 /obj/item/clothing/armor/leather/courtphysician/update_icon()
+	. = ..()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
@@ -183,6 +187,7 @@
 	update_icon()
 
 /obj/item/clothing/armor/leather/courtphysician/female/update_icon()
+	. = ..()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
@@ -211,6 +216,7 @@
 	update_icon()
 
 /obj/item/clothing/shirt/undershirt/courtphysician/update_icon()
+	. = ..()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
@@ -237,6 +243,7 @@
 	update_icon()
 
 /obj/item/clothing/shirt/undershirt/courtphysician/female/update_icon()
+	. = ..()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
@@ -285,6 +292,7 @@
 	update_icon()
 
 /obj/item/clothing/pants/skirt/courtphysician/update_icon()
+	. = ..()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
@@ -322,6 +330,7 @@
 	update_icon()
 
 /obj/item/clothing/shoes/heels/courtphysician/female/update_icon()
+	. = ..()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
