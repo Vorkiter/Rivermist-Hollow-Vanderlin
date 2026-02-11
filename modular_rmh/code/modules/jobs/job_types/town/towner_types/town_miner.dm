@@ -1,4 +1,4 @@
-/datum/job/miner
+/datum/job/advclass/towner/miner
 	title = "Miner"
 	tutorial = "In the hills near Rivermist Hollow, \
 	you work the patient labor of stone and earth. \
@@ -6,18 +6,11 @@
 	and you know the land well enough to hear when it shifts or settles. \
 	It is honest work, often shared with a mug of ale at day’s end, \
 	and the town relies on what you bring up from below."
-	department_flag = TOWN
-	faction = FACTION_TOWN
 	total_positions = 5
 	spawn_positions = 5
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	display_order = JDO_MINER
 
-	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
-	allowed_races = ALL_RACES_LIST
-
-	selection_color = JCOLOR_TOWN
-	outfit = /datum/outfit/miner
+	outfit = /datum/outfit/towner/miner
+	category_tags = list(CAT_TOWNER)
 	give_bank_account = 6
 
 	job_bitflag = BITFLAG_CONSTRUCTOR
@@ -46,7 +39,7 @@
 		/datum/skill/misc/reading = 1
 	)
 
-/datum/outfit/miner
+/datum/outfit/towner/miner
 	name = "Miner"
 	head = /obj/item/clothing/head/helmet/leather/minershelm
 	mask = null

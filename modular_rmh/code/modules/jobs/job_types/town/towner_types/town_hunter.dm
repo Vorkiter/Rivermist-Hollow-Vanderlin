@@ -1,22 +1,15 @@
-/datum/job/hunter
+/datum/job/advclass/towner/hunter
 	title = "Hunter"
 	f_title = "Huntress"
 	tutorial = "The wetlands and woodlands near Rivermist Hollow are rich with game, \
 	if you know where to look and when to tread lightly. \
 	You track deer, boar, and smaller beasts, supplying meat, hides, and bone to the town."
-	department_flag = TOWN
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	faction = FACTION_TOWN
 	total_positions = 5
 	spawn_positions = 5
-	display_order = JDO_HUNTER
 
-	allowed_races = RACES_PLAYER_ALL
-
-	outfit = /datum/outfit/hunter
+	outfit = /datum/outfit/towner/hunter
+	category_tags = list(CAT_TOWNER)
 	give_bank_account = 15
-	apprentice_name = "Hunter"
-	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
@@ -47,16 +40,7 @@
 		TRAIT_FORAGER
 	)
 
-/datum/job/hunter/after_spawn(mob/living/carbon/human/spawned, client/player_client)
-	. = ..()
-	if(spawned.age == AGE_OLD)
-		spawned.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
-		spawned.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		spawned.adjust_skillrank(/datum/skill/craft/traps, 1, TRUE)
-		spawned.adjust_stat_modifier(STATMOD_JOB, STATKEY_PER, -2)
-		spawned.adjust_stat_modifier(STATMOD_JOB, STATKEY_END, -1)
-
-/datum/outfit/hunter
+/datum/outfit/towner/hunter
 	name = "Hunter"
 	head = /obj/item/clothing/head/brimmed
 	mask = null

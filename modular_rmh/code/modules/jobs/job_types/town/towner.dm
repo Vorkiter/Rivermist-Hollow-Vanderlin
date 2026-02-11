@@ -5,8 +5,8 @@
 	Your wealth and reputation shape how others treat you far more than any official title."
 	department_flag = TOWN
 	faction = FACTION_TOWN
-	total_positions = 10
-	spawn_positions = 10
+	total_positions = 25
+	spawn_positions = 25
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_TOWNER
 
@@ -19,7 +19,15 @@
 	job_subclasses = list(
 		/datum/job/advclass/towner/commoner,
 		/datum/job/advclass/towner/burgess,
-		/datum/job/advclass/towner/patrician
+		/datum/job/advclass/towner/patrician,
+		/datum/job/advclass/towner/town_mouth,
+		/datum/job/advclass/towner/bard,
+		/datum/job/advclass/towner/jester,
+		/datum/job/advclass/towner/miner,
+		/datum/job/advclass/towner/farmhand,
+		/datum/job/advclass/towner/hunter,
+		/datum/job/advclass/towner/fisher,
+
 	)
 
 //SUBCLASSES

@@ -1,22 +1,16 @@
-/datum/job/farmhand
+/datum/job/advclass/towner/farmhand
 	title = "Farmhand"
 	tutorial = "You live by the turning of seasons and the moods of the soil. \
 	The fields of Rivermist Hollow answer to steady hands and patient care, \
 	and you know when to plant, when to rest, and when to harvest. \
 	Your work feeds the town, keeps markets full, and brings comfort in lean years. \
 	It's a peaceful life."
-	department_flag = TOWN
-	faction = FACTION_TOWN
 	total_positions = 5
 	spawn_positions = 5
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	display_order = JDO_FARMER
 
-	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
-	allowed_races = ALL_RACES_LIST
+	outfit = /datum/outfit/towner/farmhand
+	category_tags = list(CAT_TOWNER)
 
-	selection_color = JCOLOR_TOWN
-	outfit = /datum/outfit/farmhand
 	give_bank_account = 20
 
 	job_bitflag = BITFLAG_CONSTRUCTOR
@@ -53,7 +47,7 @@
 		TRAIT_SEEDKNOW
 	)
 
-/datum/outfit/farmhand
+/datum/outfit/towner/farmhand
 	name = "Farmhand"
 	head = null
 	mask = null
@@ -80,7 +74,7 @@
 		/obj/item/recipe_book/agriculture = 1
 	)
 
-/datum/outfit/farmhand/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
+/datum/outfit/towner/farmhand/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
 	. = ..()
 	if(equipped_human.gender == MALE)
 		head = /obj/item/clothing/head/strawhat

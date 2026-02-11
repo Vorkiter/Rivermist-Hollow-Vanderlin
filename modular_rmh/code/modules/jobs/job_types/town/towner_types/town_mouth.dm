@@ -1,19 +1,12 @@
-/datum/job/town_mouth
+/datum/job/advclass/towner/town_mouth
 	title = "Town Mouth"
 	tutorial = "You are the appointed voice of civic authority. \
 	Laws, news, and public warnings are spoken through you."
-	department_flag = TOWN
-	faction = FACTION_TOWN
 	total_positions = 2
 	spawn_positions = 2
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	display_order = JDO_TOWN_MOUTH
 
-	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
-	allowed_races = ALL_RACES_LIST
-
-	selection_color = JCOLOR_TOWN
-	outfit = /datum/outfit/town_mouth
+	outfit = /datum/outfit/towner/town_mouth
+	category_tags = list(CAT_TOWNER)
 	give_bank_account = 20
 
 	jobstats = list(
@@ -31,11 +24,11 @@
 		/datum/skill/combat/unarmed = 1,
 	)
 
-/datum/job/town_mouth/after_spawn(mob/living/spawned, client/player_client)
+/datum/job/advclass/towner/town_mouth/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
 	spawned.verbs |= /mob/living/carbon/human/proc/town_mouth_announcement
 
-/datum/outfit/town_mouth
+/datum/outfit/towner/town_mouth
 	name = "Town Mouth"
 	head = /obj/item/clothing/head/veiled/loudmouth
 	mask = null
