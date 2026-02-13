@@ -19,6 +19,10 @@
 	mob_overlay_icon = 'modular_rmh/icons/clothing/vladegeg/onmob/desert_sorceress.dmi'
 	icon_state = "skirt"
 	item_state = "skirt"
+	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
+	nodismemsleeves = TRUE
+	sleevetype = null
+	sleeved = null
 
 /obj/item/clothing/head/desert_sorceress
 	name = "desert sorceress hood"

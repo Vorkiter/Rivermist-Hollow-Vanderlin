@@ -1,4 +1,4 @@
-/datum/job/advclass/artisan/artificer
+/datum/job/advclass/town_scholar/artificer
 	title = "Artificer"
 	tutorial = "You are a learned craftsperson of mechanisms and materials. \
 	Gears, pulleys, constructs, and clever devices answer to your hand."
@@ -6,8 +6,11 @@
 	apprentice_name = "Artificer Apprentice"
 	can_have_apprentices = TRUE
 
-	outfit = /datum/outfit/artificer
-	category_tags = list(CAT_ARTISAN)
+	total_positions = 1
+	spawn_positions = 1
+
+	outfit = /datum/outfit/town_scholar/artificer
+	category_tags = list(CAT_ARCHIVIST)
 
 	give_bank_account = 8
 	job_bitflag = BITFLAG_CONSTRUCTOR
@@ -42,7 +45,7 @@
 		TRAIT_TUTELAGE,
 		)
 
-/datum/outfit/artificer
+/datum/outfit/town_scholar/artificer
 	name = "Artificer"
 	head = /obj/item/clothing/head/articap
 	mask = /obj/item/clothing/face/goggles
@@ -50,7 +53,7 @@
 	cloak = null
 	armor = /obj/item/clothing/armor/leather/jacket/artijacket
 	shirt = /obj/item/clothing/shirt/undershirt/artificer
-	wrists = null
+	wrists = /obj/item/storage/keyring/guild_artisan
 	gloves = null
 	pants = /obj/item/clothing/pants/trou/artipants
 	shoes = /obj/item/clothing/shoes/simpleshoes/buckle

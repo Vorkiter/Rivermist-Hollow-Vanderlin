@@ -2,6 +2,9 @@
 	title = "Hedge Knight"
 	tutorial = "A wandering hedge knight, mastering the sword and upholding the code of honor across Faerûn."
 
+	allowed_races = list(SPEC_ID_HUMEN, SPEC_ID_AASIMAR)
+	allowed_sexes = list(MALE)
+
 	outfit = /datum/outfit/adventurer_fighter/hedgeknight
 	category_tags = list(CAT_ADVENTURER_FIGHTER)
 
@@ -39,6 +42,23 @@
 	var/datum/species/species = spawned.dna?.species
 	if(species && species.id == SPEC_ID_HUMEN)
 		species.soundpack_m = new /datum/voicepack/male/knight()
+
+	var/mounts = list("White Female", "White Male", "Black Female", "Black Male", "Brown Female", "Brown Male")
+	var/mount_choice = browser_input_list(spawned, "CHOOSE YOUR MOUNT.", "YOUR HORSE", mounts)
+
+	switch(mount_choice)
+		if("White Female")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse)
+		if("White Male")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/male)
+		if("Black Female")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/black)
+		if("Black Male")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/black_male)
+		if("Brown Female")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/brown)
+		if("Brown Male")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/brown_male)
 
 /datum/outfit/adventurer_fighter/hedgeknight
 	name = "Hedge Knight (Folkhero)"

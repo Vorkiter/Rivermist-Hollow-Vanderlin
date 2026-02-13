@@ -1,28 +1,18 @@
-/datum/job/town_physician_apprentice
-	title = "Town Physician’s Apprentice"
+/datum/job/advclass/town_scholar_apprentice/physician_apprentice
+	title = "Physician’s Apprentice"
 	tutorial = "You are apprenticed to the Town Physician. \
 	You assist with cleaning tools, preparing simple remedies, \
 	and keeping the clinic and barber’s bench in order. \
 	You shave heads, trim beards, fetch herbs, and hold lamps during treatment. \
 	You are learning the basics of medicine, hygiene, and careful work with blade and needle."
-	department_flag = SCHOLARS
-	faction = FACTION_TOWN
+
 	total_positions = 2
 	spawn_positions = 2
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	display_order = JDO_PHYSICIAN_APPRENTICE
 
-	allowed_races = ALL_RACES_LIST
-	allowed_ages = list(AGE_ADULT)
-
-	outfit = /datum/outfit/town_physician_apprentice
-	selection_color = JCOLOR_SCHOLARS
+	outfit = /datum/outfit/town_scholar_apprentice/physician_apprentice
+	category_tags = list(CAT_ARCHIVISTAP)
 
 	give_bank_account = 20
-	exp_type = list(EXP_TYPE_LIVING)
-	exp_requirements = list(
-		EXP_TYPE_LIVING = 200
-	)
 
 	jobstats = list(
 		STATKEY_INT = 1,
@@ -47,9 +37,8 @@
 		TRAIT_EMPATH,
 	)
 
-/datum/outfit/town_physician_apprentice
-	name = "Town Physician’s Apprentice"
-	name = "Town Physician"
+/datum/outfit/town_scholar_apprentice/physician_apprentice
+	name = "Physician’s Apprentice"
 	head = /obj/item/clothing/head/physician
 	mask = /obj/item/clothing/face/physician
 	neck = /obj/item/clothing/neck/physician
@@ -69,7 +58,7 @@
 	l_hand = /obj/item/storage/belt/pouch/coins/mid
 	r_hand = null
 
-/datum/outfit/town_physician_apprentice/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
+/datum/outfit/town_scholar_apprentice/physician_apprentice/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
 	. = ..()
 	if(equipped_human.gender == MALE)
 		shirt = /obj/item/clothing/shirt/undershirt/courtphysician

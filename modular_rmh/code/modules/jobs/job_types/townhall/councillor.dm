@@ -30,8 +30,6 @@
 		EXP_TYPE_NOBLE = 300
 	)
 
-	spells = list(/datum/action/cooldown/spell/undirected/list_target/grant_title)
-
 	job_subclasses = list(
 		/datum/job/advclass/councilor/adjutant,
 		/datum/job/advclass/councilor/clerk,

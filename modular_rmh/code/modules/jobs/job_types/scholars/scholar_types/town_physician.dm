@@ -1,4 +1,4 @@
-/datum/job/town_physician
+/datum/job/advclass/town_scholar/town_physician
 	title = "Town Physician"
 	tutorial = "You are the town’s physician. \
 	You cut hair, shave beards, and keep tools clean to prevent sickness. \
@@ -6,19 +6,11 @@
 	You work with herbs, steel, and steady hands, guided by experience rather than superstition. \
 	Your work is quiet, constant, and often thankless — but the town is healthier for it."
 
-
-	department_flag = SCHOLARS
-	faction = FACTION_TOWN
 	total_positions = 1
 	spawn_positions = 1
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	display_order = JDO_PHYSICIAN
 
-	allowed_races = ALL_RACES_LIST
-	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
-
-	outfit = /datum/outfit/town_physician
-	selection_color = JCOLOR_SCHOLARS
+	outfit = /datum/outfit/town_scholar/town_physician
+	category_tags = list(CAT_ARCHIVIST)
 
 	trainable_skills = list(/datum/skill/craft/alchemy)
 	max_apprentices = 2
@@ -27,13 +19,6 @@
 
 	give_bank_account = 100
 	job_bitflag = BITFLAG_CONSTRUCTOR
-
-	exp_type = list(EXP_TYPE_LIVING, EXP_TYPE_MEDICAL)
-	exp_types_granted = list(EXP_TYPE_MEDICAL)
-	exp_requirements = list(
-		EXP_TYPE_LIVING = 600,
-		EXP_TYPE_MEDICAL = 300
-	)
 
 	jobstats = list(
 		STATKEY_INT = 4,
@@ -63,14 +48,15 @@
 		TRAIT_LEGENDARY_ALCHEMIST,
 		TRAIT_EMPATH,
 		TRAIT_STEELHEARTED,
-		TRAIT_DEADNOSE
+		TRAIT_DEADNOSE,
+		TRAIT_TUTELAGE,
 	)
 
 	spells = list(
 		/datum/action/cooldown/spell/diagnose,
 	)
 
-/datum/outfit/town_physician
+/datum/outfit/town_scholar/town_physician
 	name = "Town Physician"
 	head = null
 	mask = /obj/item/clothing/face/courtphysician
@@ -91,7 +77,7 @@
 	l_hand = /obj/item/clothing/gloves/leather/thaumgloves
 	r_hand = null
 
-/datum/outfit/town_physician/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
+/datum/outfit/town_scholar/town_physician/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
 	. = ..()
 	if(equipped_human.gender == MALE)
 		head = /obj/item/clothing/head/courtphysician

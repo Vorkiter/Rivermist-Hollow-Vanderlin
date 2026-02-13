@@ -17,7 +17,6 @@
 	advclass_cat_rolls = list(CAT_ARTISANAP = 20)
 
 	job_subclasses = list(
-		/datum/job/advclass/artisan_apprentice/artificer,
 		/datum/job/advclass/artisan_apprentice/blacksmith,
 		/datum/job/advclass/artisan_apprentice/carpenter,
 		/datum/job/advclass/artisan_apprentice/mason,

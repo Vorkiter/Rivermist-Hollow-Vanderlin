@@ -9,7 +9,7 @@
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleevetype = "shirt"
 	nodismemsleeves = TRUE
-	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
+	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK | ITEM_SLOT_BACK_R
 	var/picked
 
 /obj/item/clothing/cloak/stabard/attack_hand_secondary(mob/user, params)

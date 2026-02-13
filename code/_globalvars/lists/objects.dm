@@ -30,6 +30,16 @@ GLOBAL_LIST_INIT(peasant_dyes, list(
 	"Spring Green" = CLOTHING_SPRING_GREEN,
 	"Berry Blue" = CLOTHING_BERRY_BLUE,
 	"Taraxacum Yellow" = CLOTHING_TARAXACUM_YELLOW,
+	"PURPLE" = CLOTHING_PURPLE,
+	"BLACK" = CLOTHING_BLACK,
+	"BROWN" = CLOTHING_BROWN,
+	"YELLOW" = CLOTHING_YELLOW,
+	"AZURE" = CLOTHING_AZURE,
+	"Baby Puke" = CLOTHING_BABY_PUKE,
+	"Gold" = CLOTHING_GOLD,
+	"Mage Red" = CLOTHING_MAGE_RED,
+	"Orange" = CLOTHING_ORANGE,
+	"Red" = CLOTHING_RED,
 ))
 GLOBAL_PROTECT(peasant_dyes)
 
@@ -48,6 +58,7 @@ GLOBAL_LIST_INIT(noble_dyes, list(
 	"Blood Red" = CLOTHING_BLOOD_RED,
 	"Swampweed" = CLOTHING_SWAMPWEED,
 	"Ocean" = CLOTHING_OCEAN,
+	"Darkest Night" = CLOTHING_DARKEST_NIGHT,
 ))
 GLOBAL_PROTECT(noble_dyes)
 

@@ -1,10 +1,12 @@
-/datum/job/advclass/artisan_apprentice/artificer
+/datum/job/advclass/town_scholar_apprentice/artificer
 	title = "Artificer Apprentice"
 	tutorial = "You assist a master artificer, cleaning tools, assembling simple parts, \
 	and learning how clever mechanisms truly work."
+	total_positions = 2
+	spawn_positions = 2
 
-	outfit = /datum/outfit/artisan_apprentice/artificer
-	category_tags = list(CAT_ARTISANAP)
+	outfit = /datum/outfit/town_scholar_apprentice/artificer
+	category_tags = list(CAT_ARCHIVISTAP)
 
 	give_bank_account = 3
 	job_bitflag = BITFLAG_CONSTRUCTOR
@@ -25,7 +27,7 @@
 		/datum/skill/misc/athletics = 1,
 	)
 
-/datum/outfit/artisan_apprentice/artificer
+/datum/outfit/town_scholar_apprentice/artificer
 	name = "Artificer Apprentice"
 	head = null
 	mask = /obj/item/clothing/face/goggles
@@ -33,7 +35,7 @@
 	cloak = null
 	armor = /obj/item/clothing/armor/leather/jacket
 	shirt = /obj/item/clothing/shirt/undershirt
-	wrists = null
+	wrists = /obj/item/storage/keyring/guild_artisan
 	gloves = null
 	pants = /obj/item/clothing/pants/trou/leather
 	shoes = /obj/item/clothing/shoes/simpleshoes

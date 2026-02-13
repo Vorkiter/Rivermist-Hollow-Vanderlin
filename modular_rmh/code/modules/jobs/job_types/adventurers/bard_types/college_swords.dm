@@ -36,7 +36,7 @@
 		TRAIT_BARDIC_TRAINING
 	)
 
-/datum/job/advclass/mercenary/sworddancer/after_spawn(mob/living/carbon/human/spawned, client/player_client)
+/datum/job/advclass/combat/adventurer_bard/college_swords/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	. = ..()
 
 	spawned.select_equippable(player_client, list(

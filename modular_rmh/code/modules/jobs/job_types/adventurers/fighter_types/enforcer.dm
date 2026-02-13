@@ -40,7 +40,7 @@
 	name = "Enforcer"
 	var/is_leader = FALSE //does nothing except give you a cooler blade.
 
-/datum/outfit/adventurer_fighter/enforcer/enforcer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer_fighter/enforcer/pre_equip(mob/living/carbon/human/H)
 	shirt = /obj/item/clothing/shirt/undershirt/easttats
 	belt = /obj/item/storage/belt/leather/mercenary
 	backr = /obj/item/storage/backpack/satchel

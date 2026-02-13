@@ -151,7 +151,8 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 #define CAT_CHAPEL			"CAT_CHAPEL"		// Chapel acolyte class - 3 types
 //SCHOLARS
 #define CAT_GUILDWIZARD		"GUILDWIZARD"		// Guild wizard class - 2 types
-#define CAT_ARCHIVIST		"ARCHIVIST"			// Archivist class - 3 types
+#define CAT_ARCHIVIST		"ARCHIVIST"			// Archivist class - 4 types
+#define CAT_ARCHIVISTAP		"ARCHIVISTAP"		// Archivist apprentice class - 3 types
 //TRADERS
 #define CAT_SHOPHAND		"SHOPHAND"			// Waterdeep assistant class - 2 types
 //TAVERN

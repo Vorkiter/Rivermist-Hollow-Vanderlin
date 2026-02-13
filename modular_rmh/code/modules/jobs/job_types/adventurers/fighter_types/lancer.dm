@@ -2,6 +2,9 @@
 	title = "Lancer"
 	tutorial = "A seasoned sellsword from Calimshan, you left your homeland to escape the debts of old contracts and bloodshed. With your polearm by your side, you can face down any foe."
 
+	allowed_races = list(SPEC_ID_HUMEN)
+	allowed_sexes = list(MALE)
+
 	outfit = /datum/outfit/adventurer_fighter/lancer
 	category_tags = list(CAT_ADVENTURER_FIGHTER)
 
