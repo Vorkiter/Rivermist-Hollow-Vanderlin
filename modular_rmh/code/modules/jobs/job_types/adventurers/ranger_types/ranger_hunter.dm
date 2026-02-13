@@ -1,5 +1,5 @@
 /datum/job/advclass/combat/adventurer_ranger/ranger_hunter
-	title = "Beast Master"
+	title = "Ranger Hunter"
 	tutorial = "You seek the most dangerous prey in Faerûn, from ancient dragons to massive hordes of undead, and excel at slaying them all."
 
 	outfit = /datum/outfit/adventurer_ranger/ranger_hunter
