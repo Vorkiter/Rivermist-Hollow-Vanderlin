@@ -49,7 +49,7 @@
 	shoes = /obj/item/clothing/shoes/shalal
 	backr = null
 	backl = /obj/item/storage/backpack/satchel
-	belt = /obj/item/storage/belt/leather/shalal
+	belt = /obj/item/storage/belt/leather/shalal/adventurers_subclasses
 	beltl = null
 	beltr = /obj/item/weapon/knife/dagger/steel/special
 	ring = null

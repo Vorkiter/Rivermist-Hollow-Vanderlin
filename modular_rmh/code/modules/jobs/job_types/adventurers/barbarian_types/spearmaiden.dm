@@ -54,7 +54,7 @@
 	shoes = /obj/item/clothing/shoes/gladiator
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/short
 	backl = /obj/item/weapon/polearm/spear
-	belt = /obj/item/storage/belt/leather/rope
+	belt = /obj/item/storage/belt/leather/rope/adventurers_subclasses
 	beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/blowgun
 	beltr = /obj/item/ammo_holder/quiver/arrows
 	beltr = null

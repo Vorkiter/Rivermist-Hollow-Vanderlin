@@ -60,7 +60,7 @@
 	shoes = /obj/item/clothing/shoes/shalal
 	backr = /obj/item/storage/backpack/satchel
 	backl = null
-	belt = /obj/item/storage/belt/leather/shalal
+	belt = /obj/item/storage/belt/leather/shalal/adventurers_subclasses
 	beltl = /obj/item/weapon/scabbard/sword/royal
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	ring = /obj/item/clothing/ring/gold/guild_mercator

@@ -69,7 +69,7 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	backr = /obj/item/fishingrod/fisher
 	backl = /obj/item/storage/backpack/backpack/artibackpack/porter //+1 to Row/Columns compared to a regular backpack alongside preserving foods.
-	belt = /obj/item/storage/belt/leather
+	belt = /obj/item/storage/belt/leather/adventurers_subclasses
 	beltr = /obj/item/storage/messkit
 	beltl = /obj/item/weapon/knife/cleaver
 	ring = null
