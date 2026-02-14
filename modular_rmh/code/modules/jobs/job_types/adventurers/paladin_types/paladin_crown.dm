@@ -5,6 +5,7 @@
 
 	outfit = /datum/outfit/adventurer_paladin/crown
 	category_tags = list(CAT_ADVENTURER_PALADIN)
+	give_bank_account = TRUE
 
 
 	skills = list(

@@ -5,6 +5,7 @@
 
 	outfit = /datum/outfit/adventurer_ranger/elven_outrider
 	category_tags = list(CAT_ADVENTURER_RANGER)
+	give_bank_account = TRUE
 
 	skills = list(
 		/datum/skill/combat/wrestling = 2,

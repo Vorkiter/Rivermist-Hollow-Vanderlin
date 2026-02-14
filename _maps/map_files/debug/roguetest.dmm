@@ -1319,6 +1319,11 @@
 	},
 /turf/open/floor/dirt/road,
 /area/outdoors)
+"iy" = (
+/obj/structure/carpet/purple,
+/obj/structure/resurrection_rune/control,
+/turf/open/floor/blocks,
+/area/indoors/town/keep)
 "iE" = (
 /obj/machinery/light/fueled/torchholder/hotspring/standing{
 	pixel_x = 15
@@ -1353,9 +1358,6 @@
 /obj/effect/decal/carpet/square{
 	pixel_y = -17;
 	pixel_x = -16
-	},
-/obj/effect/landmark/start/lord{
-	dir = 8
 	},
 /turf/open/floor/churchbrick,
 /area/indoors/town/keep)
@@ -3003,6 +3005,11 @@
 	},
 /turf/open/floor/wood,
 /area/indoors)
+"Ok" = (
+/obj/structure/carpet/purple,
+/obj/structure/resurrection_rune,
+/turf/open/floor/blocks,
+/area/indoors/town/keep)
 "OK" = (
 /turf/open/floor/cobblerock,
 /area/indoors/town/keep)
@@ -3035,7 +3042,6 @@
 /obj/structure/chair/hotspring_bench/right{
 	pixel_y = 12
 	},
-/obj/effect/landmark/start/consort,
 /turf/open/floor/grass/yel,
 /area/outdoors)
 "Pq" = (
@@ -21758,7 +21764,7 @@ se
 Iz
 SV
 yi
-QC
+Ok
 yi
 Dt
 se
@@ -23814,7 +23820,7 @@ se
 lM
 SV
 yi
-QC
+iy
 yi
 Dt
 se

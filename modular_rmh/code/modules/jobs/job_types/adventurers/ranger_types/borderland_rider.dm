@@ -5,6 +5,7 @@
 	allowed_races = list(SPEC_ID_TIEFLING)
 	outfit = /datum/outfit/adventurer_ranger/borderland_rider
 	category_tags = list(CAT_ADVENTURER_RANGER)
+	give_bank_account = TRUE
 
 	skills = list(
 		/datum/skill/misc/athletics = 3,

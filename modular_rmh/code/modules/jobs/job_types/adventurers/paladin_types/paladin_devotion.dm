@@ -5,6 +5,7 @@
 
 	outfit = /datum/outfit/adventurer_paladin/devotion
 	category_tags = list(CAT_ADVENTURER_PALADIN)
+	give_bank_account = TRUE
 
 	skills = list(
 		/datum/skill/combat/axesmaces = 2,

@@ -7,6 +7,7 @@
 	allowed_races = list(SPEC_ID_RAKSHARI)
 	outfit = /datum/outfit/adventurer_ranger/tabaxi_raider
 	category_tags = list(CAT_ADVENTURER_RANGER)
+	give_bank_account = TRUE
 
 	jobstats = list(
 		STATKEY_STR = 1,

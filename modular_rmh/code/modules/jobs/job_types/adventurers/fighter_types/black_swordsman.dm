@@ -6,6 +6,7 @@
 	allowed_sexes = list(MALE)
 	outfit = /datum/outfit/adventurer_fighter/black_swordsman
 	category_tags = list(CAT_ADVENTURER_FIGHTER)
+	give_bank_account = TRUE
 	total_positions = 1
 
 	skills = list(

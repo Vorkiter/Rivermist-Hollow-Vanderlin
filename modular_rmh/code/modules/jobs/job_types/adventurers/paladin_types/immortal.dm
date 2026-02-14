@@ -6,6 +6,7 @@
 	allowed_races = list(SPEC_ID_AASIMAR)
 	outfit = /datum/outfit/adventurer_paladin/immortal
 	category_tags = list(CAT_ADVENTURER_PALADIN)
+	give_bank_account = TRUE
 
 	skills = list(
 		/datum/skill/combat/wrestling = 2,

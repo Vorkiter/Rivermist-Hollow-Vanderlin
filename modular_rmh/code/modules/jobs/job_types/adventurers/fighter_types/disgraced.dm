@@ -6,6 +6,7 @@
 
 	outfit = /datum/outfit/adventurer_fighter/disgraced
 	category_tags = list(CAT_ADVENTURER_FIGHTER)
+	give_bank_account = TRUE
 	total_positions = 2
 
 	jobstats = list(

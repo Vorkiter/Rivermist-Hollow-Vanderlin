@@ -6,6 +6,7 @@
 
 	outfit = /datum/outfit/adventurer_fighter/calishite_mercenary
 	category_tags = list(CAT_ADVENTURER_FIGHTER)
+	give_bank_account = TRUE
 
 	jobstats = list(
 		STATKEY_STR = 1,

@@ -2,6 +2,7 @@
 	title = "Evocation Wizard"
 	tutorial = "You are known as an evoker - striding unharmed through the unfettered chaos you call."
 
+	give_bank_account = TRUE
 	outfit = /datum/outfit/adventurer_wizard/evocation_wizard
 	category_tags = list(CAT_ADVENTURER_WIZARD)
 

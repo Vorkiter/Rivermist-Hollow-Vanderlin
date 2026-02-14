@@ -3,6 +3,7 @@
 	tutorial = "You value the arts of stealth and subterfuge, bending the shadows to your will to strike without warning."
 
 	category_tags = list(CAT_ADVENTURER_MONK)
+	give_bank_account = TRUE
 	outfit = /datum/outfit/adventurer_monk/shadow
 
 	jobstats = list(

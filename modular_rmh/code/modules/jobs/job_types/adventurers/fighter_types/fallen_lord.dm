@@ -5,6 +5,7 @@
 	vengeance, or a chance to reclaim what was lost."
 
 	category_tags = list(CAT_ADVENTURER_FIGHTER)
+	give_bank_account = TRUE
 	outfit = /datum/outfit/adventurer_fighter/fallen_lord
 	total_positions = 1
 

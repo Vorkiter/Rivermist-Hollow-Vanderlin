@@ -6,6 +6,7 @@
 
 	outfit = /datum/outfit/adventurer_fighter/warrior
 	category_tags = list(CAT_ADVENTURER_FIGHTER)
+	give_bank_account = TRUE
 
 	skills = list(
 		/datum/skill/combat/wrestling = 2,

@@ -6,6 +6,7 @@
 	allowed_races = list(SPEC_ID_HARPY)
 	outfit = /datum/outfit/adventurer_fighter/winged_rescuer
 	category_tags = list(CAT_ADVENTURER_FIGHTER)
+	give_bank_account = TRUE
 
 
 	jobstats = list(

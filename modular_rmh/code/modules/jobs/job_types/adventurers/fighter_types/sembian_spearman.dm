@@ -7,6 +7,7 @@
 
 	outfit = /datum/outfit/adventurer_fighter/sembian_spearman
 	category_tags = list(CAT_ADVENTURER_FIGHTER)
+	give_bank_account = TRUE
 
 	jobstats = list(
 		STATKEY_SPD = 2,

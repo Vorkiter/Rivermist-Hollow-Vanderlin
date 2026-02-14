@@ -6,6 +6,7 @@
 	allowed_races = RACES_PLAYER_ELF_ALL
 	outfit = /datum/outfit/adventurer_ranger/elf_caravan
 	category_tags = list(CAT_ADVENTURER_RANGER)
+	give_bank_account = TRUE
 
 	// Base stats
 	jobstats = list(

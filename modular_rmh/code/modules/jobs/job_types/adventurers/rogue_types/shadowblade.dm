@@ -5,6 +5,7 @@
 	allowed_races = list(SPEC_ID_DROW)
 	outfit = /datum/outfit/adventurer_rogue/shadowblade
 	category_tags = list(CAT_ADVENTURER_ROGUE)
+	give_bank_account = TRUE
 
 	skills = list(
 		/datum/skill/misc/swimming = 2,

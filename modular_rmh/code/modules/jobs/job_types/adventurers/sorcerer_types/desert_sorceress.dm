@@ -2,6 +2,7 @@
 	title = "Desert Sorceress"
 	tutorial = "You call on the Weave to shape fire and ash. Magic is delicate, but deadly in skilled hands."
 
+	give_bank_account = TRUE
 	allowed_sexes = list(FEMALE)
 	outfit = /datum/outfit/adventurer_sorcerer/desert_sorceress
 	category_tags = list(CAT_ADVENTURER_SORCERER)

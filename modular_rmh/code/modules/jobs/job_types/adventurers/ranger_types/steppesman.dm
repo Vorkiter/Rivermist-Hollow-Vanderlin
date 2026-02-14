@@ -4,6 +4,7 @@
 
 	outfit = /datum/outfit/adventurer_ranger/steppesman
 	category_tags = list(CAT_ADVENTURER_RANGER)
+	give_bank_account = TRUE
 
 
 	jobstats = list(

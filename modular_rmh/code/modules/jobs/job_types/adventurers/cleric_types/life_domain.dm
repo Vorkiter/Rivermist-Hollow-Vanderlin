@@ -4,6 +4,7 @@
 
 	outfit = /datum/outfit/adventurer_cleric/life_domain
 	category_tags = list(CAT_ADVENTURER_CLERIC)
+	give_bank_account = TRUE
 
 	jobstats = list(
 		STATKEY_STR = 1,

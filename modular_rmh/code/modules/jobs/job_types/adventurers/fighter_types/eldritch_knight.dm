@@ -4,6 +4,7 @@
 
 	outfit = /datum/outfit/adventurer_fighter/eldritch_knight
 	category_tags = list(CAT_ADVENTURER_FIGHTER)
+	give_bank_account = TRUE
 	exp_types_granted = list(EXP_TYPE_MERCENARY, EXP_TYPE_COMBAT, EXP_TYPE_MAGICK)
 
 	magic_user = TRUE

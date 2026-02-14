@@ -6,6 +6,7 @@
 
 	outfit = /datum/outfit/adventurer_barbarian/rat_wildman
 	category_tags = list(CAT_ADVENTURER_BARBARIAN)
+	give_bank_account = TRUE
 	total_positions = 2
 	faction = FACTION_RATS
 

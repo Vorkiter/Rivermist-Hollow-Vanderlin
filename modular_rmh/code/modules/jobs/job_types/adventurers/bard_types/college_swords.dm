@@ -4,6 +4,7 @@
 
 	outfit = /datum/outfit/adventurer_bard/college_swords
 	category_tags = list(CAT_ADVENTURER_BARD)
+	give_bank_account = TRUE
 
 	spells = list(
 		/datum/action/cooldown/spell/vicious_mockery,

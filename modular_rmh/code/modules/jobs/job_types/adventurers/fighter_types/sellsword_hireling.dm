@@ -6,6 +6,7 @@
 
 	outfit = /datum/outfit/adventurer_fighter/sellsword_hireling
 	category_tags = list(CAT_ADVENTURER_FIGHTER)
+	give_bank_account = TRUE
 	allowed_ages = list(AGE_ADULT)
 
 	skills = list(

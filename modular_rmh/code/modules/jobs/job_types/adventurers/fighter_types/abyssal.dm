@@ -5,6 +5,7 @@
 	allowed_races = list(SPEC_ID_TRITON)
 	outfit = /datum/outfit/adventurer_fighter/abyssal
 	category_tags = list(CAT_ADVENTURER_FIGHTER)
+	give_bank_account = TRUE
 
 	skills = list(
 		/datum/skill/misc/swimming = 3,

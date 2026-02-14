@@ -3,6 +3,7 @@
 	tutorial = "You have made your pact with a mysterious entity from the Shadowfell - \
 	a force that manifests in sentient magic weapons carved from the stuff of shadow."
 
+	give_bank_account = TRUE
 	outfit = /datum/outfit/adventurer_warlock/the_hexblade
 	category_tags = list(CAT_ADVENTURER_WARLOCK)
 

@@ -8,6 +8,7 @@
 	allowed_sexes = list(FEMALE)
 	outfit = /datum/outfit/adventurer_cleric/ironmaiden
 	category_tags = list(CAT_ADVENTURER_CLERIC)
+	give_bank_account = TRUE
 
 	jobstats = list(
 		STATKEY_STR = 1,

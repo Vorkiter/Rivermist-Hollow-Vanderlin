@@ -931,6 +931,8 @@
 			if(QDELETED(target) || !istype(target))
 				stack_trace("Essence spell checking cost without being assigned to an essence gauntlet!")
 				return FALSE
+			if(!istype(target, /obj/item/clothing/gloves/essence_gauntlet))
+				return FALSE
 			if(!gaunt.check_gauntlet_validity(owner))
 				return FALSE
 			// Ditto

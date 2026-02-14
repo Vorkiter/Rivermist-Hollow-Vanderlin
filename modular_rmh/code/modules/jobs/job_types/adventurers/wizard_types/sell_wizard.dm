@@ -3,6 +3,7 @@
 	tutorial = "Once a noble trained in the arcane arts in Waterdeep, \
 	you lost your fortune and now offer your magical skills to those who can pay. \
 	Adept in spellcraft and versed in courtly knowledge, you can hold your own in combat while ensuring your employer’s goals are met."
+	give_bank_account = TRUE
 
 	outfit = /datum/outfit/adventurer_wizard/sell_wizard
 	category_tags = list(CAT_ADVENTURER_WIZARD)

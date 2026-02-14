@@ -3,6 +3,7 @@
 	f_title = "Wild Magic Sorceress"
 	tutorial = "Your powers come from ancient forces of chaos. They churn within you - waiting to burst free at any time."
 
+	give_bank_account = TRUE
 	outfit = /datum/outfit/adventurer_sorcerer/wild_magic
 	category_tags = list(CAT_ADVENTURER_SORCERER)
 

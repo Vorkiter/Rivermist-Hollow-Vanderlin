@@ -7,6 +7,7 @@
 	allowed_races = list(SPEC_ID_HALF_ORC)
 	outfit = /datum/outfit/adventurer_ranger/swampstalker
 	category_tags = list(CAT_ADVENTURER_RANGER)
+	give_bank_account = TRUE
 
 	jobstats = list(
 		STATKEY_STR = 1,

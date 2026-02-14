@@ -2,6 +2,7 @@
 	title = "The Fiend"
 	tutorial = "You have pledged your soul to the Hells or Abyss in return for a deadly arsenal of fiendish arcana."
 
+	give_bank_account = TRUE
 	outfit = /datum/outfit/adventurer_warlock/the_fiend
 	category_tags = list(CAT_ADVENTURER_WARLOCK)
 

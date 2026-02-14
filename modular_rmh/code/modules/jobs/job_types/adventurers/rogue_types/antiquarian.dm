@@ -5,6 +5,7 @@
 
 	outfit = /datum/outfit/adventurer_rogue/antiquarian
 	category_tags = list(CAT_ADVENTURER_ROGUE)
+	give_bank_account = TRUE
 
 // The idea is that they're a slippery bastard. Cantrip focused, stealth-focused. They rely on their spells.
 	languages = list(/datum/language/thievescant)

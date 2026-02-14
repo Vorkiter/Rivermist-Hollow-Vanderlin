@@ -4,6 +4,7 @@
 	Now you must survive among mortals while hiding your true nature."
 	outfit = /datum/outfit/adventurer_rogue/bloodsucker
 	category_tags = list(CAT_ADVENTURER_ROGUE)
+	give_bank_account = TRUE
 	total_positions = 2
 	antag_job = TRUE
 	traits = list(

@@ -6,6 +6,7 @@
 	allowed_races = list(SPEC_ID_DWARF, SPEC_ID_DUERGAR)
 	outfit = /datum/outfit/adventurer_ranger/dwarf_ranger
 	category_tags = list(CAT_ADVENTURER_RANGER)
+	give_bank_account = TRUE
 
 	skills = list(
 		/datum/skill/combat/swords = 3, // In line with basic combat classes

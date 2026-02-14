@@ -4,6 +4,7 @@
 
 	outfit = /datum/outfit/adventurer_fighter/sembian_count
 	category_tags = list(CAT_ADVENTURER_FIGHTER)
+	give_bank_account = TRUE
 	total_positions = 1
 
 	jobstats = list(

@@ -6,6 +6,7 @@
 	allowed_races = RACES_PLAYER_ELF_ALL
 	outfit = /datum/outfit/adventurer_fighter/qualinesti
 	category_tags = list(CAT_ADVENTURER_FIGHTER)
+	give_bank_account = TRUE
 
 	jobstats = list(
 		STATKEY_END = 2,

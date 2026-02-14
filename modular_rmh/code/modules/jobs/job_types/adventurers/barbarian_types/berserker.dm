@@ -5,6 +5,7 @@
 
 	outfit = /datum/outfit/adventurer_barbarian/berserker
 	category_tags = list(CAT_ADVENTURER_BARBARIAN)
+	give_bank_account = TRUE
 
 	jobstats = list(
 		STATKEY_STR = 3,
