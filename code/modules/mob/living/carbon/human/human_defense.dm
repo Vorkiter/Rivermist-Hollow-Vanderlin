@@ -638,7 +638,7 @@
 
 	examination += "ø ------------ ø" //automatically lists internal organs that have those functions
 	var/mob/living/carbon/human/userino = user
-	if(userino.has_quirk(/datum/quirk/selfawaregeni))
+	if(userino.has_quirk(/datum/quirk/peculiarity/selfawaregeni))
 		for(var/obj/item/organ/genitals/filling_organ/forgan in userino.internal_organs)
 			var/health_status = ""
 			var/health_ratio = (forgan.maxHealth - forgan.damage) / forgan.maxHealth

@@ -8,7 +8,6 @@
 	customization_placeholder = "Fleeing prison."
 	var/logged = FALSE
 
-
 /datum/quirk/vice/hunted/get_desc(datum/preferences/prefs)
 	var/reason = prefs?.quirk_customizations[type]
 	if(!reason)
@@ -24,26 +23,6 @@
 	if(!logged && H.name)
 		log_hunted("[H.ckey] playing as [H.name] has the hunted quirk.")
 		logged = TRUE
-
-/datum/quirk/vice/luxless
-	name = "Lux-less"
-	desc = "Through some grand misfortune, or heroic sacrifice - you have given up your link to Psydon, and with it - your soul. A putrid, horrid thing, you consign yourself to an eternity of nil after death. EXPECT A DIFFICULT, MECHANICALLY UNFAIR EXPERIENCE. (Rakshari, Hollowkin and Kobolds cannot take this - they already have no lux.)"
-	point_value = 5
-	random_exempt = TRUE
-	blocked_species = list(
-		/datum/species/kobold,
-		/datum/species/demihuman,
-		/datum/species/rakshari,
-		/datum/species/rousman,
-		/datum/species/goblin,
-		/datum/species/orc,
-	)
-
-/datum/quirk/vice/luxless/on_spawn()
-	if(!ishuman(owner))
-		return
-	var/mob/living/carbon/human/H = owner
-	H.apply_status_effect(/datum/status_effect/debuff/flaw_lux_taken)
 
 /datum/quirk/vice/pacifist
 	name = "Pacifist"
@@ -156,7 +135,7 @@
 		/datum/species/triton,
 		/datum/species/rakshari,
 		/datum/species/kobold,
-		/datum/oratorium,
+		///datum/oratorium,
 		"Nobles",
 	)
 

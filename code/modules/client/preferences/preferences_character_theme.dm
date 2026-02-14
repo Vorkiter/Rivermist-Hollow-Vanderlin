@@ -50,6 +50,8 @@
 	user << browse_rsc('html/character_ui/dusty/flavour/flavour_text_hover.png', "flavour_text_hover.png")
 	user << browse_rsc('html/character_ui/dusty/flavour/flavour_foodprefs.png', "flavour_foodprefs.png")
 	user << browse_rsc('html/character_ui/dusty/flavour/flavour_foodprefs_hover.png', "flavour_foodprefs_hover.png")
+	user << browse_rsc('html/character_ui/dusty/flavour/flavour_misc.png', "flavour_misc.png")
+	user << browse_rsc('html/character_ui/dusty/flavour/flavour_misc_hover.png', "flavour_misc_hover.png")
 	user << browse_rsc('html/character_ui/dusty/flavour/flavour_preview.png', "flavour_preview.png")
 	user << browse_rsc('html/character_ui/dusty/flavour/flavour_preview_hover.png', "flavour_preview_hover.png")
 	// Loadout
@@ -142,6 +144,8 @@
 	user << browse_rsc('html/character_ui/grimshart/flavour/flavour_text_hover.png', "flavour_text_hover.png")
 	user << browse_rsc('html/character_ui/grimshart/flavour/flavour_foodprefs.png', "flavour_foodprefs.png")
 	user << browse_rsc('html/character_ui/grimshart/flavour/flavour_foodprefs_hover.png', "flavour_foodprefs_hover.png")
+	user << browse_rsc('html/character_ui/grimshart/flavour/flavour_misc.png', "flavour_misc.png")
+	user << browse_rsc('html/character_ui/grimshart/flavour/flavour_misc_hover.png', "flavour_misc_hover.png")
 	user << browse_rsc('html/character_ui/grimshart/flavour/flavour_preview.png', "flavour_preview.png")
 	user << browse_rsc('html/character_ui/grimshart/flavour/flavour_preview_hover.png', "flavour_preview_hover.png")
 	// Loadout
@@ -234,6 +238,8 @@
 	user << browse_rsc('html/character_ui/parchment/flavour/flavour_text_hover.png', "flavour_text_hover.png")
 	user << browse_rsc('html/character_ui/parchment/flavour/flavour_foodprefs.png', "flavour_foodprefs.png")
 	user << browse_rsc('html/character_ui/parchment/flavour/flavour_foodprefs_hover.png', "flavour_foodprefs_hover.png")
+	user << browse_rsc('html/character_ui/parchment/flavour/flavour_misc.png', "flavour_misc.png")
+	user << browse_rsc('html/character_ui/parchment/flavour/flavour_misc_hover.png', "flavour_misc_hover.png")
 	user << browse_rsc('html/character_ui/parchment/flavour/flavour_preview.png', "flavour_preview.png")
 	user << browse_rsc('html/character_ui/parchment/flavour/flavour_preview_hover.png', "flavour_preview_hover.png")
 	// Loadout
@@ -326,6 +332,8 @@
 	user << browse_rsc('html/character_ui/paper/flavour/flavour_text_hover.png', "flavour_text_hover.png")
 	user << browse_rsc('html/character_ui/paper/flavour/flavour_foodprefs.png', "flavour_foodprefs.png")
 	user << browse_rsc('html/character_ui/paper/flavour/flavour_foodprefs_hover.png', "flavour_foodprefs_hover.png")
+	user << browse_rsc('html/character_ui/paper/flavour/flavour_misc.png', "flavour_misc.png")
+	user << browse_rsc('html/character_ui/paper/flavour/flavour_misc_hover.png', "flavour_misc_hover.png")
 	user << browse_rsc('html/character_ui/paper/flavour/flavour_preview.png', "flavour_preview.png")
 	user << browse_rsc('html/character_ui/paper/flavour/flavour_preview_hover.png', "flavour_preview_hover.png")
 	// Loadout

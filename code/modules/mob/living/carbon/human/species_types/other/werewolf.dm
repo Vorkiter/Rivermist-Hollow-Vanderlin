@@ -16,7 +16,8 @@
 /mob/living/carbon/human/species/werewolf/death(gibbed, nocutscene)
 	. = ..()
 	if(stored_mob)
-		werewolf_untransform(null, TRUE, gibbed)
+		var/datum/antagonist/werewolf/ww = mind.has_antag_datum(/datum/antagonist/werewolf)
+		ww.werewolf_untransform(null, TRUE, gibbed)
 
 /mob/living/carbon/human/species/werewolf/male
 	gender = MALE

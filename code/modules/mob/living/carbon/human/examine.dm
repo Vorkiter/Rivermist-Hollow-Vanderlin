@@ -2,6 +2,8 @@
 	if(!istype(user))
 		return
 
+	if(user.mind)
+		user.mind.i_know_person(src)
 	// Intolerant
 	if(!self_inspect && !HAS_TRAIT(user, TRAIT_TOLERANT))
 		if(!isdarkelf(user) && isdarkelf(src))
@@ -434,23 +436,23 @@
 		var/we_wet_or_dry = facial?.has_dried_up && creampie?.has_dried_up ? "dried cum" : "cum"
 		if(user != src && isliving(user))
 			var/mob/living/L = user
-			. += (L.STAPER >= 8 && L.STAINT >= 5) ? span_aiprivradio("[m1] [facial_wet_or_dry] and [creampie_wet_or_dry] [we_wet_or_dry]!") : span_warning("[m1] covered in something glossy!")
+			. += (L.STAPER >= 8 && L.STAINT >= 5) ? span_info("[m1] [facial_wet_or_dry] and [creampie_wet_or_dry] [we_wet_or_dry]!") : span_warning("[m1] covered in something glossy!")
 		else
-			. += span_aiprivradio("[m1] [facial_wet_or_dry] and [creampie_wet_or_dry] [we_wet_or_dry]!")
+			. += span_info("[m1] [facial_wet_or_dry] and [creampie_wet_or_dry] [we_wet_or_dry]!")
 	else if(facial)
 		var/wet_or_dry = !facial?.has_dried_up ? "glazed with cum" : "plastered with dried cum"
 		if(user != src && isliving(user))
 			var/mob/living/L = user
-			. += (L.STAPER >= 8 && L.STAINT >= 5) ? span_aiprivradio("[m1] [wet_or_dry]!") : span_warning("[m1] smeared with something glossy!")
+			. += (L.STAPER >= 8 && L.STAINT >= 5) ? span_info("[m1] [wet_or_dry]!") : span_warning("[m1] smeared with something glossy!")
 		else
-			. += span_aiprivradio("[m1] [wet_or_dry]!")
+			. += span_info("[m1] [wet_or_dry]!")
 	else if(creampie)
 		var/wet_or_dry = !creampie?.has_dried_up ? "dripping out cum" : "stained with dried cum"
 		if(user != src && isliving(user))
 			var/mob/living/L = user
-			. += (L.STAPER >= 8 && L.STAINT >= 5) ? span_aiprivradio("[m1] [wet_or_dry]!") : span_warning("[m1] letting out some glossy stuff!")
+			. += (L.STAPER >= 8 && L.STAINT >= 5) ? span_info("[m1] [wet_or_dry]!") : span_warning("[m1] letting out some glossy stuff!")
 		else
-			. += span_aiprivradio("[m1] [wet_or_dry]!")
+			. += span_info("[m1] [wet_or_dry]!")
 
 	//handcuffed?
 	if(handcuffed)
@@ -723,31 +725,33 @@
 		. += span_love("[organ_desc.Join("\n")]")
 
 	//The Nymphomaniac Underground
-	if((!appears_dead) && stat == CONSCIOUS && src.has_quirk(/datum/quirk/vice/lovefiend))
-		var/datum/charflaw/addiction/bonercheck = src.charflaw
-		if((bonercheck) && (bonercheck.sated == 0))
-			if(user.has_quirk(/datum/quirk/vice/lovefiend)) //Takes one to know one
-				switch(rand(1,5))
-					if(1)
-						. += span_love("I can sense [m2] <B>need</B> for fun...")
-					if(2)
-						. += span_love("[m1] <B>aching</B> for a release.")
-					if(3)
-						. += span_love("A carnal need <B>stirs</B> within [m2] core.")
-					if(4)
-						. += span_love("I can practically feel [m2] <B>horniness</B>...")
-					if(5)
-						. += span_love("Embers of desire <B>smolder</B> within [m2].")
-			else if(Adjacent(user)) //No nympho, but close enough to notice.
-				switch(rand(1,4))
-					if(1)
-						. += span_love("[m1] shifting their legs quite a bit...")
-					if(2)
-						. += span_love("I can see [m1] is a bit restless...")
-					if(3)
-						. += span_love("[t_He] seem distracted...")
-					if(4)
-						. += span_love("[m1] restless, for some reason.")
+	if(isliving(user))
+		var/mob/living/living_user = user
+		if((!appears_dead) && stat == CONSCIOUS && src.has_quirk(/datum/quirk/vice/lovefiend))
+			var/datum/quirk/vice/bonercheck = src.get_quirk(/datum/quirk/vice/lovefiend)
+			if((bonercheck) && (bonercheck.sated == 0))
+				if(living_user.has_quirk(/datum/quirk/vice/lovefiend)) //Takes one to know one
+					switch(rand(1,5))
+						if(1)
+							. += span_love("I can sense [m2] <B>need</B> for fun...")
+						if(2)
+							. += span_love("[m1] <B>aching</B> for a release.")
+						if(3)
+							. += span_love("A carnal need <B>stirs</B> within [m2] core.")
+						if(4)
+							. += span_love("I can practically feel [m2] <B>horniness</B>...")
+						if(5)
+							. += span_love("Embers of desire <B>smolder</B> within [m2].")
+				else if(Adjacent(user)) //No nympho, but close enough to notice.
+					switch(rand(1,4))
+						if(1)
+							. += span_love("[m1] shifting their legs quite a bit...")
+						if(2)
+							. += span_love("I can see [m1] is a bit restless...")
+						if(3)
+							. += span_love("[t_He] seem distracted...")
+						if(4)
+							. += span_love("[m1] restless, for some reason.")
 
 	if(!self_inspect && isliving(user))
 		var/mob/living/L = user
@@ -840,7 +844,7 @@
 		if(!self_inspect && obscure_name && isliving(user))
 			var/mob/living/liver = user
 			if(liver.has_quirk(/datum/quirk/vice/hunted))
-				user.add_stress(/datum/stress_event/hunted)
+				user.add_stress(/datum/stress_event/traumatized)
 
 	if(!obscure_name && (flavortext || headshot_link || ooc_extra_link))
 		. += "<a href='?src=[REF(src)];task=view_flavor_text;'>Examine Closer</a>"

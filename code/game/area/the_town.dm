@@ -28,14 +28,14 @@
 /area/indoors/town/bath
 	name = "Baths"
 	icon_state = "bath"
-	background_track = 'sound/music/area/bath.ogg'
+	background_track = 'modular_rmh/sound/music/area/baths.ogg'
 	background_track_dusk = null
 	background_track_night = null
 	converted_type = /area/outdoors/exposed/bath
 
 /area/outdoors/exposed/bath
 	icon_state = "bath"
-	background_track = 'sound/music/area/bath.ogg'
+	background_track = 'modular_rmh/sound/music/area/baths.ogg'
 
 /*	..................   Areas to play with the music a bit   ................... */
 /area/indoors/town/bath/redhouse // lets try something different

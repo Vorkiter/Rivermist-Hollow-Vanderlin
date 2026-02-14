@@ -2,54 +2,6 @@ GLOBAL_LIST_INIT(lords_positions, list(
 	/datum/job/lord::title,
 ))
 GLOBAL_PROTECT(lords_positions)
-GLOBAL_PROTECT(noble_positions)
-
-GLOBAL_LIST_INIT(noble_courthand_positions, list(
-	/datum/job/lord::title,
-	/datum/job/consort::title,
-	/datum/job/hand::title,
-	/datum/job/prince::title,
-	/datum/job/captain::title,
-	/datum/job/steward::title,
-	/datum/job/magician::title,
-	/datum/job/archivist::title,
-	/datum/job/courtphys::title,
-	/datum/job/minor_noble::title,
-	/datum/job/adventurer/courtagent::title,
-))
-GLOBAL_PROTECT(noble_positions)
-
-GLOBAL_LIST_INIT(garrison_positions, list(
-	/datum/job/royalknight::title,
-	/datum/job/veteran::title,
-	/datum/job/guardsman::title,
-	/datum/job/lieutenant::title,
-	/datum/job/men_at_arms::title,
-	/datum/job/gatemaster::title,
-	/datum/job/jailor::title,
-	/datum/job/dungeoneer::title,
-	/datum/job/town_elder::title,
-	/datum/job/forestwarden::title,
-	/datum/job/forestguard::title,
-	/datum/job/persistence/caravanguard::title,
-	))
-GLOBAL_PROTECT(garrison_positions)
-
-GLOBAL_LIST_INIT(church_positions, list(
-	/datum/job/priest::title,
-	/datum/job/monk::title,
-	/datum/job/undertaker::title,
-	/datum/job/templar::title,
-	))
-GLOBAL_PROTECT(church_positions)
-
-GLOBAL_LIST_INIT(inquisition_positions, list(
-	/datum/job/inquisitor::title,
-	/datum/job/orthodoxist::title,
-	/datum/job/absolver::title,
-	/datum/job/adept::title,
-	))
-GLOBAL_PROTECT(inquisition_positions)
 
 
 

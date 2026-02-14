@@ -268,10 +268,10 @@
 		ww.forced_transform = TRUE
 	if(!ww.transformed && ww.forced_transform)
 		flash_fullscreen("redflash3")
-		werewolf_transform()
+		ww.werewolf_transform()
 		ww.transformed = TRUE
 	else if(ww.transformed)
-		werewolf_untransform()
+		ww.werewolf_untransform()
 		flash_fullscreen("redflash3")
 		ww.transformed = FALSE
 		Stun(30)

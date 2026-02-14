@@ -464,3 +464,57 @@
 				var/pain_type = pick("sharp", "throbbing", "burning", "aching")
 				to_chat(H, span_warning("A [pain_type] pain shoots through your old wound."))
 				break
+
+
+/datum/quirk/vice/loveless
+	name = "Loveless"
+	desc = "I am unable to show any kind of affection or love, whether carnal or platonic."
+	point_value = 3
+
+/datum/quirk/vice/loveless/on_spawn()
+	var/mob/living/carbon/human/H = owner
+	H.add_curse(/datum/curse/eora, TRUE)
+
+
+/datum/quirk/vice/nimrod
+	name = "Nimrod"
+	desc = "In the past I learned slower than my peers, and I tend to be clumsy."
+	point_value = 6
+
+/datum/quirk/vice/nimrod/on_spawn()
+	var/mob/living/carbon/human/H = owner
+	H.change_stat("speed", -2)
+	H.change_stat("intelligence", -4)
+
+/datum/quirk/vice/unlucky
+	name = "Unlucky"
+	desc = "Ever since you knocked over that glass vase, you just feel... off"
+	point_value = 6
+
+/datum/quirk/vice/unlucky/on_spawn()
+	if(!ishuman(owner))
+		return
+	var/mob/living/carbon/human/H = owner
+	H.STALUC = rand(1, 10)
+
+/datum/quirk/vice/jesterphobia
+	name = "Jesterphobic"
+	desc = "I have a severe, irrational fear of Jesters"
+	point_value = 1
+
+/datum/quirk/vice/jesterphobia/on_spawn()
+	if(!ishuman(owner))
+		return
+	var/mob/living/carbon/human/H = owner
+	ADD_TRAIT(H, TRAIT_JESTERPHOBIA, "[type]")
+
+/datum/quirk/vice/nude_sleeper
+	name = "Picky Sleeper"
+	desc = "I just can't seem to fall asleep unless I'm <i>truly</i> comfortable..."
+	point_value = 3 //Sleeping people are already rather vulnerable. Having to take off literally everything is more than just bothersome.
+
+/datum/quirk/vice/nude_sleeper/on_spawn()
+	if(!ishuman(owner))
+		return
+	var/mob/living/carbon/human/H = owner
+	ADD_TRAIT(H, TRAIT_NUDE_SLEEPER, "[type]")

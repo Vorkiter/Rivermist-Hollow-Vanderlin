@@ -48,7 +48,7 @@
 	backr = /obj/item/weapon/shield/tower/buckleriron
 	belt = /obj/item/storage/belt/leather/mercenary/black
 	beltr = /obj/item/weapon/sword/long/shotel
-	beltl = /obj/item/weapon/knife/njora/steel
+	beltl = /obj/item/weapon/knife/dagger/steel/njora
 	ring = null
 	l_hand = null
 	r_hand = null

@@ -420,3 +420,201 @@
 		if(in_darkness)
 			in_darkness = FALSE
 			to_chat(owner, span_notice("Finally, light! I can breathe again..."))
+
+
+/datum/quirk/vice/endowed
+	name = "Naturally Endowed"
+	desc = "I have massive bits... This makes life hard."
+	point_value = 2
+	revive_reapply = TRUE
+
+/datum/quirk/vice/endowed/on_spawn()
+	var/mob/living/carbon/human/H = owner
+	H.remove_status_effect(/datum/status_effect/debuff/boobs_quirk)
+	H.apply_status_effect(/datum/status_effect/debuff/boobs_quirk)
+
+/datum/quirk/vice/nopouch
+	name = "No Pouch"
+	desc = "I lost my pouch recently, I'm without a zenny.."
+	point_value = 1
+
+/datum/quirk/vice/nopouch/on_spawn()
+	var/mob/living/carbon/human/H = owner
+	var/obj/item/pouch = locate(/obj/item/storage/belt/pouch) in H
+	if(H.wear_neck == pouch)
+		H.wear_neck = null
+	if(H.beltl == pouch)
+		H.beltl = null
+	if(H.beltr == pouch)
+		H.beltr = null
+	qdel(pouch)
+
+/datum/quirk/vice/wild_night
+	name = "Wild Night"
+	desc = "I don't remember what I did last night, and now I'm lost!"
+	point_value = 1
+
+/datum/quirk/vice/wild_night/on_spawn()
+	var/mob/living/carbon/human/character = owner
+	var/turf/location = get_spawn_turf_for_job("Pilgrim")
+	character.forceMove(location)
+	character.reagents.add_reagent(pick(/datum/reagent/ozium, /datum/reagent/moondust, /datum/reagent/druqks), 15)
+	character.reagents.add_reagent(/datum/reagent/consumable/ethanol/beer, 72)
+	character.grant_lit_torch()
+
+/datum/quirk/vice/atrophy
+	name = "Atrophy"
+	desc = "When growing up I could barely feed myself. This has left my body weak and fragile."
+	point_value = 6
+
+/datum/quirk/vice/atrophy/on_spawn()
+	var/mob/living/carbon/human/H = owner
+	H.change_stat("strength", -2)
+	H.change_stat("constitution", -2)
+	H.change_stat("endurance", -2)
+
+/datum/quirk/vice/monochromatic
+	name = "Monochromacy"
+	desc = "I see things all gray."
+	point_value = 2
+
+/datum/quirk/vice/monochromatic/on_spawn()
+	. = ..()
+	owner.add_client_colour(/datum/client_colour/monochrome)
+
+/datum/quirk/vice/monochromatic/on_remove()
+	. = ..()
+	if(owner)
+		owner.remove_client_colour(/datum/client_colour/monochrome)
+
+/datum/quirk/vice/no_taste
+	name = "Ageusia"
+	desc = "I can't taste a thing."
+	point_value = 1
+	gain_text = span_notice("I can't taste anything!")
+	lose_text = span_notice("I can taste again!")
+
+/datum/quirk/vice/no_taste/on_spawn()
+	if(!ishuman(owner))
+		return
+	var/mob/living/carbon/human/H = owner
+	ADD_TRAIT(H, TRAIT_AGEUSIA, "[type]")
+
+/datum/quirk/vice/no_taste/on_remove()
+	if(!ishuman(owner))
+		return
+	var/mob/living/carbon/human/H = owner
+	ADD_TRAIT(H, TRAIT_AGEUSIA, "[type]")
+
+/datum/quirk/vice/vegetarian
+	name = "Vegetarian"
+	desc = "I can't eat meat."
+	point_value = 1
+	gain_text = span_notice("I feel repulsion at the idea of eating meat.")
+	lose_text = span_notice("I feel like eating meat isn't that bad.")
+
+/datum/quirk/vice/vegetarian/on_spawn()
+	. = ..()
+	var/mob/living/carbon/human/H = owner
+	var/datum/species/species = H.dna.species
+	species.liked_food &= ~MEAT
+	species.disliked_food |= MEAT
+
+/datum/quirk/vice/vegetarian/on_remove()
+	. = ..()
+	var/mob/living/carbon/human/H = owner
+	if(H)
+		var/datum/species/species = H.dna.species
+		if(initial(species.liked_food) & MEAT)
+			species.liked_food |= MEAT
+		if(!(initial(species.disliked_food) & MEAT))
+			species.disliked_food &= ~MEAT
+
+/datum/quirk/vice/blooddeficiency
+	name = "Blood Deficiency"
+	desc = "My blood is not enough for me, I need to keep it in me."
+	point_value = 2
+	gain_text = span_danger("I feel my vigor slowly fading away.")
+	lose_text = span_notice("I feel vigorous again.")
+
+/datum/quirk/vice/blooddeficiency/on_life()
+	var/mob/living/carbon/human/H = owner
+	if(NOBLOOD in H.dna.species.species_traits) //can't lose blood if my species doesn't have any
+		return
+	else
+		if (H.blood_volume > (BLOOD_VOLUME_NORMAL - 25)) // just barely survivable without treatment
+			H.blood_volume -= 0.275
+
+/datum/quirk/vice/frail
+	name = "Frail"
+	desc = "My bones are like sticks."
+	point_value = 4
+	gain_text = span_danger("I feel frail.")
+	lose_text = span_notice("I feel sturdy again.")
+
+/datum/quirk/vice/frail/on_spawn()
+	if(!ishuman(owner))
+		return
+	var/mob/living/carbon/human/H = owner
+	ADD_TRAIT(H, TRAIT_EASYLIMBDISABLE, "[type]")
+
+/datum/quirk/vice/frail/on_remove()
+	if(!ishuman(owner))
+		return
+	var/mob/living/carbon/human/H = owner
+	ADD_TRAIT(H, TRAIT_EASYLIMBDISABLE, "[type]")
+
+/datum/quirk/vice/heavy_sleeper
+	name = "Heavy Sleeper"
+	desc = "I sleep like a rock."
+	point_value = 1
+	gain_text = span_danger("I feel sleepy.")
+	lose_text = span_notice("I feel awake again.")
+
+/datum/quirk/vice/heavy_sleeper/on_spawn()
+	if(!ishuman(owner))
+		return
+	var/mob/living/carbon/human/H = owner
+	ADD_TRAIT(H, TRAIT_HEAVY_SLEEPER, "[type]")
+
+/datum/quirk/vice/heavy_sleeper/on_remove()
+	if(!ishuman(owner))
+		return
+	var/mob/living/carbon/human/H = owner
+	ADD_TRAIT(H, TRAIT_HEAVY_SLEEPER, "[type]")
+
+/datum/quirk/vice/light_drinker
+	name = "Light Drinker"
+	desc = "Even a drop of alcohol knocks me out."
+	point_value = 1
+	gain_text = span_notice("Just the thought of drinking alcohol makes my head spin.")
+	lose_text = span_danger("You're no longer severely affected by alcohol.")
+
+/datum/quirk/vice/light_drinker/on_spawn()
+	if(!ishuman(owner))
+		return
+	var/mob/living/carbon/human/H = owner
+	ADD_TRAIT(H, TRAIT_LIGHT_DRINKER, "[type]")
+
+/datum/quirk/vice/light_drinker/on_remove()
+	if(!ishuman(owner))
+		return
+	var/mob/living/carbon/human/H = owner
+	ADD_TRAIT(H, TRAIT_LIGHT_DRINKER, "[type]")
+
+/datum/quirk/vice/poor_aim
+	name = "Poor Aim"
+	desc = "My aim is poor."
+	point_value = 1
+
+/datum/quirk/vice/poor_aim/on_spawn()
+	if(!ishuman(owner))
+		return
+	var/mob/living/carbon/human/H = owner
+	ADD_TRAIT(H, TRAIT_POOR_AIM, "[type]")
+
+/datum/quirk/vice/poor_aim/on_remove()
+	if(!ishuman(owner))
+		return
+	var/mob/living/carbon/human/H = owner
+	ADD_TRAIT(H, TRAIT_POOR_AIM, "[type]")

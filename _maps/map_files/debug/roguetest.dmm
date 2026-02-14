@@ -1070,7 +1070,7 @@
 /turf/open/floor/blocks,
 /area/indoors/town/keep)
 "do" = (
-/obj/item/reagent_containers/glass/bucket/wooden,
+/obj/item/reagent_containers/glass/bucket,
 /turf/open/floor/grass/yel,
 /area/outdoors)
 "du" = (
@@ -1127,11 +1127,6 @@
 /obj/structure/flora/grass/herb/symphitum,
 /turf/open/floor/grass/yel,
 /area/outdoors)
-"es" = (
-/obj/structure/carpet/purple,
-/obj/structure/resurrection_rune,
-/turf/open/floor/blocks,
-/area/indoors/town/manor)
 "ew" = (
 /obj/structure/hotspring/border/thirteen,
 /turf/open/floor/dirt/road,
@@ -1585,21 +1580,10 @@
 	},
 /turf/open/floor/grass/yel,
 /area/outdoors)
-"nY" = (
-/obj/machinery/light/fueled/torchholder/l,
-/obj/machinery/essence/reservoir,
-/turf/open/floor/churchbrick,
-/area/indoors/town/manor)
-"oe" = (
-/obj/machinery/essence/splitter,
-/obj/structure/table/vtable,
-/turf/open/floor/wood,
-/area/indoors/town/manor)
-"oq" = (
-/obj/structure/carpet/purple,
-/obj/structure/resurrection_rune/control,
+"ol" = (
+/obj/structure/door/fancy,
 /turf/open/floor/blocks,
-/area/indoors/town/manor)
+/area/indoors/town/keep)
 "ou" = (
 /turf/closed/wall/mineral/decorstone,
 /area/outdoors)
@@ -21770,23 +21754,23 @@ as
 as
 ac
 ac
-WL
-WP
-lf
-ET
-oq
-ET
-Ar
-WL
-WL
-WL
-WL
-WL
-WL
-WL
-WL
-WL
-WL
+se
+Iz
+SV
+yi
+QC
+yi
+Dt
+se
+se
+se
+se
+se
+se
+se
+se
+se
+se
 QN
 ai
 Wr
@@ -23826,23 +23810,23 @@ tH
 tH
 ac
 ac
-WL
-gE
-lf
-ET
-es
-ET
-Ar
-WL
-WL
-WL
-WL
-WL
-WL
-WL
-WL
-WL
-WL
+se
+lM
+SV
+yi
+QC
+yi
+Dt
+se
+se
+se
+se
+se
+se
+se
+se
+se
+se
 at
 at
 at

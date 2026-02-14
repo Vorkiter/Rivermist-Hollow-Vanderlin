@@ -434,7 +434,6 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.txt"))
 	GLOB.joined_player_list += character.ckey
 	GLOB.respawncounts[character.ckey] += 1
 
-	SSquirks.AssignQuirks(humanc, humanc.client, TRUE)
 	if(humanc)
 		try_apply_character_post_equipment(humanc)
 

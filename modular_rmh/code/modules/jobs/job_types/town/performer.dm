@@ -17,6 +17,7 @@
 	selection_color = JCOLOR_TOWN
 	advclass_cat_rolls = list(CAT_PERFORMER = 20)
 
+	give_bank_account = 5
 	job_subclasses = list(
 		/datum/job/advclass/performer/bard,
 		/datum/job/advclass/performer/jester
@@ -38,7 +39,7 @@
 
 	spells = list(
 		/datum/action/cooldown/spell/vicious_mockery,
-		/datum/action/cooldown/spell/bardic_inspiration
+		///datum/action/cooldown/spell/bardic_inspiration
 	)
 
 	jobstats = list(
@@ -85,8 +86,7 @@
 	title = "BARD"
 	)
 
-	var/datum/inspiration/I = new /datum/inspiration(spawned)
-	I.grant_inspiration(spawned, bard_tier = BARD_T3)
+	spawned.inspiration = new /datum/inspiration(spawned)
 	spawned.clamped_adjust_skillrank(/datum/skill/misc/music, 4, 4, TRUE)
 
 /datum/outfit/performer/bard

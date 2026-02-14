@@ -254,7 +254,7 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 
 /proc/build_sex_actions()
 	. = list()
-	for(var/path in typesof(/datum/sex_action))
+	for(var/datum/path as anything in typesof(/datum/sex_action))
 		if(IS_ABSTRACT(path))
 			continue
 		.[path] = new path()

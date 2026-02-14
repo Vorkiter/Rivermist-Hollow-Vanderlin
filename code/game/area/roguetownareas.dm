@@ -350,7 +350,7 @@
 	background_track_night = 'sound/music/area/deliverer.ogg'
 
 ///// MANOR AREAS //////
-
+/*
 /area/indoors/town/manor
 	name = "Manor"
 	icon = 'icons/turf/areas_manor.dmi'
@@ -507,7 +507,7 @@
 	icon_state = "manorgarri"
 	background_track = 'sound/music/area/manor.ogg'
 	background_track_dusk = null
-	background_track_night = null
+	background_track_night = null*/
 
 /area/outdoors/exposed/cell
 	icon_state = "cell"

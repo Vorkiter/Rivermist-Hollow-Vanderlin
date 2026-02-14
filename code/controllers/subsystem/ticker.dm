@@ -456,8 +456,8 @@ SUBSYSTEM_DEF(ticker)
 			CHECK_TICK
 			continue
 		var/mob/living/carbon/human/new_player_living = new_player_mob.new_character
-		if(ishuman(new_player_living))
-			SSquirks.AssignQuirks(new_player_living, new_player_mob.client, TRUE)
+		/*if(ishuman(new_player_living))
+			SSquirks.AssignQuirks(new_player_living, new_player_mob.client, TRUE)*/
 		if(!new_player_living.mind || is_unassigned_job(new_player_living.mind.assigned_role))
 			CHECK_TICK
 			continue

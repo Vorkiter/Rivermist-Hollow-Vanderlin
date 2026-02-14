@@ -566,7 +566,7 @@
 	SEND_SIGNAL(user, COMSIG_SEX_CLIMAX)
 
 	if(user.has_quirk(/datum/quirk/vice/lovefiend))
-		user.sate_addiction()
+		user.sate_addiction(/datum/quirk/vice/lovefiend)
 
 	if(!user.rogue_sneaking && user.alpha > 100) //stealth sex, keep your voice down.
 		if(!user.can_speak())
@@ -642,7 +642,7 @@
 	return FALSE
 
 /datum/component/arousal/proc/update_pink_screen()
-	var/mob/user = parent
+	var/mob/living/user = parent
 	var/severity = 0
 	switch(arousal)
 		if(1 to 20)
@@ -671,7 +671,7 @@
 		user.clear_fullscreen("horny")
 
 /*/datum/component/arousal/proc/update_blueballs()
-	var/mob/user = parent
+	var/mob/living/user = parent
 	if(last_arousal_increase_time + 30 SECONDS > world.time)
 		return
 	if(arousal >= BLUEBALLS_GAIN_THRESHOLD)
@@ -680,7 +680,7 @@
 		user.remove_stress(/datum/stress_event/blue_balls)
 
 /datum/component/arousal/proc/update_erect_state()
-	var/mob/user = parent
+	var/mob/living/user = parent
 	var/obj/item/organ/genitals/penis/penis = user.getorganslot(ORGAN_SLOT_PENIS)
 
 	if(user.mind)
@@ -704,7 +704,7 @@
 	update_aching(pain_amt, giving)
 
 /datum/component/arousal/proc/try_do_moan(arousal_amt, pain_amt, applied_force, giving)
-	var/mob/user = parent
+	var/mob/living/user = parent
 	if(arousal_amt < 1.5)
 		return
 	if(user.stat != CONSCIOUS)
@@ -762,7 +762,7 @@
 	user.emote(chosen_emote, forced = TRUE)
 
 /datum/component/arousal/proc/try_do_pain_effect(pain_amt, giving)
-	var/mob/user = parent
+	var/mob/living/user = parent
 	if(pain_amt < PAIN_MILD_EFFECT)
 		return
 	if(last_pain + PAIN_COOLDOWN >= world.time)
@@ -770,7 +770,7 @@
 	if(prob(50))
 		return
 	last_pain = world.time
-	if(!user.has_quirk(/datum/charflaw/masochist))
+	if(!user.has_quirk(/datum/quirk/vice/masochist))
 		if(pain_amt >= PAIN_HIGH_EFFECT)
 			var/pain_msg = pick(list("IT HURTS!!!", "IT NEEDS TO STOP!!!", "I CAN'T TAKE IT ANYMORE!!!"))
 			to_chat(user, span_boldwarning(pain_msg))
@@ -804,10 +804,10 @@
 			to_chat(user, span_boldgreen(pain_msg))
 
 /datum/component/arousal/proc/update_aching(pain_amt, giving)
-	var/mob/user = parent
+	var/mob/living/user = parent
 	if(pain_amt >= LOINHURT_GAIN_THRESHOLD)
-		if(user.has_quirk(/datum/charflaw/masochist))
-			user.sate_addiction()
+		if(user.has_quirk(/datum/quirk/vice/masochist))
+			user.sate_addiction(/datum/quirk/vice/lovefiend)
 			user.add_stress(/datum/stress_event/loinachegood)
 			return
 		if(user.has_quirk(/datum/quirk/vice/lovefiend))

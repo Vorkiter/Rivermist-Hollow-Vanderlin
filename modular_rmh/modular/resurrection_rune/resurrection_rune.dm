@@ -150,9 +150,11 @@
 	playsound(get_turf(body), 'sound/magic/repulse.ogg', 100, FALSE, -1)
 	body.ExtinguishMob()
 	body.forceMove(T)
-	body.revive(full_heal = TRUE, admin_revive = TRUE)
+	body.revive(ADMIN_HEAL_ALL, force_grab_ghost = TRUE)
 	body.clear_fullscreens()
 	body.reload_fullscreen()
+	body.update_cone()
+	body.update_fov_angles()
 
 	var/was_zombie = body.mind?.has_antag_datum(/datum/antagonist/zombie)
 	var/has_rot = FALSE

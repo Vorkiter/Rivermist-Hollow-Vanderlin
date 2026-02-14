@@ -89,6 +89,12 @@ GLOBAL_LIST_EMPTY(quirk_points_by_type)
 	var/list/allowed_species = list()
 	/// List of blocked species
 	var/list/blocked_species = list()
+	/// Whether this quirk is reapplied on mob death
+	var/revive_reapply = FALSE
+	/// Text shown on quirk gain
+	var/gain_text
+	/// Text shown on quirk loss
+	var/lose_text
 
 /datum/quirk/New(mob/living/new_owner, custom_value = null)
 	. = ..()
@@ -129,6 +135,11 @@ GLOBAL_LIST_EMPTY(quirk_points_by_type)
 /// Called when the quirk is removed
 /datum/quirk/proc/on_remove()
 	return
+
+/datum/quirk/proc/reapply()
+	if(revive_reapply)
+		if(!QDELETED(src) && !QDELETED(owner))
+			on_spawn()
 
 /// Called every life tick if implemented
 /datum/quirk/proc/on_life(mob/living/user)
@@ -253,3 +264,14 @@ GLOBAL_LIST_EMPTY(quirk_points_by_type)
 	qdel(test_quirk)
 
 	return compatible
+
+/mob/living/proc/cleanse_quirks() //removes all quirks
+	for(var/V in roundstart_quirks)
+		var/datum/quirk/T = V
+		qdel(T)
+
+/mob/living/proc/reapply_quirks()
+	for(var/V in roundstart_quirks)
+		var/datum/quirk/T = V
+		if(T.revive_reapply)
+			T.reapply()

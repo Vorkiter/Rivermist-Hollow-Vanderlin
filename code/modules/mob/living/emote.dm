@@ -171,22 +171,23 @@
 	. = ..()
 	if(.)
 		for(var/mob/living/carbon/human/L in viewers(7,user))
-			if(L.has_quirk(/datum/charflaw/addiction/sadist))
-				L.sate_addiction()
+			if(L.has_quirk(/datum/quirk/vice/sadist))
+				L.sate_addiction(/datum/quirk/vice/sadist)
 
 /datum/emote/living/scream/painscream/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
 	if(.)
 		for(var/mob/living/carbon/human/L in viewers(7,user))
-			if(L.has_quirk(/datum/charflaw/addiction/sadist))
-				L.sate_addiction()
+			if(L.has_quirk(/datum/quirk/vice/sadist))
+				L.sate_addiction(/datum/quirk/vice/sadist)
 
 /datum/emote/living/scream/firescream/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
 	if(.)
 		for(var/mob/living/carbon/human/L in viewers(7,user))
-			if(L.has_quirk(/datum/charflaw/addiction/sadist))
-				L.sate_addiction()
+			if(L.has_quirk(/datum/quirk/vice/sadist))
+				L.sate_addiction(/datum/quirk/vice/sadist)
+
 /datum/emote/living/aggro
 	key = "aggro"
 	key_third_person = "aggro"

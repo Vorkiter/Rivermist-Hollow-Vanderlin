@@ -302,7 +302,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(is_subtle_message)
 			msg = "<span class='subtle'>[msg]</span>"
 
-		if(M != src && !M.eye_blind)
+		if(M != src && !M.is_blind())
 			M.log_message("saw [key_name(src)] emote: [message]", LOG_EMOTE, log_globally = FALSE)
 		M.show_message(msg, MSG_VISUAL, blind_message, MSG_AUDIBLE)
 
@@ -631,9 +631,9 @@ GLOBAL_VAR_INIT(mobids, 1)
 	if(isturf(examinify.loc) && isliving(src) && stat == CONSCIOUS)
 		face_atom(examinify)
 		if(m_intent != MOVE_INTENT_SNEAK)
-			var/look_target_text = "[A]"
-			if(cmode && ismob(A))
-				var/atom/movable/T = A
+			var/look_target_text = "[examinify]"
+			if(cmode && ismob(examinify))
+				var/atom/movable/T = examinify
 				var/zone_text = parse_zone(zone_selected)
 				if(zone_selected == BODY_ZONE_PRECISE_GROIN)
 					var/atom/front_turf = get_step(T, T.dir)

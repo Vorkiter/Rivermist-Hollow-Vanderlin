@@ -565,7 +565,7 @@
 	ADD_TRAIT(character, TRAIT_NUDE_SLEEPER, "[type]")
 
 //job specials
-/datum/special_trait/punkprincess //I think everyone will like the Rebellous Prince-Like Princess. I'd love to do one for the prince as well that gives him princess loadout, but, up to you!
+/*/datum/special_trait/punkprincess //I think everyone will like the Rebellous Prince-Like Princess. I'd love to do one for the prince as well that gives him princess loadout, but, up to you!
 	name = "Rebellous Daughter"
 	greet_text = span_notice("I am quite rebellious for a princess. Screw Noble Customs!")
 	req_text = "Be a princess"
@@ -618,7 +618,7 @@
 	character.base_constitution = 20
 	character.base_strength = 20
 	character.base_endurance = 20
-	character.recalculate_stats()
+	character.recalculate_stats()*/
 
 /datum/special_trait/my_precious
 	name = "My Precious"
@@ -678,7 +678,7 @@
 	ADD_TRAIT(character, TRAIT_TOXIMMUNE, "[type]")
 	character.update_body()
 
-/datum/special_trait/overcompensating
+/*/datum/special_trait/overcompensating
 	name = "Overcompensating"
 	greet_text = span_boldwarning("I have an enormous sword on my back, I had it crafted specially for me, it left me without even a zenny, but now nobody will mention my small pintle!.")
 	allowed_jobs = list(/datum/job/vagrant)
@@ -798,7 +798,7 @@
 	character.mind.special_items["Weapon"] = weapon
 	character.mind.special_items["Tabard"] = cloak
 	character.mind.special_items["Psycross"] = psycross
-	character.mind.special_items["Helmet"] = helmet
+	character.mind.special_items["Helmet"] = helmet*/
 
 /datum/special_trait/meow
 	name = "Meow"

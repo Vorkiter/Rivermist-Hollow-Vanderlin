@@ -56,12 +56,12 @@
                     switch(CL.armor_class)
                         if(AC_HEAVY)
                             C.Immobilize(30)
-                            C.set_blurriness(5)
+                            C.set_eye_blur(5)
                             to_chat(C, "<span class='warning'>Your armor chaffs uncomfortably against your skin and makes it difficult to breathe.</span>")
 
                         if(AC_MEDIUM)
                             C.Immobilize(15)
-                            C.set_blurriness(2)
+                            C.set_eye_blur(2)
                             to_chat(C, "<span class='warning'>Your armor chaffs uncomfortably against your skin.</span>")
 
     return ..()
@@ -93,12 +93,14 @@
 /datum/reagent/consumable/ethanol/beer/emberwine/addiction_act_stage3(mob/living/carbon/human/C)
     SEND_SIGNAL(C, COMSIG_SEX_ADJUST_AROUSAL, 5)
 
+    var/mob/living/carbon/human/H = C
+    if(!H.has_quirk(/datum/quirk/vice/lovefiend) )
+
+        C.add_quirk(/datum/quirk/vice/lovefiend)
+
     if(prob(20))
         to_chat(C, span_danger("I have an intense craving for Emberwine."))
 
-    var/mob/living/carbon/human/H = C
-    if(!istype(H.charflaw, /datum/quirk/vice/lovefiend))
-        H.charflaw = new /datum/quirk/vice/lovefiend(H)
 
 /datum/reagent/consumable/ethanol/beer/emberwine/addiction_act_stage4(mob/living/carbon/human/C)
     SEND_SIGNAL(C, COMSIG_SEX_SET_AROUSAL, 40)
@@ -166,12 +168,12 @@
                     switch(CL.armor_class)
                         if(AC_HEAVY)
                             C.Immobilize(30)
-                            C.set_blurriness(5)
+                            C.set_eye_blur(5)
                             to_chat(C, "<span class='warning'>Your armor presses tight, every movement suddenly suffocating.</span>")
 
                         if(AC_MEDIUM)
                             C.Immobilize(15)
-                            C.set_blurriness(2)
+                            C.set_eye_blur(2)
                             to_chat(C, "<span class='warning'>Your armor rubs uncomfortably against your sensitized skin.</span>")
 
     return ..()
@@ -201,8 +203,9 @@
         SEND_SIGNAL(C, COMSIG_SEX_ADJUST_AROUSAL, 10)
 
     var/mob/living/carbon/human/H = C
-    if(!istype(H.charflaw, /datum/quirk/vice/lovefiend))
-        H.charflaw = new /datum/quirk/vice/lovefiend(H)
+    if(!H.has_quirk(/datum/quirk/vice/lovefiend) )
+
+        C.add_quirk(/datum/quirk/vice/lovefiend)
 
 /datum/alch_cauldron_recipe/aphrodisiac
 	recipe_name = "Aphrodisiac"
@@ -246,7 +249,7 @@
 
 		if(7 to 15)
 			current_cycle++
-			C.set_blurriness(10)
+			C.set_eye_blur(10)
 
 			if(prob(30))
 				C.emote("yawn", forced = TRUE)

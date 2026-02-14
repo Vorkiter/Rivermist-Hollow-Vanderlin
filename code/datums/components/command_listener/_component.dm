@@ -4,33 +4,7 @@
 	var/mob/living/carbon/human/owner
 	var/list/order_priority = list(
 		/datum/job/lord = 1,
-		/datum/job/consort = 2,
-		/datum/job/hand = 3,
-		/datum/job/prince = 4,
-		/datum/job/captain = 5,
-		/datum/job/steward = 6,
-		/datum/job/magician = 7,
-		/datum/job/archivist = 8,
-		/datum/job/courtphys = 9,
-		/datum/job/minor_noble = 10,
-		/datum/job/royalknight = 15,
-		/datum/job/veteran = 16,
-		/datum/job/lieutenant = 17,
-		/datum/job/town_elder = 18,
-		/datum/job/guardsman = 19,
-		/datum/job/gatemaster = 19,
-		/datum/job/jailor = 19,
-		/datum/job/dungeoneer = 19,
-		/datum/job/men_at_arms = 20,
-		/datum/job/forestwarden = 20,
-		/datum/job/forestguard = 20,
-		/datum/job/priest = 25,
-		/datum/job/inquisitor = 26,
-		/datum/job/templar = 27,
-		/datum/job/orthodoxist = 27,
-		/datum/job/absolver = 27,
-		/datum/job/monk = 28,
-		/datum/job/adept = 28
+		/datum/job/captain = 5,//add new jobs here
 	)
 
 	var/list/available_commands = list(

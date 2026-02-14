@@ -70,19 +70,19 @@
 
 /datum/quirk/peculiarity/virgin
 	name = "Virgin"
-	desc = "YOU... ARE MAIDENLESS!! you never were good with women... or men, whether cause you are a awkward freak, or religous reasons, or simply plain unlucky, your blood remains untainted and pure."
+	desc = "I am a virgin, whether truly, by magic or plot holes. Vampires and cultists are likely to lust for my blood."
 
 /datum/quirk/peculiarity/virgin/on_spawn()
 	if(!ishuman(owner))
 		return
 	var/mob/living/carbon/human/H = owner
-	H.virginity = FALSE
+	H.virginity = TRUE
 
 /datum/quirk/peculiarity/virgin/after_job_spawn()
 	if(!ishuman(owner))
 		return
 	var/mob/living/carbon/human/H = owner
-	H.virginity = FALSE
+	H.virginity = TRUE
 
 
 /datum/quirk/peculiarity/mystery_box
@@ -216,3 +216,18 @@
 	else
 		. += span_notice("It seems to respond to spoken words. Perhaps [linked_quirk?.keeper ? linked_quirk.keeper.real_name : "someone"] knows how to open it.")
 	. += span_notice("Right-click to get a hint about who might know the passcode.")
+
+/datum/quirk/peculiarity/monsterhuntermale
+	name = "Monster Seeker (Males)"
+	desc = "Allows targeting by specific monsters (such as werewolves, goblins and minotaurs etc.) for something very lewd. May be unfair to you in combat. Male monsters lust for me..."
+	point_value = 0
+
+/datum/quirk/peculiarity/monsterhunterfemale
+	name = "Monster Seeker (Females)"
+	desc = "Allows targeting by specific monsters (such as werewolves, goblins and minotaurs etc.) for something very lewd. May be unfair to you in combat. Female monsters lust for me... "
+	point_value = 0
+
+/datum/quirk/peculiarity/selfawaregeni
+	name = "Sensitiveness"
+	desc = "I can tell more about my private bits (may be spammy, exact liquid information and alerts etc.)"
+	point_value = 0
