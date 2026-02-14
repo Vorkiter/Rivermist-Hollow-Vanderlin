@@ -59,7 +59,7 @@
 	shoes = /obj/item/clothing/shoes/nobleboot
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-	belt = /obj/item/storage/belt/leather
+	belt = /obj/item/storage/belt/leather/adventurers_subclasses
 	beltr = /obj/item/weapon/sword
 	beltl = /obj/item/ammo_holder/quiver/bolts
 	ring = null

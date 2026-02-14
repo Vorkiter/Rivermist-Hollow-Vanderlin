@@ -50,7 +50,7 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	backr = /obj/item/weapon/shovel
 	backl = /obj/item/storage/backpack/satchel
-	belt = /obj/item/storage/belt/leather/rope
+	belt = /obj/item/storage/belt/leather/adventurers_subclasses
 	beltl = /obj/item/weapon/whip // You know why.
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	ring = null

@@ -73,7 +73,7 @@
 	shoes = /obj/item/clothing/shoes/boots/armor
 	backr = /obj/item/storage/backpack/satchel/black
 	backl = /obj/item/weapon/shield/tower/metal
-	belt = /obj/item/storage/belt/leather/plaquesilver
+	belt = /obj/item/storage/belt/leather/plaquesilver/adventurers_subclasses
 	beltl = /obj/item/storage/belt/pouch/coins/mid
 	beltr = /obj/item/weapon/sword/silver
 	ring = /obj/item/clothing/ring/silver/saffira

@@ -54,7 +54,7 @@
 	shoes = /obj/item/clothing/shoes/nobleboot
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/weapon/polearm/woodstaff/quarterstaff/iron
-	belt = /obj/item/storage/belt/leather/mercenary
+	belt = /obj/item/storage/belt/leather/adventurers_subclasses
 	beltr = /obj/item/storage/magebag/poor
 	beltl = /obj/item/weapon/knife/dagger/steel/special //remnant from when they were a noble
 	ring = /obj/item/clothing/ring/silver

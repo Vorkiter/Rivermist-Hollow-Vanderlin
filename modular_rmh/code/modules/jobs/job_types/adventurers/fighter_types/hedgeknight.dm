@@ -74,7 +74,7 @@
 	shoes = /obj/item/clothing/shoes/boots/rare/grenzelplate
 	backr = /obj/item/weapon/sword/long/greatsword/flamberge
 	backl = /obj/item/storage/backpack/satchel
-	belt = /obj/item/storage/belt/leather
+	belt = /obj/item/storage/belt/leather/adventurers_subclasses
 	beltl = /obj/item/storage/belt/pouch/coins/mid
 	beltr = null
 	ring = null
