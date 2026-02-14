@@ -165,11 +165,11 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/town_apothecary
-	name = "Town Apothecary"
+	name = "Town Physician"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/town_apothecary_apprentice
-	name = "Town Apothecary Apprentice"
+	name = "Town Physician Apprentice"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/town_scholar

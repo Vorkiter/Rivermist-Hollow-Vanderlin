@@ -38,7 +38,7 @@
 	shoes = /obj/item/clothing/shoes/rare/grenzelhoft
 	backr = null
 	backl = null
-	belt = /obj/item/storage/belt/leather/mercenary
+	belt = /obj/item/storage/belt/leather/adventurers_subclasses
 	beltl = null
 	beltr = null
 	ring = null

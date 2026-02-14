@@ -1,4 +1,5 @@
 var/global/list/colorlist = list(
+	"CUSTOM" = "CUSTOM_RGB",
 	"Swan White"="#ffffff",
 	"Chalk White" = "#f4ecde",
 	"Cream" = "#fffdd0",
@@ -42,7 +43,17 @@ var/global/list/colorlist = list(
 	"Royal Magenta" = "#962e5c",
 	"Blacksteel Grey"="#404040",
 	"Dark Grey" = "#505050",
-	"Darkest Night" = "#414143"
+	"Darkest Night" = "#414143",
+	"PURPLE"="#8747b1",
+	"BLACK"="#2b292e",
+	"BROWN"="#61462c",
+	"YELLOW"="#ffcd43",
+	"AZURE"="#007fff",
+	"Baby Puke" = "#b5b004",
+    "Gold" = "#f9a602",
+    "Mage Red" = "#b8252c",
+    "Orange" = "#bd6606",
+	"Red" = "#a32121",
 	)
 
 /*	.................   Luxury dye bin   ................... */
@@ -66,6 +77,7 @@ var/global/list/colorlist = list(
 	var/final/list/selectable_colors = list(
 		// This is to let you bleach out colors.
 		"Bleach Out" = "#FFFFFF",
+		"CUSTOM" = "CUSTOM_RGB",
 	)
 
 /obj/structure/dye_bin/luxury
@@ -195,7 +207,15 @@ var/global/list/colorlist = list(
 			var/choice = browser_input_list(user,"Choose your dye:", "Dyes", selectable_colors)
 			if(!choice)
 				return
-			active_color = selectable_colors[choice]
+			if(selectable_colors[choice] == "CUSTOM_RGB")
+				var/current_color = active_color||"#FFFFFF"
+				var/new_color = input(user, "Select custom RGB color:", "Custom Color", color) as color|null
+				if(new_color)
+					active_color = sanitize_hexcolor(new_color, include_crunch=1)
+				else
+					active_color = current_color
+			else
+				active_color = selectable_colors[choice]
 
 		if("paint")
 			if(!inserted)

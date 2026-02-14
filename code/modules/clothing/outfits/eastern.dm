@@ -313,9 +313,6 @@
 	body_parts_covered = COVERAGE_FULL
 	icon = 'icons/roguetown/clothing/shirts.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/shirts.dmi'
-	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_shirts.dmi'
-	r_sleeve_status = SLEEVE_NORMAL
-	l_sleeve_status = SLEEVE_NORMAL
 	allowed_race = RACES_PLAYER_ALL
 	misc_flags = CRAFTING_TEST_EXCLUDE
 	surgery_cover = FALSE
@@ -324,6 +321,10 @@
 	var/repair_amount = 6 //The amount of integrity the tattoos will repair themselves
 	var/repair_time = 20 SECONDS //The amount of time between each repair
 	var/last_repair //last time the tattoos got repaired
+	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
+	nodismemsleeves = TRUE
+	sleevetype = null
+	sleeved = null
 
 /obj/item/clothing/shirt/undershirt/easttats/Initialize(mapload)
 	. = ..()

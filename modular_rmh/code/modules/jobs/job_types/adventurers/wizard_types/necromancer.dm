@@ -41,7 +41,9 @@
 		/datum/action/cooldown/spell/projectile/sickness,
 		/datum/action/cooldown/spell/conjure/raise_lesser_undead/necromancer,
 		/datum/action/cooldown/spell/gravemark,
-		/datum/action/cooldown/spell/control_undead
+		/datum/action/cooldown/spell/control_undead,
+		/datum/action/cooldown/spell/enrapture,
+		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 /datum/job/advclass/combat/adventurer_wizard/necromancer/after_spawn(mob/living/carbon/human/spawned, client/player_client)
@@ -65,7 +67,7 @@
 	shoes = /obj/item/clothing/shoes/shortboots
 	backr = null
 	backl = null
-	belt = /obj/item/storage/belt/leather/black
+	belt = /obj/item/storage/belt/leather/black/adventurers_subclasses
 	backl = /obj/item/storage/backpack/satchel
 	beltr = /obj/item/reagent_containers/glass/bottle/manapot
 	ring = null

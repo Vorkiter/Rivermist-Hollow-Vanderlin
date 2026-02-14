@@ -39,6 +39,8 @@
 		/datum/action/cooldown/spell/conjure/bonfire,
 		/datum/action/cooldown/spell/projectile/fire_flare,
 		/datum/action/cooldown/spell/projectile/fireball,
+		/datum/action/cooldown/spell/enrapture,
+		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 /datum/outfit/adventurer_sorcerer/desert_sorceress
@@ -55,9 +57,9 @@
 	shoes = /obj/item/clothing/shoes/heels
 	backr = null
 	backl = /obj/item/storage/backpack/satchel
-	belt = /obj/item/storage/belt/leather
+	belt = /obj/item/storage/belt/leather/adventurers_subclasses
 	beltl = /obj/item/weapon/whip
-	beltr = null
+	beltr = /obj/item/storage/magebag/apprentice
 	ring = /obj/item/clothing/ring/active/nomag
 	l_hand = null
 	r_hand = null

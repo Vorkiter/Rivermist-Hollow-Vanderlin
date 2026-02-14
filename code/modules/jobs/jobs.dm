@@ -49,9 +49,8 @@ GLOBAL_LIST_INIT(scholars_positions, list(
 	/datum/job/guild_master_wizard::title,
 	/datum/job/guild_wizard::title,
 	/datum/job/guild_wizard_apprentice::title,
-	/datum/job/town_apothecary::title,
-	/datum/job/town_apothecary_apprentice::title,
 	/datum/job/town_scholar::title,
+	/datum/job/town_scholar_apprentice::title,
 ))
 GLOBAL_PROTECT(scholars_positions)
 
@@ -81,15 +80,8 @@ GLOBAL_PROTECT(tavern_positions)
 
 GLOBAL_LIST_INIT(town_positions, list(
 	/datum/job/towner::title,
-	/datum/job/barber_surgeon::title,
-	/datum/job/town_mouth::title,
-	/datum/job/town_performer::title,
 	/datum/job/artisan::title,
 	/datum/job/artisan_apprentice::title,
-	/datum/job/miner::title,
-	/datum/job/farmhand::title,
-	/datum/job/hunter::title,
-	/datum/job/fisher::title,
 ))
 GLOBAL_PROTECT(town_positions)
 

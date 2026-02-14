@@ -190,7 +190,7 @@
 
 		// Things that happen when you can see face and its another person you are examining
 		if(!self_inspect)
-			if(length(GLOB.tennite_schisms))
+			/*if(length(GLOB.tennite_schisms))
 				var/datum/tennite_schism/S = GLOB.tennite_schisms[1]
 				var/user_side = (WEAKREF(user) in S.supporters_astrata) ? "astrata" : (WEAKREF(user) in S.supporters_challenger) ? "challenger" : null
 				var/mob_side = (WEAKREF(src) in S.supporters_astrata) ? "astrata" : (WEAKREF(src) in S.supporters_challenger) ? "challenger" : null
@@ -198,7 +198,7 @@
 				if(user_side && mob_side)
 					var/datum/patron/their_god = (mob_side == "astrata") ? S.astrata_god.resolve() : S.challenger_god.resolve()
 					if(their_god)
-						. += (user_side == mob_side) ? span_notice("Fellow [their_god.name] supporter!") : span_userdanger("Vile [their_god.name] supporter!")
+						. += (user_side == mob_side) ? span_notice("Fellow [their_god.name] supporter!") : span_userdanger("Vile [their_god.name] supporter!")*/
 
 			if(ishuman(user) && HAS_TRAIT(src, TRAIT_FISHFACE) && !HAS_TRAIT(user, TRAIT_FISHFACE))
 				var/mob/living/carbon/human/H = user

@@ -45,6 +45,8 @@
 		/datum/action/cooldown/spell/undirected/touch/prestidigitation,
 		/datum/action/cooldown/spell/undirected/conjure_item/light,
 		/datum/action/cooldown/spell/projectile/fireball,
+		/datum/action/cooldown/spell/enrapture,
+		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 	jobstats = list(
@@ -139,6 +141,8 @@
 		/datum/action/cooldown/spell/undirected/touch/prestidigitation,
 		/datum/action/cooldown/spell/undirected/conjure_item/light,
 		/datum/action/cooldown/spell/projectile/fireball,
+		/datum/action/cooldown/spell/enrapture,
+		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 	jobstats = list(

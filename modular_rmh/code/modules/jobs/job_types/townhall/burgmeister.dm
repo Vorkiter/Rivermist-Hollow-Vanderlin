@@ -34,8 +34,6 @@ GLOBAL_LIST_EMPTY(burgmeister_titles)
 		EXP_TYPE_LEADERSHIP = 300
 	)
 
-	spells = list(/datum/action/cooldown/spell/undirected/list_target/grant_title)
-
 	job_subclasses = list(
 		/datum/job/advclass/burgmeister/marshall,
 		/datum/job/advclass/burgmeister/elected,

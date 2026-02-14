@@ -81,7 +81,7 @@
 		/datum/action/cooldown/spell/undirected/locate_dead,
 		/datum/action/cooldown/spell/sacred_flame,
 		/datum/action/cooldown/spell/enrapture,
-		/datum/action/cooldown/spell/forced_orgasm,,
+		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 /datum/job/heart_priest/after_spawn(mob/living/carbon/human/spawned, client/player_client)

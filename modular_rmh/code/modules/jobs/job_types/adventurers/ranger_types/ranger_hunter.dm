@@ -1,5 +1,5 @@
 /datum/job/advclass/combat/adventurer_ranger/ranger_hunter
-	title = "Beast Master"
+	title = "Ranger Hunter"
 	tutorial = "You seek the most dangerous prey in Faerûn, from ancient dragons to massive hordes of undead, and excel at slaying them all."
 
 	outfit = /datum/outfit/adventurer_ranger/ranger_hunter
@@ -53,7 +53,7 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
 	backl = /obj/item/storage/backpack/satchel
-	belt = /obj/item/storage/belt/leather
+	belt = /obj/item/storage/belt/leather/adventurers_subclasses
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	beltl = /obj/item/ammo_holder/quiver/arrows
 	ring = null

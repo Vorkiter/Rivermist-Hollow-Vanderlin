@@ -58,7 +58,10 @@
 		/datum/skill/misc/medicine = 2,
 		/datum/skill/misc/sneaking = 3,
 		/datum/skill/misc/stealing = 2,
-		/datum/skill/labor/mathematics = 2
+		/datum/skill/labor/mathematics = 2,
+
+		/datum/skill/labor/butchering = 3,
+		/datum/skill/craft/cooking = 3,
 	)
 
 	traits = list(
@@ -114,7 +117,9 @@
 		/datum/skill/misc/sewing = 4,
 		/datum/skill/misc/medicine = 2,
 		/datum/skill/misc/sneaking = 3,
-		/datum/skill/misc/stealing = 2
+		/datum/skill/misc/stealing = 2,
+		/datum/skill/labor/butchering = 2,
+		/datum/skill/craft/cooking = 4,
 	)
 
 	traits = list(

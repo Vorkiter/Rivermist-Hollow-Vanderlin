@@ -52,7 +52,7 @@
 	shoes = /obj/item/clothing/shoes/boots/armor/light/rust
 	backr = /obj/item/weapon/polearm/halberd/bardiche
 	backl = /obj/item/storage/backpack/satchel
-	belt = /obj/item/storage/belt/leather/mercenary
+	belt = /obj/item/storage/belt/leather/adventurers_subclasses
 	beltl = /obj/item/flashlight/flare/torch/lantern/copper
 	beltr = /obj/item/reagent_containers/glass/bottle/waterskin
 	ring = null

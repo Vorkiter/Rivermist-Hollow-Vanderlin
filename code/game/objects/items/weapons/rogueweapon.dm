@@ -32,6 +32,7 @@
 	var/list/possible_enhancements
 	var/renamed_name
 	var/axe_cut = 0
+	var/pickmult = 0 // Multiplier of how much extra picking force we do to rocks.
 	istrainable = TRUE // You can train weapon skills on a dummy with these.
 
 /obj/item/weapon/Initialize(mapload)

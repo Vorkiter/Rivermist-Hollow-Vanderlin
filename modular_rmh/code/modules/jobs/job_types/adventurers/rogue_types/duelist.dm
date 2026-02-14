@@ -45,7 +45,7 @@
 	shoes = /obj/item/clothing/shoes/nobleboot/duelboots
 	backr = null
 	backl = /obj/item/storage/backpack/satchel
-	belt = /obj/item/storage/belt/leather/mercenary
+	belt = /obj/item/storage/belt/leather/adventurers_subclasses
 	beltl = null
 	beltr = null
 	ring = null
@@ -55,7 +55,7 @@
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/mid = 1)
 	scabbards = list(/obj/item/weapon/scabbard/sword)
 
-/datum/outfit/mercenary/duelist/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
+/datum/outfit/adventurer_rogue/duelist/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
 	. = ..()
 	var/rando = rand(1,6)
 	switch(rando)

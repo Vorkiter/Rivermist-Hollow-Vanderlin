@@ -96,7 +96,7 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	backr = null
 	backl = /obj/item/storage/backpack/satchel
-	belt = /obj/item/storage/belt/leather/mercenary
+	belt = /obj/item/storage/belt/leather/adventurers_subclasses
 	beltl = /obj/item/storage/magebag/poor
 	beltr = /obj/item/weapon/sword
 	ring = null

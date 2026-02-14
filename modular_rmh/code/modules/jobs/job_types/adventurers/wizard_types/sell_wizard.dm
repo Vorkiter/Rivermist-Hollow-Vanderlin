@@ -35,6 +35,12 @@
 		TRAIT_NOBLE
 	)
 
+	spells = list(
+		/datum/action/cooldown/spell/undirected/touch/prestidigitation,
+		/datum/action/cooldown/spell/enrapture,
+		/datum/action/cooldown/spell/forced_orgasm,
+	)
+
 /datum/outfit/adventurer_wizard/sell_wizard
 	name = "Sellwizard"
 	head = null
@@ -49,7 +55,7 @@
 	shoes = /obj/item/clothing/shoes/nobleboot
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/weapon/polearm/woodstaff/quarterstaff/iron
-	belt = /obj/item/storage/belt/leather/mercenary
+	belt = /obj/item/storage/belt/leather/adventurers_subclasses
 	beltr = /obj/item/storage/magebag/poor
 	beltl = /obj/item/weapon/knife/dagger/steel/special //remnant from when they were a noble
 	ring = /obj/item/clothing/ring/silver

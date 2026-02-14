@@ -63,7 +63,7 @@
 	shoes = /obj/item/clothing/shoes/rare/hoplite
 	backr = null
 	backl = /obj/item/weapon/shield/tower/hoplite
-	belt = /obj/item/storage/belt/leather/rope
+	belt = /obj/item/storage/belt/leather/rope/adventurers_subclasses
 	beltl = null
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	ring = null

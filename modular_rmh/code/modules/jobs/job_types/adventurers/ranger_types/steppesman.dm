@@ -38,10 +38,6 @@
 		TRAIT_DODGEEXPERT,
 	)
 
-/datum/job/advclass/combat/adventurer_ranger/steppesman/after_spawn(mob/living/carbon/human/spawned, client/player_client)
-	. = ..()
-	new /mob/living/simple_animal/hostile/retaliate/saiga/tame/saddled(get_turf(spawned))
-
 /datum/outfit/adventurer_ranger/steppesman
 	name = "Steppesman"
 	head = /obj/item/clothing/head/helmet/bascinet/steppe
@@ -56,7 +52,7 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/short
 	backr = /obj/item/storage/backpack/satchel
-	belt = /obj/item/storage/belt/leather/mercenary/black
+	belt = /obj/item/storage/belt/leather/black/adventurers_subclasses
 	beltr = /obj/item/weapon/sword/long/rider/steppe
 	beltl = /obj/item/ammo_holder/quiver/arrows
 	ring = null
@@ -68,3 +64,23 @@
 		/obj/item/weapon/knife/hunting = 1,
 		/obj/item/tent_kit = 1
 	)
+
+/datum/job/advclass/combat/adventurer_ranger/steppesman/after_spawn(mob/living/carbon/human/spawned, client/player_client)
+	. = ..()
+	spawned.update_sight()
+	var/mounts = list("White Female", "White Male", "Black Female", "Black Male", "Brown Female", "Brown Male")
+	var/mount_choice = browser_input_list(spawned, "CHOOSE YOUR MOUNT.", "YOUR HORSE", mounts)
+
+	switch(mount_choice)
+		if("White Female")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse)
+		if("White Male")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/male)
+		if("Black Female")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/black)
+		if("Black Male")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/black_male)
+		if("Brown Female")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/brown)
+		if("Brown Male")
+			spawned.add_spell(/datum/action/cooldown/spell/conjure/summon_horse/brown_male)

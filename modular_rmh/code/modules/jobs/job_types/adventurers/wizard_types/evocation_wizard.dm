@@ -10,6 +10,8 @@
 		/datum/action/cooldown/spell/undirected/touch/prestidigitation,
 		/datum/action/cooldown/spell/undirected/conjure_item/light,
 		/datum/action/cooldown/spell/projectile/fireball,
+		/datum/action/cooldown/spell/enrapture,
+		/datum/action/cooldown/spell/forced_orgasm,,
 	)
 
 	jobstats = list(
@@ -38,7 +40,7 @@
 	shoes = /obj/item/clothing/shoes/shortboots
 	backr = /obj/item/storage/backpack/satchel
 	backl = null
-	belt = /obj/item/storage/belt/leather/plaquesilver
+	belt = /obj/item/storage/belt/leather/plaquesilver/adventurers_subclasses
 	beltr = /obj/item/storage/magebag/apprentice
 	beltl = /obj/item/storage/keyring/master_wizard
 	ring = null

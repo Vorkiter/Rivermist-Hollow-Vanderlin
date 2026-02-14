@@ -1,7 +1,7 @@
 /datum/job/adventurer_paladin
 	title = "Adventurer Paladin"
 	tutorial = "A promise made so deeply that it becomes divine in itself flows through a paladin, burning bright enough to inspire allies and smite foes. \
-	ALLOWED PATRONS: Helm, Tempus, Bahamut, Tyr, Torm, Lathander, Ilmater, Selune. \
+	ALLOWED PATRONS: Helm, Bahamut, Tyr, Torm, Lathander, Ilmater, Selune, Sune, Garl Glittergold, Mielikki, Deneir, Oghma.\
 	BOUND BY OATHS, THEY MAY ONLY FOLLOW GODS WHO EMBODY LAW, JUSTICE, OR RIGHTEOUS BATTLE."
 	department_flag = ADVENTURERS
 	faction = FACTION_NEUTRAL
@@ -11,10 +11,14 @@
 	display_order = JDO_ADVENTURER_PALADIN
 
 	allowed_patrons = list(
+		/datum/patron/faerun/good_gods/Garl_Glittergold,
+		/datum/patron/faerun/good_gods/Sune,
+		/datum/patron/faerun/good_gods/Mielikki,
+		/datum/patron/faerun/good_gods/Deneir,
+		/datum/patron/faerun/neutral_gods/Oghma,
 		/datum/patron/faerun/neutral_gods/Helm,
 		/datum/patron/faerun/neutral_gods/Tempus,
 		/datum/patron/faerun/neutral_gods/Mystra,
-		/datum/patron/faerun/neutral_gods/Tempus,
 		/datum/patron/faerun/good_gods/Bahamut,
 		/datum/patron/faerun/good_gods/Tyr,
 		/datum/patron/faerun/good_gods/Torm,

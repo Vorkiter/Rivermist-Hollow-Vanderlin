@@ -13,7 +13,7 @@
 	display_order = JDO_ADVENTURER_CLERIC
 
 	allowed_patrons = list(
-		/datum/patron/faerun/neutral_gods/Garl_Glittergold,
+		/datum/patron/faerun/good_gods/Garl_Glittergold,
 		/datum/patron/faerun/neutral_gods/Helm,
 		/datum/patron/faerun/neutral_gods/Mystra,
 		/datum/patron/faerun/neutral_gods/Oghma,

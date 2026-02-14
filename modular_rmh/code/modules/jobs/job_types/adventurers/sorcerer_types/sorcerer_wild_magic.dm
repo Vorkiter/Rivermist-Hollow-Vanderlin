@@ -10,6 +10,8 @@
 	spells = list(
 		/datum/action/cooldown/spell/undirected/touch/prestidigitation,
 		/datum/action/cooldown/spell/undirected/conjure_item/light,
+		/datum/action/cooldown/spell/enrapture,
+		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 	skills = list(
@@ -46,8 +48,8 @@
 	shoes = /obj/item/clothing/shoes/shortboots
 	backr = null
 	backl = /obj/item/storage/backpack/satchel
-	belt = /obj/item/storage/belt/leather
-	beltl = null
+	belt = /obj/item/storage/belt/leather/adventurers_subclasses
+	beltl = /obj/item/storage/magebag/apprentice
 	beltr = /obj/item/reagent_containers/glass/bottle/manapot
 	ring = null
 	l_hand = null

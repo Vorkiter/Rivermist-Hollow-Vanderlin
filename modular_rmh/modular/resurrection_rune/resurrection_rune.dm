@@ -153,7 +153,7 @@
 	body.revive(ADMIN_HEAL_ALL, force_grab_ghost = TRUE)
 	body.clear_fullscreens()
 	body.reload_fullscreen()
-	body.update_cone()
+	body.update_cone_show()
 	body.update_fov_angles()
 
 	var/was_zombie = body.mind?.has_antag_datum(/datum/antagonist/zombie)

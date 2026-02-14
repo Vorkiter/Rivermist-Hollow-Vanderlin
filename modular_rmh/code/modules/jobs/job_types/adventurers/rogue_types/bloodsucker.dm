@@ -54,7 +54,7 @@
 	shoes = /obj/item/clothing/shoes/rare/grenzelhoft
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 	backl = /obj/item/storage/backpack/satchel
-	belt = /obj/item/storage/belt/leather/plaquegold
+	belt = /obj/item/storage/belt/leather/plaquegold/adventurers_subclasses
 	beltl = /obj/item/ammo_holder/quiver/arrows
 	beltr = /obj/item/weapon/sword/rapier/dec
 	ring = /obj/item/clothing/ring/gold

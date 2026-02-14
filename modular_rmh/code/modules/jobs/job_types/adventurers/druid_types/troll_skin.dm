@@ -66,7 +66,7 @@
 	shoes = null
 	backr = null
 	backl = /obj/item/weapon/mace/goden/shillelagh
-	belt = /obj/item/storage/belt/leather/rope
+	belt = /obj/item/storage/belt/leather/rope/adventurers_subclasses
 	beltl = /obj/item/weapon/knife/stone
 	beltr = null
 	ring = null

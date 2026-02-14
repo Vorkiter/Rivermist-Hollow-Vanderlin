@@ -15,7 +15,7 @@
 	associated_skill = /datum/skill/labor/mining
 	melting_material = /datum/material/iron
 	melt_amount = 75
-	var/pickmult = 1 // Multiplier of how much extra picking force we do to rocks.
+	pickmult = 1 // Multiplier of how much extra picking force we do to rocks.
 
 /obj/item/weapon/pick/getonmobprop(tag)
 	. = ..()

@@ -143,7 +143,7 @@
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleevetype = "shirt"
 	nodismemsleeves = TRUE
-	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
+	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK | ITEM_SLOT_BACK_R
 	flags_inv = HIDEBOOB
 
 /obj/item/clothing/cloak/templar/pestra
@@ -157,7 +157,7 @@
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleevetype = "shirt"
 	nodismemsleeves = TRUE
-	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
+	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK | ITEM_SLOT_BACK_R
 	flags_inv = HIDEBOOB
 
 /obj/item/clothing/cloak/ravox
@@ -171,7 +171,7 @@
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleevetype = "shirt"
 	nodismemsleeves = TRUE
-	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
+	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK | ITEM_SLOT_BACK_R
 	flags_inv = HIDEBOOB
 
 /obj/item/clothing/cloak/templar/xylix
@@ -185,7 +185,7 @@
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleevetype = "shirt"
 	nodismemsleeves = TRUE
-	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
+	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK | ITEM_SLOT_BACK_R
 	flags_inv = HIDEBOOB
 
 

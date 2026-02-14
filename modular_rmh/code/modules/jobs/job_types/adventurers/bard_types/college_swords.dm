@@ -37,7 +37,7 @@
 		TRAIT_BARDIC_TRAINING
 	)
 
-/datum/job/advclass/mercenary/sworddancer/after_spawn(mob/living/carbon/human/spawned, client/player_client)
+/datum/job/advclass/combat/adventurer_bard/college_swords/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	. = ..()
 
 	spawned.select_equippable(player_client, list(
@@ -70,7 +70,7 @@
 	shoes = /obj/item/clothing/shoes/boots
 	backr = null
 	backl = /obj/item/storage/backpack/satchel
-	belt = /obj/item/storage/belt/leather/mercenary
+	belt = /obj/item/storage/belt/leather/adventurers_subclasses
 	beltr = /obj/item/weapon/knife/dagger/steel/special
 	beltl = /obj/item/weapon/sword/rapier
 	ring = null

@@ -45,6 +45,8 @@
 		/datum/action/cooldown/spell/mimicry,
 		/datum/action/cooldown/spell/find_flaw,
 		/datum/action/cooldown/spell/enchantment/green_flame,
+		/datum/action/cooldown/spell/enrapture,
+		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 // ------------------------------------------------------------
@@ -103,7 +105,7 @@
 	shoes = /obj/item/clothing/shoes/boots/armor/light
 	backr = null
 	backl = /obj/item/storage/backpack/satchel/black
-	belt = /obj/item/storage/belt/leather
+	belt = /obj/item/storage/belt/leather/adventurers_subclasses
 	beltr = /obj/item/reagent_containers/glass/bottle/manapot
 	beltl = null
 	beltr = null

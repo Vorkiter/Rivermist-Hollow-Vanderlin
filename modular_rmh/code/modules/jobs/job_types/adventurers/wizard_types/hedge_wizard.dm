@@ -29,7 +29,9 @@
 	)
 
 	spells = list(
-		/datum/action/cooldown/spell/undirected/touch/prestidigitation
+		/datum/action/cooldown/spell/undirected/touch/prestidigitation,
+		/datum/action/cooldown/spell/enrapture,
+		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 /datum/outfit/adventurer_wizard/hedge_wizard
@@ -46,7 +48,7 @@
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	backr = /obj/item/storage/backpack/satchel
 	backl = null
-	belt = /obj/item/storage/belt/leather/rope
+	belt = /obj/item/storage/belt/leather/rope/adventurers_subclasses
 	beltl = /obj/item/reagent_containers/glass/bottle/manapot
 	beltr = /obj/item/storage/magebag/apprentice
 	ring = null
