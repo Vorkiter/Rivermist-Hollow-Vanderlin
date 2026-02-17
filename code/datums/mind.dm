@@ -822,3 +822,52 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	for(var/O in personal_objectives)
 		qdel(O)
 	personal_objectives.Cut()
+
+/obj/structure/proc/handle_special_items_retrieval(mob/user, atom/host_object)
+	// Attempts to retrieve an item from a player's stash, and applies any base colors, custom names, and descriptions.
+	if(user.mind && isliving(user))
+		if(user.mind.special_items && user.mind.special_items.len)
+			var/item = input(user, "What will I take?", "STASH") as null|anything in user.mind.special_items
+			if(item)
+				if(user.Adjacent(host_object))
+					if(user.mind.special_items[item])
+						var/path2item = user.mind.special_items[item]
+						user.mind.special_items -= item
+						var/obj/item/I = new path2item(user.loc)
+
+						// Check if this is a loadout item (no stat modification applied)
+						if(user.client?.prefs)
+							var/list/loadout_slots = list(
+								"loadout1", "loadout2", "loadout3", "loadout4", "loadout5",
+								"loadout6", "loadout7", "loadout8", "loadout9", "loadout10"
+							)
+							for(var/slot in loadout_slots)
+								var/datum/loadout_item/loadout_datum = user.client.prefs.vars[slot]
+								if(loadout_datum && loadout_datum.item_path == path2item)
+									break
+
+						// Apply custom color if set (for clothing and weapons) - BEFORE putting in hands
+						var/dye = user.client?.prefs.resolve_loadout_to_color(path2item)
+						if(dye)
+							I.add_atom_colour(dye, FIXED_COLOUR_PRIORITY)
+							I.update_icon()
+
+						// Apply custom name if set
+						var/custom_name = user.client?.prefs.resolve_loadout_to_name(path2item)
+						if(custom_name)
+							I.original_name = I.name
+							I.name = custom_name
+							log_game("[key_name(user)] retrieved loadout item with custom name: '[custom_name]' (original: '[I.original_name]')")
+
+						// Apply custom description if set
+						var/custom_desc = user.client?.prefs.resolve_loadout_to_desc(path2item)
+						if(custom_desc)
+							I.desc = custom_desc
+
+						user.put_in_hands(I)
+
+						// Force update mob appearance to show colored item in hands
+						if(isliving(user))
+							var/mob/living/L = user
+							L.update_inv_hands()
+							L.update_icons()

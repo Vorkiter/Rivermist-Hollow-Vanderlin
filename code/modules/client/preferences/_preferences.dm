@@ -222,13 +222,65 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/list/descriptor_entries = list()
 	var/list/custom_descriptors = list()
 
+	var/datum/loadout_menu/loadout_menu
+
+
 	var/datum/loadout_item/loadout1
 	var/datum/loadout_item/loadout2
 	var/datum/loadout_item/loadout3
+	var/datum/loadout_item/loadout4
+	var/datum/loadout_item/loadout5
+	var/datum/loadout_item/loadout6
+	var/datum/loadout_item/loadout7
+	var/datum/loadout_item/loadout8
+	var/datum/loadout_item/loadout9
+	var/datum/loadout_item/loadout10
 
 	var/loadout_1_hex
 	var/loadout_2_hex
 	var/loadout_3_hex
+	var/loadout_4_hex
+	var/loadout_5_hex
+	var/loadout_6_hex
+	var/loadout_7_hex
+	var/loadout_8_hex
+	var/loadout_9_hex
+	var/loadout_10_hex
+
+	// Custom names for loadout items
+	var/loadout_1_name
+	var/loadout_2_name
+	var/loadout_3_name
+	var/loadout_4_name
+	var/loadout_5_name
+	var/loadout_6_name
+	var/loadout_7_name
+	var/loadout_8_name
+	var/loadout_9_name
+	var/loadout_10_name
+
+	// Custom descriptions for loadout items
+	var/loadout_1_desc
+	var/loadout_2_desc
+	var/loadout_3_desc
+	var/loadout_4_desc
+	var/loadout_5_desc
+	var/loadout_6_desc
+	var/loadout_7_desc
+	var/loadout_8_desc
+	var/loadout_9_desc
+	var/loadout_10_desc
+
+	// Loadout preset storage - 3 slots for saving/loading character customization
+	var/list/loadout_preset_1
+	var/list/loadout_preset_2
+	var/list/loadout_preset_3
+	// Temporary storage for loadout item selection (per-user to prevent race conditions)
+	var/list/temp_loadout_selection
+
+	// History tracking for character customization undo
+	var/list/customization_history = list()
+	var/current_loadout_slot = 1
 
 	var/list/preference_message_list = list()
 
@@ -556,9 +608,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			if('voicetype' in data) updateField('char-voicetype', data.voicetype || '');
 			if('accent' in data) updateField('char-accent', data.accent || '');
 			if('moan' in data) updateField('char-moan', data.moan || '');
-			if('loadout1' in data) updateField('char-loadout1', data.loadout1 || 'None');
-			if('loadout2' in data) updateField('char-loadout2', data.loadout2 || 'None');
-			if('loadout3' in data) updateField('char-loadout3', data.loadout3 || 'None');
 			if('triumphs' in data) updateField('char-triumphs', data.triumphs || '0');
 
 			if('headshot' in data) updateHeadshot(data.headshot);
@@ -686,14 +735,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		<div id="char-moan" class="clickable-text auto-shrink" style="width:42px; height:9px;">[moan_selection]</div>
 	</div></a>
 
-	<a href='?_src_=prefs;preference=loadout_item;loadout_number=1;task=input'><div class="sprite" style="top:194px; left:10px; width:51px; height:9px; background-image: url('loadout_item1.png');">
-		<div id="char-loadout1" class="clickable-text auto-shrink" style="width:51px; height:9px;">[loadout1 ? loadout1.name : "None"]</div>
-	</div></a>
-	<a href='?_src_=prefs;preference=loadout_item;loadout_number=2;task=input'><div class="sprite" style="top:213px; left:10px; width:51px; height:9px; background-image: url('loadout_item2.png');">
-		<div id="char-loadout2" class="clickable-text auto-shrink" style="width:51px; height:9px;">[loadout2 ? loadout2.name : "None"]</div>
-	</div></a>
-	<a href='?_src_=prefs;preference=loadout_item;loadout_number=3;task=input'><div class="sprite" style="top:232px; left:10px; width:51px; height:9px; background-image: url('loadout_item3.png');">
-		<div id="char-loadout3" class="clickable-text auto-shrink" style="width:51px; height:9px;">[loadout3 ? loadout3.name : "None"]</div>
+	<a href='?_src_=prefs;preference=loadout_item;task=input'><div class="sprite" style="top:194px; left:10px; width:51px; height:9px; background-image: url('loadout_item1.png');">
+		<div id="char-loadout1" class="clickable-text auto-shrink" style="width:51px; height:9px;">Open Loadout Menu</div>
 	</div></a>
 
 	<div class="sprite" style="top:195px; left:82px; width:22px; height:7px; background-image: url('triumphs_display.png');">
@@ -1567,6 +1610,10 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			handle_undies_topic(user, href_list)
 			show_smallclothes_ui(user)
 			return
+		if("change_loadout_preferences")
+			handle_loadout_topic(user, href_list)
+			open_loadout_menu_selection(user)
+			return
 		if("change_descriptor")
 			handle_descriptors_topic(user, href_list)
 			show_descriptors_ui(user)
@@ -1811,20 +1858,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						loadout_3_hex = null
 						to_chat(user, "The colour for your <b>third</b> loadout item has been cleared.")
 				if("loadout_item")
-					var/list/loadouts_available = list("None" = null)
-					for(var/datum/loadout_item/item as anything in GLOB.loadout_items)
-						loadouts_available[item.name] += item
-
-					var/loadout_input = browser_input_list(
-						user,
-						"Choose your character's loadout item. RMB a tree, statue or clock to collect.",
-						"Loadout",
-						loadouts_available,
-						)
-
-					var/loadout_number = href_list["loadout_number"]
-
-					set_loadout(user, loadout_number, loadouts_available[loadout_input])
+					open_loadout_menu(user)
 
 				if("species")
 					selected_accent = ACCENT_DEFAULT
@@ -2719,21 +2753,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 	return FALSE
 
-/datum/preferences/proc/set_loadout(mob/user, loadout_number, datum/loadout_item/loadout)
-	if(!loadout)
-		return
-
-	if(loadout == "None")
-		vars["loadout[loadout]"] = null
-		to_chat(user, span_notice("Who needs stuff anyway?"))
-	else
-		if(!(loadout in GLOB.loadout_items))
-			return
-		vars["loadout[loadout_number]"] = loadout
-		to_chat(user, span_notice("[loadout.name]"))
-		if(loadout.description)
-			to_chat(user, "[loadout.description]")
-
 /datum/preferences/proc/get_job_lock_html(datum/job/job, mob/user, used_name)
 	var/player_species = user.client.prefs.pref_species.id
 	var/fails_allowed = length(job.allowed_races) && !(player_species in job.allowed_races)
@@ -2819,3 +2838,51 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		PM.backdrop(parent_cl.mob)
 		PM = locate(/atom/movable/screen/plane_master/game_world_walls) in parent_cl.screen
 		PM.backdrop(parent_cl.mob)
+
+/datum/preferences/proc/resolve_loadout_to_name(item_path)
+	if (loadout1 && (item_path == loadout1.item_path) && loadout_1_name)
+		return loadout_1_name
+	if (loadout2 && (item_path == loadout2.item_path) && loadout_2_name)
+		return loadout_2_name
+	if (loadout3 && (item_path == loadout3.item_path) && loadout_3_name)
+		return loadout_3_name
+	if (loadout4 && (item_path == loadout4.item_path) && loadout_4_name)
+		return loadout_4_name
+	if (loadout5 && (item_path == loadout5.item_path) && loadout_5_name)
+		return loadout_5_name
+	if (loadout6 && (item_path == loadout6.item_path) && loadout_6_name)
+		return loadout_6_name
+	if (loadout7 && (item_path == loadout7.item_path) && loadout_7_name)
+		return loadout_7_name
+	if (loadout8 && (item_path == loadout8.item_path) && loadout_8_name)
+		return loadout_8_name
+	if (loadout9 && (item_path == loadout9.item_path) && loadout_9_name)
+		return loadout_9_name
+	if (loadout10 && (item_path == loadout10.item_path) && loadout_10_name)
+		return loadout_10_name
+
+	return FALSE
+
+/datum/preferences/proc/resolve_loadout_to_desc(item_path)
+	if (loadout1 && (item_path == loadout1.item_path) && loadout_1_desc)
+		return loadout_1_desc
+	if (loadout2 && (item_path == loadout2.item_path) && loadout_2_desc)
+		return loadout_2_desc
+	if (loadout3 && (item_path == loadout3.item_path) && loadout_3_desc)
+		return loadout_3_desc
+	if (loadout4 && (item_path == loadout4.item_path) && loadout_4_desc)
+		return loadout_4_desc
+	if (loadout5 && (item_path == loadout5.item_path) && loadout_5_desc)
+		return loadout_5_desc
+	if (loadout6 && (item_path == loadout6.item_path) && loadout_6_desc)
+		return loadout_6_desc
+	if (loadout7 && (item_path == loadout7.item_path) && loadout_7_desc)
+		return loadout_7_desc
+	if (loadout8 && (item_path == loadout8.item_path) && loadout_8_desc)
+		return loadout_8_desc
+	if (loadout9 && (item_path == loadout9.item_path) && loadout_9_desc)
+		return loadout_9_desc
+	if (loadout10 && (item_path == loadout10.item_path) && loadout_10_desc)
+		return loadout_10_desc
+
+	return FALSE

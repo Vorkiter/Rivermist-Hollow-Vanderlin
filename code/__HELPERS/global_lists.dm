@@ -70,6 +70,11 @@
 		var/datum/combat_music/trackref = GLOB.cmode_tracks_by_type[path]
 		cmode_track_to_namelist(trackref)
 
+	// Loadout items
+	for (var/path in subtypesof(/datum/loadout_item))
+		var/datum/loadout_item/loadout_item = new path()
+		GLOB.loadout_items += loadout_item
+
 
 //creates every subtype of prototype (excluding prototype) and adds it to list L.
 //if no list/L is provided, one is created.

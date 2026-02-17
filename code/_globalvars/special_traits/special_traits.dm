@@ -66,7 +66,7 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 		player = character.client
 	if(!player?.prefs)
 		return
-	for(var/i in 1 to 3)
+	for(var/i in 1 to 10)
 		if(isnull(player.prefs.vars["loadout[i]"]))
 			continue
 		character.mind.special_items["[player.prefs.vars["loadout[i]"]:item_path:name]"] = player.prefs.vars["loadout[i]"]:item_path
