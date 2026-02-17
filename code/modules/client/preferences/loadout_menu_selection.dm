@@ -29,7 +29,7 @@ GLOBAL_LIST_EMPTY(cached_loadout_flat_icons)
 
 
 	for(var/datum/loadout_item/item in GLOB.loadout_items)
-		if(item.nobility_check(user.client))
+		if(item.nobility_check(user))
 			var/item_type = item.item_path
 			var/loadout_type = item.type
 			if(item_type)
@@ -72,7 +72,7 @@ GLOBAL_LIST_EMPTY(cached_loadout_flat_icons)
 					continue
 				var/datum/loadout_item/other_item = prefs.vars["loadout[slot]"]
 				if(other_item)
-					if(other_item == item)
+					if(other_item.type == item.type)
 						to_chat(usr, span_warning("[item.name] is already in slot [slot]."))
 						prefs.open_loadout_menu(user)
 						var/datum/browser/B = locate(href_list["popup"])

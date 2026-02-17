@@ -906,7 +906,7 @@ GLOBAL_LIST_EMPTY(cached_loadout_icons)
 				if(!current)
 					return
 
-				var/new_name = browser_input_text(usr, "Enter a custom name for this item (leave blank to use default):", "Rename Item", vars["loadout_[slot]_name"], MAX_NAME_LEN)
+				var/new_name = browser_input_text(usr, "Enter a custom name for this item (leave blank to use default):", "Rename Item", vars["loadout_[slot]_name"], MAX_NAME_LEN, multiline = TRUE)
 
 				if(new_name != null) // Allow empty string to clear
 					vars["loadout_[slot]_name"] = new_name
@@ -940,6 +940,11 @@ GLOBAL_LIST_EMPTY(cached_loadout_icons)
 				if(new_color)
 					if(new_color == "None")
 						vars["loadout_[slot]_hex"] = null
+					else if(new_color == "CUSTOM")
+						var/current_color = vars["loadout_[slot]_hex"]||"#FFFFFF"
+						var/newer_color = input(usr, "Select color:", "Custom Color", current_color) as color|null
+						if(newer_color)
+							vars["loadout_[slot]_hex"] = sanitize_hexcolor(newer_color, include_crunch=1)
 					else
 						// Look up the hex value from colorlist
 						vars["loadout_[slot]_hex"] = colorlist[new_color]
