@@ -2147,6 +2147,15 @@
 /obj/item/weapon/knife/villager,
 /turf/open/floor/wood,
 /area/indoors/town/keep)
+"jj" = (
+/obj/effect/decal/cleanable/debris/stone,
+/obj/structure/bars/passage{
+	redstone_id = "dwarffortress1";
+	damage_deflection = 999
+	},
+/obj/effect/spawner/trap,
+/turf/open/floor/volcanic,
+/area/indoors/cave/rmh_dwarf_keep/grand)
 "jk" = (
 /obj/effect/decal/remains/human,
 /turf/open/floor/carpet/lord/center,
@@ -3524,9 +3533,11 @@
 /turf/open/floor/tile/harem,
 /area/indoors/town/keep)
 "pa" = (
-/obj/structure/gate/bars{
-	redstone_id = "dwarffortress1"
+/obj/structure/bars/passage{
+	redstone_id = "dwarffortress1";
+	damage_deflection = 999
 	},
+/obj/effect/spawner/trap,
 /turf/open/floor/herringbone,
 /area/indoors/cave/rmh_dwarf_keep/grand)
 "pb" = (
@@ -4183,6 +4194,14 @@
 	},
 /turf/closed/wall/mineral/pipe/line,
 /area/indoors/cave/rmh_dwarf_keep/smelters)
+"rR" = (
+/obj/effect/spawner/trap,
+/obj/structure/bars/passage{
+	redstone_id = "dwarffortress1";
+	damage_deflection = 999
+	},
+/turf/open/floor/hexstone,
+/area/indoors/cave/rmh_dwarf_keep/grand)
 "rS" = (
 /obj/item/natural/bundle/stoneblock,
 /turf/open/floor/snow/rough,
@@ -34626,7 +34645,7 @@ IQ
 QE
 An
 kH
-JI
+rR
 Lw
 Oi
 eh
@@ -34755,7 +34774,7 @@ IQ
 QE
 QE
 gv
-TN
+jj
 TN
 jt
 jt
