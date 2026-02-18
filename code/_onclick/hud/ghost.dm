@@ -14,48 +14,21 @@
 	no_over_text = FALSE
 
 /atom/movable/screen/ghost/orbit/rogue/Click(location, control, params)
-	var/mob/dead/observer/G = usr
+	var/mob/dead/observer/ghost = usr
 	var/list/modifiers = params2list(params)
 	if(LAZYACCESS(modifiers, RIGHT_CLICK)) // screen objects don't do the normal Click() stuff so we'll cheat
-		if(G.client?.holder)
-			G.follow()
+		if(ghost.client?.holder)
+			ghost.follow()
 	else
-		if(istype(G, /mob/dead/observer/rogue/arcaneeye))
+		if(istype(ghost, /mob/dead/observer/rogue/arcaneeye))
 			return
 		if(alert("Travel with the boatman?", "", "Yes", "No") == "Yes")
-			if(G.mind)
-				var/datum/job/target_job = SSjob.GetJob(G.mind.assigned_role)
+			if(ghost.mind)
+				var/datum/job/target_job = SSjob.GetJob(ghost.mind.assigned_role)
 				if(target_job)
 					if(target_job.job_reopens_slots_on_death)
 						target_job.current_positions = max(0, target_job.current_positions - 1)
-					//if(target_job.same_job_respawn_delay)
-						// Store the current time for the player
-						//GLOB.job_respawn_delays[G.ckey] = world.time + target_job.same_job_respawn_delay
-
-				G.returntolobby(0)
-		/*if(G.isinhell)
-			return
-		if(G.client)
-			if(G.client.holder)
-				if(istype(G, /mob/dead/observer/rogue/arcaneeye))
-					return
-				if(istype(G, /mob/dead/observer/profane)) // Souls trapped by a dagger can return to lobby if they want
-					if(alert("Return to the lobby?", "", "Yes", "No") == "Yes")
-						G.returntolobby()
-				G.client.descend()
-				return
-
-		if(has_world_trait(/datum/world_trait/skeleton_siege) || has_world_trait(/datum/world_trait/rousman_siege) || has_world_trait(/datum/world_trait/goblin_siege))
-			G.returntolobby()
-		G.client.descend()*/
-/*		if(world.time < G.ghostize_time + RESPAWNTIME)
-			var/ttime = round((G.ghostize_time + RESPAWNTIME - world.time) / 10)
-			var/list/thingsz = list("My connection to the world is still too strong.",\
-			"I'm not ready to leave...", "I'm not ready to travel with Charon.",\
-			"Don't make me leave!", "No... Not yet!", "Please, don't make me go yet...",\
-			"The shores are calling me but I cannot go...","My soul isn't ready yet...")
-			to_chat(G, "<span class='warning'>[pick(thingsz)] ([ttime])</span>")
-			return */ //Disabling this since the underworld will exist
+				ghost.returntolobby(0)
 
 /datum/hud/ghost/New(mob/owner)
 	..()

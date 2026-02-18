@@ -1,9 +1,11 @@
 /datum/patron/faerun
+	abstract_type = /datum/patron/faerun
 	name = null
 	associated_faith = /datum/faith/faerun/neutral_gods
 	preference_accessible = TRUE
 
 /datum/patron/faerun/neutral_gods
+	abstract_type = /datum/patron/faerun/neutral_gods
 	name = null
 	associated_faith = /datum/faith/faerun/neutral_gods
 	profane_words = list()

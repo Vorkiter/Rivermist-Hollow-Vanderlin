@@ -75,7 +75,7 @@
 	if(fake_rock)
 		spawn_troll()
 		return
-	if(!istype(item, /obj/item/weapon/pick/paxe))
+	if(!istype(item, /obj/item/weapon/axe/paxe))
 		return
 
 	to_chat(user, span_notice("You carefully detach the crystals from the rock..."))

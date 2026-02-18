@@ -12,6 +12,7 @@
 #define SPEC_ID_HALF_ORC "halforc"
 #define SPEC_ID_RAKSHARI "rakshari"
 #define SPEC_ID_KOBOLD "kobold"
+#define SPEC_ID_KOBOLD_FORMIKRAG "kobold_formikrag"
 #define SPEC_ID_HOLLOWKIN "hollowkin"
 #define SPEC_ID_HARPY "harpy"
 #define SPEC_ID_TRITON "triton"
@@ -338,4 +339,29 @@
 	SPEC_ID_HOLLOWKIN,\
 	SPEC_ID_HALF_ORC,\
 	SPEC_ID_ZIZOMBIE,\
+)
+
+
+/// Used to tag meats. Eating certain meat as of these races as another race in this list is cannibalism
+#define SPECIES_CANNIBAL_MEN list(\
+	SPEC_ID_HUMEN,\
+	SPEC_ID_DWARF,\
+	SPEC_ID_AASIMAR,\
+	SPEC_ID_ELF,\
+	SPEC_ID_HALF_ELF,\
+	SPEC_ID_DROW,\
+	SPEC_ID_HALF_DROW,\
+	SPEC_ID_TIEFLING,\
+	SPEC_ID_HARPY,\
+	SPEC_ID_TRITON,\
+	SPEC_ID_MEDICATOR,\
+	SPEC_ID_HALF_ORC,\
+	SPEC_ID_ROUSMAN,\
+	SPEC_ID_ZIZOMBIE,\
+	SPEC_ID_HUMAN_SPACE,\
+	SPEC_ID_HALFLING,\
+)
+
+#define SPECIES_CANNIBALISM_KOBOLD list(\
+	SPEC_ID_KOBOLD,\
 )

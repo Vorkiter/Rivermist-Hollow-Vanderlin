@@ -68,7 +68,7 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Mookmania, TrueType;}
 .boldnotice				{color: #f1d669;	font-weight: bold;}
 .hear					{color: #6685f5;	font-style: italic;}
 .adminnotice			{color: #6685f5;}
-.adminhelp				{color: #ff0000;	font-weight: bold;}
+.adminhelp				{color: #ff0000;	font-weight: bold;	font-size: 120%}
 .unconscious			{color: #c9c1ba;	font-weight: bold;}
 .suicide				{color: #ff5050;	font-style: italic;}
 .green					{color: #80b077;}
@@ -149,4 +149,6 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Mookmania, TrueType;}
 .silver					{color: #c0c0c0;}
 
 .aphrodisiac			{color: #FF00B4;}
+.prayer 				{color: #f1d55b; font-weight: bold;}
+
 </style>"}

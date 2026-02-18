@@ -1,4 +1,5 @@
 /datum/patron/faerun/good_gods
+	abstract_type = /datum/patron/faerun/good_gods
 	name = null
 	associated_faith = /datum/faith/faerun/good_gods
 

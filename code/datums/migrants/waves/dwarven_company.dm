@@ -56,7 +56,7 @@
 	backr = /obj/item/weapon/shield/wood
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/flashlight/flare/torch/lantern
-	beltl = /obj/item/weapon/pick/paxe
+	beltl = /obj/item/weapon/axe/paxe
 	pants = /obj/item/clothing/pants/trou
 	shoes = /obj/item/clothing/shoes/simpleshoes/buckle
 	backl = /obj/item/storage/backpack/satchel
@@ -130,7 +130,7 @@
 		shirt = /obj/item/clothing/shirt/dress/gen/colored/random
 		armor = /obj/item/clothing/armor/leather/splint
 		shoes = /obj/item/clothing/shoes/shortboots
-		backl = /obj/item/weapon/pick/paxe
+		backl = /obj/item/weapon/axe/paxe
 
 /datum/migrant_role/dwarven_company/armorsmith
 	name = "Dwarven Armorsmith"
@@ -194,7 +194,7 @@
 	if(equipped_human.gender == MALE)
 		shoes = /obj/item/clothing/shoes/simpleshoes/buckle
 		shirt = /obj/item/clothing/shirt/shortshirt
-		backl = /obj/item/weapon/pick/paxe
+		backl = /obj/item/weapon/axe/paxe
 	else
 		shirt = /obj/item/clothing/shirt/dress/gen/colored/random
 		shoes = /obj/item/clothing/shoes/shortboots

@@ -2034,18 +2034,8 @@ generate/load female uniform sprites matching all previously decided variables
 
 	//GENERATE NEW LIMBS
 	var/list/new_limbs = list()
-	var/hideboob = FALSE //used to tell if we should hide boobs, basically
 	for(var/obj/item/bodypart/BP as anything in bodyparts)
-		if(BP.body_zone == BODY_ZONE_CHEST)
-			if(wear_armor?.flags_inv & HIDEBOOB)
-				hideboob = TRUE
-			if(wear_shirt?.flags_inv & HIDEBOOB)
-				hideboob = TRUE
-			if(cloak?.flags_inv & HIDEBOOB)
-				hideboob = TRUE
-			new_limbs += BP.get_limb_icon(hideaux = hideboob)
-		else
-			new_limbs += BP.get_limb_icon()
+		new_limbs += BP.get_limb_icon()
 	if(new_limbs.len)
 		overlays_standing[BODYPARTS_LAYER] = new_limbs
 		limb_icon_cache[icon_render_key] = new_limbs

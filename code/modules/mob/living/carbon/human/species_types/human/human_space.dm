@@ -29,7 +29,6 @@
 	VASTLY dwarfs anything seen on the planet. However, the gods of Psydonia do not smile upon them. They must stay \
 	covert, or face an another immediate sunbeam to their location."
 
-
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, STUBBLE, OLDGREY)
 	inherent_traits = list(TRAIT_NOMOBSWAP)

@@ -24,7 +24,6 @@
 	\n\n\
 	Proficiencies: Swords(2), Bows(2), Arcane(2), Reading(2), Music(2), Sneaking(2)."
 
-
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, STUBBLE, OLDGREY)
 	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_ALLURE)
