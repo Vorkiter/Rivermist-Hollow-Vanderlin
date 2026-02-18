@@ -148,6 +148,7 @@
 	bruteloss = amount
 	if(updating_health)
 		updatehealth(amount)
+		check_damage_threshold()
 
 /mob/living/proc/getOxyLoss()
 	return oxyloss
@@ -160,6 +161,7 @@
 	SEND_SIGNAL(src, COMSIG_LIVING_ADJUSTED, (amount * CONFIG_GET(number/damage_multiplier)), OXY)
 	if(updating_health)
 		updatehealth(amount)
+		check_damage_threshold()
 
 /mob/living/proc/setOxyLoss(amount, updating_health = TRUE, forced = FALSE)
 	if(!forced && status_flags & GODMODE)
@@ -168,6 +170,7 @@
 	oxyloss = amount
 	if(updating_health)
 		updatehealth(amount)
+		check_damage_threshold()
 
 /mob/living/proc/getToxLoss()
 	return toxloss
@@ -179,6 +182,7 @@
 	SEND_SIGNAL(src, COMSIG_LIVING_ADJUSTED, (amount * CONFIG_GET(number/damage_multiplier)), TOX)
 	if(updating_health)
 		updatehealth(amount)
+		check_damage_threshold()
 	return amount
 
 /mob/living/proc/setToxLoss(amount, updating_health = TRUE, forced = FALSE)
