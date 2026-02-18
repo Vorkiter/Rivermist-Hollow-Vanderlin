@@ -10,20 +10,4 @@
 #
 # {port} is important in `address` as it uses the world.port at runtime
 
-[[relay]]
-id = "us_east"
-name = "Connect to US-East (Ashburn)"
-quickname = "US-East (Ashburn)"
-address = "byond://useast.monkestation.com:{port}"
 
-[[relay]]
-id = "warsaw"
-name = "Connect to Warsaw (Poland)"
-quickname = "Warsaw (Poland)"
-address = "byond://warsaw.monkestation.com:{port}"
-
-[[relay]]
-id = "direct"
-name = "No Relay (Direct Connect)"
-quickname = "Monke Direct"
-address = "byond://play.monkestation.com:{port}"
