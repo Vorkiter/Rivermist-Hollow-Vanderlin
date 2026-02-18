@@ -51,7 +51,6 @@
 
 	var/animal_origin = 0 //for nonhuman bodypart (e.g. monkey)
 	var/dismemberable = 1 //whether it can be dismembered with a weapon.
-	// var/disableable = 1
 
 	var/px_x = 0
 	var/px_y = 0

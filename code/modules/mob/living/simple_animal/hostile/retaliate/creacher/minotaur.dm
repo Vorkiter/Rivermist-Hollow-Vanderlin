@@ -15,10 +15,10 @@
 						/obj/item/natural/hide = 10, /obj/item/natural/bundle/bone/full = 2)
 	faction = list("caves")
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	health = 1500
-	maxHealth = 1500
-	melee_damage_lower = 55
-	melee_damage_upper = 80
+	health = 500
+	maxHealth = 500
+	melee_damage_lower = 35
+	melee_damage_upper = 50
 	vision_range = 3
 	aggro_vision_range = 8
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
@@ -60,8 +60,8 @@
 	icon_living = "MinotaurMale_Axe"
 	icon_dead = "MinotaurMale_dead"
 	base_intents = list(/datum/intent/simple/minotaur_axe)
-	melee_damage_lower = 65
-	melee_damage_upper = 85
+	melee_damage_lower = 45
+	melee_damage_upper = 65
 	loot = list(/obj/item/weapon/greataxe/steel/doublehead)
 
 /mob/living/simple_animal/hostile/retaliate/minotaur/axe/female

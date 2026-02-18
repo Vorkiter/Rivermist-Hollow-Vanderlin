@@ -3,7 +3,7 @@
 	button_icon = 'icons/effects/effects.dmi'
 	button_icon_state = "explosion"
 	desc = "Chucks a stone at someone"
-	cooldown_time = 15 SECONDS
+	cooldown_time = 60 SECONDS
 	check_flags = null
 	charge_required = FALSE
 
