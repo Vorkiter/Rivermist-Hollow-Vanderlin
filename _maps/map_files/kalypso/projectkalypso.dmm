@@ -2158,7 +2158,7 @@
 /turf/open/floor/church,
 /area/under/cave)
 "kI" = (
-/obj/item/weapon/pick/paxe,
+/obj/item/weapon/axe/paxe,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/naturalstone,
 /area/under/cave)

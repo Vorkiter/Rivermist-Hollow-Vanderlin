@@ -26023,7 +26023,7 @@
 /obj/structure/table/wood/reinf_long{
 	dir = 4
 	},
-/obj/item/weapon/pick/paxe,
+/obj/item/weapon/axe/paxe,
 /turf/open/floor/cobble/alt,
 /area/under/town/rmh/basement)
 "lNP" = (

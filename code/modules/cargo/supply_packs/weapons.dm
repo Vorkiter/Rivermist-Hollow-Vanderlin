@@ -218,7 +218,7 @@
 /datum/supply_pack/weapons/steel/paxe
 	name = "Pickaxe"
 	cost = 90
-	contains = /obj/item/weapon/pick/paxe
+	contains = /obj/item/weapon/axe/paxe
 
 /datum/supply_pack/weapons/steel/sbattleaxe
 	name = "Steel Battle Axe"

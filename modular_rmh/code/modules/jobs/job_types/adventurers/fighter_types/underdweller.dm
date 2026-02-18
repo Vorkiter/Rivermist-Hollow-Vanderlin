@@ -88,7 +88,7 @@
 	if(equipped_human.dna?.species?.id == SPEC_ID_DWARF)
 		head = /obj/item/clothing/head/helmet/leather/minershelm
 		backr = /obj/item/weapon/shield/wood
-		beltl = /obj/item/weapon/pick/paxe // Dorfs get a pick as their primary weapon and axes/maces to use it
+		beltl = /obj/item/weapon/axe/paxe // Dorfs get a pick as their primary weapon and axes/maces to use it
 	else
 		// No miner's helm for Delves or kobolds as they have nitevision now.
 		head = /obj/item/clothing/head/helmet/leather // similar to the miner helm, except not as cool of course

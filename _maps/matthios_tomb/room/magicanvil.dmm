@@ -18,7 +18,7 @@
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/clothing/pants/trou/leather/advanced,
 /obj/item/clothing/wrists/bracers/leather,
-/obj/item/weapon/pick/paxe,
+/obj/item/weapon/axe/paxe,
 /turf/open/floor/cobble,
 /area/under/tomb/cave/lava)
 "g" = (

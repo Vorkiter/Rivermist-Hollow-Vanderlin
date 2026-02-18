@@ -858,7 +858,7 @@
 	recipe_name = "a Pick that is also an Axe"
 	appro_skill = /datum/skill/craft/weaponsmithing
 	additional_items = list(/obj/item/ingot/steel, /obj/item/grown/log/tree/stick)
-	created_item = /obj/item/weapon/pick/paxe
+	created_item = /obj/item/weapon/axe/paxe
 	craftdiff = 3
 
 /datum/anvil_recipe/weapons/steel/rapier_steel

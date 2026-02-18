@@ -960,7 +960,7 @@
 /area/under/mountains/anvil/dungeon)
 "mB" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/weapon/pick/paxe,
+/obj/item/weapon/axe/paxe,
 /turf/open/floor/herringbone,
 /area/under/mountains/anvil/dungeon/lower)
 "mP" = (
