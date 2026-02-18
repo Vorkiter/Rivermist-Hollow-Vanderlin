@@ -39,7 +39,6 @@
 	destination.dna.organ_dna = organ_dna
 	if(set_species)
 		destination.set_species(species.type, icon_update=0)
-	destination.dna.body_markings = deepCopyList(body_markings)
 	destination.dna.features = features.Copy()
 	destination.dna.real_name = real_name
 	destination.dna.body_markings = body_markings.Copy()

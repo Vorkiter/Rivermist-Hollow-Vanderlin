@@ -3,7 +3,7 @@
 		return
 
 	if(user.mind)
-		user.mind.i_know_person(src)
+		user.mind.learn_target_identity(src)
 	// Intolerant
 	if(!self_inspect && !HAS_TRAIT(user, TRAIT_TOLERANT))
 		if(!isdarkelf(user) && isdarkelf(src))

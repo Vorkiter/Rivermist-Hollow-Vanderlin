@@ -44,11 +44,12 @@
 	for(var/datum/faith/faith as anything in subtypesof(/datum/faith))
 		if(IS_ABSTRACT(faith))
 			continue
+		faith = new faith()
 		if(!istype(faith, /datum/faith/faerun) || isnull(faith.name))
 			continue
 
-		faith = new faith()
-		GLOB.faith_list[faith.type] = faith
+		if(faith.preference_accessible())
+			GLOB.faith_list[faith.type] = faith
 
 	// Inquisition Hermes list
 	for(var/path in subtypesof(/datum/inqports)) // Why is this here
@@ -59,16 +60,18 @@
 	for(var/datum/patron/patron as anything in subtypesof(/datum/patron))
 		if(IS_ABSTRACT(patron))
 			continue
+		patron = new patron()
 		if(!istype(patron, /datum/patron/faerun))
 			continue
 
-		patron = new patron()
 
 		GLOB.patron_list[patron.type] = patron
+		if(!patron.preference_accessible())
+			continue
 
 		LAZYINITLIST(GLOB.patrons_by_faith[patron.associated_faith])
 
-		GLOB.patrons_by_faith[patron.associated_faith][patron.type] = patron
+		GLOB.patrons_by_faith[patron.associated_faith][patron] = patron
 
 	// Combat Music Overrides
 	for (var/path in subtypesof(/datum/combat_music))

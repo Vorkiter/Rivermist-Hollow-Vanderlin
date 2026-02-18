@@ -44,7 +44,6 @@
 	SPEC_ID_TRITON,\
 	SPEC_ID_MEDICATOR,\
 	SPEC_ID_KOBOLD,\
-	SPEC_ID_KOBOLD_FORMIKRAG,\
 	SPEC_ID_HOLLOWKIN,\
 	SPEC_ID_HALF_ORC,\
 	SPEC_ID_ORC,\
@@ -112,7 +111,6 @@
 	SPEC_ID_TRITON,\
 	SPEC_ID_MEDICATOR,\
 	SPEC_ID_KOBOLD,\
-	SPEC_ID_KOBOLD_FORMIKRAG,\
 	SPEC_ID_HOLLOWKIN,\
 	SPEC_ID_HALF_ORC,\
 )
@@ -173,7 +171,6 @@
 /// Species that lack lux. Any who have no ties to divinity anymore, whether it be their creation story or otherwise taken from them (Hollow-kin)
 #define RACES_PLAYER_LUXLESS list(\
 	SPEC_ID_KOBOLD,\
-	SPEC_ID_KOBOLD_FORMIKRAG,\
 	SPEC_ID_HOLLOWKIN,\
 	SPEC_ID_RAKSHARI,\
 	SPEC_ID_HUMAN_SPACE,\

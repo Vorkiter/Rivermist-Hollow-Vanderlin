@@ -69,22 +69,9 @@
 
 GLOBAL_LIST_INIT(skin_tones, sortList(
 	list(
-		"Ice Cap" = SKIN_COLOR_ICECAP, // - (Pale)
-		"Arctic" = SKIN_COLOR_ARCTIC, // - (White 1)
-		"Tundra" = SKIN_COLOR_TUNDRA, // - (White 2)
-		"Continental" = SKIN_COLOR_CONTINENTAL, // - (White 3)
-		"Temperate" = SKIN_COLOR_TEMPERATE, // - (White 4)
-		"Coastal" = SKIN_COLOR_COASTAL, // - (Latin)
-		"Subtropical" = SKIN_COLOR_SUBTROPICAL, // - (Mediterranean)
-		"Tropical Dry" = SKIN_COLOR_TROPICALDRY, // - (Mediterranean 2)
-		"Tropical Wet" = SKIN_COLOR_TROPICALWET, // - (Latin 2)
-		"Desert" = SKIN_COLOR_DESERT, //  - (Middle-east 1)
-		"Oasis" = SKIN_COLOR_OASIS, // - (Middle-east 2)
-		"Steppe" = SKIN_COLOR_CRIMSONLANDS, // - (Black)
-		"Volcanic" = SKIN_COLOR_VOLCANIC, // - Melanesian
-		"Island" = SKIN_COLOR_ISLAND, // - Polynesian
-		"Taiga" = SKIN_COLOR_TAIGA, // - Native American 1
-		"Swamp" = SKIN_COLOR_SWAMP, // - Native American 2
+		"skin1" = "ffe0d1",
+		"skin2" = "fcccb3",
+		"skin3" = "e8b59b"
 	)))
 
 /proc/random_skin_tone()

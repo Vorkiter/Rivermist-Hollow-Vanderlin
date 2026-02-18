@@ -981,10 +981,4 @@
 	if(length(blacklisted_species) && (job_used_id in blacklisted_species))
 		return FALSE
 
-	// Subterran dwarves can only be outsiders if they follow the wurm
-	if(species.id == SPEC_ID_DWARF_SUBTERRAN && istype(prefs.selected_patron, /datum/patron/alternate/wurm))
-		var/datum/job/tested = parent_job ? SSjob.GetJobType(parent_job) : src // FUCK ADVCLASSES!
-		if(!(tested.department_flag & OUTSIDERS))
-			return FALSE
-
 	return TRUE

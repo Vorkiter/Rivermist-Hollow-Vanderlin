@@ -36,10 +36,6 @@
 	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK."
 
 	allowed_pronouns = PRONOUNS_LIST
-<<<<<<< HEAD
-=======
-
->>>>>>> 861a53b437adb1f01d3ea74848ff1d677aabfb68
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR, HAIR ,FACEHAIR, LIPS, STUBBLE, OLDGREY)
 	default_features = MANDATORY_FEATURE_LIST

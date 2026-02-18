@@ -41,9 +41,16 @@ GLOBAL_LIST_EMPTY(prayers)
 	var/list/allowed_races
 
 	var/datum/storyteller/storyteller
+	/// Whether or not this faith can be accessed in preferences
+	var/preference_accessible = FALSE
 
 /datum/patron/proc/preference_accessible(datum/preferences/prefs)
+
+	if(!preference_accessible)
+		text2file(json_encode(list("[name] if(!preference_accessible)")), "parsed_mobs.json")
+		return FALSE
 	if(length(allowed_races) && !(prefs.pref_species.id in allowed_races))
+		text2file(json_encode(list("[name] if(length(allowed_races) && !(prefs.pref_species.id in allowed_races))")), "parsed_mobs.json")
 		return FALSE
 
 	return TRUE

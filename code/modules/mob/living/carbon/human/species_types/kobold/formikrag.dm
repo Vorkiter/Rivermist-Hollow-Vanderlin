@@ -1,4 +1,4 @@
-/mob/living/carbon/human/species/kobold/formikrag
+/*/mob/living/carbon/human/species/kobold/formikrag
 	race = /datum/species/kobold/formikrag
 
 /datum/species/kobold/formikrag
@@ -57,4 +57,4 @@
 	if(!prefs?.parent)
 		return FALSE
 
-	return prefs.parent.has_triumph_buy(TRIUMPH_BUY_FORMIKRAG_KOBOLD)
+	return prefs.parent.has_triumph_buy(TRIUMPH_BUY_FORMIKRAG_KOBOLD)*/

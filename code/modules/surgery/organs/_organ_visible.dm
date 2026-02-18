@@ -94,7 +94,8 @@
  * owner_mob - for more specific checks, like nightmares.
  */
 /obj/item/organ/proc/get_availability(datum/species/owner_species)
-	return slot in owner_species.organs
+	return TRUE
+	//return slot in owner_species.organs // no actually
 
 /// Called before organs are replaced in regenerate_organs with new ones
 /obj/item/organ/proc/before_organ_replacement(obj/item/organ/replacement)

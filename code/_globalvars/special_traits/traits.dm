@@ -341,7 +341,7 @@
 	weight = 10
 	allowed_patrons = list(/datum/patron/divine/malum)
 	req_text = "Worship Malum, must be a carpenter, elder, smith, artificer or miner."
-	allowed_jobs = list(/datum/job/carpenter, /datum/job/blacksmith, /datum/job/artificer, /datum/job/bapprentice, /datum/job/miner, /datum/job/town_elder) // no combat roles
+	allowed_jobs = list(/datum/job/artisan, /datum/job/artisan_apprentice, /datum/job/towner) // no combat roles
 
 /datum/special_trait/burdened/on_apply(mob/living/carbon/human/character, silent)
 	ADD_TRAIT(character, TRAIT_MALUMFIRE, "[type]")
@@ -470,8 +470,7 @@
 
 /datum/special_trait/sadistic/on_apply(mob/living/carbon/human/character, silent)
 	character.add_quirk(/datum/quirk/vice/maniac)
-	//character.verbs |= /mob/living/carbon/human/proc/torture_victim
-	add_verb(character, /mob/living/carbon/human/proc/torture_victim)
+	//add_verb(character, /mob/living/carbon/human/proc/torture_victim)
 	character.mind.special_items["Chains"] = /obj/item/rope/chain
 
 //negative

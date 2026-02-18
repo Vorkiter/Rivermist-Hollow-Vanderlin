@@ -116,9 +116,6 @@
 		target.update_handcuffed()
 		return TRUE
 	else
-		if(target.legcuffed)
-			return FALSE
-	else
 		if(target.handcuffed)
 			return FALSE
 

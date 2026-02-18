@@ -1102,7 +1102,7 @@
 	if(appointment_type == CHOICE_NO)
 		return
 
-	var/datum/job/priest_job = SSjob.GetJobType(/datum/job/priest)
+	var/datum/job/priest_job = SSjob.GetJobType(/datum/job/moon_priest)
 	//demote the old priest
 	for(var/mob/living/carbon/human/HL in GLOB.human_list)
 		//TODO: this fucking sucks, just locate the priest
@@ -1110,20 +1110,20 @@
 			continue
 
 		if(is_priest_job(HL.mind.assigned_role))
-			HL.mind.set_assigned_role(/datum/job/villager)
+			HL.mind.set_assigned_role(/datum/job/towner)
 			HL.job = "Ex-Priest"
 
 
-			remove_verb(HL, /mob/living/carbon/human/proc/coronate_lord)
+			/*remove_verb(HL, /mob/living/carbon/human/proc/coronate_lord)
 			remove_verb(HL, /mob/living/carbon/human/proc/churchexcommunicate)
-			remove_verb(HL, /mob/living/carbon/human/proc/churchcurse)
+			remove_verb(HL, /mob/living/carbon/human/proc/churchcurse)*/
 			remove_verb(HL, /mob/living/carbon/human/proc/churchannouncement)
 			priest_job?.remove_spells(HL)
 			GLOB.excommunicated_players |= HL.real_name
 			HL.cleric?.excommunicate()
 
 	priest_job?.add_spells(M)
-	M.mind.set_assigned_role(/datum/job/priest)
+	M.mind.set_assigned_role(/datum/job/moon_priest)
 	M.job = "Priest"
 	M.set_patron(/datum/patron/divine/astrata)
 	var/holder = M.patron?.devotion_holder
@@ -1131,9 +1131,9 @@
 		var/datum/devotion/devotion = new holder()
 		devotion.make_priest()
 		devotion.grant_to(M)
-	add_verb(M, /mob/living/carbon/human/proc/coronate_lord)
+	/*add_verb(M, /mob/living/carbon/human/proc/coronate_lord)
 	add_verb(M, /mob/living/carbon/human/proc/churchexcommunicate)
-	add_verb(M, /mob/living/carbon/human/proc/churchcurse)
+	add_verb(M, /mob/living/carbon/human/proc/churchcurse)*/
 	add_verb(M, /mob/living/carbon/human/proc/churchannouncement)
 	removeomen(OMEN_NOPRIEST)
 	priority_announce("Astrata has anointed [M.real_name] as the new head of the Church of the Ten!", title = "Astrata Shines!", sound = 'sound/misc/bell.ogg')

@@ -195,9 +195,6 @@ GLOBAL_LIST_INIT(patron_sound_themes, list(
 	if(!.)
 		return
 
-	// These guys believe in a wurm, not pestra. They won't accept pestra as not being a giant acid wurm.
-	return prefs.pref_species.id != SPEC_ID_DWARF_SUBTERRAN
-
 /datum/patron/divine/malum
 	name = MALUM
 	domain = "God of Toil, Innovation, and Creation"

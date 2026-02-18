@@ -448,7 +448,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		.flav-desc:hover { background-image: url('flavour_descriptors_hover.png'); }
 		.flav-text { top: 192px; left: 207px; width: 53px; height: 10px; background-image: url('flavour_text.png'); }
 		.flav-text:hover { background-image: url('flavour_text_hover.png'); }
-		.flav-misc { top: 188px; left: 207px; width: 45px; height: 10px; background-image: url('flavour_misc.png'); }
+		.flav-misc { top: 210px; left: 207px; width: 45px; height: 10px; background-image: url('flavour_misc.png'); }
 		.flav-misc:hover { background-image: url('flavour_misc_hover.png'); }
 		.flav-prev { top: 226px; left: 215px; width: 34px; height: 10px; background-image: url('flavour_preview.png'); }
 		.flav-prev:hover { background-image: url('flavour_preview_hover.png'); }
@@ -826,7 +826,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	if(update_all || ("patron" in fields_to_update))
 		params["patron"] = selected_patron.name
 	if(update_all || ("pq" in fields_to_update))
-		params["pq"] = get_playerquality(user.ckey, text = TRUE)
+		params["pq"] = "[get_playerquality(user.ckey, text = TRUE)]"
 	if(update_all || ("age" in fields_to_update))
 		params["age"] = age
 	if(update_all || ("domhand" in fields_to_update))
@@ -1071,6 +1071,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						cat_name = "Adventurers"
 					if(VILLAINS)
 						cat_name = "Villains"
+					if(OUTSIDERS)
+						cat_name = "Outsiders"
 
 				var/category_html = ""
 				category_html += "<fieldset class='job-category-box' style='border-color: [cat_color];' id='fieldset-[cat_name]' data-collapsed='true'>"
@@ -1100,10 +1102,11 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					if(lock_html)
 						category_html += lock_html
 						continue
+					var/job_display = used_name
 
 
-					category_html += "<div class="tutorialhover"> [job.class_setup_examine ? "<a href='?src=[REF(job)];explainjob=1'><font>[job_display]</font></a>" : "<font>[job_display]</font>"]</span>\
-						<span class="tutorial">[job.tutorial]<br>\
+					category_html += "<div class='tutorialhover'> [job.class_setup_examine ? "<a href='?src=[REF(job)];explainjob=1'><font>[job_display]</font></a>" : "<font>[job_display]</font>"]</span>\
+						<span class='tutorial'>[job.tutorial]<br>\
 						Slots: [job.get_total_positions()]</span>\
 						</div>"
 
@@ -1613,7 +1616,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	switch(href_list["task"])
 		if("erp_pref")
 			handle_erp_pref_topic(user, href_list)
-			ShowChoices(user)
+			show_choices(user)
 			show_erp_preferences(user)
 			return
 		if("change_customizer")
@@ -1757,8 +1760,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 				if("patron")
 					var/list/patrons_named = list()
-					for(var/datum/patron/patron as anything in GLOB.patrons_by_faith[selected_patron.associated_faith || initial(default_patron.associated_faith)])
-						patron = GLOB.patron_list[patron]
+					for(var/datum/patron/patron_type as anything in GLOB.patrons_by_faith[selected_patron.associated_faith || initial(default_patron.associated_faith)])
+						var/datum/patron/patron = GLOB.patron_list[patron_type.type]
 						if(!patron.preference_accessible(src))
 							continue
 						var/pref_name = patron.display_name ? patron.display_name : patron.name
@@ -1811,7 +1814,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						return
 					if(new_headshot_link == "")
 						headshot_link = null
-						ShowChoices(user)
+						show_choices(user)
 						return
 					var/is_valid_link = is_valid_headshot_link(user, new_headshot_link, FALSE)
 					if(!is_valid_link)
@@ -1947,11 +1950,11 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						return
 					if(new_nsfw_headshot_link == "")
 						nsfw_headshot_link = null
-						ShowChoices(user)
+						show_choices(user)
 						return
 					if(!is_valid_nsfw_headshot_link(user, new_nsfw_headshot_link))
 						nsfw_headshot_link = null
-						ShowChoices(user)
+						show_choices(user)
 						return
 					nsfw_headshot_link = new_nsfw_headshot_link
 					to_chat(user, "<span class='notice'>Successfully updated NSFW Headshot picture</span>")
