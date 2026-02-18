@@ -203,7 +203,7 @@
 //................ Pick Axe ............... //
 // Pickaxe-axe ; Technically both a tool and weapon, but it goes here due to weapon function.
 // Same stats as steel axe, but refactored for pickaxe quality purposes.
-/obj/item/weapon/pick/paxe
+/obj/item/weapon/axe/paxe
 	name = "pickaxe"
 	desc = "An odd mix of a pickaxe front and a hatchet blade back, capable of being switched between."
 	icon = 'icons/roguetown/weapons/32/axes_picks.dmi'
@@ -226,7 +226,7 @@
 
 	melting_material = /datum/material/steel
 	melt_amount = 175
-	sharpness = IS_SHARP
+
 	resistance_flags = FIRE_PROOF
 	parrysound = list('sound/combat/parry/wood/parrywood (1).ogg', \
 					  'sound/combat/parry/wood/parrywood (2).ogg', \
