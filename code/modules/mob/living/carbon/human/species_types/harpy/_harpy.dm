@@ -100,7 +100,7 @@
 		ORGAN_SLOT_ANUS = /obj/item/organ/genitals/filling_organ/anus,
 	)
 
-	meat = /obj/item/reagent_containers/food/snacks/meat/poultry/cutlet
+	meat = list(/obj/item/reagent_containers/food/snacks/meat/poultry/cutlet/harpy = 1)
 
 	bodypart_features = list(
 		/datum/bodypart_feature/hair/head,

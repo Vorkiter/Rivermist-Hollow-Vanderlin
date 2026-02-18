@@ -14,11 +14,11 @@
 	no_over_text = FALSE
 
 /atom/movable/screen/ghost/orbit/rogue/Click(location, control, params)
-	var/mob/dead/observer/G = usr
+	var/mob/dead/observer/ghost = usr
 	var/list/modifiers = params2list(params)
 	if(LAZYACCESS(modifiers, RIGHT_CLICK)) // screen objects don't do the normal Click() stuff so we'll cheat
-		if(G.client?.holder)
-			G.follow()
+		if(ghost.client?.holder)
+			ghost.follow()
 	else
 		if(istype(G, /mob/dead/observer/rogue/arcaneeye))
 			return
@@ -35,14 +35,14 @@
 				G.returntolobby(0)
 		/*if(G.isinhell)
 			return
-		if(G.client)
-			if(G.client.holder)
-				if(istype(G, /mob/dead/observer/rogue/arcaneeye))
+		if(ghost.client)
+			if(ghost.client.holder)
+				if(istype(ghost, /mob/dead/observer/rogue/arcaneeye))
 					return
-				if(istype(G, /mob/dead/observer/profane)) // Souls trapped by a dagger can return to lobby if they want
+				if(istype(ghost, /mob/dead/observer/profane)) // Souls trapped by a dagger can return to lobby if they want
 					if(alert("Return to the lobby?", "", "Yes", "No") == "Yes")
-						G.returntolobby()
-				G.client.descend()
+						ghost.returntolobby()
+				ghost.descend_to_underworld()
 				return
 
 		if(has_world_trait(/datum/world_trait/skeleton_siege) || has_world_trait(/datum/world_trait/rousman_siege) || has_world_trait(/datum/world_trait/goblin_siege))

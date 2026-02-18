@@ -26,4 +26,9 @@
 
 	restricted_roles = null
 
+/datum/round_event_control/antagonist/solo/werewolf/valid_for_map()
+	if(SSmapping.config.map_name != "Voyage")
+		return TRUE
+	return FALSE
+
 /datum/round_event/antagonist/solo/werewolf

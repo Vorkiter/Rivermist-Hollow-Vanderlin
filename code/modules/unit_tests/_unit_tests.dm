@@ -73,6 +73,7 @@
 #include "faction_supply_packs.dm"
 #include "focus_only_tests.dm"
 #include "load_map_security.dm"
+#include "lootpanel.dm"
 #include "map_landmarks.dm"
 #include "mapping.dm"
 #include "mindbound_actions.dm"

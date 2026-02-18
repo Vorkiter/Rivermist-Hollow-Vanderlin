@@ -81,7 +81,7 @@
 	enflamed_icon = "widefire"
 
 	exotic_bloodtype = /datum/blood_type/human/horc
-	meat = /obj/item/reagent_containers/food/snacks/meat/strange
+	meat = list(/obj/item/reagent_containers/food/snacks/meat/steak/human = 1, /obj/item/reagent_containers/food/snacks/meat/strange = 0.5)
 
 	customizers = list(
 		/datum/customizer/organ/ears/halforc,
@@ -181,27 +181,27 @@
 
 /datum/species/halforc/get_skin_list()
 	return list(
-		"Shellcrest" = SKIN_COLOR_SHELLCREST,
-		"Bloodaxe" = SKIN_COLOR_BLOOD_AXE,
-		"Splitjaw" = SKIN_COLOR_GROONN, //Changed name from Gronn, which no longer aligned with lore here or elsewhere.
-		"Blackhammer" = SKIN_COLOR_BLACK_HAMMER,
-		"Skullseeker" = SKIN_COLOR_SKULL_SEEKER,
-		"Crescent Fang" = SKIN_COLOR_CRESCENT_FANG,
-		"Murkwalker" = SKIN_COLOR_MURKWALKER,
-		"Shatterhorn" = SKIN_COLOR_SHATTERHORN,
-		"Spiritcrusher" = SKIN_COLOR_SPIRITCRUSHER
+		"Cyanosis" = SKIN_COLOR_SHELLCREST,
+		"Abrasion" = SKIN_COLOR_BLOOD_AXE,
+		"Pustule" = SKIN_COLOR_GROONN, //Changed name from Gronn, which no longer aligned with lore here or elsewhere.
+		"Necrosis" = SKIN_COLOR_BLACK_HAMMER,
+		"Abscess" = SKIN_COLOR_SKULL_SEEKER,
+		"Staph" = SKIN_COLOR_CRESCENT_FANG,
+		"Bogfoot" = SKIN_COLOR_MURKWALKER,
+		"Exsanguinated" = SKIN_COLOR_SHATTERHORN,
+		"Cauterized" = SKIN_COLOR_SPIRITCRUSHER
 	)
 
 /datum/species/halforc/get_hairc_list()
 	return sortList(list(
-	"brown - minotaur" = "58433b",
-	"brown - volf" = "48322a",
-	"brown - bark" = "2d1300",
+		"brown - minotaur" = "58433b",
+		"brown - volf" = "48322a",
+		"brown - bark" = "2d1300",
 
-	"green - maneater" = "458745",
-	"green - swampgrass" = "2A3B2B",
+		"green - maneater" = "458745",
+		"green - swampgrass" = "2A3B2B",
 
-	"black - charcoal" = "201616"
+		"black - charcoal" = "201616"
 	))
 
 /datum/species/halforc/get_possible_names(gender = MALE)
