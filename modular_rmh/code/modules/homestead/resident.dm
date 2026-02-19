@@ -1,6 +1,6 @@
 #define RESIDENT_BALANCE_MIN 50
 #define RESIDENT_BALANCE_MAX 150
-#define RESIDENT_COST 10
+#define RESIDENT_COST -10
 
 /*
 #define RESIDENT_ALLOWED_JOB_TYPES list( \
@@ -9,21 +9,38 @@
 	/datum/job/roguetown/court_agent \
 )
 */
-/datum/quirk/resident
+/datum/quirk/boon/resident
 	name = "Resident"
 	desc = "I'm a resident of Rivermist Hollow. I have an account in the city's treasury and a home in the city."
-	value = RESIDENT_COST
+	point_value = RESIDENT_COST
 //	mob_trait = TRAIT_RESIDENT //If the quirk system is removed, replace it with traits.
 	gain_text = span_notice("I feel at home in Rivermist Hollow.")
 	lose_text = span_danger("I no longer feel like a local resident.")
 
-/proc/apply_resident_starting_money(mob/living/carbon/human/H)
-	if(!H || QDELETED(H))
-		return
+	var/money_given = FALSE
 
+/datum/quirk/boon/resident/on_spawn()
+	if(gain_text && owner)
+		to_chat(owner, gain_text)
+
+/datum/quirk/boon/resident/on_remove()
+	if(lose_text && owner)
+		to_chat(owner, lose_text)
+
+/datum/quirk/boon/resident/after_job_spawn(datum/job/job)
+	apply_starting_money()
+
+/datum/quirk/boon/resident/proc/apply_starting_money()
+	if(money_given)
+		return
+	if(!owner || QDELETED(owner))
+		return
+	if(!ishuman(owner))
+		return
 	if(!SStreasury)
 		return
 
+	var/mob/living/carbon/human/H = owner
 	var/starting_balance = rand(RESIDENT_BALANCE_MIN, RESIDENT_BALANCE_MAX)
 
 	if(H in SStreasury.bank_accounts)
@@ -33,30 +50,15 @@
 
 	to_chat(H, span_notice("As a citizen of Rivermist Hollow, you receive [starting_balance] coins from the city treasury."))
 
+	money_given = TRUE
+
 /datum/job/towner/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	. = ..()
-
 	if(!spawned || QDELETED(spawned))
 		return
 
-	if(!spawned.has_quirk(/datum/quirk/resident))
-		new /datum/quirk/resident(spawned, TRUE)
-
-	apply_resident_starting_money(spawned)
-
-/datum/quirk/resident/proc/should_attempt_spawn(mob/living/carbon/human/H)
-	if(!H.mind || !H.job)
-		return FALSE
-
-	var/datum/job/J = SSjob.name_occupations[H.job]
-	if(!J)
-		return FALSE
-
-#ifdef RESIDENT_ALLOWED_JOB_TYPES
-	return J.type in RESIDENT_ALLOWED_JOB_TYPES
-#else
-	return TRUE
-#endif
+	if(!spawned.has_quirk(/datum/quirk/boon/resident))
+		spawned.add_quirk(/datum/quirk/boon/resident)
 
 #undef RESIDENT_BALANCE_MIN
 #undef RESIDENT_BALANCE_MAX

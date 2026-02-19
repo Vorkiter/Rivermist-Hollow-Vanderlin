@@ -8,7 +8,10 @@
 	var/resident_key_type = /obj/item/key/town
 	var/resident_key_amount = 1
 	var/house_id
-
+	max_integrity = 4000
+	integrity_failure = 0.5
+	armor = list("blunt" = 25, "slash" = 25, "stab" = 25,  "piercing" = 25, "fire" = 150, "acid" = 0)
+	damage_deflection = 20
 
 /obj/item/key/town
 	name = "homestead's key"
@@ -44,7 +47,7 @@
 
 	var/mob/living/carbon/human/H = user
 
-	if(!H.has_quirk(/datum/quirk/resident))
+	if(!H.has_quirk(/datum/quirk/boon/resident))
 		return FALSE
 
 	if(H.received_resident_key)
@@ -85,7 +88,7 @@
 
     var/mob/living/carbon/human/H = user
 
-    if(!H.has_quirk(/datum/quirk/resident))
+    if(!H.has_quirk(/datum/quirk/boon/resident))
         to_chat(H, span_warning("This is not your home."))
         return FALSE
 
@@ -102,7 +105,7 @@
         if(ishuman(L))
             var/mob/living/carbon/human/H = L
 
-            if(!H.has_quirk(/datum/quirk/resident))
+            if(!H.has_quirk(/datum/quirk/boon/resident))
                 to_chat(H, span_warning("This is not your home."))
                 return FALSE
 

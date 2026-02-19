@@ -6,13 +6,13 @@
 	var/grant_message = "You may reside here, %TARGET."
 	var/accept_message = "I accept."
 	var/refuse_message = "I refuse."
-	var/quirk_path = /datum/quirk/resident
+	var/quirk_path = /datum/quirk/boon/resident
 
 /datum/action/cooldown/spell/undirected/list_target/grant_resident/get_list_targets(atom/center, conversion_radius = 7)
 	var/list/things = list()
 
 	if(conversion_radius)
-		for(var/mob/living/carbon/human/nearby in get_hearers_in_LOS(conversion_radius, center) - center)
+		for(var/mob/living/carbon/human/nearby in view(conversion_radius, center) - center)
 			if(!can_grant(nearby))
 				continue
 			things += nearby
@@ -27,10 +27,7 @@
 	if(!target.mind)
 		return FALSE
 
-	if(quirk_path && target.has_quirk(quirk_path))
-		return FALSE
-
-	if(!target.get_face_name(null))
+	if(target.has_quirk(/datum/quirk/boon/resident))
 		return FALSE
 
 	return TRUE
@@ -41,24 +38,32 @@
 	if(QDELETED(target))
 		return
 
-	if(quirk_path && target.has_quirk(quirk_path))
-		to_chat(owner, span_warning("[target] is already a resident."))
+	if(!target.mind)
+		to_chat(owner, span_warning("They are not a valid person."))
 		return
 
-	if(!target.get_face_name(null))
-		to_chat(owner, span_warning("You need to see [target]'s face."))
+	var/face_name = target.get_face_name("")
+	if(!length(face_name))
+		to_chat(owner, span_warning("You must see their face to grant residency."))
+		return
+
+	if(quirk_path && target.has_quirk(quirk_path))
+		to_chat(owner, span_warning("[target] is already a resident."))
 		return
 
 	. = ..()
 
 	on_grant(target)
 
+	if(owner && target)
+		owner.say("By my authority, I grant you the right to dwell in Rivermist Hollow, [target.get_face_name(owner)]!")
+
 /datum/action/cooldown/spell/undirected/list_target/grant_resident/proc/on_grant(mob/living/carbon/human/target)
 
 	SHOULD_CALL_PARENT(TRUE)
 
 	if(quirk_path && !target.has_quirk(quirk_path))
-		new quirk_path(target, TRUE)
+		target.add_quirk(quirk_path)
 
 /datum/job/burgmeister/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	. = ..()
@@ -76,11 +81,4 @@
 		return
 
 	spawned.add_spell(/datum/action/cooldown/spell/undirected/list_target/grant_resident, source = src)
-
-
-
-
-
-
-
 
