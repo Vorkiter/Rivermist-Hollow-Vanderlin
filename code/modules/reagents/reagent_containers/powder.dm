@@ -18,14 +18,6 @@
 	if(user.zone_selected != BODY_ZONE_PRECISE_NOSE)
 		to_chat(user, span_notice("\The [src] must be snorted."))
 		return FALSE
-	// Checked in parent for carbon
-	var/mob/living/L = eater
-	if(!L.can_smell())
-		if(L == user)
-			to_chat(user, span_warning("I can't use my nose!"))
-		else
-			to_chat(user, span_warning("[L.p_they(TRUE)] can't use [L.p_their()] nose!"))
-		return FALSE
 	return TRUE
 
 /obj/item/reagent_containers/powder/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)

@@ -1,5 +1,5 @@
 /datum/faith/faerun
-	name = null
+	abstract_type = /datum/faith/faerun
 
 /datum/faith/faerun/evil_gods
 	name = "\improper Evil Gods"

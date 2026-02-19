@@ -154,3 +154,17 @@
 
 	var/datum/ai_controller/saved_ai_by_direct_control
 	var/mob/saved_ai_mob_ref
+	/// our current tab
+	var/stat_tab
+
+	/// whether our browser is ready or not yet
+	var/statbrowser_ready = FALSE
+
+	/// list of all tabs
+	var/list/panel_tabs = list()
+
+	///A lazy list of atoms we've examined in the last EXAMINE_MORE_TIME (default 1.5) seconds, so that we will call [/atom/proc/examine_more] instead of [/atom/proc/examine] on them when examining
+	var/list/recent_examines
+
+	/// Loot panel for the client
+	var/datum/lootpanel/loot_panel

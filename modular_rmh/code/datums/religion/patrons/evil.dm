@@ -1,5 +1,6 @@
 /datum/patron/faerun/evil_gods
 	name = null
+	abstract_type = /datum/patron/faerun/evil_gods
 	associated_faith = /datum/faith/faerun/evil_gods
 
 	profane_words = list()

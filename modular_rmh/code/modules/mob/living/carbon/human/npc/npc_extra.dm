@@ -1,13 +1,16 @@
 /mob/living
-    var/threshold_brute = 500
-    var/threshold_burn = 500
-    var/threshold_tox = 500
-    var/threshold_oxy = 500
+    var/threshold_brute = 3000
+    var/threshold_burn = 3000
+    var/threshold_tox = 3000
+    var/threshold_oxy = 3000
 
     var/chance_escape = 0
 
 /mob/living/proc/check_damage_threshold()
 	if(client)
+		return
+
+	if(stat == DEAD)
 		return
 
 	var/damagetype = 0
@@ -51,3 +54,4 @@
 
 	death(FALSE)
 	visible_message("<span class='warning'>[src] dies!</span>")
+	return

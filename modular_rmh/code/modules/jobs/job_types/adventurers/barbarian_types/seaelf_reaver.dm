@@ -71,6 +71,6 @@
 			beltl = /obj/item/weapon/sword/iron
 		if("Claymore")
 			head = /obj/item/clothing/head/helmet/nasal
-			backr = /obj/item/weapon/sword/long/greatsword/ironclaymore
+			backr = /obj/item/weapon/sword/long/greatsword/claymore/iron
 			beltl = /obj/item/weapon/axe/iron
 			beltr = /obj/item/storage/belt/pouch/coins/poor

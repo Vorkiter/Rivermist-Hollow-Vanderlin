@@ -7,8 +7,8 @@
 	worshippers = "Grenzelhoftians, Inquisitors, Heroes"
 	sins = "Apostasy, Demon Worship, Betraying thy Father"
 	boons = "None. His power is divided."
+
 	associated_faith = /datum/faith/psydon
-	added_traits = list(TRAIT_PSYDONIAN_GRIT, TRAIT_PSYDONITE)
 	confess_lines = list(
 		"THERE IS ONLY ONE TRUE GOD!",
 		"THE SUCCESSORS HALT HIS RETURN!",

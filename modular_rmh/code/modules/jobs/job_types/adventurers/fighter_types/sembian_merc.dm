@@ -42,7 +42,7 @@
 	pants = /obj/item/clothing/pants/skirt/patkilt/colored/sembian
 	shoes = /obj/item/clothing/shoes/boots/leather
 	backr = /obj/item/storage/backpack/satchel
-	backl = /obj/item/weapon/sword/long/greatsword/steelclaymore
+	backl = /obj/item/weapon/sword/long/greatsword/claymore
 	belt = /obj/item/storage/belt/leather/black/adventurers_subclasses
 	beltl = /obj/item/weapon/mace/cudgel
 	beltr = /obj/item/storage/belt/pouch/coins/poor

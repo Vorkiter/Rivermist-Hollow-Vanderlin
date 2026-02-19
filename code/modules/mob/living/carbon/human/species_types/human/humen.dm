@@ -24,7 +24,6 @@
 	\n\n\
 	Proficiencies: Swords(2), Polearms(2), Shields(2), Crafting(2), Carepntry(2), Cooking(2), Farming(2), Athletics(2), Reading(2), Riding(1)."
 
-
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, STUBBLE, OLDGREY)
 	inherent_traits = list(TRAIT_NOMOBSWAP)

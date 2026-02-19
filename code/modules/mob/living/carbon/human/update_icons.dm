@@ -2034,18 +2034,8 @@ generate/load female uniform sprites matching all previously decided variables
 
 	//GENERATE NEW LIMBS
 	var/list/new_limbs = list()
-	var/hideboob = FALSE //used to tell if we should hide boobs, basically
 	for(var/obj/item/bodypart/BP as anything in bodyparts)
-		if(BP.body_zone == BODY_ZONE_CHEST)
-			if(wear_armor?.flags_inv & HIDEBOOB)
-				hideboob = TRUE
-			if(wear_shirt?.flags_inv & HIDEBOOB)
-				hideboob = TRUE
-			if(cloak?.flags_inv & HIDEBOOB)
-				hideboob = TRUE
-			new_limbs += BP.get_limb_icon(hideaux = hideboob)
-		else
-			new_limbs += BP.get_limb_icon()
+		new_limbs += BP.get_limb_icon()
 	if(new_limbs.len)
 		overlays_standing[BODYPARTS_LAYER] = new_limbs
 		limb_icon_cache[icon_render_key] = new_limbs
@@ -2103,7 +2093,3 @@ generate/load female uniform sprites matching all previously decided variables
 
 /mob/living/carbon/human/proc/update_smell(smelly_icon = "generic_mob_smell")
 	remove_overlay(SMELL_LAYER)
-	if(hygiene == HYGIENE_LEVEL_DISGUSTING) //You have literally ignored your stank for so long that you physically can't get dirtier.
-		var/mutable_appearance/new_smell_overlay = mutable_appearance('icons/mob/smelly.dmi', smelly_icon, -SMELL_LAYER)
-		overlays_standing[SMELL_LAYER] = new_smell_overlay
-		apply_overlay(SMELL_LAYER)

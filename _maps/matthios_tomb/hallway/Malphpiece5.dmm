@@ -16,7 +16,7 @@
 "f" = (
 /obj/item/gem/diamond,
 /obj/structure/fluff/walldeco/vinez/offset,
-/obj/item/weapon/pick/paxe,
+/obj/item/weapon/axe/paxe,
 /turf/open/floor/volcanic,
 /area/under/tomb/cave)
 "i" = (
