@@ -3771,6 +3771,7 @@
 #include "modular_rmh\code\modules\food\gingerbread.dm"
 #include "modular_rmh\code\modules\homestead\grant.dm"
 #include "modular_rmh\code\modules\homestead\homestead.dm"
+#include "modular_rmh\code\modules\homestead\refuse.dm"
 #include "modular_rmh\code\modules\homestead\resident.dm"
 #include "modular_rmh\code\modules\jobs\job_types\_advclass.dm"
 #include "modular_rmh\code\modules\jobs\job_types\adventurers\adventurer_barbarian.dm"
