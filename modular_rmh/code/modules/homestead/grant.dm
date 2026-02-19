@@ -2,10 +2,6 @@
 	name = "Grant Residency"
 	desc = "Offer someone residency."
 	button_icon_state = "recruit_bog"
-
-	var/grant_message = "You may reside here, %TARGET."
-	var/accept_message = "I accept."
-	var/refuse_message = "I refuse."
 	var/quirk_path = /datum/quirk/boon/resident
 
 /datum/action/cooldown/spell/undirected/list_target/grant_resident/get_list_targets(atom/center, conversion_radius = 7)
@@ -27,7 +23,7 @@
 	if(!target.mind)
 		return FALSE
 
-	if(target.has_quirk(/datum/quirk/boon/resident))
+	if(target.has_quirk(quirk_path))
 		return FALSE
 
 	return TRUE
@@ -47,16 +43,12 @@
 		to_chat(owner, span_warning("You must see their face to grant residency."))
 		return
 
-	if(quirk_path && target.has_quirk(quirk_path))
-		to_chat(owner, span_warning("[target] is already a resident."))
-		return
-
 	. = ..()
 
 	on_grant(target)
 
 	if(owner && target)
-		owner.say("By my authority, I grant you the right to dwell in Rivermist Hollow, [target.get_face_name(owner)]!")
+		owner.say("By my authority, I grant you the right to dwell in Rivermist Hollow, [face_name]!")
 
 /datum/action/cooldown/spell/undirected/list_target/grant_resident/proc/on_grant(mob/living/carbon/human/target)
 
