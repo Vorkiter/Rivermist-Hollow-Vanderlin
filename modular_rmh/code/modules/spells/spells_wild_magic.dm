@@ -153,7 +153,8 @@
 			owner.visible_message(span_notice("[owner] channels the power of a giant; their body begins to grow and tremble!"))
 			G.cast(owner)
 		if(17)
-			var/datum/action/cooldown/spell/undirected/shadow_step/SS = new
+			var/datum/action/cooldown/spell/undirected/shadow_step/Ss = new
+			Ss.owner = owner
 			owner.visible_message(span_warning("[owner] melts into the shadows!"))
 			Ss.cast(owner)
 		if(18)
