@@ -55,7 +55,14 @@
 		return
 	if(prob(30))
 		return
+	var/list/targets = list()
+	var/mob/living/wild_target = null
 
+	for(var/mob/living/L in view(7, owner))
+		if(L.stat != DEAD && L != owner)
+			targets += L
+	if(length(targets))
+		wild_target = pick(targets)
 	owner.visible_message(span_notice("[owner] causes unpredictable magical effects."))
 	switch(rand(1, 50))
 		if(1)
@@ -65,7 +72,7 @@
 			owner.visible_message(span_danger("[owner] infuses their weapon!"))
 		if(2)
 			var/obj/projectile/magic/flashpowder/P = new
-			P.fire(owner, target)
+			P.fire(owner, wild_target ? wild_target : target)
 			owner.visible_message(span_danger("[owner] casts flashpowder!"))
 		if(3)
 			var/datum/action/cooldown/spell/undirected/teleport/radius_turf/T = new
@@ -78,7 +85,7 @@
 			var/datum/action/cooldown/spell/projectile/fireball/F = new
 			F.owner = owner
 			owner.visible_message(span_danger("[owner]'s unstable magic erupts into a FIREBALL!"))
-			F.cast(cast_on)
+			F.cast(wild_target ? wild_target : cast_on)
 		if(5)
 			var/datum/action/cooldown/spell/aoe/on_turf/ensnare/E = new
 			E.owner = owner
@@ -186,22 +193,22 @@
 			var/datum/action/cooldown/spell/projectile/lightning/BOl = new
 			BOl.owner = owner
 			owner.visible_message(span_warning("[owner] yells 'THUNDER STRIKE!!!' and lightning crackles around them!"))
-			BOl.cast(cast_on)
+			BOl.cast(wild_target ? wild_target : cast_on)
 		if(24)
 			var/datum/action/cooldown/spell/projectile/frost_bolt/Fb = new
 			Fb.owner = owner
 			owner.visible_message(span_notice("[owner] hurls a beam of frost forward!"))
-			Fb.cast(cast_on)
+			Fb.cast(wild_target ? wild_target : cast_on)
 		if(25)
 			var/datum/action/cooldown/spell/projectile/arcyne_bolt/Ab = new
 			Ab.owner = owner
 			owner.visible_message(span_notice("[owner] fires rapid bolts of arcyne power!"))
-			Ab.cast(cast_on)
+			Ab.cast(wild_target ? wild_target : cast_on)
 		if(26)
 			var/datum/action/cooldown/spell/projectile/acid_splash/AS = new
 			AS.owner = owner
 			owner.visible_message(span_warning("[owner] hurls a glob of caustic acid!"))
-			AS.cast(cast_on)
+			AS.cast(wild_target ? wild_target : cast_on)
 		if(27)
 			var/datum/action/cooldown/spell/conjure/kneestingers/KNi = new
 			KNi.owner = owner
@@ -211,7 +218,7 @@
 			var/datum/action/cooldown/spell/conjure/phantom_ear/Pe = new
 			Pe.owner = owner
 			owner.visible_message(span_notice("[owner] whispers 'Lend me thine ear.' and a phantom ear appears."))
-			Pe.cast(cast_on)
+			Pe.cast(owner)
 		if(29)
 			var/datum/action/cooldown/spell/conjure/rous/Ro = new
 			Ro.owner = owner
@@ -241,22 +248,22 @@
 			var/datum/action/cooldown/spell/beam/beam_of_frost/BOf = new
 			BOf.owner = owner
 			owner.visible_message(span_notice("[owner] shouts 'Chill!' and a frost beam emerges."))
-			BOf.cast(cast_on)
+			BOf.cast(wild_target ? wild_target : cast_on)
 		if(35)
 			var/datum/action/cooldown/spell/aoe/on_turf/snap_freeze/Sf = new
 			Sf.owner = owner
 			owner.visible_message(span_notice("[owner] shouts 'Air be still!' and frost envelops the area."))
-			Sf.cast(cast_on)
+			Sf.cast(wild_target ? wild_target : cast_on)
 		if(36)
 			var/datum/action/cooldown/spell/aoe/on_turf/meteor_storm/Ms = new
 			Ms.owner = owner
 			owner.visible_message(span_boldwarning("[owner] shouts 'METEOR STORM!!!' and meteors rain from the sky!"))
-			Ms.cast(cast_on)
+			Ms.cast(owner)
 		if(37)
 			var/datum/action/cooldown/spell/aoe/on_turf/arcyne_storm/As = new
 			As.owner = owner
 			owner.visible_message(span_notice("[owner] shouts 'BE TORN APART!!!' and arcyne energy swirls."))
-			As.cast(cast_on)
+			As.cast(wild_target ? wild_target : cast_on)
 		if(38)
 			var/datum/action/cooldown/spell/aoe/repulse/Rp = new
 			Rp.owner = owner
@@ -291,23 +298,23 @@
 		if(43)
 			var/datum/action/cooldown/spell/gravity/G = new
 			G.owner = owner
-			owner.visible_message(span_danger("[owner] crushes the space around [target]!"))
-			G.cast(cast_on)
+			owner.visible_message(span_danger("[owner] crushes the space around [wild_target ? wild_target : cast_on]!"))
+			G.cast(wild_target ? wild_target : cast_on)
 		if(44)
 			var/datum/action/cooldown/spell/find_flaw/Ff = new
 			Ff.owner = owner
-			owner.visible_message(span_notice("[owner] peers into [target] and detects hidden flaws!"))
+			owner.visible_message(span_notice("[owner] peers into [wild_target ? wild_target : cast_on] and detects hidden flaws!"))
 			Ff.cast(cast_on)
 		if(45)
 			var/datum/action/cooldown/spell/chill_touch/Ct = new
 			Ct.owner = owner
 			owner.visible_message(span_danger("[owner] reaches out with a skeletal hand!"))
-			Ct.cast(cast_on)
+			Ct.cast(wild_target ? wild_target : cast_on)
 		if(46)
 			var/datum/action/cooldown/spell/blade_burst/Bb = new
 			Bb.owner = owner
 			owner.visible_message(span_danger("[owner] summons a storm of blades!"))
-			Bb.cast(cast_on)
+			Bb.cast(wild_target ? wild_target : cast_on)
 		if(47)
 			var/datum/action/cooldown/spell/beast_tame/Bt = new
 			Bt.owner = owner
@@ -316,15 +323,15 @@
 		if(48)
 			var/datum/action/cooldown/spell/blindness/Bl = new
 			Bl.owner = owner
-			owner.visible_message(span_danger("[owner] shrouds [target]'s eyes in darkness!"))
-			Bl.cast(cast_on)
+			owner.visible_message(span_danger("[owner] shrouds [wild_target ? wild_target : cast_on]'s eyes in darkness!"))
+			Bl.cast(wild_target ? wild_target : cast_on)
 		if(49)
 			var/datum/action/cooldown/spell/essence/silence/SIl = new
 			SIl.owner = owner
 			owner.visible_message(span_notice("[owner] creates a zone of absolute silence!"))
-			SIl.cast(cast_on)
+			SIl.cast(wild_target ? wild_target : cast_on)
 		if(50)
 			var/datum/action/cooldown/spell/essence/toxic_cleanse/Tc = new
 			Tc.owner = owner
 			owner.visible_message(span_notice("[owner] cleanses all toxins from the area!"))
-			Tc.cast(cast_on)
+			Tc.cast(wild_target)

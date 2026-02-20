@@ -346,7 +346,7 @@
 	return TRUE
 
 /datum/action/cooldown/spell/InterceptClickOn(mob/living/clicker, list/modifiers, atom/click_target)
-	if(!LAZYACCESS(modifiers, MIDDLE_CLICK))
+/*	if(!LAZYACCESS(modifiers, MIDDLE_CLICK))
 		return
 
 	if(charge_required && !charged)
@@ -361,8 +361,8 @@
 		if(!aim_assist_target)
 			// If we didn't find a human, we settle for any living at all
 			aim_assist_target = locate(/mob/living) in click_target
-
-	return ..(clicker, modifiers, aim_assist_target || click_target)
+*/
+	return ..(clicker, modifiers, click_target)
 
 // Where the cast chain starts
 /datum/action/cooldown/spell/PreActivate(atom/target)
