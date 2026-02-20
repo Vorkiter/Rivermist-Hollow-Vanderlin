@@ -56,6 +56,8 @@
 		if(current_positions >= total_positions)
 			return FALSE
 
+	return TRUE
+
 /datum/job/advclass/combat
 	exp_types_granted = list(EXP_TYPE_ADVENTURER, EXP_TYPE_COMBAT)
 

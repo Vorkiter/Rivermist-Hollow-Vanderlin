@@ -12,6 +12,7 @@
 	. = ..()
 	var/datum/component/body_storage/nipple/comp = GetComponent(/datum/component/body_storage/nipple)
 	comp?.RemoveComponent()
+	qdel(comp)
 	qdel(src)
 
 /obj/item/organ/genitals/nipple/left

@@ -108,7 +108,7 @@
 /mob/living/simple_animal/hostile/retaliate/troll/Life()
 	..()
 	if(fire_stacks + divine_fire_stacks <= 0)
-		adjustHealth(-rand(20,35))
+		adjustHealth(-rand(5,15))
 
 /mob/living/simple_animal/hostile/retaliate/troll/simple_limb_hit(zone)
 	return ..()
@@ -279,3 +279,13 @@
 	gender = PLURAL
 	icon = 'icons/roguetown/mob/cabbit.dmi'
 	icon_state = "cabbit_remains"
+
+//DELETE STONE THROWING SO THE CORPSE DOESN'T KEEP THROWING IT WTF
+/mob/living/simple_animal/hostile/retaliate/troll/cave/death(gibbed)
+	if(throwing_stone)
+		throwing_stone.Remove(src)
+		QDEL_NULL(throwing_stone)
+		if(ai_controller)
+			ai_controller.set_blackboard_key(BB_TARGETED_ACTION, null)
+
+	return ..()

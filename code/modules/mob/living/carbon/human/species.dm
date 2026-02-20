@@ -1389,33 +1389,11 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 			H.remove_status_effect(/datum/status_effect/debuff/stinky_person)
 			H.remove_stress(/datum/stress_event/dirty)
 			H.remove_stress(/datum/stress_event/disgusting)
-		if(HYGIENE_LEVEL_DISGUSTING to HYGIENE_LEVEL_DISGUSTING)
-			if(HAS_TRAIT(H, TRAIT_STINKY))
-				H.add_stress(/datum/stress_event/filth_lover)
-			else
-				H.add_stress(/datum/stress_event/disgusting)
-			H.apply_status_effect(/datum/status_effect/debuff/stinky_person)
-			H.remove_stress(/datum/stress_event/forced_clean)
-			H.remove_stress(/datum/stress_event/dirty)
-			H.remove_stress(/datum/stress_event/clean)
 
 		if(HYGIENE_LEVEL_DIRTY to HYGIENE_LEVEL_CLEAN)
 			H.remove_stress(/datum/stress_event/dirty)
 			H.remove_stress(/datum/stress_event/disgusting)
 			H.remove_status_effect(/datum/status_effect/debuff/stinky_person)
-		if(HYGIENE_LEVEL_DISGUSTING to HYGIENE_LEVEL_DIRTY)
-			if(HAS_TRAIT(H, TRAIT_STINKY))
-				H.add_stress(/datum/stress_event/filth_lover)
-			else
-				H.add_stress(/datum/stress_event/dirty)
-			H.remove_status_effect(/datum/status_effect/debuff/stinky_person)
-			H.remove_stress(/datum/stress_event/forced_clean)
-			H.remove_stress(/datum/stress_event/disgusting)
-			H.remove_stress(/datum/stress_event/clean)
-
-
-
-
 
 
 //////////////////
