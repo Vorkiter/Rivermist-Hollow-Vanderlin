@@ -168,7 +168,7 @@
 	var/mob/living/carbon/human/human_owner = ishuman(owner) ? owner : null
 
 	if(!sleptonground)
-		if(!(locate(/obj/structure/bed) in owner.loc) && !(locate(/obj/structure/table) in owner.loc))
+		if(!(locate(/obj/structure/bed) in owner.loc) && !(locate(/obj/structure/table) in owner.loc) && !(locate(/obj/structure/chair) in owner.loc))
 			sleptonground = TRUE
 		else
 			for(var/obj/structure/bed/bed in owner.loc)
