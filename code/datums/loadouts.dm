@@ -596,14 +596,6 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	name = "Sexy Nun Hat"
 	item_path = /obj/item/clothing/head/sexy_nun_hat
 
-/datum/loadout_item/sexy_nun_robe_alt
-	name = "Sexy Nun Robe Alt"
-	item_path = /obj/item/clothing/shirt/undershirt/sexy_nun_robe_alt
-
-/datum/loadout_item/sexy_nun_hat_alt
-	name = "Sexy Nun Hat Alt"
-	item_path = /obj/item/clothing/head/sexy_nun_hat_alt
-
 /datum/loadout_item/exoticsilkbelt
 	name = "Exotic Silk Belt"
 	item_path = /obj/item/storage/belt/leather/exoticsilkbelt

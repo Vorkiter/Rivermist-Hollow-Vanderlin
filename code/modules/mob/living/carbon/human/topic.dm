@@ -115,8 +115,9 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		var/slot = text2num(href_list["item"])
 		var/list/obscured = check_obscured_slots(TRUE)
 		var/obscured_extra = (obscured[SLOT_CHECK_EXTRA] << 1) >> 1 //We "cut off" the 24th bit of the extra slots flag so that the bitwise & can work.
-		if((!(slot & ITEM_SLOT_EXTRA) && (slot & obscured[SLOT_CHECK_REGULAR])) || ((slot & ITEM_SLOT_EXTRA) && (slot & obscured_extra)))
-			if((slot & ITEM_SLOT_EXTRA) && get_erp_pref(/datum/erp_preference/boolean/clothed_sex))
+		if((slot & obscured[SLOT_CHECK_REGULAR]) || ((slot & ITEM_SLOT_EXTRA) && (slot & obscured_extra)))
+			var/list/armor_cover = check_armor_obscured_slots(TRUE)
+			if((slot & ITEM_SLOT_EXTRA) && !(slot & armor_cover[SLOT_CHECK_EXTRA]))
 				to_chat(usr, span_info("I reach under [src]'s clothes..."))
 			else
 				to_chat(usr, span_warning("I can't reach that! Something is covering it."))

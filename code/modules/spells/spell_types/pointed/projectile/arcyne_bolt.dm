@@ -12,7 +12,7 @@
 
 	invocation = "MAGIC MISSILE!!!"
 	invocation_type = INVOCATION_SHOUT
-	aim_assist = TRUE
+	auto_aim = TRUE
 
 	charge_time = 1 SECONDS
 	charge_drain = 1

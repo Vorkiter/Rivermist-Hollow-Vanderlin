@@ -71,7 +71,7 @@
 	nodamage = FALSE
 	flag = "magic"
 	hitsound = 'sound/fireball.ogg'
-	aoe_range = 5
+	aoe_range = 0
 	speed = 3
 
 /obj/projectile/magic/aoe/fireball/rogue/great
@@ -83,5 +83,5 @@
 	exp_fire = 4
 	damage = 130
 	exp_hotspot = 0
-	aoe_range = 8
+	aoe_range = 0
 	speed = 6

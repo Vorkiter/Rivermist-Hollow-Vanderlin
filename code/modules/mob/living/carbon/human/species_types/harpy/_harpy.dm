@@ -96,7 +96,7 @@
 		ORGAN_SLOT_APPENDIX = /obj/item/organ/appendix,
 		ORGAN_SLOT_VOICE = /obj/item/organ/vocal_cords/harpy,
 		ORGAN_SLOT_TAIL = /obj/item/organ/tail/harpy,
-		ORGAN_SLOT_WINGS = /obj/item/organ/wings/flight/harpy,,
+		ORGAN_SLOT_WINGS = /obj/item/organ/wings/flight/harpy,
 		ORGAN_SLOT_ANUS = /obj/item/organ/genitals/filling_organ/anus,
 	)
 

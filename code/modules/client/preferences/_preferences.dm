@@ -356,7 +356,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				real_name = pref_species.random_name(gender,1)
 			return
 	//we couldn't load character data so just randomize the character appearance + name
-	randomise_appearance_prefs()		//let's create a random character then - rather than a fat, bald and naked man.
+	randomise_appearance_prefs()
+	genderize_customizer_entries()		//let's create a random character then - rather than a fat, bald and naked man.
 	if(!selected_patron)
 		selected_patron = GLOB.patron_list[default_patron]
 	if(!combat_music)
@@ -2127,6 +2128,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						randomise_appearance_prefs(RANDOMIZE_UNDERWEAR | RANDOMIZE_HAIRSTYLE)
 						accessory = "Nothing"
 						detail = "Nothing"
+						genderize_customizer_entries()
 				if("domhand")
 					if(domhand == 1)
 						domhand = 2
@@ -2389,6 +2391,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						choice = choices[choice]
 						if(!load_character(choice))
 							randomise_appearance_prefs()
+							genderize_customizer_entries()
 							save_character()
 
 				if("randomiseappearanceprefs")
@@ -2398,6 +2401,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					reset_all_customizer_accessory_colors()
 					randomize_all_customizer_accessories()
 					reset_jobs(user)
+					genderize_customizer_entries()
 
 				if("tab")
 					if (href_list["tab"])
@@ -2530,10 +2534,11 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	character.dna.real_name = character.real_name
 	character.dna.body_markings = deepCopyList(body_markings)
 	character.set_species(pref_species.type, icon_update = FALSE, pref_load = src)
-	if(real_name in GLOB.chosen_names)
+	/*if(real_name in GLOB.chosen_names)
 		character.real_name = pref_species.random_name(gender)
 	else
-		character.real_name = real_name
+		character.real_name = real_name*/
+	character.real_name = real_name
 	character.name = character.real_name
 
 	var/obj/item/organ/eyes/organ_eyes = character.getorgan(/obj/item/organ/eyes)

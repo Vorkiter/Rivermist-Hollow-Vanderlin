@@ -179,12 +179,12 @@
 	emote_type = EMOTE_AUDIBLE
 
 /mob/living/carbon/human/species/rakshari/verb/emote_purr()
-	set name = "purr"
+	set name = "Purr"
 	set category = "Emotes.Noises"
 	emote("purr", intentional = TRUE)
 
 /mob/living/carbon/human/species/rakshari/verb/emote_meow()
-	set name = "meow"
+	set name = "Meow"
 	set category = "Emotes.Noises"
 	emote("meow", intentional = TRUE)
 
@@ -194,8 +194,8 @@
 	message = "rawrs!"
 	emote_type = EMOTE_AUDIBLE
 
-/mob/living/carbon/human/rawr/verb/emote_rawr()
-	set name = "rawr"
+/mob/living/carbon/human/verb/emote_rawr()
+	set name = "Rawr"
 	set category = "Emotes.Noises"
 	emote("rawr", intentional = TRUE)
 

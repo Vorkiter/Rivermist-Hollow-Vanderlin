@@ -682,7 +682,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["voice_type"]		, voice_type)
 	WRITE_FILE(S["moan_selection"] , moan_selection)	//RMH edit
 	WRITE_FILE(S["combat_music"], combat_music.type)
-	WRITE_FILE(S["species"]			, pref_species.name)
+	WRITE_FILE(S["species"]			, pref_species.id)
 	// Loadout
 	WRITE_FILE(S["loadout1"] , preferences_typepath_or_null(loadout1))
 	WRITE_FILE(S["loadout2"] , preferences_typepath_or_null(loadout2))
