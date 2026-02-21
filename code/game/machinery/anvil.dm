@@ -233,7 +233,7 @@
 			appro_recipe -= r_name
 
 	if(length(appro_recipe))
-		var/chosen_recipe_name = browser_input_list(user, "Choose what to start working on:", "Anvil", sortNames(appro_recipe.Copy()))
+		var/chosen_recipe_name = browser_input_list(user, "Choose what to start working on:", "Anvil", sortList(appro_recipe.Copy()))
 		var/datum/chosen_recipe = appro_recipe[chosen_recipe_name]
 		if(!hingot.currecipe && chosen_recipe)
 			hingot.currecipe = new chosen_recipe.type(hingot)

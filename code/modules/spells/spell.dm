@@ -122,7 +122,7 @@
 	/// The casting range of our spell.
 	var/cast_range = 7
 	/// Variable dictating if the spell will use turf based aim assist.
-	var/aim_assist = TRUE
+	var/aim_assist = FALSE
 
 	// Charged vars
 	/// If the spell requires time to charge.
@@ -353,16 +353,18 @@
 		end_charging()
 		RegisterSignal(owner.client, COMSIG_CLIENT_MOUSEDOWN, PROC_REF(start_casting))
 		return
-
-	/*var/atom/aim_assist_target
+	var/atom/aim_assist_target
 	if(aim_assist && isturf(click_target))
-		// Find any human in the list. We aren't picky, it's aim assist after all
-		aim_assist_target = locate(/mob/living/carbon/human) in click_target
+		for(var/atom/i in view(click_target, 2))
+			if(istype(i, /mob/living))
+				aim_assist_target = i
+		/*// Find any human in the list. We aren't picky, it's aim assist after all
+		aim_assist_target = locate(/mob/living/carbon/human) in view(click_target, 2)
 		if(!aim_assist_target)
 			// If we didn't find a human, we settle for any living at all
-			aim_assist_target = locate(/mob/living) in click_target
-*/
-	return ..(clicker, modifiers, click_target) //return ..(clicker, modifiers, aim_assist_target || click_target)
+			aim_assist_target = locate(/mob/living) in click_target*/
+
+	return ..(clicker, modifiers, aim_assist_target || click_target)
 
 // Where the cast chain starts
 /datum/action/cooldown/spell/PreActivate(atom/target)
