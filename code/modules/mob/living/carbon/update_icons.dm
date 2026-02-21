@@ -249,7 +249,8 @@
 		inv?.update_appearance(UPDATE_ICON_STATE)
 
 	if(wear_mask)
-		if(!(ITEM_SLOT_MASK & check_obscured_slots()))
+		var/list/obscured = check_obscured_slots()
+		if(!(ITEM_SLOT_MASK & obscured[SLOT_CHECK_REGULAR]))
 			overlays_standing[MASK_LAYER] = wear_mask.build_worn_icon(age = age, default_layer = MASK_LAYER, default_icon_file = 'icons/mob/clothing/mask.dmi')
 		update_hud_wear_mask(wear_mask)
 
@@ -267,7 +268,8 @@
 		inv?.update_appearance(UPDATE_ICON_STATE)
 
 	if(wear_neck)
-		if(!(ITEM_SLOT_NECK & check_obscured_slots()))
+		var/list/obscured = check_obscured_slots()
+		if(!(ITEM_SLOT_NECK & obscured[SLOT_CHECK_REGULAR]))
 			overlays_standing[NECK_LAYER] = wear_neck.build_worn_icon(age = age, default_layer = NECK_LAYER, default_icon_file = 'icons/roguetown/clothing/neck.dmi')
 		update_hud_neck(wear_neck)
 

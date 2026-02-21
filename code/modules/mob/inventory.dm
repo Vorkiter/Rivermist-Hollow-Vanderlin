@@ -407,7 +407,7 @@
 
 
 /mob/living/carbon/proc/check_obscured_slots(transparent_protection)
-	var/obscured = NONE
+	var/list/obscured = list(SLOT_CHECK_REGULAR = NONE, SLOT_CHECK_EXTRA = NONE)
 	var/hidden_slots = NONE
 
 	for(var/obj/item/I in get_equipped_items())
@@ -416,30 +416,32 @@
 			hidden_slots |= I.transparent_protection
 
 	if(hidden_slots & HIDENECK)
-		obscured |= ITEM_SLOT_NECK
-		obscured |= ITEM_SLOT_CHOKER
-		obscured |= ITEM_SLOT_EARRING_L
-		obscured |= ITEM_SLOT_EARRING_R
+		obscured[SLOT_CHECK_REGULAR] |= ITEM_SLOT_NECK
+		obscured[SLOT_CHECK_EXTRA] |= ITEM_SLOT_CHOKER
 	if(hidden_slots & HIDEMASK)
-		obscured |= ITEM_SLOT_MASK
+		obscured[SLOT_CHECK_REGULAR] |= ITEM_SLOT_MASK
+		obscured[SLOT_CHECK_EXTRA] |= ITEM_SLOT_EARRING_L
+		obscured[SLOT_CHECK_EXTRA] |= ITEM_SLOT_EARRING_R
 	if(hidden_slots & HIDEGLOVES)
-		obscured |= ITEM_SLOT_GLOVES
+		obscured[SLOT_CHECK_REGULAR] |= ITEM_SLOT_GLOVES
 	if(hidden_slots & HIDEJUMPSUIT)
-		obscured |= ITEM_SLOT_PANTS
-		obscured |= ITEM_SLOT_SOCKS
-		obscured |= ITEM_SLOT_UNDERSHIRT
-		obscured |= ITEM_SLOT_ARMSLEEVES
+		obscured[SLOT_CHECK_REGULAR] |= ITEM_SLOT_PANTS
+	if(hidden_slots & HIDECLOSELEGS)
+		obscured[SLOT_CHECK_EXTRA] |= ITEM_SLOT_SOCKS
+		obscured[SLOT_CHECK_EXTRA] |= ITEM_SLOT_GARTER
+	if(hidden_slots & HIDECLOSEBODY)
+		obscured[SLOT_CHECK_EXTRA] |= ITEM_SLOT_UNDERSHIRT
+		obscured[SLOT_CHECK_EXTRA] |= ITEM_SLOT_ARMSLEEVES
 	if(hidden_slots & HIDESHOES)
-		obscured |= ITEM_SLOT_SHOES
+		obscured[SLOT_CHECK_REGULAR] |= ITEM_SLOT_SHOES
 	if(hidden_slots & HIDEBELT)
-		obscured |= ITEM_SLOT_BELT_R
-		obscured |= ITEM_SLOT_BELT_L
-		obscured |= ITEM_SLOT_BELT
-		obscured |= ITEM_SLOT_GARTER
+		obscured[SLOT_CHECK_REGULAR] |= ITEM_SLOT_BELT_R
+		obscured[SLOT_CHECK_REGULAR] |= ITEM_SLOT_BELT_L
+		obscured[SLOT_CHECK_REGULAR] |= ITEM_SLOT_BELT
 	if(hidden_slots & HIDEUNDIESTOP)
-		obscured |= ITEM_SLOT_UNDER_TOP
+		obscured[SLOT_CHECK_EXTRA] |= ITEM_SLOT_UNDER_TOP
 	if(hidden_slots & HIDEUNDIESBOT)
-		obscured |= ITEM_SLOT_UNDER_BOTTOM
+		obscured[SLOT_CHECK_EXTRA] |= ITEM_SLOT_UNDER_BOTTOM
 
 	return obscured
 

@@ -2240,11 +2240,13 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 
 				if("be_special")
-					var/be_special_type = href_list["be_special_type"]
+					to_chat(user, span_info("Antags are disabled for now."))
+					return
+					/*var/be_special_type = href_list["be_special_type"]
 					if(be_special_type in be_special)
 						be_special -= be_special_type
 					else
-						be_special += be_special_type
+						be_special += be_special_type*/
 
 				if("toggle_random")
 					var/random_type = href_list["random_type"]

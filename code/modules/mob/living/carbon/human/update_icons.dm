@@ -375,7 +375,8 @@ GLOBAL_PROTECT(no_child_icons)
 
 	if(wear_neck)
 		update_hud_neck(wear_neck)
-		if(!(ITEM_SLOT_NECK & check_obscured_slots()))
+		var/list/obscured = check_obscured_slots()
+		if(!(ITEM_SLOT_NECK & obscured[SLOT_CHECK_REGULAR]))
 			var/datum/species/species = dna?.species
 
 			var/use_female_sprites = FALSE
@@ -804,7 +805,8 @@ GLOBAL_PROTECT(no_child_icons)
 
 	if(wear_mask)
 		update_hud_wear_mask(wear_mask)
-		if(!(ITEM_SLOT_MASK & check_obscured_slots()))
+		var/list/obscured = check_obscured_slots()
+		if(!(ITEM_SLOT_MASK & obscured[SLOT_CHECK_REGULAR]))
 			var/mutable_appearance/mask_overlay = wear_mask.build_worn_icon(default_layer = MASK_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/masks.dmi')
 			var/datum/species/species = dna?.species
 			var/use_female_sprites = FALSE
@@ -1236,7 +1238,8 @@ GLOBAL_PROTECT(no_child_icons)
 
 	if(mouth)
 		update_hud_mouth(mouth)
-		if(!(ITEM_SLOT_MOUTH & check_obscured_slots()))
+		var/list/obscured = check_obscured_slots()
+		if(!(ITEM_SLOT_MOUTH & obscured[SLOT_CHECK_REGULAR]))
 			var/datum/species/species = dna?.species
 			var/use_female_sprites = FALSE
 			if(species?.sexes)

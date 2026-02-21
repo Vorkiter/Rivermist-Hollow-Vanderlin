@@ -264,14 +264,14 @@
 	<HR>
 	<BR><B>Head:</B> <A href='byond://?src=[REF(src)];item=[ITEM_SLOT_HEAD]'>[(head && !(head.item_flags & ABSTRACT)) ? head : "Nothing"]</A>"}
 
-	var/obscured = check_obscured_slots()
+	var/list/obscured = check_obscured_slots()
 
-	if(obscured & ITEM_SLOT_NECK)
+	if(obscured[SLOT_CHECK_REGULAR] & ITEM_SLOT_NECK)
 		dat += "<BR><B>Neck:</B> Obscured"
 	else
 		dat += "<BR><B>Neck:</B> <A href='byond://?src=[REF(src)];item=[ITEM_SLOT_NECK]'>[(wear_neck && !(wear_neck.item_flags & ABSTRACT)) ? (wear_neck) : "Nothing"]</A>"
 
-	if(obscured & ITEM_SLOT_MASK)
+	if(obscured[SLOT_CHECK_REGULAR] & ITEM_SLOT_MASK)
 		dat += "<BR><B>Mask:</B> Obscured"
 	else
 		dat += "<BR><B>Mask:</B> <A href='byond://?src=[REF(src)];item=[ITEM_SLOT_MASK]'>[(wear_mask && !(wear_mask.item_flags & ABSTRACT))	? wear_mask	: "Nothing"]</a>"
@@ -1394,25 +1394,25 @@
 
 
 	// Check and wash stuff that can be covered
-	var/obscured = check_obscured_slots()
+	var/list/obscured = check_obscured_slots()
 
-	if(!(obscured & ITEM_SLOT_HEAD) && head?.wash(clean_types))
+	if(!(obscured[SLOT_CHECK_REGULAR] & ITEM_SLOT_HEAD) && head?.wash(clean_types))
 		update_inv_head()
 		. = TRUE
 
-	if(!(obscured & ITEM_SLOT_MASK) && wear_mask?.wash(clean_types))
+	if(!(obscured[SLOT_CHECK_REGULAR] & ITEM_SLOT_MASK) && wear_mask?.wash(clean_types))
 		update_inv_wear_mask()
 		. = TRUE
 
-	if(!(obscured & ITEM_SLOT_NECK) && wear_neck?.wash(clean_types))
+	if(!(obscured[SLOT_CHECK_REGULAR] & ITEM_SLOT_NECK) && wear_neck?.wash(clean_types))
 		update_inv_neck()
 		. = TRUE
 
-	if(!(obscured & ITEM_SLOT_SHOES) && shoes?.wash(clean_types))
+	if(!(obscured[SLOT_CHECK_REGULAR] & ITEM_SLOT_SHOES) && shoes?.wash(clean_types))
 		update_inv_shoes()
 		. = TRUE
 
-	if(!(obscured & ITEM_SLOT_GLOVES) && gloves?.wash(clean_types))
+	if(!(obscured[SLOT_CHECK_REGULAR] & ITEM_SLOT_GLOVES) && gloves?.wash(clean_types))
 		update_inv_gloves()
 		. = TRUE
 

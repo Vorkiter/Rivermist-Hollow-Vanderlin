@@ -2392,24 +2392,24 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 		var/list/obscured = H.check_obscured_slots(TRUE)
 		//HEAD//
 
-		if(H.wear_mask && !(obscured & ITEM_SLOT_MASK))
+		if(H.wear_mask && !(obscured[SLOT_CHECK_REGULAR] & ITEM_SLOT_MASK))
 			burning_items += H.wear_mask
-		if(H.wear_neck && !(obscured & ITEM_SLOT_NECK))
+		if(H.wear_neck && !(obscured[SLOT_CHECK_REGULAR] & ITEM_SLOT_NECK))
 			burning_items += H.wear_neck
-		if(H.head && !(obscured & ITEM_SLOT_HEAD))
+		if(H.head && !(obscured[SLOT_CHECK_REGULAR] & ITEM_SLOT_HEAD))
 			burning_items += H.head
 
 		//CHEST//
-		if(H.wear_pants && !(obscured & ITEM_SLOT_PANTS))
+		if(H.wear_pants && !(obscured[SLOT_CHECK_REGULAR] & ITEM_SLOT_PANTS))
 			burning_items += H.wear_pants
-		if(H.wear_shirt && !(obscured & ITEM_SLOT_SHIRT))
+		if(H.wear_shirt && !(obscured[SLOT_CHECK_REGULAR] & ITEM_SLOT_SHIRT))
 			burning_items += H.wear_shirt
-		if(H.wear_armor && !(obscured & ITEM_SLOT_ARMOR))
+		if(H.wear_armor && !(obscured[SLOT_CHECK_REGULAR] & ITEM_SLOT_ARMOR))
 			burning_items += H.wear_armor
 
 		//ARMS & HANDS//
 		var/obj/item/clothing/arm_clothes = null
-		if(H.gloves && !(obscured & ITEM_SLOT_GLOVES))
+		if(H.gloves && !(obscured[SLOT_CHECK_REGULAR] & ITEM_SLOT_GLOVES))
 			arm_clothes = H.gloves
 		else if(H.wear_armor && ((H.wear_armor.body_parts_covered & HANDS) || (H.wear_armor.body_parts_covered & ARMS)))
 			arm_clothes = H.wear_armor
@@ -2420,7 +2420,7 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 
 		//LEGS & FEET//
 		var/obj/item/clothing/leg_clothes = null
-		if(H.shoes && !(obscured & ITEM_SLOT_SHOES))
+		if(H.shoes && !(obscured[SLOT_CHECK_REGULAR] & ITEM_SLOT_SHOES))
 			leg_clothes = H.shoes
 		else if(H.wear_armor && ((H.wear_armor.body_parts_covered & FEET) || (H.wear_armor.body_parts_covered & LEGS)))
 			leg_clothes = H.wear_armor

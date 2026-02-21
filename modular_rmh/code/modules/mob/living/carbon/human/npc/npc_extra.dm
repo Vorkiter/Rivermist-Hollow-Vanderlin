@@ -42,4 +42,4 @@
 				adjustOxyLoss(200 - total_damage)
 			death(FALSE)
 			return
-		return
+	return

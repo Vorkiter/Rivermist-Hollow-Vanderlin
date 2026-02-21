@@ -223,17 +223,18 @@
 		if(IS_ABSTRACT(R))
 			continue
 		if(R.i_type == i_type_choice && istype(hingot, R::req_bar))
-			appro_recipe += R
+			appro_recipe[R.name] += R
 
-	for(var/datum/anvil_recipe/R as anything in appro_recipe)
+	for(var/r_name as anything in appro_recipe)
+		var/datum/anvil_recipe/R = appro_recipe[r_name]
 		if(!R::req_bar)
-			appro_recipe -= R
+			appro_recipe -= r_name
 		if(!istype(hingot, R::req_bar))
-			appro_recipe -= R
+			appro_recipe -= r_name
 
 	if(length(appro_recipe))
-		var/datum/chosen_recipe
-		chosen_recipe = browser_input_list(user, "Choose what to start working on:", "Anvil", sortNames(appro_recipe.Copy()))
+		var/chosen_recipe_name = browser_input_list(user, "Choose what to start working on:", "Anvil", sortNames(appro_recipe.Copy()))
+		var/datum/chosen_recipe = appro_recipe[chosen_recipe_name]
 		if(!hingot.currecipe && chosen_recipe)
 			hingot.currecipe = new chosen_recipe.type(hingot)
 			hingot.currecipe.material_quality += hingot.recipe_quality

@@ -65,14 +65,6 @@
 		OFFSET_UNDIES = list(0,0),\
 	)
 
-	offset_genitals_m = list(
-		OFFSET_BREASTS = list(0, 3),\
-	)
-
-	offset_genitals_f = list(
-		OFFSET_BREASTS = list(0, 3),\
-	)
-
 	offset_features_f = list()
 
 	specstats_m = list(STATKEY_STR = 2, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = 2, STATKEY_END = 1, STATKEY_SPD = 0, STATKEY_LCK = 0)
